@@ -1,8 +1,13 @@
 *.aux
+*.bbl
+*.blg
 *.log
 *.out
-*.synctex.gz
 *.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.dvi
 push.ps1
 12.ps1
 pull.ps1
