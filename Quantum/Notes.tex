@@ -1,0 +1,577 @@
+\documentclass[12pt,a4paper,oneside]{report}
+
+% ========== 中文与页面设置 ==========
+\usepackage[UTF8]{ctex}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{bm}
+\usepackage{mathrsfs}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{array}
+% ========== 数学与定理环境 ==========
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{physics} % 物理公式快捷命令
+\newtheorem{theorem}{定理}[chapter]
+\newtheorem{lemma}{引理}[chapter]
+\newtheorem{corollary}{推论}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{example}{例题}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{注}
+
+\setlength{\headheight}{15pt} % 将页眉高度设置为15pt
+\addtolength{\topmargin}{-3pt} % 同时向上收缩页边距以补偿布局
+
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+
+% 文楷 GB 字体族（不作为主字体）
+\setCJKfamilyfont{wenkai}[
+    Path=fonts/,
+    Extension = .ttf,
+    UprightFont = *-Regular  % 指向 LXGWWenKaiGB-Regular.ttf
+]{LXGWWenKaiGB}
+\newcommand{\wenkai}{\CJKfamily{wenkai}}
+% ========== 图表/代码/颜色支持 ==========
+\usepackage{graphicx}
+\usepackage{caption}
+\newcommand{\insertfig}[3]{
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[width=#3\textwidth]{#1}
+        \caption{#2}
+        \label{fig:#1}
+    \end{figure}
+}
+\newcommand{\insertpic}[3]{
+    \begin{center}
+        \includegraphics[width=#3\textwidth]{#1}
+        
+        \par % <--- 关键修改1：强制图片后结束段落，确保标题在下一行
+        \vspace{4pt} 
+        
+        \refstepcounter{figure} 
+        
+        % 关键修改2：使用 \mbox{...} 包裹整个标题
+        % \mbox 的作用是禁止盒子内的文字换行
+        {\wenkai\small \mbox{图 \thefigure\quad #2}} 
+        
+        \label{fig:#1}
+    \end{center}
+}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{esint}
+\graphicspath{{figure/}}
+\newcommand{\mb}[1]{\bm{#1}}
+\lstset{
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  frame=single,
+  breaklines=true
+}
+
+
+% -------------------------------
+% 注记环境（小字、楷体、灰框）
+% -------------------------------
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+
+\newenvironment{noteenv}{
+  \begin{tcolorbox}[
+      colback = gray!5,
+      colframe = gray!40,
+      breakable,
+      enhanced,
+      sharp corners,
+      left=6pt,right=6pt,top=6pt,bottom=6pt,
+  ]
+  \small
+  \CJKfamily{wenkai} % 👈 只这里使用文楷GB
+}{
+  \end{tcolorbox}
+}
+
+% ========== 目录与超链接 ==========
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
+  citecolor=magenta
+}
+\usepackage{tocloft}
+
+% ========== 页眉页脚 ==========
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{量子物理笔记}
+\fancyhead[R]{\leftmark}
+\fancyfoot[C]{\thepage}
+
+% ========== 章节格式美化 ==========
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{第\thechapter 章}{1em}{}
+\titleformat{\section}[hang]{\Large\bfseries}{\thesection}{0.5em}{}
+\titleformat{\subsection}[hang]{\large\bfseries}{\thesubsection}{0.5em}{}
+
+% ========== 参考文献 ==========
+\usepackage[numbers]{natbib}
+
+% ========== 封面信息 ==========
+\title{\Huge\textbf{Lecture Notes on Quantum Physics}}
+\author{\Large 上海交通大学 人工智能学院 \\
+\Large 肖世屹}
+\date{\today}
+\graphicspath{{figure/}}
+
+\everymath{\displaystyle}
+\renewcommand{\d}{\mathop{}\!\mathrm{d}}
+\renewcommand{\i}{\mathop{}\!\mathrm{i}}
+\renewcommand{\v}{\mathop{}\!\varepsilon}
+% =======================================================
+\begin{document}
+
+% --------------------- 封面 ---------------------
+\maketitle
+\thispagestyle{empty}
+\clearpage
+% --------------------- 序言 ---------------------
+\chapter*{序言}
+\addcontentsline{toc}{chapter}{序言} % 让“序言”出现在目录中
+
+在本笔记中,我们系统地整理了量子物理的主要内容,包括波动光学引论、光的干涉、光的衍射、光的偏振等四个章节。本笔记的内容基于上海交通大学大学物理(荣誉)II的课程考试要求做了适当的调整，使其学习难度和内容适于准备考试。本笔记现已发布在 Github 上，读者可以访问\url{https://github.com/ShiyiXiao05/Phynotes}以获取更新。
+
+在本笔记中，用注记环境排版了一些有别于正文的内容，这些内容超出了课程考试要求的范围，但它们对于理解课程内容有所帮助，读者阅读可以按照需要有选择地学习。
+
+在编写笔记的过程中，感谢我的室友陈志杰给予的排版支持，在他的帮助下这本笔记得以以美观的形式呈现给大家。同时也要感谢韩岳成、何忠颐等同学的试读和勘误。
+
+希望本笔记能为学习光学的读者提供一定帮助。若能抛砖引玉，为读者揭开物理之美的一角，作者将不胜欣慰。
+
+本笔记系基于陈洁和胡其图老师讲授的《大学物理（荣誉）》课程内容整理而成，文中部分图表、图片及例题素材直接引用授课课件，其原始内容的知识产权归原作者所有。本文档完全开源免费，仅供个人学习使用，严禁用于任何形式的商业盈利活动。如权利人认为本笔记中的引用不当或侵犯了您的权益，请通过 sjtuxsy-finance-pc@sjtu.edu.cn 联系本人，本人将在核实后第一时间删除相关内容。
+
+由于时间与作者水平所限，文中难免存在疏漏与错误，恳请各位读者批评指正。本人不胜感谢。
+
+\bigskip
+\begin{flushright}
+肖世屹 \\
+上海交通大学 人工智能学院 \\
+\today
+\end{flushright}
+\clearpage
+
+% --------------------- 目录 ---------------------
+\tableofcontents
+\clearpage
+
+% --------------------- 正文章节 ---------------------
+
+\graphicspath{{figure/chap1/}}
+\chapter{量子力学基础}
+\section{量子性的发现}
+在我们正式介绍量子力学的各种原理之前，我们计划先介绍历史上一些著名的实验和定律定理，以帮助读者对量子力学的建立过程有更好的了解。
+\subsection{黑体辐射与能量子假设}
+任何物体在任何温度下都可以进行热辐射，热辐射作为热量传递的一种方式，其也遵循相关的热力学定律。热辐射本质上是能量以电磁波的形式向外传播，而不同波长的电磁波所携带的能量并不相同。热辐射的特征与物体的种类有关，同一物体的热辐射会按照辐射出的电磁波的波长进行分布，形成一个连续的能量谱，这种分布被称为能谱分布。
+
+对于单个处于热平衡状态下的物体，设其温度为$T$，考虑其上一个面积为$\d S$的面元在$\d t$时间内发出的波长位于$\lambda\sim \lambda+\d \lambda$的电磁波所携带的能量$\d E(\lambda,T)$。我们定义单色辐出度$M(\lambda,T)=\frac{\d E(\lambda,T)}{\d \lambda,\d S \d t}$，其代表着物体在特定波长下的辐射本领，也就是单位时间内从物体单位表面积上辐射出的波长为$\lambda$处单位波长范围内的电磁波所携带的能量。如此自然地得到单位时间内从物体单位表面积上辐射出的波长位于$\lambda\sim \lambda+\d \lambda$范围内的电磁波所携带的能量为$M(\lambda,T)\d\lambda$.考虑所有各种波长的辐射，对波长积分，得到单位时间内从物体单位表面积上辐射出的总能量为$M(T)=\int^\infty_0 M(\lambda,T)\d \lambda$.
+
+同时，任何物体在热辐射时也在吸收周围热辐射的同时也吸收从周围物体发出的辐射能。设单位时间内辐射到物体表面上的$\lambda~\lambda+\d \lambda$波长范围内的电磁波能量为$\d E$,其中被物体吸收的部分为$\d E'$,则我们定义单色吸收比为$\alpha(\lambda,T)=\frac{\d E}{\d E'}$，其代表了物体对特定波长电磁波能量的吸收本领。
+
+基尔霍夫用热力学定理证明了，对于任何材料和任何不同表面结构的物体，$M_0(\lambda,T)=\frac{M(\lambda,T)}{\alpha(\lambda,T)}$是一个普适函数。
+
+黑体是一种能够完全吸收辐射到其上的能量的物体，也就是其单色吸收比$\alpha=1$,因此为了从实验上确定$M_0$,我们只需要找到黑体并且测出其单色辐出度随波长和温度的变化即可。斯特凡和玻尔兹曼提出，黑体的辐出度与温度的四次方成正比，也就是:
+\[
+M_0 = \sigma T^4, \text{其中$\sigma$被称为斯特凡-玻尔兹曼常量}
+\]
+维恩随后根据热力学定律导出，黑体的单色辐出度的最大值对应的波长与黑体的温度$T$成反比，也就是:
+\[
+\lambda_m \cdot T = b
+\]
+这被称为维恩位移定律。
+
+此后维恩，瑞利和金斯等人分别提出了一些公式以表示黑体辐出度与波长和温度的二元关系，但都没有能够取得令人满意的结果。直到普朗克提出一个公式，在全波段精确地符合了实验结果，人们才意识到自然界中量子性的存在。因为普朗克所做的假设是:
+\begin{center}
+  \textbf{物体发射或者吸收电磁辐射的能量必须是不连续的，只能以能量子$\varepsilon=h \nu$为单位。其中$\nu$是电磁辐射的频率，$h$称为普朗克常量。电磁辐射的能量交换只能是不连续且分立的，它的取值是能量子$\v$的整数倍。}
+\end{center}
+这一结果震惊了世人，人们不得不开始思考世界上是否存在与经典物理学不同的体系。这个假设是如此的不可思议，以至于普朗克本人也觉得难以置信。但后面我们会看到更多的实验事实迫使我们承认量子化的范围远远比我们设想的要广泛。
+
+\subsection{光的粒子性}
+当光照射在金属表面上，使得电子从金属中脱出的现象，叫做光电效应。在一个不大的抽空玻璃容器中装有阴极K和阳极A，平时K,A之间绝缘，电路中没有电流。当光束照射阴极K时，电路中就出现了电流，这是因为阴极K在光束照射下发射出电子，经过电场后到达阳极形成电流。\insertfig{figure1.png}{光电效应实验装置}{0.25}
+
+光电效应有如下规律:
+\begin{enumerate}
+  \item 在一定光强的照射下，随着两极间电压的增大，光电流趋近于一个饱和值，实验表明，饱和电流于光强成正比，因此上述实验表明，单位时间内由阴极发射出光电子数与光强成正比。
+  \item 若将电源反向，两极间将形成使得电子减速的电场，实验表明，当反向电压1不太大时，仍存在一定的光电流，这说明从阴极发射的光电子仍有一定的初速度，它们可以克服减速电场的阻碍到达阳极。当反向电压大到一定数值$V_0$时光电流减小到0，$V_0$被称为遏制电势。实验还表明，遏止电势与光强无关。这表明，电子的初速度有一上限，其满足:
+  \[
+  \frac{1}{2}mv_0^2 = eV_0
+  \]
+  \item 改变入射光的频率$\nu$，遏止电压随之改变，实验表明$\nu$与$V_0$成线性关系，当$\nu$减小时，$V_0$也减小，低于某频率$\nu_0$时，$V_0$减小到0。这是不管光强多少，光电效应就不再发生，此时对应的$\nu_0$被称为截止频率或者频率的红限。这一结果与光强无关。
+  \item 当入射光束照射在广电阴极上时，无论光强怎样微弱，几乎在开始照射的同时就产生了光电子，弛豫时间不超过$10^{-9}s$
+\end{enumerate}
+面对这些规律，光的波动理论完全不能解释。为了说明上述实验结果，爱因斯坦在1905年提出了如下假设，当光束在和物质相互作用时，其能流并不像波动理论所想象的那样连续分布，而是集中在一些叫做光子或者光量子的粒子上，但是这种例子仍然保持着频率的概念，光子的能量正比于其频率，即为:
+\[
+\v = h\nu
+\]
+同样地，对于光子的动量，有:
+\[
+p = \frac{\varepsilon}{c} = \frac{h \nu}{c} = \frac{h}{\lambda}
+\]
+爱因斯坦的假设是普朗克的发展。普朗克最初把能量量子化局限于谐振子和其发射或者吸收的机制，而爱因斯坦认为辐射能量本身一粒一粒地存在。按照爱因斯坦光子假说，当光束照射在金属上时，光子一个个地打在上面，金属中电子要么吸收一个光子，要么完全不吸收。从而:
+\[
+h \nu = \frac{1}{2}mv_0^2+A=eV_0+A
+\]
+上式被称为爱因斯坦公式。爱因斯坦也因为成功解释光电效应而获得1921年诺贝尔物理学奖。这个方程可以完整地解释光电效应中的一切内容。例如想要求出红限，我们只需令初速度为0即可。
+
+康普顿则对X光的性质做了研究，他将X光照射在石墨等较轻的物质上，并观察其散射后的光谱成分。他发现散射谱线中除了与原入射光相同的成分之外，还包括波长较长的成分。
+
+\insertfig{figure2.png}{康普顿效应结果图}{0.8}
+
+康普顿还发现波长改变量随着散射角的增加而增加，且散射光中波长为$\lambda$的谱线强度随散射角的增加而减少; 波长为$\lambda'$的谱线强度则随着散射角的增加而增加。对于不同的散射物质，在同一散射角下波长的改变量都相同，与散射物质无关。这表明其中发生散射的是电子。
+
+\insertfig{figure3.png}{康普顿效应分析}{0.8}
+
+康普顿指出，上述效应的发生实际上是光子(X射线)与静止的自由电子发生碰撞所致
+
+根据读者已经学习过的相对论动力学，我们可以作一分析：设入射光子的频率为$\nu$,出射光子的频率为$\nu'$，设电子的静质量为$m_0$,出射后的动质量为$m$,根据能量守恒和动量守恒，可以列出方程:
+\begin{align*}
+\text{能量守恒} \quad & h\nu + m_0c^2 = h\nu' + mc^2 \\
+\text{动量守恒} \quad & \frac{h\nu}{c}\hat{e} = \frac{h\nu'}{c}\hat{e}' + m\vec{v} \\
+& m\vec{v} = \frac{h\nu}{c}\hat{e} - \frac{h\nu'}{c}\hat{e}'
+\end{align*}
+同时还有动质量与静质量的关系：
+\[
+m = \frac{m_0}{\sqrt{1-\frac{v^2}{c^2}}}
+\]
+联立上面几个式子，可以得到：
+\[
+\Delta \lambda = \lambda' - \lambda = \frac{c}{\nu'}-\frac{c}{\nu}=\frac{h}{m_0c}=2\lambda_c\sin^2{\frac{\theta}{2}} = \lambda_c(1-\cos\theta)
+\]
+
+在我们考察了光电效应和康普顿效应之后，我们可以先做一些解说。我们在光学中学习到，光可以发生干涉，衍射，具有偏振结构，在这些现象中体现出波的特性。在我们刚刚讨论的光电效应和康普顿效应中，光子则表现出如下的一些特征：如只能作为一个整体被吸收和发射，交换光子的能量和动量只能以上式给出的单元进行等等。这表明光在和物质相互作用的时候具有粒子性。即光总是同检测器工作物质的单个电子、原子或分子起作用，检测器对光的响应总是发生在短促的时间间隔和微小的空间区域内。
+
+\subsection{玻尔氢原子理论}
+读者在高中阶段应该已经接触过玻尔模型，这里考虑到完整性，我们在这里给出一些要点。
+
+在玻尔之前，人们已经通过一些实验提出了原子的核式结构模型，也就是原子核位居原子中心，集中了原子的绝大部分质量且具有Ze正电荷，原子核外有Z个电子绕核在库仑力的作用下以一定的轨道绕核运动。但这个模型无法解释原子的线状光谱和稳定性，因此玻尔在此基础上，针对氢原子和类氢原子提出了三个假设：
+\begin{enumerate}
+  \item 定态假设：电子绕核运动时原子既不辐射也不吸收能量，而是处于一定的能量状态(定态)。原子的定态能量不能连续取值，只能取某些分立的值(能级)。
+  \item 跃迁假设：只有当原子从某一定态跃迁到另一定态时，原子的能量才发生变化，在此过程中原子辐射或吸收一个光子的能量。
+  \item 角动量量子化：在氢原子中容许的定态上电子绕核圆周运动的角动量满足：
+  \[
+  L = m_e vr = n \hbar, n=1,2,\dots
+  \]
+\end{enumerate}
+结合向心力和库仑力公式，我们可以得到氢原子的一些信息：
+\[
+m_e \frac{v^2}{r} = \frac{e^2}{4 \pi \varepsilon_0 r^2} \Rightarrow r = \frac{e^2}{4 \pi \varepsilon_0 m_e v^2}, \quad
+\qquad r m_e v = n \frac{h}{2\pi} \Rightarrow v = \frac{nh}{2\pi m_e r}
+\]
+
+
+\[
+r = \frac{\varepsilon_0 h^2}{\pi m_e e^2} n^2 = r_1 n^2 \qquad \qquad n = 1, 2, 3, \cdots, \qquad r_1 = \frac{\varepsilon_0 h^2}{\pi m_e e^2} = a_0 = 0.053 \text{ nm}
+\]
+
+弗兰克-赫兹实验证明了能级的存在，证明了玻尔的定态假设，也就是原子中存在能量不连续的定态。他们通过把电子加速并且使之与汞原子碰撞，观察到存在一些特定的吸收峰，且他们都是$4.9eV$的倍数。
+
+\subsection{电子双缝干涉实验与物质波}
+在我们正式讨论电子干涉实验之前，对经典的粒子和波的干涉实验进行回顾是有必要的。首先来看经典的粒子干涉实验。如图所示，由一挺机枪连续地向一堵墙胡乱地发射子弹。墙上开有双缝，每缝的宽度能让一颗子弹通过。墙的后面是一道后障，它能把打上去的子弹吸收掉。为了测得打在后障各处子弹的多少，后障上布满了“检测器”。由于子弹与缝的边缘碰撞，它们打在后障上的位置是分散的，有一定的概率分布做实验时，我们先将缝2 遮住，让子弹只从缝1通过，我们得到后障上子弹沿$x$方向的概率分布$P_1(x)$, 现将缝$1$遮住，打开缝$2$让子弹通过，我们得到概率分布$P_2(x)$最后将两缝都打开让子弹通过，我们得到双缝的概率分布曲线$P_12(x)$。实验结果将表明:
+\[
+P_1(x)+P_2(x)=P_12(x)
+\]
+亦即子弹通过两缝的事件相互独立，实验显示出“无干涉”的结果。
+\insertfig{figure4.png}{经典粒子干涉}{0.6}
+
+接下来看水波干涉实验。如图所示，在一个浅水槽中由一个马达上下振动发出水波，后面也有一堵开有双缝的墙，其后也是一道能吸收波的后障，其上布满了“检测器”，可以测出到达后障上各处的波的强度$I$.做实验时首先将缝2遮住，让水波只从缝1通过，我们得到后障上振幅沿着$x$方向的分布$I_1(x)$，其次将缝1遮住，打开缝2让水波通过，我们得到强度$I_2(x)$，最后将两个缝都打开，让水波通过，我们得到双缝情形下的强度分布$I_{12}(x)$。一般而言$I_{12}(x)\neq I_1(x)+I_2(x)$。相关的计算我们在波动光学中已经学习过，这里我们不再赘述。
+\insertfig{figure5.png}{经典波干涉}{0.5}
+
+现在来看电子双缝干涉实验。如图所示，用一个电子枪向开有双缝的屏发射电子，再后面是接受电子的后障，先在其上安装一个可移动的检测器，例如一个连接了扩音器电子倍增器，其可以在电子到来的时候发出声响。在实验中我们发现声音出现的节奏是不规则的，但在每处较长时间内的平均次数是近似不变的，其与电子枪发出的电子流的强度成正比。
+
+现在我们将电子枪的加热电流减弱以减小电子流的强度。设想电子流的强度如此之弱，以至于当前一个电子从电子枪出发通过双缝屏到达后障之前，后一个电子都不触发，每次只有一个电子通过仪器。现在我们考虑后障上布满的检测器，则发现每次只有一个检测器发出声音且所有的声音都一样响，这就是说这里的现象像一开始的经典粒子实验，电子是以粒子的形式被检测到的。
+\insertfig{figure6.png}{电子双缝干涉}{0.6}
+
+现在我们把缝 2 遮住，只允许电子从缝 1 通过。记录后障上各处检测到电子的数目。经过长时间的数据积累，我们得到概率分布曲线 $P_1(x)$。遮住缝 1，打开缝 2，重复上述实验，我们得到概率分布曲线 $P_2(x)$。这里得到的曲线 $P_1(x)$ 和 $P_2(x)$，与子弹实验图中的曲线很相似。
+
+最后打开两缝做实验，起初后障上各处声响此起彼落，貌似无规。经过长时间的数据积累，我们得到如图 所示的概率分布曲线 $P_{12}(x)$，它看起来很像水波实验中得到的强度分布 $I_{12}(x)$，具有明显的干涉效应特征。
+
+怎么样理解这个实验？如果说电子是粒子，我们能否说每个电子不是通过缝1就是通过缝2？那么干涉效应怎么产生？也许是因为电子通过双缝时分成了两半，那么为什么检测器接受的电子都是一整个的？会不会是电子在通过双缝后又合而为一？现在只能用实验说明了。
+
+\insertfig{figure7.png}{追踪电子}{0.7}
+我们现在来检查电子是如何通过双缝的。为简明起见，我们把双缝改为双孔，我们在双孔屏幕后适当的位置放上照明光源，并在垂直图面上方的位置设置一个显微镜。电子现在一通过某个孔后就会立刻被照亮，它将照明光子散射到显微镜的镜头内成像。这样我们就能够从显微镜内观察到电子的位置。我们仍然让电子流极弱，以避免一个以上电子同时到达。实验中发现，电子不是通过孔1就是孔2，从未发现有任何一个孔通过半个电子。那么干涉现象如何产生？现在我们观察这次实验中记录下来的$P_12(x)$的概率曲线，发现这是曲线竟然表现得和经典粒子实验中的结果相似，$P_12(x)=P_1(x)+P_2(x)$。
+
+是因为我们的光源过亮导致光子干扰了电子的行为？把光源调整地暗一些，仍然没有观察到有孔通过半个电子。然而，由于光源的亮度降低，发出的电子稀疏了，有的电子并未与光子碰撞，漏过了我们的侦察。对于这些漏网的电子，我们不知道它们是怎么通过双孔的，这个时候$P_12(x)$曲线介于经典粒子实验与经典波动实验之间。
+
+\insertfig{figure8.png}{电子监视系统}{0.2}
+有人提出像康普顿散射一样，电子是与个别光子碰撞的，光源调暗只能减少光子的个数，而不减弱碰上电子的光子的干扰，因此我们应该降低光子的频率。我们就这样做，不减弱照明的光，以免有电子漏网，但逐步改用较红的光。随着照明波长的增大，起初与上面描述的强光照明情况差不多，我们探知电子不通过孔1就通过孔2,记录不显示出干涉现象。但是由于光的衍射效应，在显微镜中所成的像实际上是一个扩展的艾里斑，它代表个别光子打在像面上的概率分布。当照明光的波长大到一定程度时，两孔的艾里斑严重地交叠起来，使我们无法分辨电子散射的光子来自哪个孔附近。这样一来，我们再次丧失了电子怎样通过双孔的信息。此时检查记录，发现干涉条纹又恢复了。
+
+总结一下，我们想要设计出一种仪器，既能够判断电子通过哪个孔，又能够不干扰干涉图样的出现，是绝对做不到的。用经典物理学的思路去思考上述实验结果是无法理解的，因此我们必须要引入一些新的数学工具来描述。不过让我们先暂停一下，在我们介绍基本原理之前再来看一个实验。
+
+在我们之前的讨论中，我们已经知道光子既能够表现出粒子性，也能够表现出波动性。德布罗意受此启发，在自己的博士论文中大胆提出实物粒子都具有波动性，把光的所谓波粒二象性推广到一切物质。
+
+德布罗意假设，与任何实物粒子都存在一列波相联系。譬如一个具有确定能量$\varepsilon$和动量$p$的粒子相联系的是一列平面波$e^{-i(\omega t -\mathbf{k}\cdot \mathbf{r})}$.借用光子的关系式，其中:
+\[
+\nu = \frac{\varepsilon}{h}, \quad \omega = 2\pi\nu = \frac{\varepsilon}{\hbar},\quad \lambda = \frac{h}{p},\quad k = \frac{2\pi}{\lambda} = \frac{p}{\hbar} 
+\]
+
+其中的能量和动量遵循相对论关系:
+\[
+\varepsilon = c\sqrt{p^2+m_0^2c^2}
+\]
+
+德布罗意提出上述假设时并没有任何实验基础，但他预言当一束电子通过非常小的孔的时候，会发生衍射现象。1927年戴维孙和汤姆孙分别用类似X射线的劳埃法和德拜法成功获得了电子在晶体上的衍射图样。
+
+应当指出的是，电子衍射实验只证明了德布罗意的波长关系式，而频率关系是并不在实验中表现出来，表现出来的只是两个能级之间的频率差。所以只有德布罗意波长具有物理意义，德布罗意频率本身不是一个可观测量。
+
+我们知道射线在晶体衍射中服从布拉格条件:
+\[
+2d\sin\theta = \lambda
+\]
+$d$指的是某一晶面族里面的晶面间隔，$\theta$是主极强的衍射角，$\lambda$是电子的德布罗意波长。实验表明并不是任何速度的电子都能够满足某个晶面族的布拉格条件的。电子枪发射的电子经过电场加速，投射到镍单晶的晶面上，当加速电压为$54V$时，在衍射角$\theta=50^{\circ}$探测到一个明显的电子束强度极大值，这结果与德布罗意波长公式符合的很好。
+
+\section{量子力学基本原理}
+\subsection{波函数与不确定性原理}
+在前一节中我们介绍的电子双缝干涉实验，用经典物理学的头脑去理解它实属困难，但用数学工具去描绘它并不困难。波动光学中我们曾经引入过复振幅的概念，读者若感到对此陌生可以参考相关的光学书籍。在光学中复振幅$A$的绝对值的平方等于光的强度$I$，在量子力学中我们也需要建立某种类似复振幅的概念，但它的绝对值的平方等于粒子出现的概率$P$:
+\[
+P(x)=\psi^{*}\psi(x) = |\psi(x)|^2
+\]
+
+其中的$\psi$被称为概率幅，与光波的复振幅一样，概率幅也是复数，包含模和相位两个部分:
+\[
+\psi(x) = |\psi(x)|e^{\i\varphi(x)}
+\]
+我们看到概率幅往往是某个或者某些变量的函数，故与光学类比，概率幅亦称为波函数。注意到概率幅是量子系统经过特定装置制备出来的量子状态的描述，它不一定具有波的形式。
+
+对于一个三维空间中的自由粒子，德布罗意波代表的是一列无穷长的平面波，它有确定的能量和动量，却分布于全空间。也就是说，粒子的位置是完全不确定的。在更加实际的问题中，粒子的位置是部分不确定的，其可以出现在一定的区域内，例如$\Delta x\Delta y\Delta z$，对于粒子的动量角动量等力学量等也是一样。海森堡经过计算，发现物理量的不确定度受到普朗克常量支配。他提出微观粒子的位置和动量二者的不确定度，满足:
+\[
+\Delta x \Delta p_x \geq \frac{\hbar}{2},\quad \Delta y \Delta p_y \geq \frac{\hbar}{2},\quad \Delta x \Delta p_x \geq \frac{\hbar}{2}
+\]
+我们将在下一小节看到这个式子是如何被推导出来的。
+
+\subsection{算符}
+\subsubsection*{算符的引入}
+我们之前讨论的波函数$\psi(x)$的绝对值的平方给出了粒子的概率按照概率$x$的分布。事实上我们也可以按照动量来求解一个波函数$C(p)$，它的绝对值的平方将会给出粒子的概率按照动量$p$的分布。我们说两者属于不同的表象，前者是波函数的$x$表象，后者是波函数的$p$表象。在经典统计物理学中人们给出同时按照$x$,$p$两者分布的分布函数，如玻尔兹曼-麦克斯韦分布，但是在量子力学中这是不可能的，因为海森堡不确定度关系的存在，$x$和$p$不可能同时精确给出。
+
+\insertfig{figure9.png}{波包和频谱}{0.3}
+对于一个实际的波函数，我们可以看作有一系列不同动量(波长)的粒子，他们的波函数进行叠加，从而形成一个波包。叠加时不同动量的粒子对于该波函数的贡献不同，有的对波函数贡献大，有的贡献小，因此我们可以像图1.9这样绘制出一个频谱图来表示其中各个成分的多少。可以想见的是，当频域中$p_0$之外的部分的贡献越来越少时，频谱图将会变得越来越尖锐，以至于成分中仅剩下$p_0$时，将会出现一个高度无穷高但宽度无穷窄的尖峰，这表明此时这个波函数所对应的系统的动量是完全确定的。在我们逐步剔除其余成分的过程中，波包的图象会变得越来越扁平，其在$x$轴上的铺展程度将越来越高，各个峰之间的高度差别将越来越小。当系统的动量被完全确定下来之后，这时波包就会弥散到全空间中，其图象与我们常见的三角函数的图象一致。
+
+我们以高斯波包为例子，介绍不确定度关系的导出和算符。首先，高斯型的波函数可以被写作:
+\[
+\psi(x) = Ae^{-ax^2/2}e^{\i p_0x/\hbar}
+\]
+式子中的归一化因子$A=(\frac{\pi}{a})^{-\frac{1}{4}}$.高斯型函数的好处在于它的傅里叶变换式也是高斯函数且能够做严格的微积分运算。
+
+接下来我们所做的一些数学推导涉及傅里叶变换等知识，对此感到存在阅读困难的读者可以先行跳过，这并不影响对后面的理解，读者可以直接关注我们运算的结果，为完整性起见我们在这里还是给出推导。
+
+上面的式子也可以用动量$p$来表达，根据傅里叶变换式:
+\begin{align*}
+\psi(x) & = \int_{-\infty}^{\infty}C(p)e^{\i px/\hbar}\frac{\d p}{\sqrt{2\pi \hbar}}= \left( \frac{a}{\pi} \right)^{1/4} e^{-ax^2/2} e^{\i p_0x/\hbar} \\
+C(p) & = \int_{-\infty}^{\infty}\psi(x)e^{-\i px/\hbar}\frac{\d x}{\sqrt{2\pi \hbar}}=\sqrt{\frac{1}{a\hbar}}Ae^{-\frac{(p-p_0)^2}{2a\hbar^2}} = \sqrt{\frac{1}{\hbar \sqrt{\pi a}}} e^{-(p-p_0)^2 / 2a\hbar^2} \\
+\end{align*}
+
+据此，我们可以计算$x$和$p$的方差：
+\[
+\overline{x^2} = \int_{-\infty}^{\infty} \psi^*(x) x^2 \psi(x) \d x = \sqrt{\frac{a}{\pi}} \int_{-\infty}^{\infty} x^2 e^{-ax^2} dx = \sqrt{\frac{a}{\pi}} \frac{\sqrt{\pi}}{2 a^{3/2}} = \frac{1}{2a} 
+\]
+\begin{align*}
+\overline{(p-p_0)^2} &= \int_{-\infty}^{\infty} C^*(p) (p-p_0)^2 C(p) \d p = \frac{\int_{-\infty}^{\infty} (p-p_0)^2 e^{-(p-p_0)^2 / a\hbar^2} \d p}{\hbar \sqrt{\pi a}}  = \frac{1}{\hbar \sqrt{\pi a}} \frac{\sqrt{\pi} (a\hbar^2)^{3/2}}{2} = \frac{\hbar^2 a}{2}.
+\end{align*}
+\[
+\Delta x = \sqrt{\overline{x^2}}= \frac{1}{\sqrt{2a}}, \quad \Delta p = \sqrt{\overline{(p-p_0)^2}} = \hbar\sqrt{\frac{a}{2}}, \Delta x \Delta p =\frac{\hbar}{2}
+\]
+
+这样我们就发现了，高斯波包是能够满足不确定性关系等号的波包形式。
+ 
+现在我们进一步考察动量的平均值应该如何计算。我们先考虑一个计算方法：
+\[
+\overline{p} \stackrel{?}{=} \int_{-\infty}^{\infty} \psi^*(x) p(x) \psi(x) \d x
+\]
+
+这计算方法并不可行，因为$p(x)$实际上是代表坐标取$x$值时$p$的值，但是根据海森堡不确定性关系，这是没有意义的！因此我们必须在$p$表象中计算:
+\[
+\overline{p} = \int_{-\infty}^{\infty} C^*(p) p C(p) \d p
+\]
+然而假若有某个物理量既是$x$的函数又是$p$的函数，例如能量$E=\frac{p^2}{2m}+V(x)$，怎么办？我们看一个技巧,把我们之前得到的表象变换公式（傅里叶变换）：
+\[
+C(p) = \int_{-\infty}^{\infty} \psi(x) e^{-\i px/\hbar} \frac{\d x}{\sqrt{2\pi\hbar}}
+\]
+代入计算平均值的公式:
+\begin{align*}
+\bar{p} &= \int_{-\infty}^{\infty} C^*(p) p C(p) \d p \\
+&= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} \psi(x) e^{-\i px/\hbar} \frac{\d x}{\sqrt{2\pi\hbar}} \right]^* p C(p) \d p \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left[ \int_{-\infty}^{\infty} p e^{\i px/\hbar} C(p) \frac{\d p}{\sqrt{2\pi\hbar}} \right] \d x \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left[ \int_{-\infty}^{\infty} \left( -\i\hbar \frac{\partial}{\partial x} \right) e^{\i px/\hbar} C(p) \frac{\d p}{\sqrt{2\pi\hbar}} \right] \d x \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left( -\i\hbar \frac{\partial}{\partial x} \right) \left[ \int_{-\infty}^{\infty} e^{\i px/\hbar} C(p) \frac{\d p}{\sqrt{2\pi\hbar}} \right] \d x \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left( -\i\hbar \frac{\partial}{\partial x} \right) \psi(x) \d x
+\end{align*}
+最后一步应用了表象变换的逆变换公式:
+\[  
+\psi(x) = \int_{-\infty}^{\infty} C(p) e^{\i px/\hbar} \frac{\d p}{\sqrt{2\pi\hbar}}
+\]
+这里关键是利用:
+\[
+-\i\hbar \frac{\partial}{\partial x} e^{\i px/\hbar} = p e^{\i px/\hbar} \tag{*}
+\]
+把动量$p$换为了微分算符$-\i\hbar\frac{\partial}{\partial x}$.由此可见，在$x$表象中，$p$的作用表现为一个算符。
+
+对于剩下的两个维度，我们应该得到一样的结果：
+\begin{align*}
+p_x \to \hat{p}_x = -\i\hbar \frac{\partial}{\partial x}, \\
+p_y \to \hat{p}_y = -\i\hbar \frac{\partial}{\partial y}, \\
+p_z \to \hat{p}_z = -\i\hbar \frac{\partial}{\partial z}.
+\end{align*}
+写成矢量形式:
+\[
+\mathbf{p} \to \hat{\mathbf{p}} = -\i\hbar \nabla
+\]
+
+在字母上加上$\land$来表示算符，由此也可以得到与动能对应的算符:
+\[
+\frac{\mathbf{p}^2}{2m} = \frac{p_x^2 + p_y^2 + p_z^2}{2m} \to -\frac{\hbar^2}{2m} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) = -\frac{\hbar^2}{2m} \nabla^2
+\]
+
+上面我们提到了$(*)$式的重要作用,现在我们要探寻一些更加重要的内容。把算符$-i\hbar\frac{\partial}{\partial x}$写作$\hat{p}$，波函数$e^{\i px/\hbar}$写作$\psi_p(x)$，那么这个式子就写作:
+\[
+\hat{p}\psi_p(x) = p\psi_p(x)
+\]
+一般而言，我们把一个算符作用在一个函数上，会把它变成另一个函数，而这里我们把算符$\hat{p}$作用在函数$\psi_p(x)$上的结果仅仅是乘上一个常量$p$.这样的函数叫做该算符的本征函数，常量被称为本征值。这个定义适用于所有的线性算符$\hat{A}$，若：
+\[
+\hat{A}\psi_a(x) = a\psi_a(x)
+\]
+则$\psi_a(x)$是$\hat{A}$对应的本征值$a$的本征函数。
+
+接下来我们来看一个重要的概念——对易。令$\psi(x)$为任意波函数，试将动量算符$\hat{p_x}$作用在$x\psi(x)$上:
+\[
+\hat{p_x}[x\psi(x)] = -\i\hbar\frac{\partial}{\partial x}[x\psi(x)] = -\i\hbar[\psi(x)+x\frac{\partial\psi(x)}{\partial x}] = -\i\hbar(1+x\frac{\partial}{\partial x})\psi(x)
+\]
+移项之后，得到:
+\[
+[\hat{p_x}x-x\hat{p_x}]\psi(x) = -\i\hbar\psi(x)
+\]
+一般来说位置变量$x$也可以看作一个算符$\hat{x}$. 因为上式中的$\psi(x)$是任意函数，也可以略去不屑，于是上式变为如下算符式:
+\[
+\hat{p_x}x-x\hat{p_x} = -\i\hbar \neq 0
+\]
+这就是说算符是不服从交换律的，或者说算符的顺序一般是不可对易的。
+
+由于在量子力学中物理量表示为算符，一般来说物理量是彼此不对易的。这就是量子力学有别于经典力学的重要特征。为了描述这个性质，我们引进了对易式的概念。算符$\hat{A}$和$\hat{B}$的对易式被定义为:
+\[
+[\hat{A},\hat{B}] = \hat{A}\hat{B}-\hat{B}\hat{A}
+\]
+用对易式来表示的话:
+\[
+[\hat{p_x},\hat{x}] = -\i\hbar
+\]
+此式称为算符$\hat{p_x}$和$\hat{x}$的对易关系。显然$y,z$方向的动量和位置算符也满足类似的对易关系，而不同方向的动量和位置算符是对易的。总结起来，算符的对易关系为:
+\begin{align*}
+& [\hat{p}_x, \hat{x}] = [\hat{p}_y, \hat{y}] = [\hat{p}_z, \hat{z}] = -\i\hbar, \\
+& [\hat{p}_x, \hat{y}] = [\hat{p}_x, \hat{z}] = [\hat{p}_y, \hat{z}] = [\hat{p}_y, \hat{x}] = [\hat{p}_z, \hat{x}] = [\hat{p}_z, \hat{y}] = 0. \\
+& [\hat{x}, \hat{y}] = [\hat{y}, \hat{z}] = [\hat{z}, \hat{x}] = 0, \\
+& [\hat{p}_x, \hat{p}_y] = [\hat{p}_y, \hat{p}_z] = [\hat{p}_z, \hat{p}_x] = 0.
+\end{align*}
+
+\subsubsection*{算符的性质}
+设两个函数$\psi_1(x)$，$\psi_2(x)$,算符$\hat{F}$ 满足:
+\[
+\hat{F}(c_1\psi_1(x)+c_2\psi(x))=c_1\hat{F}\psi_1(x)+c_2\hat{F}\psi_2(x)
+\]
+$c_1,c_2$为任意常数，则称$\hat{F}$线性算符。量子力学中只讨论线性算符。
+\subsection{薛定谔方程}
+下面我们来看量子力学中非常重要的薛定谔方程的引入。读者若感觉理解引入的过程有困难，可以略去不看，直接查看我们给出的薛定谔方程的形式。事实上，动量守恒代表了空间平移的对称性，能量守恒代表了时间反演的对称性。对于波函数，我们可以对它进行平移操作。考虑坐标沿着$-x$方向平移，则空间同一点的坐标变换为$x\to \overline{x} = x+\Delta x$我们用空间平移算符$\hat{D}(\Delta x)$来表示这种操作，那么我们得到:
+\[
+\hat{D}(\Delta x)\psi(x) = \psi(\overline{x}) = \psi(x+\Delta x)
+\]
+从而我们可以定义沿着$x$方向的空间微分平移算符$\mathscr{D}_x$:
+\[
+\frac{\partial}{\partial x}\psi(x) = \lim_{\Delta x\to 0}\frac{\psi(x+\Delta x)-\psi(x)}{\Delta x} = \lim_{\Delta x\to 0}\frac{\hat{D}(\Delta x)-1}{\Delta x}\psi(x)
+\]
+\[
+\hat{\mathscr{D}_x} \equiv \frac{\partial}{\partial x}= \lim_{\Delta x\to 0}\frac{\hat{D}(\Delta x)-1}{\Delta x}
+\]
+结合我们之前的内容，得到:
+\begin{align*}
+\hat{p}_x = -\i\hbar \hat{\mathscr{D}_x}, \\
+\hat{p}_y = -\i\hbar \hat{\mathscr{D}_y}, \\
+\hat{p}_z = -\i\hbar \hat{\mathscr{D}_z}.
+\end{align*}
+因此动量算符相当于微分平移算符。
+
+迄今为止，我们讨论了波函数在空间中的分布，但是还没有考虑波函数随着时间的演化。仿照前面的讨论，我们可以引入时间平移算符$\hat{T}$和微分时间平移算符$\hat{\mathscr{T}}$:
+\[
+\hat{T}(\Delta t)\psi(t) = \psi(\overline{t}) = \psi(t+\Delta t)
+\]
+\[
+\hat{\mathscr{T}}\equiv \frac{\partial}{\partial t} = \lim_{\Delta t\to 0}\frac{\hat{T}(\Delta t)-1}{\Delta t}
+\]
+我们需要考虑的是$\hat{\mathscr{T}}\psi(t)=?$
+
+相对论中，动量-能量和位置-时间四维矢量的分量分别是:
+\[
+(p_x,p_y,p_z,iE/c), \qquad (x,y,z,ict)
+\]
+读者可以参阅相对论的相关书籍来进一步了解，我们这里直接引用结果。
+
+注意到我们之前的讨论中：
+\[
+\hat{p_x} = -\i\hbar\frac{\partial}{\partial x}
+\]
+我们如果进行一一对应的话，可以假设有一个代表能量的算符$\hat{H}$，它与微分时间平移算符有如下的关系:
+\[
+\frac{i}{c}\hat{H} = -\i\hbar\frac{\partial}{\partial (ict)} \Rightarrow \hat{H} = \i\hbar\frac{\partial}{\partial t} \tag{$\alpha$}
+\]
+从而:
+\[
+\i\hbar\frac{\partial \psi(t)}{\partial t} = \hat{H}\psi(t) \tag{$\beta$}
+\]
+
+事实上算符式$\alpha$不总是成立的，只有我们把它作用到量子系统的波函数上时，得到的$\beta$式才是成立的。$\beta$式是一条描述波函数演化的动力学规律，其实验性需要由实验检验。
+
+$\beta$式被称为薛定谔方程，$\hat{H}$被称为哈密顿算符。薛定谔方程在量子力学中的地位，就像牛顿三定律之于经典力学，麦克斯韦方程之于电磁学，是最基本的方程。
+
+给定一个量子系统，哈密顿算符的形式如何？其与其他动力学变量如动量、角动量等有何关系？我们需要借鉴经典理论回答，但是由于量子算符不对易，有时候这里面的答案并不唯一，找到正确的哈密顿形式，从而列出正确的薛定谔方程是解决量子力学问题的出发点。
+
+如果$\psi_E$是哈密顿算符的本征波函数，相应的本征值等于$E$,即:
+\[
+\hat{H}\psi_E = E\psi_E
+\]
+代入薛定谔方程，得到:
+\[
+\i\hbar\frac{\partial}{\partial t}\psi_E = E\psi_E
+\]
+由此得到:
+\[
+\psi_E \propto e^{\i Et/\hbar}, \qquad \psi_E^{*} \propto e^{-\i Et/\hbar}
+\]
+其概率分布$|\psi_E^2|=\psi_E\psi_E^*$将不随时间而变，这样的量子态叫做定态，其波函数被称为定态波函数。即哈密顿算符的本征波函数都是定态波函数。
+
+这里我们看到，哈密顿算符是系统演化时这一时刻的能量算符，因此只需要把势能算符和动能算符相加即可:
+\[
+\hat{H}=\hat{E}=\hat{T}+\hat{V}
+\]
+其中动能算符$\hat{T}=-\frac{\hbar^2}{2m}\nabla^2$我们在前面已经论证过，势能算符$V$是平凡的，相当于直接相乘。因此哈密顿算符可以表示为:
+\[
+\hat{H} = -\frac{h^2}{2m}\nabla^2+V(r)
+\]
+
+\subsection{态叠加原理}
+对于波函数，我们先前已经讨论过其物理意义，也就是其绝对值的平方代表着粒子出现的概率。这个解释被称为波函数的统计解释，其由哥本哈根学派的玻恩提出。更加具体的说，玻恩指出，波函数在空间中某一点的模的平方与在该点找到粒子的概率成比例，对于波函数$\psi(\mathbf{r},t)$,$\psi(\mathbf{r},t)^2 \d V$与$t$时刻粒子出现在空间$r$处一个体积元$\d V$的概率成正比。这里我们之说成正比，是因为我们尚未对波函数进行归一化。粒子出现在空间各点的概率取决于波函数在空间各点强度的比例，而不决定于强度的绝对大小。因此我们可以对波函数乘以任意非0常数，得到的波函数仍然代表同一个量子系统。
+
+现在我们假定对波函数做了适当的调整，使得$\psi(\mathbf{r},t)^2$可以直接代表粒子出现在$\mathbf{r}$处的概率密度。考虑到概率的性质，粒子出现在空间各点的概率总和为1，因此我们对全空间积分后，应该得到:
+\[
+\iiint\psi(\mathbf{r},t)\psi^*(\mathbf{r},t)\d V = 0
+\]
+这被称为归一化条件，满足该条件的波函数是归一化波函数。根据这个式子，我们还可以发现波函数是单值有限连续的。
+
+\end{document}
+
