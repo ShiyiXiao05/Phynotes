@@ -8,6 +8,7 @@
 *.fls
 *.fdb_latexmk
 *.dvi
+*.xdv
 push.ps1
 12.ps1
 pull.ps1
