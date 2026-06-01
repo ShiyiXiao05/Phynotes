@@ -356,7 +356,7 @@ P(x)=\psi^{*}\psi(x) = |\psi(x)|^2
 
 对于一个三维空间中的自由粒子，德布罗意波代表的是一列无穷长的平面波，它有确定的能量和动量，却分布于全空间。也就是说，粒子的位置是完全不确定的。在更加实际的问题中，粒子的位置是部分不确定的，其可以出现在一定的区域内，例如$\Delta x\Delta y\Delta z$，对于粒子的动量角动量等力学量等也是一样。海森堡经过计算，发现物理量的不确定度受到普朗克常量支配。他提出微观粒子的位置和动量二者的不确定度，满足:
 \[
-\Delta x \Delta p_x \geq \frac{\hbar}{2},\quad \Delta y \Delta p_y \geq \frac{\hbar}{2},\quad \Delta x \Delta p_x \geq \frac{\hbar}{2}
+\Delta x \Delta p_x \geq \frac{\hbar}{2},\quad \Delta y \Delta p_y \geq \frac{\hbar}{2},\quad \Delta z \Delta p_z \geq \frac{\hbar}{2}
 \]
 我们将在下一小节看到这个式子是如何被推导出来的。
 
@@ -386,7 +386,9 @@ C(p) & = \int_{-\infty}^{\infty}\psi(x)e^{-\i px/\hbar}\frac{\d x}{\sqrt{2\pi \h
 \overline{x^2} = \int_{-\infty}^{\infty} \psi^*(x) x^2 \psi(x) \d x = \sqrt{\frac{a}{\pi}} \int_{-\infty}^{\infty} x^2 e^{-ax^2} dx = \sqrt{\frac{a}{\pi}} \frac{\sqrt{\pi}}{2 a^{3/2}} = \frac{1}{2a} 
 \]
 \begin{align*}
-\overline{(p-p_0)^2} &= \int_{-\infty}^{\infty} C^*(p) (p-p_0)^2 C(p) \d p = \frac{\int_{-\infty}^{\infty} (p-p_0)^2 e^{-(p-p_0)^2 / a\hbar^2} \d p}{\hbar \sqrt{\pi a}}  = \frac{1}{\hbar \sqrt{\pi a}} \frac{\sqrt{\pi} (a\hbar^2)^{3/2}}{2} = \frac{\hbar^2 a}{2}.
+\overline{(p-p_0)^2} &= \int_{-\infty}^{\infty} C^*(p) (p-p_0)^2 C(p) \d p \\&= \frac{\int_{-\infty}^{\infty} (p-p_0)^2 e^{-(p-p_0)^2 / a\hbar^2} \d p}{\hbar \sqrt{\pi a}}  \\
+&= \frac{1}{\hbar \sqrt{\pi a}} \frac{\sqrt{\pi} (a\hbar^2)^{3/2}}{2} \\
+&= \frac{\hbar^2 a}{2}.
 \end{align*}
 \[
 \Delta x = \sqrt{\overline{x^2}}= \frac{1}{\sqrt{2a}}, \quad \Delta p = \sqrt{\overline{(p-p_0)^2}} = \hbar\sqrt{\frac{a}{2}}, \Delta x \Delta p =\frac{\hbar}{2}
@@ -460,7 +462,7 @@ p_z \to \hat{p}_z = -\i\hbar \frac{\partial}{\partial z}.
 \[
 [\hat{p_x}x-x\hat{p_x}]\psi(x) = -\i\hbar\psi(x)
 \]
-一般来说位置变量$x$也可以看作一个算符$\hat{x}$. 因为上式中的$\psi(x)$是任意函数，也可以略去不屑，于是上式变为如下算符式:
+一般来说位置变量$x$也可以看作一个算符$\hat{x}$. 因为上式中的$\psi(x)$是任意函数，也可以略去不写，于是上式变为如下算符式:
 \[
 \hat{p_x}x-x\hat{p_x} = -\i\hbar \neq 0
 \]
@@ -1195,7 +1197,7 @@ L_z=m\hbar.
 
 
 \section{薛定谔方程}
-下面我们来看量子力学中非常重要的薛定谔方程的引入。读者若感觉理解引入的过程有困难，可以略去不看，直接查看我们给出的薛定谔方程的形式。事实上，动量守恒代表了空间平移的对称性，能量守恒代表了时间反演的对称性。对于波函数，我们可以对它进行平移操作。考虑坐标沿着$-x$方向平移，则空间同一点的坐标变换为$x\to \overline{x} = x+\Delta x$我们用空间平移算符$\hat{D}(\Delta x)$来表示这种操作，那么我们得到:
+下面我们来看量子力学中非常重要的薛定谔方程的引入。读者若感觉理解引入的过程有困难，可以略去不看，直接查看我们给出的薛定谔方程的形式。事实上，动量守恒代表了空间平移的对称性，能量守恒代表了时间反演的对称性。对于波函数，我们可以对它进行平移操作。考虑坐标沿着$-x$方向平移，则空间同一点的坐标变换为$x\to \overline{x} = x+\Delta x$。我们用空间平移算符$\hat{D}(\Delta x)$来表示这种操作，那么我们得到:
 \[
 \hat{D}(\Delta x)\psi(x) = \psi(\overline{x}) = \psi(x+\Delta x)
 \]
@@ -1297,12 +1299,12 @@ f(t) \propto e^{-\i Et/\hbar}
 
 一个典型的定态系统是一维无限深势阱。其势能函数可以写为:
 \[
-V = \begin{cases} 0, & 0 \le x \le L \\ +\infty, & x < 0, x > L \end{cases}
+V = \begin{cases} 0, & 0 \le x \le L \\+\infty, & x < 0, x > L \end{cases}
 \]
 
 哈密顿算符为:
 \[
-\hat{H} = \begin{cases} -\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2}, & 0 \le x \le L \\ -\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2} + \infty, & x < 0, x > L \end{cases}
+\hat{H} = \begin{cases} -\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2}, & 0 \le x \le L \\[1.5em] -\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2} + \infty, & x < 0, x > L \end{cases}
 \]
 势阱内的薛定谔方程为:
 \[
@@ -1311,7 +1313,7 @@ V = \begin{cases} 0, & 0 \le x \le L \\ +\infty, & x < 0, x > L \end{cases}
 
 令系数为:
 \[
-k^2 = \frac{2mE}{\hbar^2}
+k^2 = \frac{2mE}{\hbar^2}  \tag{$\star$}
 \]
 得到:
 \[
@@ -1340,9 +1342,9 @@ $C$由归一化条件确定:
 \[
 \psi_n(x) = \begin{cases} \sqrt{\frac{2}{L}} \sin \frac{n\pi}{L} x, & 0 \le x \le L \\ 0, & x < 0, x > L \end{cases}
 \]
-粒子能量的本征值为:
+对$(\star)$式进行整理，可以得到粒子能量的本征值为:
 \[
-E_n = \frac{k^2 \hbar^2}{2m} = n^2 E_1, \quad E_1 = \frac{\pi^2\hbar^2}{2mL^2}
+E_n = \frac{k^2 \hbar^2}{2m} = \frac{n^2\pi^2\hbar^2}{2mL^2}= n^2 E_1, \quad E_1 = \frac{\pi^2\hbar^2}{2mL^2}
 \]
 
 对这个结果我们做一些讨论。
