@@ -5,7 +5,7 @@
 在讨论电磁感应之前, 我们先来看一下电动势. 在一个电路中, 当我们的电流在整个电路中不相同时, 在某些地方会产生电荷的积累, 这些积累的电荷产生的电场将会阻碍电流的流动, 直到阻碍流动的电场与促进流动的电场到达平衡, 从而建立起整个电路的平衡. 也就是说, 在驱动电流在整个电路中流动的过程中涉及到电源的非静电力和静电力. 描述电池做功的能力时, 我们常常用非静电力在整个回路中的线积分来描述($\mathscr C$也可以写作$\varepsilon$)\[
 \mathscr C = \oint_L  \mathbf{f}_s \cdot \d \mathbf{l}
 \]
-其中$f_s$是单位电荷所受的静电力
+其中$\mathbf f_s$是单位电荷所受的非静电力
 
 在理想电动势源中, 电荷受到的合力为$0$. 于是$E=-f_s$. 从而两板间的电势差为:
 \[
@@ -17,7 +17,7 @@ V=-\int_a^b \mathbf{E} \cdot \d \mathbf{l} = \int_a^b f_s \cdot \d \mathbf{l} = 
   \item 取一个与电流计相连的线圈, 在其中插入和拔出磁棒时, 电流计中有电流流过.
   \item 将上面的磁棒换为载流线圈, 插入和拔出时, 电流计中有电流流过.
   \item 将载流线圈插入线圈, 控制开关使得载流线圈断电与通电, 开关断开和闭合后电流计中有电流流过.
-  \item 取一个平面线框, 将其法线与磁场平行放置. 拉动线框, 其中有电流流过.
+  \item 取一个平面线框, 使其部分位于磁场区域内; 移动线框使穿过它的磁通量变化, 其中便有感应电流.
 \end{itemize}
 
 在这四个实验中, 我们发现其共性是通过导线回路或者线圈的磁通量发生了变化. 而且磁通量变化的越快, 电流越大.
@@ -28,13 +28,13 @@ V=-\int_a^b \mathbf{E} \cdot \d \mathbf{l} = \int_a^b f_s \cdot \d \mathbf{l} = 
 导体回路中感应电动势的大小与穿过回路磁通量的变化率成正比.
 
 \[
-\mathscr C =\oint_L  \mathbf{f}_s =  \frac{\d \Phi}{\d t} =-\frac{\d}{\d t}\iint_S \mathbf{B} \cdot \d \mathbf{S}
+\mathscr C =\oint_L \mathbf{f}_s\cdot\d\mathbf l =-\frac{\d \Phi_B}{\d t} =-\frac{\d}{\d t}\iint_S \mathbf{B} \cdot \d \mathbf{S}
 \]
 
 对于多匝线圈, 我们需要将每一匝线圈的磁通都计算, 若每匝线圈磁通都相同, 有:
 
 \[
-\mathscr C = \frac{\d \Psi}{\d t} =-N\frac{\d \Phi}{\d t}
+\mathscr C = -\frac{\d \Psi}{\d t} =-N\frac{\d \Phi_B}{\d t},\qquad \Psi=N\Phi_B
 \]
 \end{theorem}
 其中$\Psi$被称为总磁通, 也称磁通匝链数或磁链.
@@ -86,11 +86,11 @@ V=-\int_a^b \mathbf{E} \cdot \d \mathbf{l} = \int_a^b f_s \cdot \d \mathbf{l} = 
 我们考虑这样的一个例题:
 
 \begin{example}
-长度为$L$的一根铜棒, 其一段在均匀磁场中以角速度$\omega$旋转, 求这根铜棒两端的电势差.
+长度为$L$的一根铜棒, 绕其中一端在垂直于棒的均匀磁场中以角速度$\omega$旋转, 求这根铜棒两端的电势差.
 
 铜棒旋转时切割磁感线, 故棒两端之间有感应电动势. 每个小段$\d l$产生的电动势方向相同, 于是我们可以计算:
 \[
-V = \mathscr C = \int_0^L B\omega\d l =\frac{1}{2}B\omega L^2
+V = \mathscr C = \int_0^L B\omega l\,\d l =\frac{1}{2}B\omega L^2
 \]
 
 \end{example}
@@ -164,7 +164,7 @@ E_{orb} = -\frac{1}{2\pi R}\frac{\d \Phi}{\d t}
 
 当电流$I_1$发生变化时, 将在线圈$2$中激发的感应电动势为:
 \[
-\mathscr C_1 = -\frac{\d \Psi_{12}}{\d t} = -M\frac{\d I_1}{\d t}, \mathscr C_2 = -\frac{\d \Psi_{12}}{\d t} = -M\frac{\d I_2}{\d t}
+\mathscr C_2 = -\frac{\d \Psi_{12}}{\d t} = -M\frac{\d I_1}{\d t},\qquad \mathscr C_1 = -\frac{\d \Psi_{21}}{\d t} = -M\frac{\d I_2}{\d t}
 \]
 上面我们已经假定互感系数保持不变.
 
@@ -243,7 +243,7 @@ q = q_0e^{-\frac{t}{RC}},\; I = -\frac{q_0}{RC}e^{-\frac{t}{RC}}
 \]
 其中$q_0$是初始状态下电容上的电量.
 
-(2)$C=0$. 这是一个$RL$电路. 解上述方程, 可以得到:
+(2)移去电容器. 这是一个$RL$电路, 方程应直接写为$L\d I/\d t+RI=\v$. 解上述方程, 可以得到:
 \[
 I =\frac{\v}{R}(1-e^{-\frac{R}{L}t})
 \]
@@ -251,7 +251,7 @@ I =\frac{\v}{R}(1-e^{-\frac{R}{L}t})
 
 这个解表明, 在初始状态下, 电流为$0$. 后电流逐步以指数增长形式达到稳态. 放电过程与之恰好相反:
 \[
-I = I_0 e^{-\frac{L}{R}t}
+I = I_0 e^{-\frac{R}{L}t}
 \]
 
 在以上的讨论中, 我们发现电容上的电压和电荷不能瞬间变化, 电感中的电流不能瞬间变化. 否则会产生无穷大电动势.
@@ -264,7 +264,7 @@ q=q_0\cos(\omega_0 t+\phi),\quad \omega_0 = \frac{1}{\sqrt{LC}}
 
 (4)一般情况. 这时候, 我们把整个方程化为标准的二阶常系数微分方程:
 \[
-\frac{\d^2 q}{\d t^2}+2\beta \frac{\d q}{\d t}+\omega_0^2 q = \v,\quad \beta = \frac{R}{2L}, \quad \omega_0 = \frac{1}{\sqrt{LC}}
+\frac{\d^2 q}{\d t^2}+2\beta \frac{\d q}{\d t}+\omega_0^2 q = \frac{\v}{L},\quad \beta = \frac{R}{2L}, \quad \omega_0 = \frac{1}{\sqrt{LC}}
 \]
 
 这方程的通解与$RLC$的具体数值有关, 我们可以定义阻尼度:
@@ -279,18 +279,18 @@ $\omega = \sqrt{\frac{1}{LC}-(\frac{R}{2L})^2}$. 上述方程的一个特解是$
 
 $\d t$时间内, 电源的电动势反抗自感电动势做功为:
 \[
-\d A = -\mathscr C_{L} i \d t =-(-L\frac{\d i}{\d t})\d t = Li\d i
+\d A = -\mathscr C_{L} i \d t =-(-L\frac{\d i}{\d t})i\d t = Li\d i
 \]
 因而在整个建立电流的过程中, 电源的电动势反抗自感电动势所做的功为:
 \[
 A = \int_0^I Li\d i =\frac{1}{2}LI^2
 \]
-当切断电源时, 电流由稳定值$I$减少到$0$. 线圈中产生了与电流方向相反的自感电动势. 线圈中原本存储的能量将会以同样的形式释放出来. 于是我们便说, 自感线圈将会存储磁能, 在一个自感系数为$L$的线圈中建立强度为$I$的电流, 线圈中存储的能量是$\frac{1}{2}LI^2$. 这被称为自感磁能.
+当切断电源时, 电流由稳定值$I$减少到$0$. 线圈中产生了阻碍电流减小的自感电动势, 其驱动方向与原电流方向相同. 线圈中原本存储的能量将会以同样的形式释放出来. 于是我们便说, 自感线圈将会存储磁能, 在一个自感系数为$L$的线圈中建立强度为$I$的电流, 线圈中存储的能量是$\frac{1}{2}LI^2$. 这被称为自感磁能.
 
 下面简单讨论互感磁能: 我们考察在相邻的线圈$1$和$2$中建立电流的过程中抵抗互感电动势所做的功:
 
 \[
-A = -\int_0^{\infty}\mathscr C_{21}i_1\d t-\int_0^{\infty}\mathscr C_{12}i_2\d t =\int_0^{\infty} M(i_1\frac{\d i_2}{\d t}+i_2\frac{\d i_1}{\d t})=M\int_0^{\infty}\frac{\d(i_1i_2)}{\d t} \d t = MI_1I_2
+A = -\int_0^{\infty}\mathscr C_{21}i_1\d t-\int_0^{\infty}\mathscr C_{12}i_2\d t =\int_0^{\infty} M(i_1\frac{\d i_2}{\d t}+i_2\frac{\d i_1}{\d t})\,\d t=M\int_0^{\infty}\frac{\d(i_1i_2)}{\d t} \d t = MI_1I_2
 \]
 也就是说线圈中存储的互感能量为$MI_1I_2$.
 
@@ -300,7 +300,7 @@ B  =\mu nI
 \]
 螺线管的自感系数在之前已经推导过:
 \[
-L = \frac{\mu S^2}{l} = \mu n^2 V
+L = \frac{\mu N^2S}{l} = \mu n^2 V
 \]
 于是螺线管储存的磁能为:
 \[
@@ -310,5 +310,5 @@ W_m = \frac{1}{2}LI^2 = \frac{1}{2}\mu n^2 I^2 V = \frac{1}{2}VBH
 \[
 w_m = \frac{1}{2}\mathbf{B}\cdot \mathbf{H}
 \]
-上式对于一般的磁场也成立. 这个式子的建立可以与我们建立电场能量公式的过程类比.
+上式适用于线性、无磁滞且参数不随时间变化的介质; 对非线性磁介质, 应从$w_m=\int_0^{\mathbf B}\mathbf H\cdot\d\mathbf B$求能量密度.
 

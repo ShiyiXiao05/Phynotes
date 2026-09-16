@@ -55,7 +55,7 @@ n = \frac{\lambda_0}{\lambda}
 这表明在介质中光的波长变短了. 介质中的光的波长虽然变化, 其频率保持不变, 这也解释了为什么我们没有观察到介质中光的颜色变化, 因为真正与视网膜上视觉细胞相互作用的是光的扰动, 而决定扰动的时间频率是保持不变由光源决定的.
 
 \section{费马原理}
-我们定义光纤路径的几何长度与经过的介质折射率的乘积被定义为光程:
+我们把沿光线路径的折射率对几何长度的积分定义为光程:
 \[
 L = \int_A^B n \d s
 \]
@@ -72,7 +72,7 @@ L = \int_A^B n \d s
 
 费马原理是说, 在光场中从$A$到$B$有一条实际光线$l_0$, 这个几何路径使得光程$L$取得平稳值:
 \[
-\int_{l_0} n \d s = \text{extreme}
+\delta\!\int_{l_0} n\,\d s=0
 \]
 
 路径积分为平稳值, 有三种情况, 分别是取极小值---这最为常见; 取常数---成像时物像关系; 取极大值---这较为少见.
@@ -148,44 +148,47 @@ v = \frac{1}{\sqrt{\mu \epsilon}} \Rightarrow n = \frac{c}{v} =  \frac{\sqrt{\mu
 
 广义上说, 扰动在空间中的传播也就是运动状态在空间中的传播形成波动. 扰动同时到达的空间中各点形成一个等相位面. 按照等相位面的形状, 产生了各种对波的称谓, 例如平面波, 球面波等等.
 
-按照时间尺度衡量, 波可以被分为定态波和脉冲波. 若在观测时间内光源持续且稳定地发光, 则波场中各点均以同一频率作稳定的振荡, 这种波被称为定态波. 而光源在极短时间中发光, 以至于波形局限于一个小区域内时, 这种波被称为脉冲波. 对于可见光, 其周期$T\approx 10^{-14}\mathrm{s}$, 普通光源从微观时间尺度看其一次持续发光时间量级$\tau\approx10^{-8} \mathrm{s}$. 一个长波列中大约含有$10^6$个周期, 这种情况就可以视为定态了. 发光的机制我们在讨论光的时间相干性时还会遇见.
+按照时间尺度衡量, 波可以被分为定态波和脉冲波. 若在观测时间内光源持续且稳定地发光, 则波场中各点均以同一频率作稳定的振荡, 这种波被称为定态波. 而光源在极短时间中发光, 以至于波形局限于一个小区域内时, 这种波被称为脉冲波. 对于可见光, 其周期$T\approx 10^{-15}\mathrm{s}$, 普通光源从微观时间尺度看其一次持续发光时间量级$\tau\approx10^{-8} \mathrm{s}$. 一个长波列中大约含有$10^6$个周期, 这种情况就可以视为定态了. 发光的机制我们在讨论光的时间相干性时还会遇见.
 
 现在我们考虑光波的相关叠加. 设在同一介质中有两列平面电磁波传播, 分别为:
 \[
-E_1 = \bm{E}_{10} \cos (\omega t - \bm{k}_1 \cdot \bm{r} + \varphi_1), \quad
-E_2 = \bm{E}_{20} \cos (\omega t - \bm{k}_2 \cdot \bm{r} + \varphi_2)
+\bm E_1 = \bm{E}_{10} \cos (\omega t - \bm{k}_1 \cdot \bm{r} + \varphi_1), \quad
+\bm E_2 = \bm{E}_{20} \cos (\omega t - \bm{k}_2 \cdot \bm{r} + \varphi_2)
 \]
 
 叠加后合成的光矢量为:
 \[
-E = E_1 + E_2 = \bm{E}_{10} \cos (\omega t - \bm{k}_1 \cdot \bm{r} + \varphi_1) + \bm{E}_{20} \cos (\omega t - \bm{k}_2 \cdot \bm{r} + \varphi_2)
+\bm E = \bm E_1 + \bm E_2 = \bm{E}_{10} \cos (\omega t - \bm{k}_1 \cdot \bm{r} + \varphi_1) + \bm{E}_{20} \cos (\omega t - \bm{k}_2 \cdot \bm{r} + \varphi_2)
 \]
 
 注意到能流密度矢量对时间取平均得到波的强度,
 \[
-I = \langle S \rangle = \frac{1}{2} c \varepsilon_0 n E_0^2 \propto E_0^2
+I = \langle S \rangle = \frac{1}{2} c \varepsilon_0 n E_0^2 \propto E_0^2\qquad(\mu_r\simeq1)
 \]
 
 这样将上式两端对观察时间求平均得到:
 \[
-I = \langle \bm{E}^2 \rangle = \langle \bm{E}_1^2 \rangle + \langle \bm{E}_2^2 \rangle + 2\langle \bm{E}_1 \cdot \bm{E}_2 \rangle = I_1 + I_2 + 2\langle \bm{E}_1 \cdot \bm{E}_2 \rangle
+I = K\langle |\bm E|^2\rangle = I_1+I_2+2K\langle\bm E_1\cdot\bm E_2\rangle,\qquad K=c\varepsilon_0n\quad(\mu_r\simeq1)
 \]
-$2\langle\bm{E}_1 \cdot \bm{E}_2\rangle$被称为干涉项.
+$2K\langle\bm E_1\cdot\bm E_2\rangle$被称为干涉项.
 
 这里我们先不考虑偏振, 认为
 \[
 \bm{E}_1 \parallel \bm{E}_2
 \]
-从而我们可以写出干涉项的表达式为
+从而, 把传播带来的相位并入$\varphi_1$和$\varphi_2$, 并用积化和差公式, 可得干涉项:
 \[
 \begin{aligned}
-2\langle \bm{E}_1 \cdot \bm{E}_2 \rangle & = 2 E_{10} E_{20} \langle \cos(\omega_1 t-\bm{k}_1\cdot \bm{r}_1+\varphi_{10})\cos(\omega_2 t -\bm{k}_2\cdot \bm{r}_2+\varphi_{20}) \rangle \\
-& = E_{10}E_{20}\langle \cos((\omega_1+\omega_2) t -  (\varphi_{1} + \varphi_{2})) \rangle+ \langle \cos((\omega_1-\omega_2) t - (\varphi_{1} - \varphi_{2})) \rangle
+2K\langle\bm E_1\cdot\bm E_2\rangle
+&=K E_{10}E_{20}\bigl\langle
+\cos[(\omega_1-\omega_2)t+\varphi_1-\varphi_2]
++\cos[(\omega_1+\omega_2)t+\varphi_1+\varphi_2]
+\bigr\rangle.
 \end{aligned}
 \]
 我们把光的空间传播带来的相位落后归结到$\varphi_1, \varphi_2$中. 上式中前一项取时间平均显然为零, 后一项在$\omega_1 = \omega_2$时不为零:
 \[
-2\langle \bm{E}_1 \cdot \bm{E}_2 \rangle = 2 E_{10} E_{20} \langle \cos(\Delta \varphi(P)) \rangle
+2K\langle \bm E_1\cdot\bm E_2\rangle=K E_{10}E_{20}\cos\Delta\varphi(P)=2\sqrt{I_1I_2}\cos\Delta\varphi(P)
 \]
 其中相位差$\Delta \varphi(P)$为
 \[
@@ -203,25 +206,25 @@ $2\langle\bm{E}_1 \cdot \bm{E}_2\rangle$被称为干涉项.
 
 对于取时间平均意义来说, 光源的相位差的绝对值并不重要, 不妨取$\varphi_{10}=\varphi_{20}$. 这样相位差可以被表示为:
 \[
-\Delta \varphi(P) = k(r_1 - r_2) = \frac{2\pi}{\lambda}(r_1 - r_2) = \frac{2\pi}{\lambda} \delta
+\Delta \varphi(P) = k(r_2-r_1) = \frac{2\pi}{\lambda}(r_2-r_1) = \frac{2\pi}{\lambda}\delta
 \]
-其中$\delta$为两列光波的光程差. 注意到:
+其中$\delta$在这里是同一介质中的几何路程差; 若用光程差, 应乘以介质折射率. 注意到:
 \[
 \Delta \varphi=
 \begin{cases}
 \pm 2k\pi, & \text{当 } \delta = k\lambda, k \in \mathbb{Z}, \cos(\Delta \varphi)= 1, \text{干涉光强极大} \\
-\pm (2k-1)\pi, & \text{当 } \delta = (k-\frac{1}{2})\lambda,k\neq 0, k \in \mathbb{Z}, \cos(\Delta \varphi)= -1, \text{干涉光强极小} \\
+(2k+1)\pi, & \text{当 } \delta = (k+\frac{1}{2})\lambda, k \in \mathbb{Z}, \cos(\Delta \varphi)= -1, \text{干涉光强极小} \\
 \end{cases}
 \]
 考虑介质的折射率不为1时, 根据我们前面对光程的讨论, 我们可以得到:
 \[
-\Delta \varphi = \frac{2\pi}{\lambda} n (r_1 - r_2) = \frac{2\pi}{\lambda_n} (r_1 - r_2) = \frac{2\pi}{\lambda_n} \delta
+\Delta \varphi = \frac{2\pi}{\lambda_0} n (r_2-r_1)=\frac{2\pi}{\lambda_n}\delta
 \]
-其中$\lambda_n = \frac{\lambda}{n}$是介质中的波长. 于是用波程差表达的干涉条件可以被写为:
+其中$\lambda_0$为真空波长, $\lambda_n=\lambda_0/n$为介质中的波长, $\delta=r_2-r_1$为几何路程差. 于是用波程差表达的干涉条件可以被写为:
 \[
 \begin{cases}
 \delta = k \lambda_n, & k \in \mathbb{Z}, \quad \text{干涉极大} \\
-\delta = (k - \frac{1}{2}) \lambda_n, & k \in \mathbb{Z}, \quad \text{干涉极小}
+\delta = (k+\frac{1}{2})\lambda_n, & k \in \mathbb{Z}, \quad \text{干涉极小}
 \end{cases}
 \]
 
@@ -231,7 +234,7 @@ $2\langle\bm{E}_1 \cdot \bm{E}_2\rangle$被称为干涉项.
 I = I_1 + I_2 + 2\sqrt{I_1 I_2} \cos(\Delta \varphi(P))
 \]
 
-用振幅表达的双光束干涉强度公式:
+若以$A_i=\sqrt{I_i}$表示强度归一化的振幅, 双光束干涉强度公式为:
 \[
 I = A_1^2 + A_2^2 + 2A_1 A_2 \cos(\Delta \varphi(P))
 \]
@@ -240,7 +243,7 @@ I = A_1^2 + A_2^2 + 2A_1 A_2 \cos(\Delta \varphi(P))
 \[
 \begin{cases}
 \Delta \varphi = 2k\pi, & k \in \mathbb{Z}, \quad \text{干涉极大} \\
-\Delta \varphi = (2k-1)\pi, & k \neq 0, k \in \mathbb{Z}, \quad \text{干涉极小}
+\Delta \varphi = (2k+1)\pi, & k \in \mathbb{Z}, \quad \text{干涉极小}
 \end{cases}
 \]
 
@@ -248,7 +251,7 @@ I = A_1^2 + A_2^2 + 2A_1 A_2 \cos(\Delta \varphi(P))
 \[
 \begin{cases}
 \delta = k \lambda_n, & k \in \mathbb{Z}, \quad \text{干涉极大} \\
-\delta = (k - \frac{1}{2}) \lambda_n, & k \neq 0,k \in \mathbb{Z}, \quad \text{干涉极小}
+\delta = (k+\frac{1}{2})\lambda_n, & k \in \mathbb{Z}, \quad \text{干涉极小}
 \end{cases}
 \]
 

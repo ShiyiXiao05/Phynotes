@@ -185,13 +185,13 @@ d = 2\alpha B, \quad L =B+C \Rightarrow \Delta x = \frac{(B+C)\lambda}{2\alpha B
 \[
 R^2 = r_k^2+(R-h)^2 \Rightarrow r_k^2 = (2R-h_k)h_k \approx 2Rh_k
 \]
-因此得到:
+因此得到($n=1$时为空气膜):
 \[
-r_k = \sqrt{kR\lambda}
+r_k = \sqrt{\frac{kR\lambda_0}{n}}
 \]
 这样, 通过测量某一环的半径$r_k$和由其向外数第$m$环的半径为$r_{k+m}$, 据此, 可以算出透镜曲率半径:
 \[
-R = \frac{r_{k+m}^2-r_k^2}{m\lambda} = \frac{d_{k+m}^2-d_k^2}{4m\lambda}
+R = \frac{n(r_{k+m}^2-r_k^2)}{m\lambda_0} = \frac{n(d_{k+m}^2-d_k^2)}{4m\lambda_0}
 \]
 
 \insertfig{2-13.png}{利用牛顿环的变动指导透镜研磨}{0.4}
@@ -239,23 +239,23 @@ R = \frac{r_{k+m}^2-r_k^2}{m\lambda} = \frac{d_{k+m}^2-d_k^2}{4m\lambda}
 
 \insertfig{2-17.png}{产生对应干涉图样的等效空气膜}{0.5}
 
-迈克耳孙干涉仪的一个重要应用是精密测长. 当$M_2$在空间中平移长度为$l$时, 光程改变量为$2nl$, 设某处干涉强度变化了$N$次(吞入或吐出$N$个条纹), 则有:
+迈克耳孙干涉仪的一个重要应用是精密测长. 当$M_2$在折射率为$n$的介质中沿光轴平移长度为$l$时, 光程改变量为$2nl$, 设某处干涉强度变化了$N$次(吞入或吐出$N$个条纹), 则有:
 \[
-N \lambda_0 = 2nl \Rightarrow l = \frac{N\lambda}{2}
+N \lambda_0 = 2nl \Rightarrow l = \frac{N\lambda_0}{2n}
 \]
 
 另一个重要应用是测量双线的波长差. 设用于照明的光源由两种波长为$\lambda_1$和$\lambda_2$的光合成的. 假定在初始某位置$\lambda_1$的亮纹与$\lambda_2$的暗纹相重合, 那么此时条纹最为模糊:
 \[
-N_0 \lambda_1 =(N_0-\frac{1}{2})\lambda_2
+\frac{\Delta L}{\lambda_1}-\frac{\Delta L}{\lambda_2}=k+\frac12,\qquad k\in\mathbb Z
 \]
 增加光程差, 直到下一次视场再次变得最为模糊时, 有:
 \[
-3N_0 \lambda = 3(N_0-\frac{1}{2})\lambda_2, \quad \Delta L = 2N_0\lambda_1 = 2d
+\Delta L_{\mathrm{beat}}\simeq\frac{\lambda_1\lambda_2}{|\lambda_1-\lambda_2|}=2d
 \]
 
-其中$d$为两次模糊时空间中镜子移过的间距. 根据前面两个式子, 可以解出:
+其中$d$为相邻两次条纹可见度极小位置之间镜子移动的距离, $\lambda$为两波长接近时的平均值. 由两组条纹的相对相位每改变$2\pi$出现一次可见度极小, 得到:
 \[
-N_0 = \frac{\lambda}{2\Delta \lambda}, \quad \Delta \lambda = \frac{\lambda^2}{2d}
+\Delta\lambda=|\lambda_1-\lambda_2|=\frac{\lambda_1\lambda_2}{2d}\simeq\frac{\lambda^2}{2d}
 \]
 
 \section{光场的时间相干性}
@@ -274,9 +274,9 @@ N_0 = \frac{\lambda}{2\Delta \lambda}, \quad \Delta \lambda = \frac{\lambda^2}{2
 
 \insertfig{2-20.png}{波列长度与实际光程差的比较}{0.4}
 
-如图所示设光程差为$\delta$, 考虑可能发生干涉的两个光波列. $\delta=0$时, 两波列在时间上完全重叠, 干涉条纹的可见度最大. 光程差小于波列长度但不为$0$, 干涉条纹仍然可见. 反之若光程差超过了波列长度, 则完全不能产生干涉现象. 迈克耳孙干涉仪中的补偿板就有一作用是为了防止两列波的光程差过大而无法被观测到相干现象.
+如图所示设光程差为$\delta$, 考虑可能发生干涉的两个光波列. $\delta=0$时, 两波列在时间上完全重叠, 干涉条纹的可见度最大. 光程差小于波列长度但不为$0$, 干涉条纹仍然可见. 当光程差超过相干长度, 条纹可见度通常很低; 其具体变化取决于光源的光谱形状. 迈克耳孙干涉仪中的补偿板就有一作用是为了防止两列波的光程差过大而无法被观测到相干现象.
 
-能够发生干涉时允许的最大光程差被称为相干长度. 这样根据我们前面给出的反比关系式$\Delta x \cdot \Delta \lambda = \lambda^2$, 得到相干长度的表达式为:
+可用条纹可见度下降的特征尺度来定义相干长度; 具体数值取决于光谱形状和采用的判据. 这样根据我们前面给出的反比关系式$\Delta x \cdot \Delta \lambda = \lambda^2$, 得到相干长度的表达式为:
 \[
 \delta_m = \frac{\lambda^2}{\Delta \lambda}
 \]
@@ -321,7 +321,7 @@ N_0 = \frac{\lambda}{2\Delta \lambda}, \quad \Delta \lambda = \frac{\lambda^2}{2
     \]
     其中$v =\frac{\Delta k\Delta L}{2}$
 
-    与一般的干涉公式对比, 我们发现后面的干涉项受到了$\frac{\sin v}{v}$的调制, 因此当$v = \pi$时干涉光强为$0$, 此时有:
+    与一般的干涉公式对比, 我们发现后面的干涉项受到了$\frac{\sin v}{v}$的调制, 因此当$v = \pi$时干涉项为$0$, 条纹可见度为$0$, 此时有:
     \[
     \Delta k \cdot \frac{\Delta L}{2} = \pi \Rightarrow \Delta L_{\max} = \frac{2\pi}{\Delta k}
     \]

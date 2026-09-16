@@ -65,7 +65,7 @@ E(P,t) = \int_S \frac{E(Q)K(\varphi)}{r} \cos(\omega t-kr)\d S
 \insertfig{3-5.png}{夫琅禾费衍射装置}{0.6}
 夫琅禾费单缝衍射的装置如图所示. 用平行光照射单缝, 在透镜后焦面上接收衍射光波, 单缝的宽度$a$远小于垂直纸面的长度$b$, 这样衍射强度将显著地沿着$x$方向扩展.
 
-为了求解衍射强度的分布, 我们采用如下的方法: 将缝面处的波阵面划分为$N$个与狭缝平行的等宽窄条, 其中$N$非常大. 注意到窄条发出的子波在$P$点的光振动产生的振幅近似相等, 设为$E_0$. 狭缝最边缘的两个窄条$A,B$发出的衍射光到达$P$点时的光程差$AC= a\sin\theta$. 相邻的两个窄条发出的子波在$P$点的光程差为$\frac{a\sin\theta}{N}$, 相位差为$\Delta \varphi =\frac{2\pi}{\lambda}\cdot \frac{a\sin\theta}{N}$.
+为了求解衍射强度的分布, 我们采用如下的方法: 将缝面处的波阵面划分为$N$个与狭缝平行的等宽窄条, 其中$N$非常大. 注意到窄条发出的子波在$P$点的光振动振幅近似相等, 设每条的振幅为$E_s$. 狭缝最边缘的两个窄条$A,B$发出的衍射光到达$P$点时的光程差$AC= a\sin\theta$. 相邻的两个窄条发出的子波在$P$点的光程差为$\frac{a\sin\theta}{N}$, 相位差为$\Delta \varphi =\frac{2\pi}{\lambda}\cdot \frac{a\sin\theta}{N}$.
 
 因此点$P$处的光振动可以被视为$N$个同频率同振幅振动方向相同, 相位依次相差一个恒量$\Delta \varphi=\frac{2\pi}{\lambda}\cdot\frac{a\sin\theta}{N}$. 如图所示$N\to\infty$时, $N$个相接的折线将变为一个圆弧.
 
@@ -87,16 +87,20 @@ E(P,t) = \int_S \frac{E(Q)K(\varphi)}{r} \cos(\omega t-kr)\d S
 \end{figure}
 
 由几何关系:
-\[
-\beta = N\cdot \Delta \varphi= \frac{\pi a \sin\theta}{\lambda}, \quad E_p =2R\sin\beta, E_0 = 2R\beta\Rightarrow \frac{E_p}{E_0}=\frac{\sin \beta}{\beta}
-\]
+\begin{align*}
+2\beta &= N\Delta\varphi = \frac{2\pi a\sin\theta}{\lambda},
+&\beta &= \frac{\pi a\sin\theta}{\lambda},\\
+E_p &= 2R\sin\beta,
+&E_{\max} &= NE_s = 2R\beta,
+&\frac{E_p}{E_{\max}} &= \frac{\sin\beta}{\beta}.
+\end{align*}
 
 注意到光强与振幅的平方成正比, 因此我们可以得到$P$点的光强:
 \[
 I = I_0(\frac{\sin\beta}{\beta})^2
 \]
 
-其中$I_0$为入射光强.
+其中$I_0$为中央主极大的光强.
 
 在这之后我们将多次遇见$\frac{\sin x}{x}$型函数, 可以记作$\operatorname{sinc}(x)$. 我们对这函数的一些性质在下面做些阐述.
 
@@ -170,11 +174,11 @@ $\sin\theta$
 \]
 也就是说相对于蓝光, 红光图样更加扩展.
 
-二是红光与蓝光衍射斑中心强度不等:
+二是在理想的有限矩形狭缝、相同入射辐照度和相同成像条件下, 中央峰值强度不同:
 \[
-\frac{I_{10}}{I_{20}}=\frac{A_1^2/\lambda_1^2}{A_2^2/\lambda_2^2} = \frac{\lambda_2^2}{\lambda_1^2} = 45\%
+\frac{I_{10}}{I_{20}}=\left(\frac{\lambda_2}{\lambda_1}\right)^2\approx 44\%
 \]
-也就是红光衍射斑中心的强度几乎比蓝光小一半. 同时可以想见, 可能在某处出现红光和蓝光的次极大和暗纹交叠的情况.
+若比较的是各自归一化后的衍射图样, 两者中央峰值都定义为$I_0$; 上述比值只适用于给定的照明与孔径条件. 同时可以想见, 可能在某处出现红光和蓝光的次极大和暗纹交叠的情况.
 
 当光源在垂直纸面方向进行扩展时, 干涉图样也会随之进行扩展, 因为在垂直纸面方向上并不发生衍射.
 
@@ -185,7 +189,7 @@ $\sin\theta$
 \subsection{单缝衍射对双缝干涉的调制}
 不考虑衍射时, 双缝干涉的光强分布为:
 \[
-I = 4I_0\cos^2(\frac{\pi d}{\sin\theta})
+I = 4I_0\cos^2\!\left(\frac{\pi d\sin\theta}{\lambda}\right)
 \]
 其中双缝的间距$d=a+b$, 其中$a$是缝宽, $b$是缝间不透光部分的宽度.
 
@@ -204,13 +208,13 @@ I = 4I_0(\frac{\sin\beta}{\beta})^2\cos^2(\frac{\pi d\sin\theta}{\lambda})
 \[
 d\sin\theta = k\lambda, \quad a\sin\theta = k'\lambda \quad \frac{d}{a} = \frac{k}{k'}
 \]
-时, 将会出现缺级. 由$k'=1,2,3\dots$可以依次推出缺级的级次为$\frac{d}{a},\frac{2d}{a},\frac{3d}{a}\dots$.
+时, 将会出现缺级. 由$k'=1,2,3\dots$可以依次推出可能缺级的整数级次为$\frac{d}{a},\frac{2d}{a},\frac{3d}{a}\dots$.
 \section{光栅衍射}
 在上一节的最后, 我们讨论了单缝衍射对于双缝干涉的调制, 进一步地, 我们将会考虑一种特殊的光学元件---光栅. 光栅是一种由大量的等宽等间距的平行狭缝构成的光学元件. 相邻缝对应点之间的距离为缝间距. 由于其是一个描绘光栅性质的基本量, 我们称其为光栅常数. 光栅常数还常常用线数表示, 例如$300$线光栅代表着该光栅$1mm$内有$300$条刻痕.
 
 \insertfig{3-11.png}{光栅衍射示意图}{0.75}
 
-现在我们来考虑光栅衍射时衍射屏上的光强分布. 对于每个单缝, 设其入射的振幅为$E_0$, 则其在$\theta$衍射角方向上的光振幅为$E_{single}=E_0\frac{\sin \beta}{\beta}$,$\beta= \frac{2\pi}{\lambda}a\sin\theta$. 相邻缝发出的光在$P$点的相位差为$\Delta \varphi= \frac{2\pi}{\lambda}d\sin\theta$. 因此我们发现这类似于我们在处理单缝衍射的时候的方法, 只不过这里不是无穷多缝的叠加.
+现在我们来考虑光栅衍射时衍射屏上的光强分布. 对于每个单缝, 设其入射的振幅为$E_0$, 则其在$\theta$衍射角方向上的光振幅为$E_{single}=E_0\frac{\sin \beta}{\beta}$,$\beta= \frac{\pi a\sin\theta}{\lambda}$. 相邻缝发出的光在$P$点的相位差为$\Delta \varphi= \frac{2\pi}{\lambda}d\sin\theta$. 因此我们发现这类似于我们在处理单缝衍射的时候的方法, 只不过这里不是无穷多缝的叠加.
 
 \insertfig{3-12.png}{光栅衍射光强推导}{0.35}
 
@@ -299,7 +303,7 @@ k = \frac{d}{a}k'', k'' = 1,2,3\dots
 \]
 因此艾里斑的半角宽度为:
 \[
-\theta_1 = 1.22\frac{\lambda}{d}
+\theta_1 \simeq 1.22\frac{\lambda}{D}
 \]
 
 由于镜头对波前的限制而产生的衍射效应, 使物点发射的光波在像面上不可能形成一个像点, 而是以像点为中心扩展为一定的强度分布, 集中了大部分光功率的中心光斑, 就是圆孔夫琅禾费衍射的艾里斑. 这就是说, 即使不计较镜头的所有几何像差, 成像光学仪器也无法实现点物成点像的理想情况. 因此, 物面上相距很近的两个物点, 反映在像面上就是两个可能重叠的衍射斑, 这两个衍射斑甚至可能过度重叠, 变成模糊一团, 以致观察者无法辨认物方两个物点的存在. 总之, 物方图像是大量物点的集合, 而变换到像面上的强度分布却是大量艾里斑的集合, 它不可能准确地反映物面上的所有细节.
@@ -315,11 +319,11 @@ k = \frac{d}{a}k'', k'' = 1,2,3\dots
 
 光学仪器的角分辨本领被定义为最小分辨角的倒数. 根据瑞利判据, 最小分辨角恰为艾里斑的半角宽度, 也就是:
 \[
-\delta \theta = \theta_1 \approx 1.22\frac{\lambda}{d}
+\delta \theta = \theta_1 \approx 1.22\frac{\lambda}{D}
 \]
 因此角分辨本领为:
 \[
-R = \frac{1}{\delta \theta}  = \frac{d}{1.22\lambda}
+R = \frac{1}{\delta \theta}  = \frac{D}{1.22\lambda}
 \]
 
 上一节中介绍的光栅, 其作为一种光学仪器, 主要用途之一就是制成光谱仪. 光谱仪是一种能够将不同波长的光区分开的仪器. 为了描述光谱仪分光能力的强弱, 我们定义角色散本领为单位波长间隔的两条谱线散开的角度大小:
@@ -340,7 +344,7 @@ d\sin\theta = k \lambda \Rightarrow d\cos\theta\d\theta = k \d \lambda \Rightarr
 \[
 \delta \theta = D_\theta = \frac{k}{d\cos\theta_k}\delta \lambda, \quad \Delta \theta_k = \frac{\lambda}{Nd \cos\theta_k}
 \]
-两者相等. 前者是我们根据角色散本领推导出的两主极大之间的角差距, 后者是主极大本身的半角宽度, 瑞利判据告诉我们两者相等的时候恰好无法分辨. 于是我们得到:
+两者相等. 前者是我们根据角色散本领推导出的两主极大之间的角差距, 后者是主极大本身的半角宽度, 瑞利判据告诉我们两者相等的时候恰好可以分辨. 于是我们得到:
 \[
 \delta \lambda_m = \frac{\lambda}{kN}
 \]
@@ -348,5 +352,4 @@ d\sin\theta = k \lambda \Rightarrow d\cos\theta\d\theta = k \d \lambda \Rightarr
 \[
 R_\lambda = \frac{\lambda}{\delta \lambda_m}=kN
 \]
-
 

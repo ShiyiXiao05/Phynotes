@@ -90,7 +90,7 @@ B_{1n}=B_{2n}
 \]
 两边同除$\mu_0$, 移项, 得到:
 \[
-\oint_L (\frac{\mb{B}}{\mu_0}-\mb{M}) = \sum I_0
+\oint_L \left(\frac{\mb B}{\mu_0}-\mb M\right)\cdot\d\mb l=\sum I_0
 \]
 
 于是我们引入:
@@ -123,7 +123,7 @@ B_{1n}=B_{2n}
 处理磁介质问题的思路是与电介质类似的, 利用我们已经知道分布的传导电流先求解相关量, 最后给出相关的结果. 下面看例题:
 \begin{example}
 
-一半径为$R_1$的长直导线上包裹着相对磁导率为$\mu_r$的磁介质, 外半径为$R_2$. 导线中通有电流$I$. 求磁介质内部磁场的磁感应强度大小和磁介质界面处磁化电流的大小和方向.
+一半径为$R_1$的长直导线上包裹着相对磁导率为$\mu_r>1$的磁介质, 外半径为$R_2$. 导线中通有电流$I$. 求磁介质内部磁场的磁感应强度大小和磁介质界面处磁化电流的大小和方向.
 
 首先由磁介质的安培环路定理:
 
@@ -138,22 +138,22 @@ B = \mu H = \frac{\mu_0\mu_r I}{2\pi r}, \; M = \chi_m H =\frac{(\mu_r-1) I}{2\p
 
 由面电流密度与磁化强度的关系, 内表面面磁化电流密度方向与传导电流相同:
 \[
-\alpha_1' = M_{in}  = \frac{(\mu_r-1) I}{2\pi r}
+\alpha_1' = M(R_1) = \frac{(\mu_r-1) I}{2\pi R_1}
 \]
 
 内表面总的电流大小为:
 \[
-I_1' = 2\pi R\alpha_1' = (\mu_r-1) I
+I_1' = 2\pi R_1\alpha_1' = (\mu_r-1) I
 \]
 
 同理, 外表面面磁化电流密度与传导电流方向相反:
 \[
-\alpha_2' = M_{out}  = \frac{(\mu_r-1) I}{2\pi r}
+\alpha_2' = M(R_2) = \frac{(\mu_r-1) I}{2\pi R_2}
 \]
 
 外表面总的电流大小为:
 \[
-I_2' = 2\pi R\alpha_2' = (\mu_r-1) I
+I_2' = 2\pi R_2\alpha_2' = (\mu_r-1) I
 \]
 \end{example}
 
@@ -163,7 +163,7 @@ I_2' = 2\pi R\alpha_2' = (\mu_r-1) I
 
 先来研究磁介质分子电流的微观机制. 我们考虑电子绕核做半径为$r$的圆周运动. 电子的角动量为
 \[
-L=\mathbf{r}\times m\mathbf{v}=mvr\hat{k}
+\mathbf L=\mathbf r\times m\mathbf v=mvr\hat{\mathbf k}
 \]
 单位时间内通过轨道横截面的电量为电流, 其大小为:
 \[
@@ -171,11 +171,11 @@ I=\frac{ev}{2\pi r}
 \]
 于是因为轨道运动带来的磁矩为:
 \[
-\mathbf{m}_{orb} = I \cdot \pi r^2 -\hat{k} = \frac{1}{2}evr\hat{k}
+\mathbf{m}_{orb} = -I\pi r^2\hat{\mathbf k}=-\frac{1}{2}evr\hat{\mathbf k}
 \]
 于是电子的轨道磁矩可以写为:
 \[
-\mathbf{m}_{orb}=\frac{e}{2m}\mathbf{L}
+\mathbf{m}_{orb}=-\frac{e}{2m}\mathbf{L}
 \]
 一般我们定义磁矩与角动量的比值为旋磁比:
 \[
@@ -184,7 +184,7 @@ I=\frac{ev}{2\pi r}
 
 以上的磁矩由电子的轨道运动带来. 电子同时具有一种叫做自旋角动的内禀性质, 与电子的运动情况没有关系, 是电子的固有属性. 并且, 自旋角动量找不到任何的经典运动对应, 也就是说自旋角动量不仅并非电子绕着自身旋转带来的角动量, 而且是一个纯粹的量子效应量. 其旋磁比为:
 \[
-\gamma_{spin} = -\frac{e}{m}, m_{spin} = -\frac{e}{m}\mathbf{S}
+\gamma_{spin}=-\frac{g_s e}{2m}\simeq-\frac{e}{m},\qquad \mathbf m_{spin}=\gamma_{spin}\mathbf S\quad(g_s\simeq2.0023)
 \]
 其中$S$是自旋角动量.
 
@@ -204,34 +204,7 @@ I=\frac{ev}{2\pi r}
 \]
 从而电子将以外磁场方向为轴产生进动. 这种进动的结果类似于一个反向的环形电流, 将产生一个反向的附加磁矩.
 
-当然我们也可以从电子受力的角度对这一现象做些简单分析. 设原子核带电为$Ze$, 电子带电为$-e$, 于是我们可以写出电子原有的运动方程:
-\[
-\frac{Ze^2}{4\pi\v_0r^2}=m\omega_0^2r
-\]
-加入外磁场后, 电子受到的洛伦兹力为:
-\[
-\mathbf{F} = -e\bm{\omega}\times{\mathbf{r}}\times{\mb{B}} = e[\mb{B}(\bm{\omega}\cdot \mb{r})-\mb{r}(\bm{\omega}\cdot \mb{B})]=-e\mb{r}(\bm{\omega}\cdot \mb{B})
-\]
-
-对于$\omega$,$B$同向的情况, 我们可以得到:
-\[
-\frac{Ze^2}{4\pi\v_0r^2}+e\omega rB=m\omega_0^2r
-\]
-取$\omega=\omega_0+\Delta \omega$, 并且在磁场不大的情况下, 有:
-\[
-\frac{Ze^2}{4\pi\v_0r^2}+e\omega rB +e\Delta \omega rB=m\omega_0^2r +2m\omega_0\Delta\omega+m(\Delta\omega)^2r
-\]
-两端第一项相消, 第三项均略去, 得到:
-\[
-\Delta \omega =\frac{eB}{2m}
-\]
-方向与$B$相同.
-
-对于反向的情况, 也会发现$\Delta \omega$与$B$方向相同. 考虑到电子带负电, 得到:
-\[
-\Delta m = \frac{er^2}{2}\Delta \omega =-\frac{e^2r^2}{4m}B
-\]
-新产生的磁矩与$B$的方向相反, 带来抗磁效应. 抗磁效应也会在撤去外电场后消失.
+上述进动本身只改变原有磁矩的方向. 抗磁响应来自外场对电子轨道运动的微小修正: 其诱导磁矩与外场反向. 经典拉莫尔模型可用于说明符号和量级, 但实际原子的抗磁性需要量子力学描述. 这里不把单个电子的轨道频率变化当作一般材料磁化率的定量推导.
 
 以上两种磁介质的磁性其实都很弱, 它们的$|\chi_m|\ll 1$, 而且往往都是常数.
 

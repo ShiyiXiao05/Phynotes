@@ -34,9 +34,7 @@
 
 电流元之间的作用力不满足牛顿第三定律, 表明动量和并不仅仅为电流或者质点所具有. 电场和磁场也可以携带动量与角动量, 而且电荷的动量与角动量的变化, 恰好由电磁场的角动量变化予以补偿, 从而维持了动量守恒和角动量守恒.
 
-国际上现行的电磁学单位制是MKSA制, 除了长度, 质量, 时间之外的第四个基本量是电流, 其单位被定义为安培. 安培的定义和绝对测量正是以安培定律为依据的.
-
-在安培定律中, 我们把比例系数$k$写作$\frac{\mu_0}{4\pi}$, 并取$\mu_0=4\pi\times10^{-7}$. 这样确定下来的单位即为安培.
+在SI单位制中, 电流的基本单位是安培. 自2019年起, 安培由元电荷的固定数值定义; 真空磁导率$\mu_0$须由实验确定, 数值约为$4\pi\times10^{-7}\,\mathrm{N/A^2}$. 在安培力公式中, 比例系数写作$k=\mu_0/(4\pi)$.
 
 
 \section{\texorpdfstring{磁感应强度\, 毕奥-萨伐尔定律}{磁感应强度 毕奥-萨伐尔定律}}
@@ -57,7 +55,7 @@
 
 $\d \mathbf{l}_1$本来是某个闭合回路的一部分, 整个回路$L_1$对于试探电流元$I_2 \d \mathbf{l}_2$的作用力是上式对$\d l_1$的积分:
 \[
-\d \mathbf{F}_2 = \frac{\mu_0}{4\pi}\oint_{L_1}\frac{I_2\d \mathbf{l}_2\times(\d \mathbf{l}_1\times {\hat{\mathbf{r}}_{12}})}{r^2_{12}}=\frac{\mu_0}{4\pi}I_2\d \mathbf{l}_2\times\oint_{L_1}\frac{I_1\d \mathbf{l}_1\times {\hat{\mathbf{r}}_{12}}}{r^2_{12}}
+\d \mathbf{F}_2 = \frac{\mu_0}{4\pi}\oint_{L_1}\frac{I_1I_2\d \mathbf{l}_2\times(\d \mathbf{l}_1\times {\hat{\mathbf{r}}_{12}})}{r^2_{12}}=\frac{\mu_0}{4\pi}I_2\d \mathbf{l}_2\times\oint_{L_1}\frac{I_1\d \mathbf{l}_1\times {\hat{\mathbf{r}}_{12}}}{r^2_{12}}
 \]
 
 于是按照上式, 我们定义:
@@ -94,7 +92,7 @@ l=-r\cos\theta,r_0=r\sin\theta\quad\Rightarrow\quad l=-r_0\cot\theta,\d l = \fra
 \]
 完成积分:
 \[
-B = \frac{\mu_0 I}{4\pi}(\cos\theta_1-\cos\theta_2)
+B = \frac{\mu_0 I}{4\pi r_0}(\cos\theta_1-\cos\theta_2)
 \]
 其中$\theta_1,\theta_2$分别是$A_1,A_2$与场点连线与导线电流的夹角.
 
@@ -111,7 +109,7 @@ B = \frac{\mu_0}{4\pi}\int_{-\infty}^{+\infty}\frac{I\sin\theta\d l}{r^2}=\frac{
 
 \insertfig{2-3.png}{圆线圈轴线上的磁场}{0.25}
 \[
-B=\oint\d B \cos \alpha =\oint \frac{\mu_0}{4\pi} \frac{I\d l}{r_0^2}\sin^2\alpha\cos\alpha = \frac{\mu_0}{4\pi}\frac{IR}{(R^2+r_0^2)^{\frac{3}{2}}}\oint \d l =\frac{\mu_0R^2I}{2(R^2+r_0^2)^{\frac{3}{2}}}
+B=\oint\d B_{\parallel}=\frac{\mu_0 I}{4\pi}\oint\frac{R\,\d l}{(R^2+r_0^2)^{3/2}}= \frac{\mu_0}{4\pi}\frac{IR}{(R^2+r_0^2)^{3/2}}\oint \d l =\frac{\mu_0R^2I}{2(R^2+r_0^2)^{\frac{3}{2}}}
 \]
 于是圆心处:
 \[
@@ -236,8 +234,8 @@ B \Delta l = \mu_0 n I \Delta l \Rightarrow B = \mu_0 nI
 
 \insertfig{2-8.png}{螺绕环的磁场}{0.25}
 
-我们在环面内沿着半径为$r$的路线积分, 有:\[
-2\pi Br =\mu_0 n I \cdot 2\pi R \Rightarrow B = \mu_0 nI
+我们在理想密绕环形线圈的环体内部沿半径为$r$的圆周积分, 设总匝数$N=2\pi Rn$, 有:\[
+2\pi Br =\mu_0 NI \Rightarrow B(r) = \frac{\mu_0 NI}{2\pi r}\simeq\mu_0nI\quad(r\simeq R)
 \]
 
 \end{example}
@@ -245,14 +243,14 @@ B \Delta l = \mu_0 n I \Delta l \Rightarrow B = \mu_0 nI
 \section{磁场的高斯定理}
 仿照电通量, 我们规定通过一个曲面$S$的磁感应通量, 简称磁通量为:
 \[
-\Phi_B= \oiint_S \mathbf{B}\cdot \d S
+\Phi_B= \iint_S \mathbf{B}\cdot \d\mathbf S
 \]
 载流导线产生的磁感应线是闭合的, 于是直觉告诉我们从一个闭合曲面$S$穿入的磁感应线必然从另一处穿出, 于是通过任意闭合曲面的磁通量恒等于$0$. 也就是:
 \begin{theorem}[磁场高斯定理]
 
 
 \[
-\oiint_S \mathbf{B}\cdot \d S =0
+\oiint_S \mathbf{B}\cdot \d\mathbf S=0
 \]
 这结论被称为磁场的高斯定理.
 \end{theorem}
@@ -290,14 +288,14 @@ F = q\mathbf{E}+q\mathbf{v}\times\mathbf{B}
 
 先来考察电流大小.$\Delta t$时间内通过某横截面的电量等于对应体积内所有载流子的电量总和:
 \[
-\Delta Q = n\Delta V =nq Su \Delta t
+\Delta Q = nq\Delta V =nq Su \Delta t
 \]
 
-于是根据定义, 电流强度为通过该截面的电量与截面面积的比值:
+于是根据定义, 电流强度为单位时间内通过该截面的电量:
 \[
-I = \frac{\Delta Q}{S}=nqSu
+I = \frac{\Delta Q}{\Delta t}=nqSu
 \]
-我们考察$\d \mathbf{l}$的一段短导线, 其方向与这段导线内的载流子定向运动速度方向相同. 该段导线所受洛伦兹力总和为:
+我们考察$\d \mathbf{l}$的一段短导线, 其方向取为约定电流方向; 以下以正载流子为例, 负载流子情形下漂移速度与约定电流方向相反. 该段导线所受洛伦兹力总和为:
 \[
 \d \mathbf{F} = nS\d l q \mathbf{u}\times \mathbf{B} = nqSu \d \mathbf{l}\times \mathbf{B} = I \d \mathbf{l}\times \mathbf{B}
 \]
@@ -311,7 +309,7 @@ I = \frac{\Delta Q}{S}=nqSu
 
 上式被称为安培力公式.
 
-显然, 如果载流回路闭合, 上式积分得$0$. 也就是说对闭合载流回路, 总安培力为$0$.
+若磁场均匀, 闭合回路满足$\oint\d\mathbf l=0$, 因而总安培力为$0$; 在非均匀磁场中, 闭合回路的合力一般可以不为零.
 
 接下来我们考察磁场对于载流线圈的力矩作用. 我们首先定义线圈的法线方向. 用右手四指环绕方向代表电流的回绕方向, 伸直的拇指即为法线矢量$n$的方向.
 
@@ -341,13 +339,13 @@ I = \frac{\Delta Q}{S}=nqSu
 根据我们的图示, 可以看出$AB$,$CD$两边所受的力对于轴线的力矩为$0$. 对于$BC$,$DA$其受力大小均为$IbB$. 其力臂大小为:
 $\frac{a}{2}\sin\theta$. 于是总的力矩大小为:
 \[
-L = 2IbB\cdot \frac{a}{2}\sin\theta = IabB\sin\theta = ISB\sin\theta = IS (\mathbf{n}\times \mathbf{B})
+\tau = 2IbB\cdot \frac{a}{2}\sin\theta = IabB\sin\theta = ISB\sin\theta,\qquad \boldsymbol\tau=\mathbf m\times\mathbf B,\quad \mathbf m=IS\mathbf n
 \]
 最后这个结果其实对任意的平面载流线圈都是成立的, 现在我们就来证明这一点.
 
 我们把线圈分割为一系列垂直于转轴的小窄条, 磁场对图示的两个电流元的作用力大小分别为:
 \[
-\d F_1 = I\d l_1 B\sin\theta_1 \;\d F_1 = I\d l_2 B\sin\theta_2
+\d F_1 = I\d l_1 B\sin\theta_1,\qquad \d F_2 = I\d l_2 B\sin\theta_2
 \]
 几何关系告诉我们:
 \[

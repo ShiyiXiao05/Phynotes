@@ -23,13 +23,13 @@
 
 考虑两个电介质界面: 我们取一个面元$\Delta S$, 以其为底面作一个柱形高斯面, 考虑通过这个高斯面的电位移通量, 根据高斯定理:
 \[
-\oiint \mb{D} \cdot \d \mathbf{S} = \iint_{S_1+S_2+S_{\text{侧}}} \mathbf{D}\cdot \d S = \sigma_f
+\oiint \mb{D} \cdot \d \mathbf{S} = \iint_{S_1+S_2+S_{\text{侧}}} \mathbf{D}\cdot \d\mathbf S = \sigma_f\Delta S
 \]
 其中$\sigma_f$为自由电荷面密度. 侧面积趋于$0$, 其通量也趋于$0$, 在$1,2$上的通量分别为:$-\mb{D}_1\cdot \mb{n} \Delta S$,$\mb{D}_2\cdot \mb{n} \Delta S$
 
 于是我们得到:
 \[
-(D_1-D_2) \cdot n = \sigma_f
+(\mathbf D_2-\mathbf D_1) \cdot \mathbf n = \sigma_f
 \]
 
 一般而言, 我们讨论的界面上都没有自由电荷分布. 于是我们得到:
@@ -145,7 +145,7 @@ Maxwell从当时的实验和理论分析中都没有发现电场的高斯定理�
 \Phi_D = \iint \mb{D} \cdot \d \mb{S} \Rightarrow \frac{\d \Phi_D}{\d t} = \iint \frac{\partial \mb{D}}{\partial t}\cdot \d \mb{S}
 \]
 
-Maxwell把$\frac{\partial \mb{D}}{\partial t}$称为位移电流, $\frac{\partial \mb{D}}{\partial t}$被称为位移电流密度, 位移电流与传导电流合在一起称为全电流. 全电流在任意情况下都是连续的.
+Maxwell把$\iint_S(\partial\mb D/\partial t)\cdot\d\mb S$称为位移电流, $\partial\mb D/\partial t$被称为位移电流密度, 位移电流与传导电流合在一起称为全电流. 全电流在任意情况下都是连续的.
 
 上述假设被称为位移电流假设. 位移电流的引进虽然不存在逻辑上的矛盾, 但是其正确与否仍然有待进一步的实验事实来证明.
 
@@ -154,7 +154,7 @@ Maxwell把$\frac{\partial \mb{D}}{\partial t}$称为位移电流, $\frac{\partia
 \oint \mb H \cdot \d \mb{l} = \iint_S (\mb{j}_0+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S}
 \]
 
-为了正确地理解位移电流的实质, 我们利用$\mb = \v_0 \mb{E} + \mb{P}$把位移电流分为两部分:
+为了正确地理解位移电流的实质, 我们利用$\mb D = \v_0 \mb{E} + \mb{P}$把位移电流分为两部分:
 \[
 j_d = \v_0 \frac{\partial \mb{E}}{\partial t}+\frac{\partial \mb{P}}{\partial t}
 \]
@@ -194,7 +194,7 @@ j_d = \v_0 \frac{\partial \mb{E}}{\partial t}+\frac{\partial \mb{P}}{\partial t}
 
 \textbf{Maxwell 方程的微分形式}
 \begin{align*}
-\nabla\cdot\mathbf{D} &= \frac{\rho_f}{\varepsilon_0}, \\[4pt]
+\nabla\cdot\mathbf{D} &= \rho_f, \\[4pt]
 \nabla\cdot\mathbf{B} &= 0, \\[4pt]
 \nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}, \\[4pt]
 \nabla\times\mathbf{H} &= \mathbf{J}_f + \frac{\partial\mathbf{D}}{\partial t}.
@@ -268,7 +268,7 @@ c= \frac{1}{\sqrt{\v_0\mu_0}}
 \]
 于是我们可以定义折射率:
 \[
-n = \frac{v}{c} = \sqrt{\mu_r\v_r}
+n = \frac{c}{v} = \sqrt{\mu_r\v_r}
 \]
 
 这正是Maxwell从电磁波理论出发, 对光学所做的一些初步研究. 对于一般的材料,$\mu_r\approx 1$. 于是我们可以近似认为:
@@ -326,21 +326,21 @@ $\mb{E}_0,\; \mb{B}_0$都是常矢量.
   \item $\mb{E}$和$\mb{B}$都与电磁波的传播方向垂直, 电磁波是横波;
   \item $\mb{E}$和$\mb{B}$相互垂直, 且$\mb{E}\times\mb{B}$总是沿着传播方向$\mb{k}$的;
   \item $\mb{E}$和$\mb{B}$之间没有相位差;
-  \item $\frac{E}{B}=v$,$v=\frac{1}{\sqrt{\v_r\mu_r\v_0\mu}}$
+  \item $\frac{E}{B}=v$,$v=\frac{1}{\sqrt{\v_r\mu_r\v_0\mu_0}}$
 \end{itemize}
 
 
-下面我们介绍一下振荡偶极子电磁波. 振荡电偶极子是电磁辐射的基本源之一, 尤其是在天线和微观粒子中. 这种电磁波一般源于一个电偶极矩以余弦形式变化的电偶极子:
+下面我们介绍一下振荡偶极子电磁波. 以下振荡偶极子辐射公式限于真空. 振荡电偶极子是电磁辐射的基本源之一, 尤其是在天线和微观粒子中. 这种电磁波可由随时间作简谐变化的电偶极矩产生, 取$p_0=ql_0$且$k=\omega/c$:
 
 \[
-p = ql_0\cos(\omega t)
+p(t) = p_0\cos(\omega t)
 \]
 远离震荡电偶极子的区域称为辐射区, 这里有远场条件:$r\gg\lambda\gg l_0$. 可以证明辐射区电场强度和磁感应强度有如下形式:
 \begin{align*}
-E &= E_\theta = \frac{\omega^2 p_0}{4\pi\varepsilon_0v^2}\,
+E &= E_\theta = \frac{\omega^2 p_0}{4\pi\varepsilon_0c^2}\,
 \frac{\sin\theta}{r}\,
 \cos(\omega t - kr), \\[6pt]
-B &= B_\varphi = \frac{\mu_0 \omega^2 p_0}{4\pi v}\,
+B &= B_\varphi = \frac{\mu_0 \omega^2 p_0}{4\pi c}\,
 \frac{\sin\theta}{r}\,
 \cos(\omega t - kr), \\[6pt]
 E_r &= B_r = E_\varphi = B_\theta  = 0.
@@ -411,35 +411,29 @@ E_r &= B_r = E_\varphi = B_\theta  = 0.
 \[
 \mb{E}\cdot (\nabla \times \mb{H}) = \mb{H}\cdot (-\frac{\partial\mathbf{B}}{\partial t})- \nabla \cdot(\mb{E} \times \mb{H})
 \]
-把所有这些式子全部代入, 得到:
+把这些式子代入, 得到坡印廷定理的局域形式:
 \[
-\mb{f}\cdot \mb{v} = \mb{E} \cdot \mb{J} -\mb{H}\cdot \frac{\partial\mathbf{B}}{\partial t}- \mb{E} \cdot\frac{\partial\mathbf{D}}{\partial t}  - \nabla \cdot(\mb{E} \times \mb{H})
+\mb E\cdot\mb J+\nabla\cdot(\mb E\times\mb H)
++\mb E\cdot\frac{\partial\mb D}{\partial t}
++\mb H\cdot\frac{\partial\mb B}{\partial t}=0.
 \]
-
-对各向同性线性介质, 有:
+对线性、无色散且参数不随时间变化的介质, 后两项是电磁场能量密度的时间导数:
 \[
-\mb{D} = \v \mb{E}, \quad \mb{B} = \mu \mb{H}
+\mb E\cdot\frac{\partial\mb D}{\partial t}
++\mb H\cdot\frac{\partial\mb B}{\partial t}
+=\frac{\partial}{\partial t}
+\left(\frac{\mb E\cdot\mb D+\mb B\cdot\mb H}{2}\right).
 \]
-
-则:
+因此$\partial w/\partial t+\nabla\cdot\mb S+\mb J\cdot\mb E=0$, 其中
 \[
-\mb{H}\cdot \frac{\partial\mathbf{B}}{\partial t} + \mb{E} \cdot\frac{\partial\mathbf{D}}{\partial t} = \frac{1}{\mu}\mb{B}\cdot \frac{\partial\mathbf{B}}{\partial t} +  \frac{1}{\v}\mb{D} \cdot\frac{\partial\mathbf{D}}{\partial t} = \frac{\partial}{\partial t}(\frac{1}{2\mu}B^2+\frac{1}{2\v}D^2) = \frac{\partial}{\partial t}(\frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2\v}\mb{B}\cdot\mb{H})
-\]
-
-所以我们把这些内容代回到最初的能量守恒公式:
-\[
--\nabla \cdot(\mb{E} \times \mb{H})+\nabla \cdot \mb{S} + \frac{\partial w}{\partial t} - \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H} = 0
-\]
-
-这样对比之后, 我们就可以得到电磁场的能流密度矢量和能量密度:
-\[
-\mb{S} = \mb{E} \times \mb{H}, \quad w = \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H}
+\mb S=\mb E\times\mb H,\qquad
+w=\frac{1}{2}(\mb E\cdot\mb D+\mb B\cdot\mb H).
 \]
 其中的能流密度矢量也被称为坡印廷矢量.
 
 我们来看前面提到的两种电磁波的情况. 对于真空中的平面电磁波:
 \[
-w = \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H} = \frac{1}{2}(\v_0E^2+\mu_0B^2) = \v_0E^2 = \frac{1}{\mu_0}B^2,
+w = \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H} = \frac{1}{2}(\v_0E^2+B^2/\mu_0) = \v_0E^2 = \frac{1}{\mu_0}B^2,
 \]
 \[
 \mb{S} = \mb{E} \times \mb{H} = EH\hat{k}
@@ -455,19 +449,19 @@ I = \frac{1}{2}\sqrt{\frac{\v_0}{\mu_0}}E_0^2
 
 对于振荡偶极子电磁波, 我们同样可以得到:
 \[
-\mb{S} =\frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0v^3}\,
+\mb{S} =\frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0c^3}\,
 \frac{\sin^2\theta}{r^2}\,
 \cos^2(\omega t - kr)\hat{e}_k,
 \]
 \[
-I = \frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0v^3}\,
+I = \frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0c^3}\,
 \frac{\sin^2\theta}{r^2}\,
-\overline{\cos^2(\omega t - kr)} = \frac{\omega^4 p_0^2}{32\pi^2\varepsilon_0v^3}\,
+\overline{\cos^2(\omega t - kr)} = \frac{\omega^4 p_0^2}{32\pi^2\varepsilon_0c^3}\,
 \frac{\sin^2\theta}{r^2}\,
 \]
 对全空间积分, 得到总辐射功率:
 \[
-P = \int I r^2\sin\theta\d\theta\d\varphi = \frac{\omega^4p_0^2}{12\pi\omega\v_0v^3}
+P = \int I r^2\sin\theta\d\theta\d\varphi = \frac{\omega^4p_0^2}{12\pi\v_0c^3}
 \]
 
 \section{电磁场的相对论变换}
@@ -510,7 +504,7 @@ E_0 = \frac{\sigma_0}{\v_0}\hat{y}
   \end{minipage}
 \end{figure}
 
-现在我们考察电容器在以$\v_0$的速度向右运动的参考系中的情况. 在该参考系中电容器板向左运动, 但电场仍然取下面的形式:
+现在我们考察电容器在以$v_0$的速度向右运动的参考系中的情况. 在该参考系中电容器板向左运动, 但电场仍然取下面的形式:
 \[
 E = \frac{\sigma}{\v_0}\hat{y}
 \]
@@ -572,142 +566,25 @@ z_0 &= z = R_z.
 
 \end{example}
 
-前面讨论的还不是变换规则最一般的形式, 因为我们是由电荷静止的$S_0$系开始推到的, 在这个参考系中没有磁场. 我们需考虑电场磁场均存在的某个参考系. 我们考虑$S$系. 对于电场:
+上面的例子从电荷静止的参考系出发, 可推广到电场和磁场都存在的情形. 设$S'$相对$S$沿$x$轴正方向以速度$u$运动, $\gamma=1/\sqrt{1-u^2/c^2}$. 两惯性系中同一事件处的电磁场满足:
 \[
-E_y = \frac{\sigma}{\v_0}
+\begin{aligned}
+E'_x&=E_x, & E'_y&=\gamma(E_y-uB_z), & E'_z&=\gamma(E_z+uB_y),\\
+B'_x&=B_x, & B'_y&=\gamma(B_y+uE_z/c^2), & B'_z&=\gamma(B_z-uE_y/c^2).
+\end{aligned}
 \]
-
-注意到表面电流的形式为
+等价地, 平行于相对速度的场分量不变, 垂直分量满足
 \[
-\mathbf K = \mp \sigma v_0 \hat x
+\mb E'_\perp=\gamma(\mb E_\perp+\mb u\times\mb B),\qquad
+\mb B'_\perp=\gamma\left(\mb B_\perp-\frac{\mb u\times\mb E}{c^2}\right).
 \]
-
-对于这样的表面电流, 我们先分析一个这样的表面产生的磁场. 根据安培环路定理, 我们对称地取图示的环路, 得到:
-
-\insertfig{5-9.png}{无限大电流平面产生磁场}{0.5}
+若电荷在$S$中静止, 则$S'$中电荷速度为$-\mb u$, 磁场满足$\mb B'=-(\mb u\times\mb E')/c^2$. 因此, 在观察匀速运动点电荷的参考系中, 若电荷速度为$\mb v$, 则
 \[
-2Bl = \mu_0Kl \Rightarrow\mathbf B(z>0)=-\dfrac{\mu_0 K}{2}\,\hat y,\quad \mathbf B(z<0)=+\dfrac{\mu_0 K}{2}\,\hat y
+\mb B=\frac{\mb v\times\mb E}{c^2}.
 \]
-
-对于本题, 两个磁场叠加, 得到
+这里$\mb R$表示从电荷的瞬时位置指向场点的矢量, $\theta$为$\mb v$与$\mb R$的夹角. 匀速运动电荷在真空中的电场为
 \[
-B_z = -\mu_0 \sigma v_0
+\mb E=\frac{q}{4\pi\v_0}\frac{(1-v^2/c^2)\mb R}
+{R^3[1-(v^2/c^2)\sin^2\theta]^{3/2}}.
 \]
-
-在第三个参考系 $\overline{S}$ 中---该参考系相对 $S_0$ 向右以速度 $v$ 运动, 场是
-\begin{align*}
-\overline{\mathbf E}_y &= \frac{\overline{\sigma}}{\varepsilon_0}, \qquad
-\overline{\mathbf B}_z = -\mu_0 \overline{\sigma} v
-\end{align*}
-
-式中, $\overline v$ 是 $S$ 相对于 $S_0$ 的速度:
-\begin{align*}
-\overline v &= \frac{v + v_0}{1 + v v_0 / c^2},
-\qquad
-\overline{\gamma} = \frac{1}{\sqrt{1 - \overline v^2 / c^2}}
-\end{align*}
-
-而
-\begin{align*}
-\overline \sigma = \overline \gamma \sigma_0
-\end{align*}
-
-剩下的只是用 $\mathbf E$ 和 $\mathbf B$表示
-$\overline{\mathbf E}$ 和 $\overline{\mathbf B}$:
-\begin{align*}
-\overline E_y &= \left(\frac{\overline{\gamma}}{\gamma_0}\right)\frac{\sigma}{\varepsilon_0},
-\qquad
-\overline B_z = -\left(\frac{\overline{\gamma}}{\gamma_0}\right)\mu_0 \sigma v
-\end{align*}
-
-通过简单的代数运算, 得到
-\begin{align*}
-\frac{\overline{\gamma}}{\gamma_0}
-&= \frac{\sqrt{1 - v_0^2 / c^2}}{\sqrt{1 - \overline v^2 / c^2}}
-   = \frac{1 + v v_0 / c^2}{\sqrt{1 - v^2 / c^2}}
-   = \gamma \left( 1 + \frac{v v_0}{c^2} \right)
-\end{align*}
-
-式中, 与通常一样
-\begin{align*}
-\gamma = \frac{1}{\sqrt{1 - v^2 / c^2}}
-\end{align*}
-
-于是我们代入得到:
-\[
-\overline{E_y} = \gamma(E_y-vB_z)
-\]
-\[
-\overline{B_z} = \gamma(B_z-\frac{v}{c^2}E_y)
-\]
-这里利用了:
-\[
-c^2 = \frac{1}{\mu_0\v_0}
-\]
-
-同样的方法, 只需要将平行板电容器由平行$xz$平面改为平行$xy$平面就可以得到剩下两个垂直分量的变换公式:
-\[
-\overline{E_z} = \gamma(E_z+vB_y)
-\]
-\[
-\overline{B_z} = \gamma(B_y+\frac{v}{c^2}E_z)
-\]
-对于$x$分量我们已经证明了电场强度的$x$分量是不变的. 下面我们利用螺线管考察磁场的$x$分量.
-\insertfig{5-10.png}{由螺线管考察磁场}{0.5}
-
-在$S$系中螺线管静止, 螺线管内的磁场是:
-\[
-B_x = \mu_0 nI
-\]
-在$\overline{S}$系中, 因为收缩效应单位长度上的匝数增加:
-\[
-\overline{n} = \gamma n
-\]
-另一方面, 时间的延缓效应导致$\d \tau$时间内通过的电荷现在在$\d t$时间内通过, 于是电流将会减小:
-\[
-\overline{I} = \frac{1}{\gamma}I
-\]
-于是得到:
-\[
-\overline{B_x} = B_x
-\]
-
-现在我们可以得到最终的变换公式了:
-\begin{align*}
-E_x &= E'_x,\\[4pt]
-E_y &= \gamma\bigl(E'_y + v B'_z\bigr),\\[4pt]
-E_z &= \gamma\bigl(E'_z - v B'_y\bigr),
-\end{align*}
-\begin{align*}
-B_x &= B'_x,\\[4pt]
-B_y &= \gamma\Bigl(B'_y - \frac{v}{c^2}E'_z\Bigr),\\[4pt]
-B_z &= \gamma\Bigl(B'_z + \frac{v}{c^2}E'_y\Bigr).
-\end{align*}
-
-特殊情况:
-
-(1)$S$系中无磁场, 则:
-\[
-\overline{B} = -\frac{1}{c^2}(\mb{v}\times \overline{\mb{E}})
-\]
-
-(2)$S$系中无电场, 则:
-\[
-\overline{E} = \mb{v}\times\overline{\mb{B}}
-\]
-
-\begin{example}
-  求匀速运动的点电荷的磁场.
-
-  注意到电荷静止参考系中没有磁场, 于是:
-  \[
-  \mb{B} = -\frac{1}{c^2}(\mb{v}\times \overline{\mb{E}}) = -\frac{\mu_0}{4\pi}\frac{qv(1-v^2/c^2)\sin\theta}{[1-(v^2/c^2)\sin^2\theta]^{3/2}} \frac{\hat{\Phi}}{R^2}
-  \]
-
-  低速情况下, 上式可以简化成:
-  \[
-  \mb{B} = \frac{\mu_0}{4\pi}\frac{q\mb{v}\times\mb{R}}{R^3}
-  \]
-
-  由此我们也可以大致看出, 在一个运动电荷对另一个静止电荷作用的过程中, 磁力与电力的比值大约是$\frac{v^2}{c^2}$量级. 低速情况下磁力远小于电力.
-\end{example}
+低速极限下, $\mb E$趋于库仑场, $\mb B\simeq(\mu_0q/4\pi)\mb v\times\mb R/R^3$. 若速度为$\mb w$的试探电荷受到该场作用, 磁力与电力之比的量级至多为$vw/c^2$; 对静止试探电荷, 磁力为零.
