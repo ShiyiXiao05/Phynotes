@@ -15,7 +15,7 @@
 \rho \Delta \theta \approx \lambda
 \]
 
-其中$\lambda$为光的波长, $\Delta \theta$为中心衍射斑的角宽度, $\rho$为狭缝的宽度. 其中$\Delta \theta$越大, 说明衍射效应越强, 因此我们可以简单地说, 狭缝宽度越小, 衍射现象越明显, 中心衍射斑铺展的越开. 上面这个式子我们会在后面给出推导.
+其中$\lambda$为光的波长, $\Delta \theta$为中心衍射斑从中心到首个暗纹的半角宽度, $\rho$为狭缝的宽度. 其中$\Delta \theta$越大, 说明衍射效应越强, 因此我们可以简单地说, 狭缝宽度越小, 衍射现象越明显, 中心衍射斑铺展的越开. 上面这个式子我们会在后面给出推导.
 
 \insertfig{3-2.png}{用激光束观察衍射现象}{0.5}
 
@@ -29,7 +29,7 @@ U(r,t) = \frac{A}{r}\cos(\omega t-kr-\varphi_0)
 \]
 复数形式为:
 \[
-U(r,t) = \frac{A}{r}e^{ikr}\cdot e^{-i\omega t}
+\widetilde U(r,t) = \frac{A}{r}e^{i(kr+\varphi_0)}e^{-i\omega t},\qquad U(r,t)=\operatorname{Re}\widetilde U(r,t)
 \]
 
 \insertfig{3-3.png}{衍射积分式中各量的说明}{0.4}
@@ -116,7 +116,7 @@ a\sin\theta = k\lambda , \quad k = \pm 1, \pm 2,\dots
 \]
 时, 衍射强度$I(\theta)=0$, 出现暗纹. 上式称为单缝衍射零点条件.
 
-(3)次极大. $\operatorname{sinc}$函数在相邻两个零点间存在一个极大值, 这个位置由:$\frac{\d(\operatorname{sinc}(x))}{\d x} = 0 \Rightarrow x = \tan x$这个超越方程给出, 其数值结果可以被列表如下:
+(3)次极大. $\operatorname{sinc}^2(x)$在相邻两个零点间存在一个极大值, 这个位置由:$\frac{\d(\operatorname{sinc}(x))}{\d x} = 0 \Rightarrow x = \tan x$这个超越方程给出, 其数值结果可以被列表如下:
 
 \begin{table}[h!]
 \centering
@@ -135,7 +135,7 @@ $\sin\theta$
 & $\pm 2.46\,\frac{\lambda}{a}$
 & $\pm 3.47\,\frac{\lambda}{a}$ \\
 \hline
-\multirow{2}{*}{$\operatorname{\operatorname{sinc}}(x)$}
+\multirow{2}{*}{$|\operatorname{sinc}(x)|$}
 & 0.22 & 0.13 & 0.09 \\
 \cline{2-4}
 & $4.7\%$ & $1.7\%$ & $0.8\%$ \\
@@ -332,7 +332,7 @@ D_\theta = \frac{\d \theta}{\d \lambda}
 \]
 在光栅中, 我们用于分光的是各级别的主极大(除0级):
 \[
-d\sin\theta = k \lambda \Rightarrow d\cos\theta\d\theta = k \d \lambda \Rightarrow D =\frac{k}{d \cos\theta}
+d\sin\theta = k \lambda \Rightarrow d\cos\theta\d\theta = k \d \lambda \Rightarrow D_\theta =\frac{k}{d \cos\theta}
 \]
 
 考虑到每个主极大有自身的半角宽度, 我们之前已经求出:
@@ -342,7 +342,7 @@ d\sin\theta = k \lambda \Rightarrow d\cos\theta\d\theta = k \d \lambda \Rightarr
 
 因此角间隔为$\delta \theta$两个主极大就会发生重叠, 根据瑞利判据, 我们令:
 \[
-\delta \theta = D_\theta = \frac{k}{d\cos\theta_k}\delta \lambda, \quad \Delta \theta_k = \frac{\lambda}{Nd \cos\theta_k}
+\delta \theta = D_\theta\,\delta \lambda = \frac{k}{d\cos\theta_k}\delta \lambda, \quad \Delta \theta_k = \frac{\lambda}{Nd \cos\theta_k}
 \]
 两者相等. 前者是我们根据角色散本领推导出的两主极大之间的角差距, 后者是主极大本身的半角宽度, 瑞利判据告诉我们两者相等的时候恰好可以分辨. 于是我们得到:
 \[

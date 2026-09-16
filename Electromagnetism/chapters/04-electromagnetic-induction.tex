@@ -75,7 +75,7 @@ V=-\int_a^b \mathbf{E} \cdot \d \mathbf{l} = \int_a^b f_s \cdot \d \mathbf{l} = 
 
 前两项相减得到$-\d \Phi$, 移项得到:
 \[
--\d \Phi = -\oint_L \mathbf{B}\cdot (\d \mb{l}\times \mathbf{v}) \d t = \oint_L (\mathbf{v}\times \mathbf{B})\cdot \d \mathbf{l} \d t
+-\d \Phi = \oint_L \mathbf{B}\cdot (\d \mb{l}\times \mathbf{v}) \d t = \oint_L (\mathbf{v}\times \mathbf{B})\cdot \d \mathbf{l} \d t
 \]
 两边同时除以$\d t$
 
@@ -256,11 +256,11 @@ I = I_0 e^{-\frac{R}{L}t}
 
 在以上的讨论中, 我们发现电容上的电压和电荷不能瞬间变化, 电感中的电流不能瞬间变化. 否则会产生无穷大电动势.
 
-(3)$R$=0.这是一个$LC$电路. 解上述方程, 我们得到:
+(3)$R=0$. 这是一个$LC$电路. 若电源电动势$\v$保持不变, 上述方程的平衡电荷为$q_{\mathrm{eq}}=C\v$; 围绕该平衡值的解为:
 \[
-q=q_0\cos(\omega_0 t+\phi),\quad \omega_0 = \frac{1}{\sqrt{LC}}
+q=C\v+A\cos(\omega_0 t+\phi),\quad \omega_0 = \frac{1}{\sqrt{LC}}
 \]
-也就是说, 在这种电路中电荷和电流都将以余弦形式震荡, 形成我们后面会讨论的产生电磁波的物质基础.
+断开电源时取$\v=0$, 电荷围绕$0$振荡, 电流相对电荷有四分之一周期的相位差. 理想$LC$电路中电场能和磁场能周期性地相互转化.
 
 (4)一般情况. 这时候, 我们把整个方程化为标准的二阶常系数微分方程:
 \[

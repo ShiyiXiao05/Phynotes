@@ -159,7 +159,7 @@ Maxwell把$\iint_S(\partial\mb D/\partial t)\cdot\d\mb S$称为位移电流, $\p
 j_d = \v_0 \frac{\partial \mb{E}}{\partial t}+\frac{\partial \mb{P}}{\partial t}
 \]
 
-式子中的第一项与电场强度随时间的变化率有关, 即使在真空中也存在; 第二项是极化强度的变化引起, 而极化强度的变化正式分子内部的束缚电荷的微观运动所引起的. 事实上分子电流定向排列形成的磁化电流也是束缚电荷的微观运动所引起的. 传导电流, 极化电流和磁化电流显然是可以激发电场的. 然而, 最基本的第一项完全由于电场变化产生, 与电荷的运动无关.
+式子中的第一项与电场强度随时间的变化率有关, 即使在真空中也存在; 第二项是极化强度的变化引起, 而极化强度的变化正式分子内部的束缚电荷的微观运动所引起的. 事实上分子电流定向排列形成的磁化电流也是束缚电荷的微观运动所引起的. 传导电流、极化电流和磁化电流都可以产生磁场. 然而, 最基本的第一项完全由于电场变化产生, 与电荷的运动无关.
 
 因此Maxwell的位移电流假设的实质是: 随时间变化的电场和电流会激发磁场. 而我们先前所做的涡旋电场假设, 其实质是随时间变化的磁场会激发电场. 这两个假设共同作用, 就暗含着电磁场会在空间中以波动形式传播的结论. 这正是Maxwell的第一个成功预言.
 
@@ -370,7 +370,7 @@ E_r &= B_r = E_\varphi = B_\theta  = 0.
 
 利用高斯公式把第二项化成体积分, 有:
 \[
-\iiint_V \mb{f}\cdot \mb{v} \d V + \iiint_V (\nabla \cdot \mb{S}) +\iiint_V  \frac{\partial w}{\partial t}\d V = 0
+\iiint_V \mb{f}\cdot \mb{v}\,\d V + \iiint_V (\nabla \cdot \mb{S})\,\d V +\iiint_V \frac{\partial w}{\partial t}\,\d V = 0
 \]
 
 要求对空间中任意体积均成立, 则有:
@@ -449,15 +449,15 @@ I = \frac{1}{2}\sqrt{\frac{\v_0}{\mu_0}}E_0^2
 
 对于振荡偶极子电磁波, 我们同样可以得到:
 \[
-\mb{S} =\frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0c^3}\,
+\mb{S} =\frac{1}{\mu_0} \mb{E}\times\mb{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0c^3}\,
 \frac{\sin^2\theta}{r^2}\,
 \cos^2(\omega t - kr)\hat{e}_k,
 \]
 \[
-I = \frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0c^3}\,
+I = \langle|\mb{S}|\rangle = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0c^3}\,
 \frac{\sin^2\theta}{r^2}\,
 \overline{\cos^2(\omega t - kr)} = \frac{\omega^4 p_0^2}{32\pi^2\varepsilon_0c^3}\,
-\frac{\sin^2\theta}{r^2}\,
+\frac{\sin^2\theta}{r^2}.
 \]
 对全空间积分, 得到总辐射功率:
 \[
