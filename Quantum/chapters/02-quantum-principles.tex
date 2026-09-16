@@ -1,0 +1,1958 @@
+\chapter{量子力学基本原理}
+\section{波函数与不确定性原理}
+在前一节中我们介绍的电子双缝干涉实验, 用经典物理学的头脑去理解它实属困难, 但用数学工具去描绘它并不困难. 波动光学中我们曾经引入过复振幅的概念, 读者若感到对此陌生可以参考相关的光学书籍. 在光学中复振幅$A$的绝对值的平方等于光的强度$I$, 在量子力学中我们也需要建立某种类似复振幅的概念, 但它的绝对值的平方等于粒子出现的概率$P$:
+\[
+P(x)=\psi^{*}\psi(x) = |\psi(x)|^2
+\]
+
+其中的$\psi$被称为概率幅, 与光波的复振幅一样, 概率幅也是复数, 包含模和相位两个部分:
+\[
+\psi(x) = |\psi(x)|e^{\i\varphi(x)}
+\]
+我们看到概率幅往往是某个或者某些变量的函数, 故与光学类比, 概率幅亦称为波函数. 注意到概率幅是量子系统经过特定装置制备出来的量子状态的描述, 它不一定具有波的形式. 
+
+对于一个三维空间中的自由粒子, 德布罗意波代表的是一列无穷长的平面波, 它有确定的能量和动量, 却分布于全空间. 也就是说, 粒子的位置是完全不确定的. 在更加实际的问题中, 粒子的位置是部分不确定的, 其可以出现在一定的区域内, 例如$\Delta x\Delta y\Delta z$, 对于粒子的动量角动量等力学量等也是一样. 海森堡经过计算, 发现物理量的不确定度受到普朗克常量支配. 他提出微观粒子的位置和动量二者的不确定度, 满足:
+\[
+\Delta x \Delta p_x \geq \frac{\hbar}{2}, \quad \Delta y \Delta p_y \geq \frac{\hbar}{2}, \quad \Delta z \Delta p_z \geq \frac{\hbar}{2}
+\]
+我们将在下一小节看到这个式子是如何被推导出来的. 
+
+\section{算符}
+\subsection{算符的引入}
+我们之前讨论的波函数$\psi(x)$的绝对值的平方给出了粒子的概率按照概率$x$的分布. 事实上我们也可以按照动量来求解一个波函数$C(p)$, 它的绝对值的平方将会给出粒子的概率按照动量$p$的分布. 我们说两者属于不同的表象, 前者是波函数的$x$表象, 后者是波函数的$p$表象. 在经典统计物理学中人们给出同时按照$x$, $p$两者分布的分布函数, 如玻尔兹曼-麦克斯韦分布, 但是在量子力学中这是不可能的, 因为海森堡不确定度关系的存在, $x$和$p$不可能同时精确给出. 
+
+\insertfig{figure9.png}{波包和频谱}{0.3}
+对于一个实际的波函数, 我们可以看作有一系列不同动量(波长)的粒子, 他们的波函数进行叠加, 从而形成一个波包. 叠加时不同动量的粒子对于该波函数的贡献不同, 有的对波函数贡献大, 有的贡献小, 因此我们可以像图1.9这样绘制出一个频谱图来表示其中各个成分的多少. 可以想见的是, 当频域中$p_0$之外的部分的贡献越来越少时, 频谱图将会变得越来越尖锐, 以至于成分中仅剩下$p_0$时, 将会出现一个高度无穷高但宽度无穷窄的尖峰, 这表明此时这个波函数所对应的系统的动量是完全确定的. 在我们逐步剔除其余成分的过程中, 波包的图象会变得越来越扁平, 其在$x$轴上的铺展程度将越来越高, 各个峰之间的高度差别将越来越小. 当系统的动量被完全确定下来之后, 这时波包就会弥散到全空间中, 其图象与我们常见的三角函数的图象一致. 
+
+我们以高斯波包为例子, 介绍不确定度关系的导出和算符. 首先, 高斯型的波函数可以被写作:
+\[
+\psi(x) = Ae^{-ax^2/2}e^{\i p_{0}x/\hbar}
+\]
+式子中的归一化因子$A=(\frac{\pi}{a})^{-\frac{1}{4}}$.高斯型函数的好处在于它的傅里叶变换式也是高斯函数且能够做严格的微积分运算. 
+
+接下来我们所做的一些数学推导涉及傅里叶变换等知识, 对此感到存在阅读困难的读者可以先行跳过, 这并不影响对后面的理解, 读者可以直接关注我们运算的结果, 为完整性起见我们在这里还是给出推导. 
+
+上面的式子也可以用动量$p$来表达, 根据傅里叶变换式:
+\begin{align*}
+\psi(x) & = \int_{-\infty}^{\infty}C(p)e^{\i px/\hbar}\frac{\d p}{\sqrt{2\pi \hbar}}= \left( \frac{a}{\pi} \right)^{1/4} e^{-ax^2/2} e^{\i p_0x/\hbar} \\
+C(p) & = \int_{-\infty}^{\infty}\psi(x)e^{-\i px/\hbar}\frac{\d x}{\sqrt{2\pi \hbar}}=\sqrt{\frac{1}{a\hbar}}Ae^{-\frac{(p-p_0)^2}{2a\hbar^2}} = \sqrt{\frac{1}{\hbar \sqrt{\pi a}}} e^{-(p-p_0)^2 / 2a\hbar^2} \\
+\end{align*}
+
+据此, 我们可以计算$x$和$p$的方差：
+\[
+\overline{x^2} = \int_{-\infty}^{\infty} \psi^*(x) x^2 \psi(x) \d x = \sqrt{\frac{a}{\pi}} \int_{-\infty}^{\infty} x^2 e^{-ax^2} dx = \sqrt{\frac{a}{\pi}} \frac{\sqrt{\pi}}{2 a^{3/2}} = \frac{1}{2a} 
+\]
+\begin{align*}
+\overline{(p-p_0)^2} &= \int_{-\infty}^{\infty} C^*(p) (p-p_0)^2 C(p) \d p = \frac{\int_{-\infty}^{\infty} (p-p_0)^2 e^{-(p-p_0)^2 / a\hbar^2} \d p}{\hbar \sqrt{\pi a}}  = \frac{1}{\hbar \sqrt{\pi a}} \frac{\sqrt{\pi} (a\hbar^2)^{3/2}}{2} = \frac{\hbar^2 a}{2}.
+\end{align*}
+\[
+\Delta x = \sqrt{\overline{x^2}}= \frac{1}{\sqrt{2a}}, \quad \Delta p = \sqrt{\overline{(p-p_0)^2}} = \hbar\sqrt{\frac{a}{2}}, \Delta x \Delta p =\frac{\hbar}{2}
+\]
+
+这样我们就发现了, 高斯波包是能够满足不确定性关系等号的波包形式. 
+ 
+现在我们进一步考察动量的平均值应该如何计算. 我们先考虑一个计算方法：
+\[
+\overline{p} \stackrel{?}{=} \int_{-\infty}^{\infty} \psi^*(x) p(x) \psi(x) \d x
+\]
+
+这计算方法并不可行, 因为$p(x)$实际上是代表坐标取$x$值时$p$的值, 但是根据海森堡不确定性关系, 这是没有意义的！因此我们必须在$p$表象中计算:
+\[
+\overline{p} = \int_{-\infty}^{\infty} C^*(p) p C(p) \d p
+\]
+然而假若有某个物理量既是$x$的函数又是$p$的函数, 例如能量$E=\frac{p^2}{2m}+V(x)$, 怎么办？我们看一个技巧, 把我们之前得到的表象变换公式（傅里叶变换）：
+\[
+C(p) = \int_{-\infty}^{\infty} \psi(x) e^{-\i px/\hbar} \frac{\d x}{\sqrt{2\pi\hbar}}
+\]
+代入计算平均值的公式:
+\begin{align*}
+\bar{p} &= \int_{-\infty}^{\infty} C^*(p) p C(p) \d p \\
+&= \int_{-\infty}^{\infty} \left[ \int_{-\infty}^{\infty} \psi(x) e^{-\i px/\hbar} \frac{\d x}{\sqrt{2\pi\hbar}} \right]^* p C(p) \d p \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left[ \int_{-\infty}^{\infty} p e^{\i px/\hbar} C(p) \frac{\d p}{\sqrt{2\pi\hbar}} \right] \d x \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left[ \int_{-\infty}^{\infty} \left( -\i\hbar \frac{\partial}{\partial x} \right) e^{\i px/\hbar} C(p) \frac{\d p}{\sqrt{2\pi\hbar}} \right] \d x \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left( -\i\hbar \frac{\partial}{\partial x} \right) \left[ \int_{-\infty}^{\infty} e^{\i px/\hbar} C(p) \frac{\d p}{\sqrt{2\pi\hbar}} \right] \d x \\
+&= \int_{-\infty}^{\infty} \psi^*(x) \left( -\i\hbar \frac{\partial}{\partial x} \right) \psi(x) \d x
+\end{align*}
+最后一步应用了表象变换的逆变换公式:
+\[  
+\psi(x) = \int_{-\infty}^{\infty} C(p) e^{\i px/\hbar} \frac{\d p}{\sqrt{2\pi\hbar}}
+\]
+这里关键是利用:
+\[
+-\i\hbar \frac{\partial}{\partial x} e^{\i px/\hbar} = p e^{\i px/\hbar} \tag{*}
+\]
+把动量$p$换为了微分算符$-\i\hbar\frac{\partial}{\partial x}$.由此可见, 在$x$表象中, $p$的作用表现为一个算符. 
+
+对于剩下的两个维度, 我们应该得到一样的结果：
+\begin{align*}
+p_x \to \hat{p}_x = -\i\hbar \frac{\partial}{\partial x}, \\
+p_y \to \hat{p}_y = -\i\hbar \frac{\partial}{\partial y}, \\
+p_z \to \hat{p}_z = -\i\hbar \frac{\partial}{\partial z}.
+\end{align*}
+写成矢量形式:
+\[
+\mathbf{p} \to \hat{\mathbf{p}} = -\i\hbar \nabla
+\]
+
+在字母上加上$\land$来表示算符, 由此也可以得到与动能对应的算符:
+\[
+\frac{\mathbf{p}^2}{2m} = \frac{p_x^2 + p_y^2 + p_z^2}{2m} \to -\frac{\hbar^2}{2m} \left( \frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2} \right) = -\frac{\hbar^2}{2m} \nabla^2
+\]
+
+上面我们提到了$(*)$式的重要作用, 现在我们要探寻一些更加重要的内容. 把算符$-\i\hbar\frac{\partial}{\partial x}$写作$\hat{p}$, 波函数$e^{\i px/\hbar}$写作$\psi_p(x)$, 那么这个式子就写作:
+\[
+\hat{p}\psi_p(x) = p\psi_p(x)
+\]
+一般而言, 我们把一个算符作用在一个函数上, 会把它变成另一个函数, 而这里我们把算符$\hat{p}$作用在函数$\psi_p(x)$上的结果仅仅是乘上一个常量$p$.这样的函数叫做该算符的本征函数, 常量被称为本征值. 这个定义适用于所有的线性算符$\hat{A}$, 若：
+\[
+\hat{A}\psi_a(x) = a\psi_a(x)
+\]
+则$\psi_a(x)$是$\hat{A}$对应的本征值$a$的本征函数. 
+
+接下来我们来看一个重要的概念——对易. 令$\psi(x)$为任意波函数, 试将动量算符$\hat{p_x}$作用在$x\psi(x)$上:
+\[
+\hat{p_x}[x\psi(x)] = -\i\hbar\frac{\partial}{\partial x}[x\psi(x)] = -\i\hbar[\psi(x)+x\frac{\partial\psi(x)}{\partial x}] = -\i\hbar(1+x\frac{\partial}{\partial x})\psi(x)
+\]
+移项之后, 得到:
+\[
+[\hat{p_x}x-x\hat{p_x}]\psi(x) = -\i\hbar\psi(x)
+\]
+一般来说位置变量$x$也可以看作一个算符$\hat{x}$. 因为上式中的$\psi(x)$是任意函数, 也可以略去不写, 于是上式变为如下算符式:
+\[
+\hat{p_x}x-x\hat{p_x} = -\i\hbar \neq 0
+\]
+这就是说算符是不服从乘法交换律的, 或者说算符的顺序一般是不可对易的. 
+
+在量子力学中物理量表示为算符, 一般来说物理量是彼此不对易的. 这就是量子力学有别于经典力学的重要特征. 为了描述这个性质, 我们引进了对易式的概念. 算符$\hat{A}$和$\hat{B}$的对易式被定义为:
+\[
+[\hat{A}, \hat{B}] = \hat{A}\hat{B}-\hat{B}\hat{A}
+\]
+用对易式来表示的话:
+\[
+[\hat{p_x}, \hat{x}] = -\i\hbar
+\]
+此式称为算符$\hat{p_x}$和$\hat{x}$的对易关系. 显然$y, z$方向的动量和位置算符也满足类似的对易关系, 而不同方向的动量和位置算符是对易的. 总结起来, 算符的对易关系为:
+\begin{align*}
+& [\hat{p}_x, \hat{x}] = [\hat{p}_y, \hat{y}] = [\hat{p}_z, \hat{z}] = -\i\hbar, \\
+& [\hat{p}_x, \hat{y}] = [\hat{p}_x, \hat{z}] = [\hat{p}_y, \hat{z}] = [\hat{p}_y, \hat{x}] = [\hat{p}_z, \hat{x}] = [\hat{p}_z, \hat{y}] = 0. \\
+& [\hat{x}, \hat{y}] = [\hat{y}, \hat{z}] = [\hat{z}, \hat{x}] = 0, \\
+& [\hat{p}_x, \hat{p}_y] = [\hat{p}_y, \hat{p}_z] = [\hat{p}_z, \hat{p}_x] = 0.
+\end{align*}
+
+\subsection{算符的性质}
+设两个函数$\psi_1$, $\psi_2$, 算符$\hat{F}$ 满足:
+\[
+\hat{F}(c_1\psi_1+c_2\psi_2)=c_1\hat{F}\psi_1+c_2\hat{F}\psi_2
+\]
+$c_1, c_2$为任意常数, 则称$\hat{F}$线性算符. 量子力学中只讨论线性算符. 
+
+若两个算符$\hat{F}$和$\hat{G}$对于任意$\psi$有:
+\[
+(\hat{F}+\hat{G})\psi = \hat{F}\psi+\hat{G}\psi = (\hat{G}+\hat{F})\psi
+\]
+因此算法满足加法交换律. 
+
+两个算符的乘法符合以下规律:
+\[
+(\hat{F}+\hat{G})\hat{R} = \hat{F}\hat{R}+\hat{G}\hat{R} \tag{\text{分配律}}
+\]
+\[
+\hat{F}\hat{G}\hat{R} = (\hat{F}\hat{G})\hat{R}=\hat{F}(\hat{G}\hat{R}) \tag{\text{结合律}}
+\]
+
+算符不服从乘法交换律在之前已经提及, 表示对易式的括号$[, ]$被称为对易括号. 对易括号有如下性质:
+\[
+[\hat{F}, \hat{G}] = -[\hat{G}, \hat{F}]
+\]
+\[
+[\hat{F}, \hat{G}+\hat{R}] = [\hat{F}, \hat{G}]+[\hat{F}, \hat{R}]
+\]
+\[
+[\hat{F}, \hat{G}\hat{R}] = [\hat{F}, \hat{G}]\hat{R}+\hat{G}[\hat{F}, \hat{R}]
+\]
+\[
+[\hat{F}, [\hat{G}, \hat{R}]]+[\hat{G}, [\hat{R}, \hat{F}]]+[\hat{R}, [\hat{F}, \hat{G}]]=0
+\]
+
+设 $\hat F$ 是一个线性算符, 如果它满足
+\[
+\langle \psi_1|\hat F\psi_2\rangle
+=
+\langle \hat F\psi_1|\psi_2\rangle , 
+\]
+则称 $\hat F$ 为厄米算符, 也称自伴算符. 这里内积定义为
+\[
+\langle \psi_1|\psi_2\rangle
+=
+\int \psi_1^*\psi_2\, \d\tau .
+\]
+其中$\d \tau$为体积元. 若内积为0, 则称两个函数正交. 因此, 厄米算符的定义也可以写成
+\[
+\int \psi_1^*(\hat F\psi_2)\, \d\tau
+=
+\int (\hat F\psi_1)^*\psi_2\, \d\tau .
+\]
+在有限维矩阵形式中, 厄米算符对应厄米矩阵, 即
+\[
+F^\dagger=F.
+\]
+
+厄米算符有若干良好的性质使其成为量子力学中描述物理量的理想选择, 接下来我们逐个介绍:
+
+厄米算符最重要的性质是本征值的实数性. 设 $u$ 是厄米算符 $\hat F$ 的本征函数, 对应本征值为 $\lambda$, 即
+\[
+\hat Fu=\lambda u .
+\]
+将上式左乘 $u^*$ 并对全空间积分, 得到
+\[
+\int u^*(\hat Fu)\, \d\tau
+=
+\lambda\int u^*u\, \d\tau .
+\]
+另一方面, 由于 $\hat F$ 是厄米算符, 有
+\[
+\int u^*(\hat Fu)\, \d\tau
+=
+\int (\hat Fu)^*u\, \d\tau .
+\]
+由本征方程 $\hat Fu=\lambda u$ 可得
+\[
+(\hat Fu)^*=(\lambda u)^*=\lambda^*u^* .
+\]
+因此
+\[
+\int (\hat Fu)^*u\, \d\tau
+=
+\lambda^*\int u^*u\, \d\tau .
+\]
+于是
+\[
+\lambda\int u^*u\, \d\tau
+=
+\lambda^*\int u^*u\, \d\tau .
+\]
+由于 $u$ 不是零函数, 所以
+\[
+\int u^*u\, \d\tau\neq 0.
+\]
+因此
+\[
+\lambda=\lambda^*.
+\]
+这说明 $\lambda$ 是实数. 
+
+这一性质在量子力学中非常重要. 因为力学量的测量结果必须是实数, 而厄米算符的本征值正好具有实数性, 所以可以将力学量的可能测量值理解为相应厄米算符的本征值. 同时厄米算符在任意态中的平均值为实数. 
+
+设 $\psi$ 为任意态波函数, 厄米算符 $\hat{F}$ 在该任意态波函数中的平均值为
+\[
+\langle F \rangle = \int \psi^* \hat{F} \psi \, \d^3r.
+\]
+
+根据厄米算符的定义, 有
+\[
+\langle F \rangle = \int (\hat{F} \psi)^* \psi \, \d^3r.
+\]
+
+对上式取复共轭：
+\[
+\langle F \rangle^* = \left[ \int (\hat{F} \psi)^* \psi \, \d^3r \right]^*
+= \int (\hat{F} \psi) \psi^* \, \d^3r.
+\]
+
+由于 $\psi$ 和 $\hat{F}\psi$ 是普通函数, 乘法可交换, 且注意 $\int (\hat{F} \psi)^* \psi \, \d^3r$ 已等于 $\langle F \rangle$, 因此
+\[
+\langle F \rangle^* = \int \psi^* (\hat{F} \psi) \, \d^3r = \langle F \rangle.
+\]
+于是 $\langle F \rangle = \langle F \rangle^*$, 即平均值为实数. 
+
+厄米算符的第二个重要性质是本征函数的正交性. 设 $u_k$ 和 $u_l$ 是厄米算符 $\hat F$ 的两个本征函数, 对应的本征值分别为 $\lambda_k$ 和 $\lambda_l$, 即
+\[
+\hat F u_k=\lambda_k u_k, 
+\]
+\[
+\hat F u_l=\lambda_l u_l.
+\]
+下面证明：当 $\lambda_k\neq \lambda_l$ 时, $u_k$ 与 $u_l$ 正交. 
+
+由第一个本征方程
+\[
+\hat F u_k=\lambda_k u_k
+\]
+取复共轭, 得到
+\[
+(\hat F u_k)^*=\lambda_k^*u_k^*.
+\]
+因为 $\hat F$ 是厄米算符, 其本征值为实数, 所以
+\[
+\lambda_k^*=\lambda_k.
+\]
+于是
+\[
+(\hat F u_k)^*=\lambda_k u_k^*.
+\]
+两边乘以 $u_l$ 并对全空间积分, 得
+\[
+\int (\hat F u_k)^*u_l\, \d\tau
+=
+\lambda_k\int u_k^*u_l\, \d\tau .
+\]
+即
+\[
+\int (\hat F u_k)^*u_l\, \d\tau
+=
+\lambda_k\langle u_k|u_l\rangle .
+\]
+
+另一方面, 由第二个本征方程
+\[
+\hat F u_l=\lambda_l u_l
+\]
+左乘 $u_k^*$ 并积分, 得到
+\[
+\int u_k^*(\hat F u_l)\, \d\tau
+=
+\lambda_l\int u_k^*u_l\, \d\tau .
+\]
+即
+\[
+\int u_k^*(\hat F u_l)\, \d\tau
+=
+\lambda_l\langle u_k|u_l\rangle .
+\]
+
+根据厄米算符的定义, 
+\[
+\int u_k^*(\hat F u_l)\, \d\tau
+=
+\int (\hat F u_k)^*u_l\, \d\tau .
+\]
+因此上述两式左边相等, 右边也相等, 即
+\[
+\lambda_l\langle u_k|u_l\rangle
+=
+\lambda_k\langle u_k|u_l\rangle .
+\]
+整理得
+\[
+(\lambda_k-\lambda_l)\langle u_k|u_l\rangle=0.
+\]
+当 $\lambda_k\neq \lambda_l$ 时, 有
+\[
+\langle u_k|u_l\rangle=0.
+\]
+也就是
+\[
+\int u_k^*u_l\, \d\tau=0.
+\]
+这说明, 厄米算符属于不同本征值的本征函数彼此正交. 
+
+如果本征值不存在简并, 即所有本征值互不相同, 那么所有本征函数$u_k$都可以相互正交. 进一步地, 如果将每个本征函数归一化, 使
+\[
+\int u_k^*u_k\, \d\tau=1, 
+\]
+则有
+\[
+\int u_k^*u_l\, \d\tau
+=
+\langle u_k|u_l\rangle
+=
+\delta_{kl}, 
+\]
+其中
+\[
+\delta_{kl}
+=
+\begin{cases}
+1, & k=l, \\
+0, & k\neq l.
+\end{cases}
+\]
+这时, $\{u_k\}$ 构成一组正交归一的本征函数系. 
+
+需要注意的是, 如果存在简并, 也就是说多个线性无关的本征函数对应同一个本征值, 那么这些本征函数不一定天然正交. 但是可以在同一简并子空间内通过线性组合, 例如施密特正交化方法, 重新选取一组正交归一的本征函数. 因此, 一般仍然可以选取厄米算符的一组正交归一本征函数. 
+
+
+厄米算符的另一个重要性质是本征函数的完备性. 在量子力学中, 通常假定力学量算符在适当的边界条件和定义域下具有一组完备的本征函数. 所谓完备性, 是指任意一个满足物理条件的态函数 $\psi$ 都可以展开为该厄米算符本征函数的线性组合. 
+
+设 $\hat F$ 的一组正交归一本征函数为
+\[
+u_1, u_2, \cdots, u_n, \cdots, 
+\]
+并满足
+\[
+\hat F u_l=\lambda_l u_l, 
+\]
+以及正交归一关系
+\[
+\langle u_k|u_l\rangle=\delta_{kl}.
+\]
+如果这组本征函数是完备的, 那么任意态函数 $\psi$ 都可以表示为
+\[
+|\psi\rangle=\sum_l C_l|u_l\rangle .
+\]
+这里 $C_l$ 称为展开系数. 
+
+为了求出展开系数, 在上式左乘 $\langle u_n|$, 得到
+\[
+\langle u_n|\psi\rangle
+=
+\left\langle u_n\middle|\sum_l C_lu_l\right\rangle .
+\]
+利用内积的线性性质, 有
+\[
+\langle u_n|\psi\rangle
+=
+\sum_l C_l\langle u_n|u_l\rangle .
+\]
+由于本征函数已经正交归一, 
+\[
+\langle u_n|u_l\rangle=\delta_{nl}, 
+\]
+所以
+\[
+\langle u_n|\psi\rangle
+=
+\sum_l C_l\delta_{nl}
+=
+C_n.
+\]
+因此
+\[
+C_n=\langle u_n|\psi\rangle .
+\]
+将展开系数代回原式, 得到
+\[
+|\psi\rangle
+=
+\sum_l \langle u_l|\psi\rangle |u_l\rangle .
+\]
+这就是量子力学中的广义傅里叶展开. 
+
+从算符形式看, 上式等价于完备性关系
+\[
+\sum_l |u_l\rangle\langle u_l|=\hat I, 
+\]
+其中 $\hat I$ 是恒等算符. 它表示任意态矢量都可以被这组本征态完整地展开, 没有遗漏任何物理上允许的态. 
+
+如果本征值是连续的, 则求和应推广为积分. 此时态函数可以写成
+\[
+|\psi\rangle=\int C(\lambda)|u_\lambda\rangle\, d\lambda, 
+\]
+其中
+\[
+C(\lambda)=\langle u_\lambda|\psi\rangle .
+\]
+对应的完备性关系写为
+\[
+\int |u_\lambda\rangle\langle u_\lambda|\, d\lambda=\hat I.
+\]
+
+对于具有离散本征值的厄米算符, 如果其本征函数构成一组完备正交归一系, 则算符 $\hat F$ 可以写成
+\[
+\hat F
+=
+\sum_l \lambda_l |u_l\rangle\langle u_l| .
+\]
+这个表达式称为厄米算符的谱分解. 
+
+其含义是：任意态 $|\psi\rangle$ 可以先被分解到各个本征态方向上, 
+\[
+|\psi\rangle=\sum_l C_l|u_l\rangle, 
+\]
+而算符 $\hat F$ 对 $|\psi\rangle$ 的作用就是在每一个本征态分量上乘以相应的本征值：
+\[
+\hat F|\psi\rangle
+=
+\sum_l C_l\lambda_l|u_l\rangle .
+\]
+因此, 厄米算符的本征值和本征函数共同决定了该力学量的全部测量结构. 以上我们介绍了厄米算符的种种重要性质, 接下来我们简要说明为什么量子力学中的力学量必须用线性厄米算符来表示. 
+
+首先, 量子态满足叠加原理. 如果系统可以处于态 $|\psi_1\rangle$ 和 $|\psi_2\rangle$, 那么它也可以处于它们的线性叠加态
+\[
+|\psi\rangle=\alpha|\psi_1\rangle+\beta|\psi_2\rangle .
+\]
+因此, 描述力学量的算符应当保持这种线性结构, 即
+\[
+\hat F|\psi\rangle
+=
+\hat F(\alpha|\psi_1\rangle+\beta|\psi_2\rangle)
+=
+\alpha\hat F|\psi_1\rangle+\beta\hat F|\psi_2\rangle .
+\]
+这说明力学量算符应当是线性算符. 
+
+其次, 力学量的测量结果必须是实数. 例如位置、动量、能量等实验观测值都必须是实数. 而厄米算符的本征值必为实数, 因此可以自然地把厄米算符的本征值解释为力学量的可能测量值. 
+
+再次, 量子测量不仅要给出可能的测量值, 还要给出每种测量值出现的概率. 如果力学量 $F$ 对应的厄米算符 $\hat F$ 有本征方程
+\[
+\hat F|u_l\rangle=\lambda_l|u_l\rangle, 
+\]
+并且本征态构成完备正交归一系, 那么任意态 $|\psi\rangle$ 都可以展开为
+\[
+|\psi\rangle=\sum_l C_l|u_l\rangle
+=
+\sum_l \langle u_l|\psi\rangle |u_l\rangle .
+\]
+在这种情况下, 测量力学量 $F$ 时, 得到本征值 $\lambda_l$ 的概率为
+\[
+P(\lambda_l)=|C_l|^2
+=
+|\langle u_l|\psi\rangle|^2.
+\]
+因此, 厄米算符的本征值给出了可能的测量结果, 本征函数的完备正交性给出了态的展开方式, 而展开系数的模平方给出了测量概率. 
+
+最后, 厄米算符的期望值为实数, 这保证了力学量在给定量子态中的平均测量结果具有明确的物理意义. 对于归一化态 $|\psi\rangle$, 有
+\[
+\langle F\rangle
+=
+\langle \psi|\hat F|\psi\rangle
+\in \mathbb{R}.
+\]
+
+\subsection{常见力学量算符}
+\label{sec:common_operators}
+\paragraph{位置算符与动量算符}
+
+在位置表象中, 体系的状态由波函数
+\[
+\psi(\bm r)=\psi(x, y, z)
+\]
+描述. 位置算符 $\hat x, \hat y, \hat z$ 对波函数的作用相当于普通变量的乘法, 即
+\[
+\hat x\psi=x\psi, \qquad
+\hat y\psi=y\psi, \qquad
+\hat z\psi=z\psi.
+\]
+因此, 位置算符可以写成
+\[
+\hat{\bm r}=(\hat x, \hat y, \hat z).
+\]
+
+动量算符在位置表象中表示为微分算符：
+\[
+\hat p_x=-\i\hbar\frac{\partial}{\partial x}, \qquad
+\hat p_y=-\i\hbar\frac{\partial}{\partial y}, \qquad
+\hat p_z=-\i\hbar\frac{\partial}{\partial z}.
+\]
+其矢量形式为
+\[
+\hat{\bm p}=-\i\hbar\nabla.
+\]
+这说明动量算符并不是简单的乘法算符, 而是对波函数求导. 也正因为如此, 位置算符与动量算符一般不对易. 
+
+位置和动量之间满足基本对易关系：
+\[
+[\hat x, \hat p_x]=\i\hbar, \qquad
+[\hat y, \hat p_y]=\i\hbar, \qquad
+[\hat z, \hat p_z]=\i\hbar.
+\]
+而不同方向的位置与动量算符满足
+\[
+[\hat x, \hat p_y]=[\hat x, \hat p_z]=0, 
+\]
+并且类似地有
+\[
+[\hat y, \hat p_x]=[\hat y, \hat p_z]=0, 
+\qquad
+[\hat z, \hat p_x]=[\hat z, \hat p_y]=0.
+\]
+这些关系可以统一写成
+\[
+[\hat x_i, \hat p_j]=\i\hbar\delta_{ij}, 
+\]
+其中 $\delta_{ij}$ 是克罗内克符号：
+\[
+\delta_{ij}=
+\begin{cases}
+1, & i=j, \\
+0, & i\neq j.
+\end{cases}
+\]
+
+为了说明基本对易关系, 以 $[\hat x, \hat p_x]$ 为例. 对任意波函数 $\psi$, 有
+\[
+[\hat x, \hat p_x]\psi
+=
+(\hat x\hat p_x-\hat p_x\hat x)\psi.
+\]
+将 $\hat p_x=-\i\hbar\dfrac{\partial}{\partial x}$ 代入, 得到
+\[
+[\hat x, \hat p_x]\psi
+=
+x\left(-\i\hbar\frac{\partial \psi}{\partial x}\right)
+-
+\left(-\i\hbar\frac{\partial}{\partial x}(x\psi)\right).
+\]
+即
+\[
+[\hat x, \hat p_x]\psi
+=
+-\i\hbar x\frac{\partial\psi}{\partial x}
++
+\i\hbar\frac{\partial}{\partial x}(x\psi)
+=
+-\i\hbar x\frac{\partial\psi}{\partial x}
++
+\i\hbar\left(\psi+x\frac{\partial\psi}{\partial x}\right)
+=
+\i\hbar\psi.
+\]
+由于该式对任意波函数 $\psi$ 都成立, 因此
+\[
+[\hat x, \hat p_x]=\i\hbar.
+\]
+
+
+对于任意只依赖于坐标的函数 $F(x, y, z)$, 动量算符与它的对易关系为
+\[
+[\hat p_x, F]=-\i\hbar\frac{\partial F}{\partial x}, 
+\]
+\[
+[\hat p_y, F]=-\i\hbar\frac{\partial F}{\partial y}, 
+\]
+\[
+[\hat p_z, F]=-\i\hbar\frac{\partial F}{\partial z}.
+\]
+矢量形式可以写为
+\[
+[\hat{\bm p}, F]=-\i\hbar\nabla F.
+\]
+
+\paragraph{动能算符与哈密顿算符}
+
+在经典力学中, 粒子的动能为
+\[
+T=\frac{\bm p^2}{2m}.
+\]
+在量子力学中, 将动量替换为动量算符
+\[
+\hat{\bm p}=-\i\hbar\nabla, 
+\]
+即可得到动能算符
+\[
+\hat T
+=
+\frac{\hat{\bm p}^2}{2m}.
+\]
+由于
+\[
+\hat{\bm p}^2
+=
+\hat p_x^2+\hat p_y^2+\hat p_z^2
+=
+-\hbar^2\nabla^2, 
+\]
+所以在位置表象中, 
+\[
+\hat T
+=
+-\frac{\hbar^2}{2m}\nabla^2.
+\]
+
+如果粒子处在势场 $V(\bm r)$ 中, 则总能量算符, 也就是哈密顿算符, 通常写为
+\[
+\hat H
+=
+\hat T+V(\hat{\bm r})
+=
+-\frac{\hbar^2}{2m}\nabla^2+V(\bm r).
+\]
+
+\paragraph{角动量算符}
+
+在经典力学中, 角动量定义为
+\[
+\bm L=\bm r\times \bm p.
+\]
+量子力学中仍然采用这一形式定义角动量算符：
+\[
+\hat{\bm L}=\hat{\bm r}\times \hat{\bm p}.
+\]
+其三个分量为
+\[
+\hat L_x=\hat y\hat p_z-\hat z\hat p_y, 
+\]
+\[
+\hat L_y=\hat z\hat p_x-\hat x\hat p_z, 
+\]
+\[
+\hat L_z=\hat x\hat p_y-\hat y\hat p_x.
+\]
+在位置表象中, 将动量算符写成微分形式, 可得
+\[
+\hat L_x
+=
+-\i\hbar\left(
+y\frac{\partial}{\partial z}
+-
+z\frac{\partial}{\partial y}
+\right), 
+\]
+\[
+\hat L_y
+=
+-\i\hbar\left(
+z\frac{\partial}{\partial x}
+-
+x\frac{\partial}{\partial z}
+\right), 
+\]
+\[
+\hat L_z
+=
+-\i\hbar\left(
+x\frac{\partial}{\partial y}
+-
+y\frac{\partial}{\partial x}
+\right).
+\]
+
+角动量平方算符定义为
+\[
+\hat L^2
+=
+\hat L_x^2+\hat L_y^2+\hat L_z^2.
+\]
+角动量各分量之间满足对易关系
+\[
+[\hat L_x, \hat L_y]=\i\hbar\hat L_z, 
+\]
+\[
+[\hat L_y, \hat L_z]=\i\hbar\hat L_x, 
+\]
+\[
+[\hat L_z, \hat L_x]=\i\hbar\hat L_y.
+\]
+统一写成
+\[
+[\hat L_i, \hat L_j]
+=
+\i\hbar\varepsilon_{ijk}\hat L_k, 
+\]
+其中 $\varepsilon_{ijk}$ 是 Levi-Civita 反对称张量. 在三维空间中, 它的取值由指标 $i, j, k$ 的排列决定：
+\[
+\varepsilon_{ijk}=
+\begin{cases}
+1, & (i, j, k)\text{ 是 }(1, 2, 3)\text{ 的偶排列}, \\
+-1, & (i, j, k)\text{ 是 }(1, 2, 3)\text{ 的奇排列}, \\
+0, & i, j, k\text{ 中有任意两个指标相同}.
+\end{cases}
+\]
+例如, 
+\[
+\varepsilon_{123}=\varepsilon_{231}=\varepsilon_{312}=1, 
+\]
+\[
+\varepsilon_{213}=\varepsilon_{132}=\varepsilon_{321}=-1.
+\]
+
+角动量算符与位置算符、动量算符之间也有重要的对易关系：
+\[
+[\hat L_i, \hat x_j]
+=
+\i\hbar\varepsilon_{ijk}\hat x_k, 
+\]
+\[
+[\hat L_i, \hat p_j]
+=
+\i\hbar\varepsilon_{ijk}\hat p_k.
+\]
+这些关系说明, 角动量算符是空间转动的生成元. 
+
+\paragraph{球坐标中的角动量算符}
+
+在处理具有球对称性的体系时, 通常使用球坐标
+\[
+x=r\sin\theta\cos\varphi, \qquad
+y=r\sin\theta\sin\varphi, \qquad
+z=r\cos\theta.
+\]
+在球坐标中, 角动量算符可以写成
+\[
+\hat L_z
+=
+-\i\hbar\frac{\partial}{\partial\varphi}, 
+\]
+\[
+\hat L^2
+=
+-\hbar^2
+\left[
+\frac{1}{\sin\theta}
+\frac{\partial}{\partial\theta}
+\left(
+\sin\theta
+\frac{\partial}{\partial\theta}
+\right)
++
+\frac{1}{\sin^2\theta}
+\frac{\partial^2}{\partial\varphi^2}
+\right].
+\]
+另外, 
+\[
+\hat L_x
+=
+\i\hbar
+\left(
+\sin\varphi\frac{\partial}{\partial\theta}
++
+\cot\theta\cos\varphi\frac{\partial}{\partial\varphi}
+\right), 
+\]
+\[
+\hat L_y
+=
+\i\hbar
+\left(
+-\cos\varphi\frac{\partial}{\partial\theta}
++
+\cot\theta\sin\varphi\frac{\partial}{\partial\varphi}
+\right).
+\]
+可以看到, 角动量算符只与角变量 $\theta, \varphi$ 有关, 而与径向变量 $r$ 无关. 这说明角动量描述的是波函数的角向变化性质. 
+
+角动量平方算符和 $\hat L_z$ 的共同本征函数是球谐函数 $Y_{lm}(\theta, \varphi)$, 满足
+\[
+\hat L^2Y_{lm}(\theta, \varphi)
+=
+l(l+1)\hbar^2Y_{lm}(\theta, \varphi), 
+\]
+\[
+\hat L_zY_{lm}(\theta, \varphi)
+=
+m\hbar Y_{lm}(\theta, \varphi).
+\]
+其中
+\[
+l=0, 1, 2, \cdots, 
+\]
+\[
+m=0, \pm1, \pm2, \cdots, \pm l.
+\]
+因此, 角动量平方的本征值为
+\[
+L^2=l(l+1)\hbar^2, 
+\]
+角动量在 $z$ 方向上的分量本征值为
+\[
+L_z=m\hbar.
+\]
+这说明角动量大小和角动量在某一方向上的投影都是量子化的. 
+
+球谐函数可以写成
+\[
+Y_{lm}(\theta, \varphi)
+=
+N_{lm}P_l^m(\cos\theta)e^{im\varphi}, 
+\]
+其中 $P_l^m(\cos\theta)$ 是连带勒让德函数, $N_{lm}$ 是归一化常数. 球谐函数满足正交归一关系
+\[
+\int_0^\pi \sin\theta\, d\theta
+\int_0^{2\pi} d\varphi\, 
+Y_{lm}^*(\theta, \varphi)
+Y_{l'm'}(\theta, \varphi)
+=
+\delta_{ll'}\delta_{mm'}.
+\]
+
+对于给定的角量子数 $l$, 磁量子数 $m$ 可以取
+\[
+m=-l, -l+1, \cdots, 0, \cdots, l-1, l, 
+\]
+因此共有 $2l+1$ 个可能取值. 在没有外磁场时, 这些具有相同 $l$ 但不同 $m$ 的态通常具有相同能量, 称为 $2l+1$ 重简并. 
+
+从物理上看, 角动量大小为
+\[
+|\bm L|=\sqrt{l(l+1)}\hbar, 
+\]
+而其在 $z$ 方向上的投影为
+\[
+L_z=m\hbar.
+\]
+由于 $m$ 只能取离散值, 所以角动量在空间中的取向不能连续变化, 而只能取某些特定方向. 这种现象称为空间取向量子化. 更多的讨论参见氢原子一节. 
+
+
+\section{薛定谔方程}
+下面我们来看量子力学中非常重要的薛定谔方程的引入. 读者若感觉理解引入的过程有困难, 可以略去不看, 直接查看我们给出的薛定谔方程的形式. 事实上, 动量守恒代表了空间平移的对称性, 能量守恒代表了时间反演的对称性. 对于波函数, 我们可以对它进行平移操作. 考虑坐标沿着$-x$方向平移, 则空间同一点的坐标变换为$x\to \overline{x} = x+\Delta x$我们用空间平移算符$\hat{D}(\Delta x)$来表示这种操作, 那么我们得到:
+\[
+\hat{D}(\Delta x)\psi(x) = \psi(\overline{x}) = \psi(x+\Delta x)
+\]
+从而我们可以定义沿着$x$方向的空间微分平移算符$\mathscr{D}_x$:
+\[
+\frac{\partial}{\partial x}\psi(x) = \lim_{\Delta x\to 0}\frac{\psi(x+\Delta x)-\psi(x)}{\Delta x} = \lim_{\Delta x\to 0}\frac{\hat{D}(\Delta x)-1}{\Delta x}\psi(x)
+\]
+\[
+\hat{\mathscr{D}_x} \equiv \frac{\partial}{\partial x}= \lim_{\Delta x\to 0}\frac{\hat{D}(\Delta x)-1}{\Delta x}
+\]
+结合我们之前的内容, 得到:
+\begin{align*}
+\hat{p}_x = -\i\hbar \hat{\mathscr{D}_x}, \\
+\hat{p}_y = -\i\hbar \hat{\mathscr{D}_y}, \\
+\hat{p}_z = -\i\hbar \hat{\mathscr{D}_z}.
+\end{align*}
+因此动量算符相当于微分平移算符. 
+
+迄今为止, 我们讨论了波函数在空间中的分布, 但是还没有考虑波函数随着时间的演化. 仿照前面的讨论, 我们可以引入时间平移算符$\hat{T}$和微分时间平移算符$\hat{\mathscr{T}}$:
+\[
+\hat{T}(\Delta t)\psi(t) = \psi(\overline{t}) = \psi(t+\Delta t)
+\]
+\[
+\hat{\mathscr{T}}\equiv \frac{\partial}{\partial t} = \lim_{\Delta t\to 0}\frac{\hat{T}(\Delta t)-1}{\Delta t}
+\]
+我们需要考虑的是$\hat{\mathscr{T}}\psi(t)=?$
+
+相对论中, 动量-能量和位置-时间四维矢量的分量分别是:
+\[
+(p_x, p_y, p_z, \i E/c), \qquad (x, y, z, \i ct)
+\]
+读者可以参阅相对论的相关书籍来进一步了解, 我们这里直接引用结果. 
+
+注意到我们之前的讨论中：
+\[
+\hat{p_x} = -\i\hbar\frac{\partial}{\partial x}
+\]
+我们如果进行一一对应的话, 可以假设有一个代表能量的算符$\hat{H}$, 它与微分时间平移算符有如下的关系:
+\[
+\frac{\i}{c}\hat{H} = -\i\hbar\frac{\partial}{\partial (\i c t)} \Rightarrow \hat{H} = \i\hbar\frac{\partial}{\partial t} \tag{$\alpha$}
+\]
+从而:
+\[
+\i\hbar\frac{\partial \psi(t)}{\partial t} = \hat{H}\psi(t) \tag{$\beta$}
+\]
+
+事实上算符式$\alpha$不总是成立的, 只有我们把它作用到量子系统的波函数上时, 得到的$\beta$式才是成立的. $\beta$式是一条描述波函数演化的动力学规律, 其实验性需要由实验检验. 
+
+$\beta$式被称为薛定谔方程, $\hat{H}$被称为哈密顿算符. 薛定谔方程在量子力学中的地位, 就像牛顿三定律之于经典力学, 麦克斯韦方程之于电磁学, 是最基本的方程. 
+
+这里我们看到, 哈密顿算符是系统演化时这一时刻的能量算符, 因此只需要把势能算符和动能算符相加即可:
+\[
+\hat{H}=\hat{E}=\hat{T}+\hat{V}
+\]
+其中动能算符$\hat{T}=-\frac{\hbar^2}{2m}\nabla^2$我们在前面已经论证过, 与时间无关的势能算符$\hat{V}$是平凡的, 相当于直接相乘. 因此哈密顿算符可以表示为:
+\[
+\hat{H} = -\frac{\hbar^2}{2m}\nabla^2+V(r)
+\]
+所以我们可以把薛定谔方程改写为:
+\[
+\i\hbar\frac{\partial}{\partial t}\psi = [-\frac{\hbar^2}{2m}\nabla^2+V(r)]\psi \tag{$\gamma$}
+\]
+这是我们比较常用的薛定谔方程的形式. 
+
+如果$\psi_E$是哈密顿算符的本征波函数, 相应的本征值等于$E$, 即:
+\[
+\hat{H}\psi_E = E\psi_E
+\]
+代入薛定谔方程, 得到:
+\[
+\i\hbar\frac{\partial}{\partial t}\psi_E = E\psi_E
+\]
+求解这个方程得到:
+\[
+\psi_E \propto e^{\i Et/\hbar}, \qquad \psi_E^{*} \propto e^{-\i Et/\hbar}
+\]
+其概率分布$|\psi_E|^2=\psi_E\psi_E^*$将不随时间而变, 这样的量子态叫做定态, 其波函数被称为定态波函数. 即哈密顿算符的本征波函数都是定态波函数. 
+
+在定态条件下, 势能函数与时间无关, 我们可以用分离变量法求解薛定谔方程. 令待求解的波函数$\Psi$:
+\[
+\Psi(\bm{r}, t) = \psi(\bm{r})f(t)
+\]
+代入$\gamma$式, 整理后得到:
+\[
+[-\frac{\hbar^2}{2m}\nabla^2\psi(\bm{r})+V(r)\psi(\bm{r})]\frac{1}{\psi(\bm{r})} = \i\frac{\partial f(t)}{\partial t}\frac{1}{f(t)}
+\]
+等号左侧只是位置的函数, 等号右侧只是时间$t$的函数, 因此只有两侧都是常数时等式才能成立. 设这个常数为$E$, 则可以得到这两个方程:
+\[
+\i \hbar \frac{\d f(t)}{\d t} = Ef(t)
+\]
+\[
+[-\frac{\hbar^2}{2m}\nabla^2\psi(\bm{r})+V(r)\psi(\bm{r})]=  E\psi(\bm{r})
+\]
+对第一个方程求解, 就得到我们前面的结果:
+\[
+f(t) \propto e^{-\i Et/\hbar}
+\]
+指数应该是无量纲纯数, 因此$E$具有能量的量纲. 同时从数学角度看, $E$也恰好是前面我们提到的哈密顿算符的本征波函数对应的能量本征值. 
+
+这样我们就找到了这个方程的一个解, 也就是:
+\[
+\Psi(\bm{r}, t) = \psi(\bm{r})e^{-\i Et/\hbar}
+\]
+其中$\psi(\bm{r})$是对应于一个能量$E$的本征波函数. 线性齐次微分方程的性质告诉我们, 方程的任意两个解的线性组合也是方程的解. 从上面的讨论我们可以发现所有本征波函数都可以成为定态薛定谔方程的一个解. 注意到$\hat{H}$是一个厄米算符, 从而任意的初态都可以被展开为$\hat{H}$的本征态的线性组合, 因此定态薛定谔方程的解可以写成$\hat{H}$的本征态的线性组合:
+\[
+\Psi(\bm{r}, t) = \sum_n C_n \psi_n(\bm{r})e^{-\i E_nt/\hbar}
+\]
+
+一个典型的定态系统是一维无限深势阱. 其势能函数可以写为:
+\[
+V = \begin{cases} 0, & 0 \le x \le L \\ +\infty, & x < 0, x > L \end{cases}
+\]
+
+哈密顿算符为:
+\[
+\hat{H} = \begin{cases} -\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2}, & 0 \le x \le L \\ -\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2} + \infty, & x < 0, x > L \end{cases}
+\]
+势阱内的薛定谔方程为:
+\[
+-\frac{\hbar^2}{2m} \frac{\d^2}{\d x^2} \psi_i(x) = E \psi_i(x)
+\]
+
+令系数为:
+\[
+k^2 = \frac{2mE}{\hbar^2}
+\]
+得到:
+\[
+\frac{\d^2 \psi_i}{\d x^2} + k^2 \psi_i = 0
+\]
+该方程的一般解可以写为:
+\[
+\psi_i(x) = C \sin(kx + \delta)
+\]
+式子中的$C$和$\delta$由波函数的连续性条件和归一化条件确定, 关于归一化的具体讨论读者可以阅读下一小节, 这里我们先使用. 根据连续性条件, 波函数在势阱外为$0$, 故其在势阱壁上也应该为$0$:
+\[
+\psi_i(0) = \psi_e(0) = 0, \qquad \psi_i(L) = \psi_e(L) = 0
+\]
+因此得到:
+\[
+C \sin \delta = 0 \implies \delta = 0
+\]
+\[
+C \sin kL = 0 \implies kL = n\pi \implies k = \frac{n\pi}{L}
+\]
+$C$由归一化条件确定:
+\[
+\int_{-\infty}^{+\infty} |\psi(x)|^2 \d x = \int_0^L C^2 \sin^2 \frac{n\pi x}{L} \d x = 1
+\]
+因此得到波函数:
+\[
+\psi_n(x) = \begin{cases} \sqrt{\frac{2}{L}} \sin \frac{n\pi}{L} x, & 0 \le x \le L \\ 0, & x < 0, x > L \end{cases}
+\]
+粒子能量的本征值为:
+\[
+E_n = \frac{k^2 \hbar^2}{2m} = n^2 E_1, \quad E_1 = \frac{\pi^2\hbar^2}{2mL^2}
+\]
+
+对这个结果我们做一些讨论. 
+\begin{enumerate}
+  \item 能量的本征值取分立值说明, 能量是量子化的. 不同的能量对应不同的能级, 且能级是越来越稀疏的. 对于束缚在势阱中的粒子, 能量的最小值不能任意取值, 有一个下限, 称为最低能量或零点能. 对无限深势阱中的粒子, 零点能为$n=1$时的对应能量:
+  \[
+  E_1 = \frac{\pi^2\hbar^2}{2mL^2}
+  \]
+
+  为什么排除$n=0$？从经典物理的角度看, $n=0$意味着粒子静止不动, 这没有什么不可以的. 但是量子力学不允许, 因为海森堡不确定性原理. 在宽度为$a$的势阱中一个粒子坐标的不确定度$\Delta x = a$. 它的最小波数($n=1$)$k=\frac{\pi}{a}$, 从而动量的最小数值$p=\hbar k = \frac{\hbar \pi}{a}$. 处在$n=1$态粒子的动量在$\pm p$之间震荡, 其不确定度为$\Delta p = 2p = \frac{2\hbar \pi}{a}$因此满足不确定性关系:
+  \[
+  \Delta x \Delta p = a \cdot \frac{2\hbar \pi}{a} = h
+  \]
+  能量低于此, 海森堡不确定度关系则不能满足. 所以囚禁在势阱中的粒子不可能静止的, 它必须具有一定的动能, 这就是零点能. 
+
+  \item 微观粒子的质量越小, 粒子的能级间隔越大, 量子效应越明显；对于宏观粒子, 能级间隔趋于零, 粒子的能量可以连续取值, 量子效应消失. 势阱的宽度越大, 能级间隔越小, $L\to\infty$时, 粒子的能量可以连续取值, 量子效应也消失. 
+  \item 对于任意的$E$值, 定态薛定谔方程都有解, 但不是一切所解得的波函数都会满足物理上的要求, 只有满足边界条件等等要求的$E$才能称为体系能量的本征值. 
+\end{enumerate}
+\section{态叠加原理}
+对于波函数, 我们先前已经讨论过其物理意义, 也就是其绝对值的平方代表着粒子出现的概率. 这个解释被称为波函数的统计解释, 其由哥本哈根学派的玻恩提出. 更加具体的说, 玻恩指出, 波函数在空间中某一点的模的平方与在该点找到粒子的概率成比例, 对于波函数$\psi(\bm{r}, t)$, $|\psi(\bm{r}, t)|^2 \d V$与$t$时刻粒子出现在空间$r$处一个体积元$\d V$的概率成正比. 这里我们之说成正比, 是因为我们尚未对波函数进行归一化. 粒子出现在空间各点的概率取决于波函数在空间各点强度的比例, 而不决定于强度的绝对大小. 因此我们可以对波函数乘以任意非0常数, 得到的波函数仍然代表同一个量子系统. 
+
+现在我们假定对波函数做了适当的调整, 使得$|\psi(\bm{r}, t)|^2$可以直接代表粒子出现在$\bm{r}$处的概率密度, $\rho(\bm{r}, t)=|\psi(\bm{r}, t)|^2$. 考虑到概率的性质, 粒子出现在空间各点的概率总和为1, 因此我们对全空间积分后, 应该得到:
+\[
+\iiint\psi(\bm{r}, t)\psi^*(\bm{r}, t)\d V = 1
+\]
+这被称为归一化条件, 满足该条件的波函数是归一化波函数. 根据这个式子, 我们还可以发现波函数是单值有限连续的. 
+
+假定粒子在演化过程中并未产生或者湮灭, 那么在随时间演化的过程中, 粒子数目保持不变, 那么在全空间中概率密度的积分应该保持不变, 也就是:
+\[
+\frac{\d}{\d t}\iiint \rho(\bm{r}, t)\d V =0
+\]
+考虑乘法求导法则:
+\[
+\frac{\partial \rho}{\partial t} = \psi^* \frac{\partial \psi}{\partial t} + \frac{\partial \psi^*}{\partial t} \psi
+\]
+由薛定谔方程和复共轭方程得到:
+\[
+\frac{\partial \psi}{\partial t} = \frac{\i\hbar}{2m} \nabla^2 \psi + \frac{1}{\i\hbar} V(r) \psi
+\]
+\[
+\frac{\partial \psi^*}{\partial t} = -\frac{\i\hbar}{2m} \nabla^2 \psi^* - \frac{1}{\i\hbar} V(r) \psi^*
+\]
+代入前式, 得到:
+\[
+\frac{\partial \rho}{\partial t} = \frac{\i\hbar}{2m} (\psi^* \nabla^2 \psi - \psi \nabla^2 \psi^*) = \frac{\i\hbar}{2m} \nabla \bm{\cdot} (\psi^* \nabla \psi - \psi \nabla \psi^*)
+\]
+对比流量守恒方程:
+\[
+\frac{\partial \rho}{\partial t}+\nabla \bm{\cdot} \bm{J} = 0
+\]
+其中$\bm{J}$被称为概率流（粒子流）密度, 且:
+\[
+\bm{J} = -\frac{\i\hbar}{2m} (\psi^* \nabla \psi - \psi \nabla \psi^*)
+\]
+结合这个守恒方程, 我们又可以看到归一化波函数在全空间应该满足单值性, 有限性和连续性以保持概率的性质. 
+
+接下来我们介绍态叠加原理. 波函数可以描述量子系统的状态, 因此波函数实际上就是量子态的数学表达. 那么不同的态在量子系统中如何相互影响和作用？态叠加原理将给出解答. 
+
+若波函数$\psi_1, \psi_2, \dots, \psi_n$描述量子系统的几个可能的状态, 那么由这些波函数线性叠加得到的波函数也是这个体系的一个可能的状态. 也就是说:
+\[
+\Psi = c_1\psi_1+c_2\psi_2+\dots+c_n\psi_n = \sum_i c_i \psi_i
+\]
+也是描述这个系统的可能的波函数. 这就是态叠加原理. 
+
+我们可以利用态叠加原理说明电子的双缝干涉实验. 入射粒子总是作为一个整体通过狭缝1或者狭缝2的屏.因此通过之后, 它可能处在态$\psi_1$, 也可能处在态$\psi_2$. 因此实际上的波函数是两种态的叠加:
+\[
+\Psi = c_1\psi_1+c_2\psi_2
+\]
+其概率为:
+\[
+\rho = |c_1\psi_1+c_2\psi_2|^2= |c_1\psi_1|^2+|c_2 \psi_2|^2+(c_1^*c_2\psi_1^*\psi_2+c_2^*c_1\psi_2^*\psi_1)
+\]
+这就是说干涉图样不是由$|\psi_1|^2$, $|\psi_2|^2$分别决定两个图样的叠加$|\psi_1|^2+|\psi_2|^2$, 因为存在干涉项:
+\[
+c_1^*c_2\psi_1^*\psi_2+c_2^*c_1\psi_2^*\psi_1
+\]
+
+\section{态矢和态矢空间}
+\subsection{态矢的引入}
+接下来介绍态矢和态矢空间, 我们先从光子线偏振态的分解说起. 
+\insertfig{figure10.png}{线偏振态的分解}{0.6}
+
+如图所示, 两偏振片$P_1$、$P_2$的透振方向之间成夹角$\theta$, 则通过$P_2$的光的强度$I_2$与通过P1的光的强度$I_1$之比为$\cos^2\theta$, 此即为马吕斯定律. 按照经典的光学理论, 此现象可理解如下:取直角坐标$xOy$, $x$轴沿$P_2$的透振方向, 则通过$P_1$后的线偏振光的振动分解为$x$和$y$两个分量. $y$分量被$P_2$吸收, 振幅为原来的$\cos\theta$的$x$分量通过, 故强度为$\cos^2\theta$. 
+
+量子理论如何解释这个问题？考虑通过$P_1$的一个光子, 其要么完全通过$P_2$, 要么完全被$P_2$吸收. 不会被部分吸收或通过, 问题是讨论二者的概率. 和其他量子力学问题一样, 我们不能直接讨论概率, 而是应该讨论概率幅. 我们现在采用和之前不同的符号来代表概率幅. 把从$P_1$出来的光子通过$P_2$的概率幅由右向左写为:
+\[
+\bra{P_2}\ket{P_1} = \bra{P_2}\ket{x}\bra{x}\ket{P_1}+\bra{P_2}\ket{y}\bra{y}\ket{P_1}
+\]
+式子中$\bra{x}\ket{P_1}$和$\bra{y}\ket{P_1}$分别是偏振态沿$P_1$方向的光子分解到沿着$x, y$方向偏振态的概率幅, $\bra{P_2}\ket{x}$和$\bra{P_2}\ket{x}$分别是偏振态沿$x, y$方向的光子分解到沿着$P_1$方向偏振态的概率幅, 在我们的例子中$P_2$沿$x$方向, 因此:
+\[
+\bra{P_2}\ket{x} = \bra{x}\ket{x} = 1, \qquad \bra{P_2}\ket{y} = \bra{x}\ket{y} = 0
+\]
+而:
+\[
+\bra{x}\ket{P_1} =\cos\theta, \qquad  \bra{y}\ket{P_1} = \sin\theta
+\]
+故光子通过$P_2$的概率为:
+\[
+\bra{P_2}\ket{P_1} = \cos^2\theta
+\]
+这就是说大量光子给出的平均强度比为$\frac{I_2}{I_1}=\cos^2\theta$. 
+
+再考虑圆偏振态的分解, 我们把前面的实验中的偏振片$P_1$, 将偏振片$P_2$称作$P$. 将入射到$P$上的线偏振光换为圆偏振光, 对$P$的偏振方向暂时不做规定. 仍然考虑一个光子. 把入射的圆偏振态光子通过$P$的概率幅从右向左写成:
+\begin{align*}
+\langle \text{P}|\text{圆偏振}\rangle &= \langle \text{P}|x\rangle\langle x|\text{圆偏振}\rangle + \langle \text{P}|y\rangle\langle y|\text{圆偏振}\rangle \\
+&= \sum_{e_i=x, y} \langle \text{P}|e_i\rangle\langle e_i|\text{圆偏振}\rangle
+\end{align*}
+式中 $\langle x|\text{圆偏振}\rangle$、$\langle y|\text{圆偏振}\rangle$ 分别是圆偏振态的光子分解为沿 $x$、$y$ 方向线偏振态的概率幅, $\langle \text{P}|x\rangle$、$\langle \text{P}|y\rangle$ 分别是处于沿 $x$、$y$ 方向线偏振态的光子分解为沿 $\text{P}$ 方向线偏振态的概率幅. 
+
+按照经典光学理论, 圆偏振光可看作振幅分别是 $A_x = A\cos 45^\circ$、$A_y = A\sin 45^\circ$, 相位差为 $\pm \pi/2$ 的一对垂直线偏振光合成的. 套用这个结果, 我们有
+\begin{align*}
+\langle x|\text{圆偏振}\rangle &= \mathrm{e}^{\mathrm{i}\alpha}\cos 45^\circ = \frac{\mathrm{e}^{\mathrm{i}\alpha}}{\sqrt{2}}, \\
+\langle y|\text{圆偏振}\rangle &= \mathrm{e}^{\mathrm{i}(\alpha \pm \pi/2)}\sin 45^\circ = \frac{\pm \mathrm{i}\mathrm{e}^{\mathrm{i}\alpha}}{\sqrt{2}}.
+\end{align*}
+略去共同相因子 $\mathrm{e}^{\mathrm{i}\alpha}$ 不写, 代入前式, 得
+$$
+\langle \text{P}|\text{圆偏振}\rangle = \frac{1}{\sqrt{2}} (\langle \text{P}|x\rangle \pm \mathrm{i}\langle \text{P}|y\rangle)
+$$
+式中 $+$、$-$ 号分别对应于右旋和左旋圆偏振态. 
+
+从前面几个式子可以看出, 对于入射偏振态 $\psi$ 和出射偏振态 $\chi$ 可写
+\begin{align*}
+\bra{\chi}\ket{\psi} &= \bra{\chi}\ket{x}\bra{x}\ket{\psi} + \bra{\chi}\ket{y}\bra{y}\ket{\psi} \\
+&= \sum_{e_i=x, y} \bra{\chi}\ket{e_i}\bra{e_i}\ket{\psi}
+\end{align*}
+迄今为止 $\bra{\chi}\ket{\psi}$ 一类括号是当作一个整体使用的, 既然上式中偏振态 $\psi$ 和 $\chi$ 是任意的, 我们可以略去不写, 即
+\[
+\ket{\psi} = \ket{x}\bra{x}\ket{\psi} + \ket{y}\bra{y}\ket{\psi} = \sum_{e_i=x, y} \ket{e_i}\bra{e_i}\ket{\psi} \tag{$\alpha$}
+\]
+和
+\[
+\bra{\chi} = \bra{\chi}\ket{x}\bra{x} + \bra{\chi}\ket{y}\bra{y} = \sum_{i=x, y} \bra{\chi}\ket{e_i}\bra{e_i} \tag{$\beta$}
+\]
+
+于是出现了左边的半个括号 $\langle\chi|$ 和右边的半个括号 $|\psi\rangle$ 之类的符号, 这应如何理解？无疑, 在物理上它们都代表光子的某种偏振态, 即光子的量子状态. 写成这种形式, 在数学上好有一比, 即比作某种抽象空间里的“矢量”. 
+
+\insertfig{figure11.png}{矢量在坐标架上的分解}{0.4}
+如图所示, 在平面上取直角坐标 $xOy$, 沿坐标轴取单位基矢 $\boldsymbol{e}_x$ 和 $\boldsymbol{e}_y$. 在此平面上任一矢量 $\boldsymbol{F}$ 可沿此坐标架分解：
+$$
+\boldsymbol{F} = (\boldsymbol{F} \cdot \boldsymbol{e}_x)\boldsymbol{e}_x + (\boldsymbol{F} \cdot \boldsymbol{e}_y)\boldsymbol{e}_y = \sum_{i=x, y} (\boldsymbol{F} \cdot \boldsymbol{e}_i)\boldsymbol{e}_i
+$$
+其中 $\boldsymbol{F} \cdot \boldsymbol{e}_i = F_i$ 是矢量 $\boldsymbol{F}$ 的 $i$ 分量. 我们根据前面的这些信息不难看出, $\bra{\chi}$ 或 $\ket{\psi}$ 相当于矢量 $\boldsymbol{F}$；$\ket{e_j} = \ket{x}$ 和 $\ket{y}$, $\bra{e_i} = \bra{x}$ 和 $\bra{y}$ 相当于沿 $x$、$y$ 取向的坐标架上的基矢, $\bra{x}\ket{\psi}$、$\bra{y}\ket{\psi}$、$\bra{\chi}\ket{x}$、$\bra{\chi}\ket{y}$ 相当于“矢量” $\ket{\psi}$ 和 $\bra{\chi}$ 在该坐标架上的投影, 即它们的“分量”. 所以完整的尖括号 $\bra{\beta}\ket{\alpha} $ 具有左右两个“矢量” $\bra{\beta}$、 $\ket{\alpha}$ 标积, 或称内积的含意. 
+
+把代表概率幅的尖括号拆成两半, 这种作法是狄拉克发明的. 英文中括号叫 braket, 狄拉克把它也拆成两半：bra 和 ket, 分别用来称呼括号的左右两半 $\bra{\beta}$ 和 $\ket{\alpha}$. bra 和 ket 中文分别译作左矢和右矢. 因左右矢都代表微观系统的量子状态, 统称态矢. 在由态矢架构的空间, 也称态矢空间中可选取某种坐标架. 坐标架上的基矢（如上面的 $\bra{x}$、$\bra{y}$ 或 $\ket{x}$、$\ket{y}$）称为态基. 态矢空间是个抽象的空间, 它与普通的矢量空间是有差别的. 正如我们已看到, 态矢空间由左右两个对偶空间组成, 这是普通矢量空间所没有的. 此外, 态矢的“分量”一般是复数, 这也和普通的矢量不同. 
+
+在普通矢量空间里 $\boldsymbol{F}$ 代表矢量本身, 而 $F_x = (\boldsymbol{F} \cdot \boldsymbol{e}_x)$、$F_y = (\boldsymbol{F} \cdot \boldsymbol{e}_y)$ 则是该矢量在特定坐标系中的分量, $\boldsymbol{F}$ 矢量本身与坐标选择无关, 而数组 $(F_x, F_y)$ 则是该矢量在特定坐标系中的表示式. 不过人们经常把后者也叫做“矢量”, 在不涉及坐标变换时一般不会混淆, 但在必要时我们要能够理解这两个概念的区别. 在量子力学中 $\alpha$ 式和 $\beta$ 式里的左矢 $\bra{\chi}$ 和右矢 $\ket{\psi}$ 都相当于矢量 $\boldsymbol{F}$ 本身, 是与态基的选择无关的；$\bra{\chi}\ket{i}$ 和 $\bra{i}\ket{\psi}$ 则相当于矢量在特定坐标系里的分量 $(F_x, F_y)$, 不过有时人们也笼统地把它们叫做“态矢”. 希望读者能注意到它们之间的区别. 
+
+关于对偶空间中态矢的内积 $\bra{\beta}\ket{\alpha}$, 狄拉克作了如下规定：
+\begin{align*}
+\bra{\alpha}\ket{\beta}^* &= \bra{\beta}\ket{\alpha}, \\
+\text{于是}\qquad \bra{\alpha}\ket{\alpha}^* &= \bra{\alpha}\ket{\alpha} = \text{实数}, 
+\end{align*}
+我们将会进一步看到, 上式中的实数恒正. 
+
+正像在普通矢量空间中通常选取正交的坐标架和单位基矢一样, 在量子态矢空间内通常选取的态基满足如下正交归一条件：
+$$
+\bra{e_i}\ket{e_j} = \delta_{ij} = \begin{cases} 0 & i \neq j, \qquad (\text{正交性}) \\ 1 & i = j. \qquad (\text{归一性}) \end{cases}
+$$
+式中 $\delta_{ij}$ 称为克罗内克符号, 其定义已在上式中给出. 
+
+取左、右矢按态基展开式$\alpha$、$\beta$的内积, 再利用态基的正交归一性, 得
+\begin{align*}
+\bra{\chi}\ket{\psi} &= \sum_{i, j} \bra{\chi}\ket{e_i}\bra{e_i}\ket{e_j}\bra{e_j}\ket{\psi} = \sum_{i, j} \bra{\chi}\ket{e_i}\delta_{ij}\bra{e_j}\ket{\psi} \\
+&= \sum_i \bra{\chi}\ket{e_i}\bra{e_i}\ket{\psi}.
+\end{align*}
+
+在 $\chi=\psi$ 的特殊情形里, 上式化为
+\begin{align*}
+\bra{\psi}\ket{\psi} &= \sum_i \bra{\psi}\ket{e_i}\bra{e_i}\ket{\psi} = \sum_i \bra{e_i}\ket{\psi}^*\bra{e_i}\ket{\psi} \\
+&= \sum_i |\bra{e_i}\ket{\psi}|^2 \ge 0.
+\end{align*}
+
+上式的物理意义如下：$\bra{e_i}\ket{\psi}$ 是处于 $\ket{\psi}$ 的量子系统处在 $\ket{e_i}$ 态的概率幅, $|\bra{e_i}\ket{\psi}|^2$ 为该量子系统处在 $\ket{e_i}$ 态的概率. 上式表明, $\bra{\psi}\ket{\psi}$ 等于量子系统处于所有基矢状态概率之和. 设态基是完备的, 即它们架构了所有可能量子状态的态矢空间, 则可看出, 态矢应满足如下归一化条件：
+$$
+\bra{\psi}\ket{\psi} = 1
+$$
+正像普通矢量空间内基矢的选择不是唯一的一样, 量子态矢空间内态基的选择也不是唯一的. 
+
+
+若算符 $\hat{A}$ 作用在某个态矢 $\ket{a_i}$ 上, 其结果只是将此态矢乘上一个数值系数 $a_i$：
+$$
+\hat{A} \ket{a_i} = a_i \ket{a_i}
+$$
+则 $a_i$ 称为该算符的一个本征值, 相应的态矢 $\ket{a_i}$ 称为本征矢. 一般来说, 一个算符的本征值和本征矢不止一个, 所以上面用下标 $i$ 来区分它们\footnote{在前面介绍本征值问题时, 我们说的是“本征函数”, 而这里则说的是“本征矢”. 那里用的是 $x$ 表象, 即选用坐标算符 $\hat{x}$ 的本征矢 $\bra{x}$ 和 $\ket{x}$ 为态基. 波函数 $\psi_a(x)$ 实际上是态矢 $\ket{\psi_a}$ 在 $x$ 表象里的分量, 即
+$$
+\psi_a(x) = \bra{x}\ket{\psi_a}
+$$
+用态矢和波函数都可以表征一个量子态, 不过前者与表象无关, 后者则依赖于表象. }. 
+
+在量子力学中动力学变量都是算符. 量子力学的一个基本假设是：\textbf{对某个变量进行测量时, 每次得到的数值只能是它的某个本征值. }如果待测系统处在该变量的本征态中, 我们测到的肯定是此态的本征值. 如果系统所处的量子态 $\ket{\psi}$ 原不属于待测量 $A$ 的本征态, 则应将它按 $A$ 的正交归一本征矢 $\ket{a_i}$ 展开：
+$$
+\ket{\psi} = \sum_i C_i \ket{a_i}
+$$
+其中
+$$
+C_i = \bra{a_i}\ket{\psi}
+$$
+是测量到本征值 $a_i$ 的概率幅. 这就是说, 每次测量的结果仍是 $A$ 的某个本征值, 不可能是其它值. 不过各次测量以一定的概率分布得到不同的本征值. 对同样的系统进行多次测量的结果, 得到的平均值为
+\begin{align*}
+\bar{a} &= \bra{\psi} \hat{A} \ket{\psi} = \sum_{i, j} \bra{a_i} C_i^* C_j a_j \ket{a_j} \\
+&= \sum_{i, j} C_i^* C_j a_j \delta_{ij} = \sum_i |C_i|^2 a_i
+\end{align*}
+上式表明, 在个别测量中出现本征值 $a_i$ 的概率为概率幅的模方 $|C_i|^2$. 
+
+量子力学有关测量的基本假设还认为：\textbf{测量后被测的量子态立即坍缩到相应的本征态. }举例来说, 如图所示, 起偏器 $\text{P}_1$ 产生一束沿 $+45^\circ$ 方向振动的线偏振光入射. $\text{L}$ 是 $\lambda/2$ 波晶片, 入射光束经 $\text{L}$ 后分解成 $\text{e}$ 光和 $\text{o}$ 光, 出射时两者之间产生附加 $\pi/2$ 相位差, 合成为 $-45^\circ$ 方向振动的线偏振光. 置检偏器 $\text{P}_2$ 的透振方向沿 $-45^\circ$, 则出射光 $100\%$ 通过. 
+
+\insertfig{figure12.png}{测量光子偏振态导致的坍缩}{0.4}
+
+设想入射光如此之弱, 每次只有一个光子通过. 倘若我们想知道这个光子是以 $\text{e}$ 光还是 $\text{o}$ 光的方式通过波晶片 $\text{L}$ 的, 则可如图 1-32b 所示, 在 $\text{L}$ 后用两分式的检偏器 $\text{D}$（如玻片堆）加以分析, 然后再分别通过 $-45^\circ$ 检偏器 $\text{P}_2$ 和 $\text{P}_2'$. 在此种情形下, 经 $\text{L}$ 后这一光子的偏振态立即坍缩到 $\text{e}$、$\text{o}$ 两方向之一, 概率各 $1/2$, 每路分别通过检偏器 $\text{P}_2$ 和 $\text{P}_2'$ 的概率又是 $1/2$, 两路的概率之和是 $1/2 \times 1/2 + 1/2 \times 1/2 = 1/2$, 即 $50\%$. 
+
+上述例子显示了, 中间是否经过测量而引起坍缩的区别. 
+
+一般来说, 因态矢随时间变化, 一个动力学变量 $\hat{A}$ 的平均值 $\bar{a} = \bra{\psi(t)} \hat{A} \ket{\psi(t)}$ 也随时间变化. 按薛定谔方程：
+\begin{align*}
+\frac{\partial}{\partial t} \bra{\psi(t)} \hat{A} \ket{\psi(t)} &= \frac{\partial \bra{\psi(t)}}{\partial t} \hat{A} \ket{\psi(t)} + \bra{\psi(t)} \hat{A} \frac{\partial \ket{\psi(t)}}{\partial t} \\
+&= \frac{\i}{\hbar} \bra{\psi(t)} (\hat{H}\hat{A} - \hat{A}\hat{H}) \ket{\psi(t)}
+\end{align*}
+如果算符 $\hat{A}$ 与哈密顿算符 $\hat{H}$ 对易, 则它在任何量子态中的平均值都不随时间变化：
+$$
+\frac{\partial}{\partial t} \bra{\psi(t)} \hat{A} \ket{\psi(t)} = 0
+$$
+在这种意义下我们说, $\hat{A}$ 是一个守恒量. 所以, 与哈密顿算符对易的动力学变量都是守恒量. 
+
+\subsection{不同力学量同时具有确定值的条件}
+
+在经典物理中, 原则上可以同时测量多个力学量, 并且在任意状态下都可以得到确定的测量结果. 例如, 一个粒子可以同时具有确定的位置和动量. 然而在量子力学中, 体系状态由波函数或态矢量描述, 测量结果受到波粒二象性和算符结构的限制. 一般来说, 只有当体系处于某一力学量算符的本征态时, 测量该力学量才一定得到确定值. 
+
+设两个力学量分别由线性厄米算符 $\hat F$ 和 $\hat G$ 表示. 如果体系处于它们的共同本征态 $u$, 即
+\[
+\hat F u = f u, \qquad \hat G u = g u, 
+\]
+则在该态中测量 $F$ 和 $G$ 都可以得到确定值, 分别为 $f$ 和 $g$. 因此, 两个力学量能否同时具有确定值, 与它们是否存在共同本征函数密切相关. 
+
+若两个算符 $\hat F$ 和 $\hat G$ 对易, 即
+\[
+\hat F\hat G-\hat G\hat F=[\hat F, \hat G]=0, 
+\]
+则在适当条件下, 它们可以具有共同的本征函数系. 反过来, 如果一组完备的函数同时是 $\hat F$ 和 $\hat G$ 的共同本征函数, 那么这两个算符必然对易. 
+
+下面说明后一结论. 设 $\{u_n\}$ 是一组完备的共同本征函数, 并满足
+\[
+\hat F u_n=f_nu_n, \qquad \hat G u_n=g_nu_n.
+\]
+于是
+\[
+\hat F\hat G u_n
+=
+\hat F(g_nu_n)
+=
+g_n\hat F u_n
+=
+g_nf_nu_n, 
+\]
+而
+\[
+\hat G\hat F u_n
+=
+\hat G(f_nu_n)
+=
+f_n\hat G u_n
+=
+f_ng_nu_n.
+\]
+因此
+\[
+(\hat F\hat G-\hat G\hat F)u_n=0.
+\]
+由于 $\{u_n\}$ 是完备的, 任意态函数都可以用它们展开, 所以
+\[
+[\hat F, \hat G]=0.
+\]
+这说明, 两个力学量若要在一组完备态中同时具有确定值, 其对应算符必须对易. 
+
+这一结论也可以推广到多个算符的情况. 如果一组厄米算符具有共同的完备本征函数系, 那么这组算符中任意两个算符都相互对易. 例如, 动量算符的三个分量
+\[
+\hat p_x, \qquad \hat p_y, \qquad \hat p_z
+\]
+两两对易：
+\[
+[\hat p_x, \hat p_y]=[\hat p_y, \hat p_z]=[\hat p_z, \hat p_x]=0.
+\]
+因此它们可以具有共同本征态. 在这样的态中, 粒子的三个动量分量 $p_x, p_y, p_z$ 可以同时具有确定值. 
+
+相反, 如果两个力学量算符不对易, 即
+\[
+[\hat A, \hat B]\neq 0, 
+\]
+则这两个力学量一般不能同时具有确定值. 它们测量值的不确定程度满足不确定度关系. 对于任意归一化态 $|\psi\rangle$, 定义力学量 $A$ 和 $B$ 的平均值为
+\[
+\langle A\rangle=\langle \psi|\hat A|\psi\rangle, 
+\qquad
+\langle B\rangle=\langle \psi|\hat B|\psi\rangle.
+\]
+定义方均根偏差, 即不确定度为
+\[
+(\Delta A)^2
+=
+\left\langle
+(\hat A-\langle A\rangle)^2
+\right\rangle
+=
+\langle \psi|
+(\hat A-\langle A\rangle)^2
+|\psi\rangle, 
+\]
+\[
+(\Delta B)^2
+=
+\left\langle
+(\hat B-\langle B\rangle)^2
+\right\rangle
+=
+\langle \psi|
+(\hat B-\langle B\rangle)^2
+|\psi\rangle.
+\]
+令
+\[
+\Delta \hat A=\hat A-\langle A\rangle, \qquad
+\Delta \hat B=\hat B-\langle B\rangle.
+\]
+由于 $\langle A\rangle$ 和 $\langle B\rangle$ 是实数, 所以 $\Delta\hat A$ 和 $\Delta\hat B$ 仍然是厄米算符, 并且
+\[
+[\Delta\hat A, \Delta\hat B]=[\hat A, \hat B].
+\]
+
+设
+\[
+[\hat A, \hat B]=\i\hat C, 
+\]
+其中 $\hat C$ 为厄米算符. 考虑任意实参数 $\xi$, 构造态矢量
+\[
+|\Psi\rangle=(\Delta\hat A+\i\xi\Delta\hat B)|\psi\rangle.
+\]
+由于态矢量的模平方总是非负的, 所以
+\[
+\langle \Psi|\Psi\rangle\geq 0.
+\]
+展开得
+\[
+\langle \Psi|\Psi\rangle
+=
+\langle \psi|
+(\Delta\hat A-\i\xi\Delta\hat B)
+(\Delta\hat A+\i\xi\Delta\hat B)
+|\psi\rangle.
+\]
+即
+\[
+\langle \Psi|\Psi\rangle
+=
+\langle (\Delta\hat A)^2\rangle
++ \i\xi\langle[\Delta\hat A, \Delta\hat B]\rangle
++\xi^2\langle(\Delta\hat B)^2\rangle.
+\]
+由
+\[
+[\Delta\hat A, \Delta\hat B]=[\hat A, \hat B]=\i\hat C
+\]
+可得
+\[
+\i\xi\langle[\Delta\hat A, \Delta\hat B]\rangle
+=
+\i\xi\langle \i\hat C\rangle
+=
+-\xi\langle \hat C\rangle.
+\]
+因此
+\[
+\langle \Psi|\Psi\rangle
+=
+(\Delta A)^2
+-\xi\langle C\rangle
++\xi^2(\Delta B)^2
+\geq 0.
+\]
+这是关于实数 $\xi$ 的二次不等式. 由于它对任意实数 $\xi$ 都非负, 所以其判别式必须小于或等于零：
+\[
+\langle C\rangle^2
+-
+4(\Delta A)^2(\Delta B)^2
+\leq 0.
+\]
+于是得到
+\[
+(\Delta A)^2(\Delta B)^2
+\geq
+\frac{1}{4}\langle C\rangle^2.
+\]
+即
+\[
+\Delta A\Delta B
+\geq
+\frac{1}{2}|\langle C\rangle|.
+\]
+又因为
+\[
+[\hat A, \hat B]=\i\hat C, 
+\]
+所以也可以写成一般形式
+\[
+\Delta A\Delta B
+\geq
+\frac{1}{2}
+\left|
+\langle[\hat A, \hat B]\rangle
+\right|.
+\]
+这就是两个力学量的不确定度关系. 它表明, 当两个算符不对易时, 相应两个力学量的不确定度乘积存在下限. 
+
+作为最重要的例子, 考虑一维位置算符 $\hat x$ 和动量算符 $\hat p_x$. 它们满足基本对易关系
+\[
+[\hat x, \hat p_x]=\i\hbar.
+\]
+因此
+\[
+\Delta x\Delta p_x
+\geq
+\frac{\hbar}{2}.
+\]
+同理有
+\[
+\Delta y\Delta p_y
+\geq
+\frac{\hbar}{2}, 
+\]
+\[
+\Delta z\Delta p_z
+\geq
+\frac{\hbar}{2}.
+\]
+这就是海森堡不确定度关系. 
+
+\section{自旋}
+\subsection{自旋的发现}
+电荷的旋转运动会构成一定的轨道磁矩$\mu$, 轨道磁矩与角动量成正比. 按照经典模型, 电子的轨道运动相当于一个闭合电路中的电流, 而一个载流回路的磁矩 $\mu$ 与电流 $I$ 和回路面积 $S$ 的乘积成正比, 即 $\mu = I S$. 对于一个绕核旋转的电子来说, 电流 $I$ 可以表示为电子的电荷 $e$ 乘以其绕核旋转的频率 $\nu$, 而回路面积 $S$ 则与电子轨道半径 $r$ 的平方成正比. 
+
+\[
+S = \frac{1}{2} \int_0^{2\pi} r^2 \, \d\varphi = \frac{1}{2} \int_{0}^{T} r^2 \, \omega\d t = \frac{1}{2m_e} \int_{0}^{T} \mathbf{l} \cdot \d t = \frac{lT}{2m_e}.
+\]
+  
+式子中$\mathbf{l}$表示电子的轨道角动量. 因此, 电子的轨道磁矩 $\mu$ 可以表示为
+\[
+\mu = \frac{-e}{2m_e} l.
+\]
+
+考虑到角动量的取值是以$\hbar$为单位的, 可以在角动量的数值上除以$\hbar$, 得到一个无量纲的数值. 定义玻尔磁子 $\mu_B$ 为
+\[
+\mu_B = \frac{e\hbar}{2m_e}.
+\]
+这是电子磁矩的量子化单位, 对于核磁矩, 玻尔磁子表达式分母中的电子质量 $m_e$ 应该替换为核的质量 $m_p$, 得到核磁子, 在计算原子磁矩时核磁矩可忽略不计. 
+
+为了从实验上验证角动量量子化的概念, 斯特恩和格拉赫在1922年设计了一个著名的实验. 实验的原理是让银原子束通过一个非均匀磁场, 由于原子的磁矩取向不同, 在磁场梯度内受到不同大小和方向的力而产生不同的偏转, 最后沉淀在接收板上的不同地方. 
+
+\insertfig{figure13.png}{斯特恩-格拉赫实验示意图}{0.5}
+
+如图所示, 在电炉$O$内使银蒸发, 银原子通过狭缝$S_1$和$S_2$后形成细束, 经过不对称的刃-槽形磁极产生的不均匀磁场区域, 最后撞在玻璃板$P$上形成沉淀物分布. 银原子束所通过的整个区域都被抽成真空以避免干扰. 
+
+下面对实验作些理论推演, 设磁场及其梯度的方向为$z$轴, 一个具有磁矩 $\mu$ 的银原子在磁场梯度中受到的力为
+\[
+F_z = \mu_z \frac{\partial B}{\partial z}.
+\]
+
+式中$\mu_z$表示磁矩在$z$方向的分量. 设原子通过磁场梯度区域的纵向距离为$L$, 原子束的初始速度为$v$, 则原子在磁场梯度区域内的停留时间为$t=\frac{L}{v}$, 横向加速度为$a=\frac{f}{m}$, 使得原子束最后在底板$P$上形成的横向位移:
+\[
+S = \frac{1}{2} a t^2 = \frac{1}{2} \frac{\partial B}{\partial z}\frac{\mu_z}{m} \left(\frac{L}{v}\right)^2.
+\]
+
+实验的结果如下：银原子束在磁场中分裂为朝相反方向的偏转的两束, 没有不偏转的束. 每束原子在玻璃板上$P$上形成一个有宽度的黑带, 这是因为原子的速度有一定的分布. 根据计算, 每束原子的磁矩大小均为一个玻尔磁子$\mu_B$, 但方向相反, 即$\mu_z = \pm \mu_B$. 这表明银原子具有一个内在的磁矩, 只有正负一对, 这个磁矩不能通过电子的轨道运动来解释.同时期人们还做了一些实验, 利用分辨率较高的光谱仪发现钠原子黄色谱线实际上是由两条靠的很近的谱线组成的, 人们还发现这两条谱线在弱磁场中还会分裂为4条和6条. 这些原子谱线分裂成偶数条的现象不可能由电子轨道运动状态的不同而引起, 因此必须考虑电子的内禀运动. 
+
+在之前的讨论中, 我们曾经提到过总轨道角量子数$L$和总轨道磁量子数$m_L$都是整数, 从而其简并度$2L+1$是奇数. 银原子束在磁场中分裂为两条, 套用$2L+1=2$的公式, 得到$L=\frac{1}{2}$. 这听起来十分荒谬, 因为我们之前认为$L$只能取整数值. 为了能够解释这些现象, 1925年, 乌伦贝克和古德斯米特提出了自旋假说. 电子除了有轨道运动外还有电子自旋. 但是必须注意的是, 自旋并不代表电子真正地在做某种机械运动. 自旋是一个纯粹的量子力学概念, 它没有经典对应物, 主要是由于经典假设违反了相对论. 自旋的存在使得每个电子都具有一个内在的角动量和磁矩, 这些量子属性与电子的轨道运动无关. 自旋具有下列性质:
+
+(1)每个电子都有自旋角动量$S$, 其在空间中任何方向上投影都只能取两个数值:
+\[
+S_z = \pm \frac{\hbar}{2}.
+\]
+
+(2)假设每一个电子都有自旋磁矩, $\mu_s$, 其与自旋角动量$S$间的关系为:
+\[
+\mu_s = - \frac{e}{m_e} S
+\]
+考虑到空间投影, 则在任意方向上只能取得两个数值:
+\[
+\mu_z = \pm \frac{e\hbar}{2m_e} = \pm \mu_B.
+\]
+这里我们引入朗德g因子$g$, 定义为磁矩$\mu$无量纲化后与角动量$S$(或$L$)无量纲化后的比值. 磁矩无量纲化的方式是:$\frac{\mu}{\mu_B}$. 角动量无量纲化的方式是:$\frac{S}{\hbar}$. 从而:
+\[
+g = \frac{\mu/\mu_B}{S/\hbar}  
+\]
+因此, 电子自旋的朗德g因子为:
+\[
+g_s = \frac{1}{1/2} = 2.
+\]
+电子轨道的朗德g因子为:
+\[
+g_L = \frac{\mu_L}{L}\frac{\hbar}{\mu_B} = 1.
+\]
+
+\subsection{自旋角动量算符}
+式子中:$\frac{\mu_{Sz}}{S_z} = -\frac{e}{m_e}$被称为电子自旋的旋磁比. 注意到电子轨道的旋磁比是$\frac{\mu_L}{L} = -\frac{e}{2m_e}$, 因此电子自旋的旋磁比是轨道旋磁比的两倍. 
+
+在~\ref{sec:common_operators}~节建立轨道角动量算符及其对易关系的时候, 我们是从经典的角动量和动量算符出发得到的对易关系. 为了建立自旋角动量的理论, 我们直接假设自旋角动量算符$\hat S$满足与轨道角动量算符$\hat L$相同的对易关系, 即
+\[
+[\hat S_x, \hat S_y] = \i\hbar \hat S_z, 
+\qquad
+[\hat S_y, \hat S_z] = \i\hbar \hat S_x, 
+\qquad
+[\hat S_z, \hat S_x] = \i\hbar \hat S_y.
+\]
+以及
+\[
+[\hat S^2, \hat S_x] = [\hat S^2, \hat S_y] = [\hat S^2, \hat S_z] = 0.
+\]
+和
+\[
+\hat S^2 = \hat S_x^2 + \hat S_y^2 + \hat S_z^2, 
+\]
+这样自旋角量子数为$s=\frac{1}{2}$, $\hat S^2$的本征值为$s(s+1)\hbar^2=\frac{3}{4}\hbar^2$, 自旋磁量子数为$m_s = \pm \frac{1}{2}$, $\hat S_z$的本征值为$\pm \frac{\hbar}{2}$, 自旋的简并度为$2s+1=2$.
+
+求解本征值的正规方法是求解本征方程, 但是有时候如果知道算符之间的对易关系, 也可以求得本征值. 在本征值等间隔的情况下, 我们往往可以找到一对升降算符, 通过他们来找本征值是很方便的. 给定一个算符$\hat A$, 如果能够找到一对厄米共轭算符$\hat \eta$和$\hat \eta^{\dagger}$, 满足
+\[
+[\hat A, \hat \eta] = -\lambda \hat \eta, 
+\qquad
+[\hat A, \hat \eta^{\dagger}] = \lambda \hat \eta^{\dagger}, 
+\]
+
+则它们将具有下面的性质:对于算符$\hat A$的本征值为$a$的本征矢$| a \rangle$, 只要:
+
+(1) $\hat \eta | a \rangle$不为零, 则$\hat \eta | a \rangle$是算符$\hat A$的本征值为$a-\lambda$的本征矢. 
+
+(2) $\hat \eta^{\dagger} | a \rangle$不为零, 则$\hat \eta^{\dagger} | a \rangle$是算符$\hat A$的本征值为$a+\lambda$的本征矢. 
+
+$\eta^{\dagger}$和$\eta$分别称为升算符和降算符. 证明如下:
+
+将式中的算符作用在本征矢 $|a\rangle$ 上：
+
+\[
+\begin{aligned}
+LHS = [\hat{A}, \hat{\eta}^{\dagger}]|a\rangle = \hat{A}\hat{\eta}^{\dagger}|a\rangle - \hat{\eta}^{\dagger}\hat{A}|a\rangle = \hat{A}\hat{\eta}^{\dagger}|a\rangle
+ - \hat{\eta}^{\dagger}a|a\rangle = \hat{A}\hat{\eta}^{\dagger}|a\rangle
+ - a\hat{\eta}^{\dagger}|a\rangle= \lambda \hat{\eta}^{\dagger}|a\rangle = RHS
+\end{aligned}
+\]
+
+
+于是
+
+\[
+\hat{A}\hat{\eta}^{\dagger}|a\rangle
+=
+(a+\lambda)\hat{\eta}^{\dagger}|a\rangle .
+\]
+
+同理可得
+
+\[
+\hat{A}\hat{\eta}|a\rangle
+=
+(a-\lambda)\hat{\eta}|a\rangle .
+\]
+
+按当初假设, $\hat{\eta}^{\dagger}|a\rangle$、$\hat{\eta}|a\rangle$
+皆为非零矢量. 上两式说明, 它们分别是本征值为
+$(a+\lambda)$ 和 $(a-\lambda)$ 的本征矢. 
+
+现在我们回到自旋的相关求解. 令 $\left|\uparrow\right\rangle$ 和 $\left|\downarrow\right\rangle$ 为
+$\hat{s}_z$ 的正交归一本征矢, 即
+\[
+\hat{s}_z\left|\uparrow\right\rangle
+=
++\frac{\hbar}{2}\left|\uparrow\right\rangle, 
+\qquad
+\hat{s}_z\left|\downarrow\right\rangle
+=
+-\frac{\hbar}{2}\left|\downarrow\right\rangle .
+\]
+
+下面以它们为基求各自旋分量算符的矩阵表示. 为了书写方便, 令
+\[
+\hat{\sigma}_i=\frac{2}{\hbar}\hat{s}_i
+\qquad (i=x, y, z), 
+\]
+它们满足的对易关系为
+\[
+\left\{
+\begin{aligned}
+\hat{\sigma}_x\hat{\sigma}_y-\hat{\sigma}_y\hat{\sigma}_x
+&=2\i\hat{\sigma}_z, \\
+\hat{\sigma}_y\hat{\sigma}_z-\hat{\sigma}_z\hat{\sigma}_y
+&=2\i\hat{\sigma}_x, \\
+\hat{\sigma}_z\hat{\sigma}_x-\hat{\sigma}_x\hat{\sigma}_z
+&=2\i\hat{\sigma}_y, 
+\end{aligned}
+\right.
+\]
+和
+\[
+[\hat{\sigma}^2, \hat{\sigma}_x]
+=
+[\hat{\sigma}^2, \hat{\sigma}_y]
+=
+[\hat{\sigma}^2, \hat{\sigma}_z]
+=0, 
+\]
+其中
+\[
+\hat{\sigma}^2
+=
+\hat{\sigma}_x^2+\hat{\sigma}_y^2+\hat{\sigma}_z^2 .
+\]
+
+$\hat{\sigma}_z$ 的本征值为 $\pm 1$, $\hat{\sigma}^2$ 的本征值为 $3$, 即
+\[
+\hat{\sigma}_z\left|\uparrow\right\rangle
+=
++\left|\uparrow\right\rangle, 
+\qquad
+\hat{\sigma}_z\left|\downarrow\right\rangle
+=
+-\left|\downarrow\right\rangle ;
+\]
+\[
+\hat{\sigma}^2\left|\uparrow\right\rangle
+=
+3\left|\uparrow\right\rangle, 
+\qquad
+\hat{\sigma}^2\left|\downarrow\right\rangle
+=
+3\left|\downarrow\right\rangle .
+\]
+
+这就是说, 它们的矩阵表达式为
+\[
+\sigma_z
+=
+\begin{pmatrix}
+\left\langle\uparrow\right|\hat{\sigma}_z\left|\uparrow\right\rangle
+&
+\left\langle\uparrow\right|\hat{\sigma}_z\left|\downarrow\right\rangle
+\\
+\left\langle\downarrow\right|\hat{\sigma}_z\left|\uparrow\right\rangle
+&
+\left\langle\downarrow\right|\hat{\sigma}_z\left|\downarrow\right\rangle
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}, 
+\]
+\[
+\sigma^2
+=
+\begin{pmatrix}
+\left\langle\uparrow\right|\hat{\sigma}^2\left|\uparrow\right\rangle
+&
+\left\langle\uparrow\right|\hat{\sigma}^2\left|\downarrow\right\rangle
+\\
+\left\langle\downarrow\right|\hat{\sigma}^2\left|\uparrow\right\rangle
+&
+\left\langle\downarrow\right|\hat{\sigma}^2\left|\downarrow\right\rangle
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 & 0\\
+0 & 3
+\end{pmatrix}.
+\]
+
+我们可以像前面已经讨论过的那样引入升降算符
+\[
+\hat{\sigma}_{\pm}
+=
+\hat{\sigma}_x\pm \i\hat{\sigma}_y .
+\]
+
+升算符意味着
+\[
+\hat{\sigma}_+\left|\downarrow\right\rangle
+=
+C\left|\uparrow\right\rangle, 
+\qquad
+\hat{\sigma}_+\left|\uparrow\right\rangle
+=
+0 .
+\]
+即
+\[
+\sigma_+
+=
+\begin{pmatrix}
+\left\langle\uparrow\right|\hat{\sigma}_+\left|\uparrow\right\rangle
+&
+\left\langle\uparrow\right|\hat{\sigma}_+\left|\downarrow\right\rangle
+\\
+\left\langle\downarrow\right|\hat{\sigma}_+\left|\uparrow\right\rangle
+&
+\left\langle\downarrow\right|\hat{\sigma}_+\left|\downarrow\right\rangle
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & C\\
+0 & 0
+\end{pmatrix}.
+\]
+
+降算符意味着
+\[
+\hat{\sigma}_-\left|\uparrow\right\rangle
+=
+C^*\left|\downarrow\right\rangle, 
+\qquad
+\hat{\sigma}_-\left|\downarrow\right\rangle
+=
+0 .
+\]
+即
+\[
+\sigma_-
+=
+\begin{pmatrix}
+\left\langle\uparrow\right|\hat{\sigma}_-\left|\uparrow\right\rangle
+&
+\left\langle\uparrow\right|\hat{\sigma}_-\left|\downarrow\right\rangle
+\\
+\left\langle\downarrow\right|\hat{\sigma}_-\left|\uparrow\right\rangle
+&
+\left\langle\downarrow\right|\hat{\sigma}_-\left|\downarrow\right\rangle
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0\\
+C^* & 0
+\end{pmatrix}.
+\]
+
+式中 $C$、$C^*$ 是某个归一化常量, 它可利用下式来定：
+\[
+\hat{\sigma}_-\hat{\sigma}_+
+=
+\hat{\sigma}^2-\hat{\sigma}_z^2-2\hat{\sigma}_z .
+\]
+
+写成矩阵形式, 则有
+\[
+\begin{pmatrix}
+0 & 0\\
+C^* & 0
+\end{pmatrix}
+\begin{pmatrix}
+0 & C\\
+0 & 0
+\end{pmatrix}
+=
+\begin{pmatrix}
+3 & 0\\
+0 & 3
+\end{pmatrix}
+-
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}
+-
+2
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}.
+\]
+
+由此得
+\[
+\begin{pmatrix}
+0 & 0\\
+0 & CC^*
+\end{pmatrix}
+=
+\begin{pmatrix}
+3-1-2 & 0\\
+0 & 3-1+2
+\end{pmatrix}
+=
+\begin{pmatrix}
+0 & 0\\
+0 & 4
+\end{pmatrix}, 
+\]
+即
+\[
+CC^*=4, \qquad C=2 .
+\]
+
+从而
+\[
+\sigma_+
+=
+\begin{pmatrix}
+0 & 2\\
+0 & 0
+\end{pmatrix}, 
+\qquad
+\sigma_-
+=
+\begin{pmatrix}
+0 & 0\\
+2 & 0
+\end{pmatrix}.
+\]
+
+于是
+\[
+\sigma_x
+=
+\frac{1}{2}(\sigma_++\sigma_-)
+=
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}, 
+\qquad
+\sigma_y
+=
+\frac{1}{2\i}(\sigma_+-\sigma_-)
+=
+\begin{pmatrix}
+0 & -\i\\
+\i & 0
+\end{pmatrix}.
+\]
+
+将以上结果归纳起来, 我们有
+\[
+\sigma_x
+=
+\begin{pmatrix}
+0 & 1\\
+1 & 0
+\end{pmatrix}, 
+\qquad
+\sigma_y
+=
+\begin{pmatrix}
+0 & -\i\\
+\i & 0
+\end{pmatrix}, 
+\qquad
+\sigma_z
+=
+\begin{pmatrix}
+1 & 0\\
+0 & -1
+\end{pmatrix}.
+\]
+这组矩阵称为泡利矩阵. 求出泡利矩阵之后, 我们就可以利用一开始的
+
+\[
+\hat{\sigma}_i=\frac{2}{\hbar}\hat{s}_i
+\qquad (i=x, y, z), 
+\]
+来求出自旋算符的矩阵表示：
+\[
+\hat{s}_i
+=
+\frac{\hbar}{2}\hat{\sigma}_i
+\qquad (i=x, y, z).
+\]
+
+自旋角动量对应的本征波函数可以写成如下形式：
+\[
+\Phi = \begin{pmatrix} \psi_1 \\ \psi_2 \end{pmatrix}, 
+\]
+一般情况下, $\psi_1 \neq \psi_2$, 且二者对 $(x, y, z)$ 的依赖是不一样的. 
+这是因为, 通常自旋和轨道运动之间是有相互作用的, 所以电子的自旋状态对轨道运动有影响. 但是, 当这种相互作用很小时, 可以将其忽略, 则 $\psi_1, \psi_2$ 对 $(x, y, z)$ 的依赖一样, 即不同方向的角动量函数形式是相同的. 此时 $\Phi$ 可以写成如下形式：
+\[
+\Phi(\bm{r}, S_z, t) = \psi(\bm{r}, t) \, \chi(S_z), 
+\]
+其中 $\chi(S_z)$ 是 $\hat{S}_z$ 的本征函数, 称为自旋波函数. 下面我们来求解. 
+
+考虑$\hat{S}_z$ 的本征方程：
+\[
+\hat{S}_z \chi(S_z) = \pm \frac{\hbar}{2} \chi(S_z).
+\]
+
+令$\chi_{\frac{1}{2}}(S_z)$ 和 $\chi_{-\frac{1}{2}}(S_z)$
+分别为本征值 $\frac{\hbar}{2}$ 和 $-\frac{\hbar}{2}$ 的本征函数, 
+因为 $\hat{S}_z$ 是 $2 \times 2$ 矩阵, $\chi_{1/2}, \chi_{-1/2}$ 都应是 $2 \times 1$ 的列矩阵：
+\[
+\chi_{\frac{1}{2}} = \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}, \quad
+\chi_{-\frac{1}{2}} = \begin{pmatrix} a_3 \\ a_4 \end{pmatrix}.
+\]
+
+把先前求得的泡利矩阵代入本征方程得：
+\[
+\frac{\hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}
+\begin{pmatrix} a_1 \\ a_2 \end{pmatrix}
+= \frac{\hbar}{2} \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}
+\;\Longrightarrow\;
+\begin{pmatrix} a_1 \\ -a_2 \end{pmatrix}
+= \begin{pmatrix} a_1 \\ a_2 \end{pmatrix}.
+\]
+
+由归一化条件确定 $a_1$：
+\[
+\begin{pmatrix} a_1^* & 0 \end{pmatrix}
+\begin{pmatrix} a_1 \\ 0 \end{pmatrix} = 1
+\;\Longrightarrow\; |a_1| = 1 \;\Longrightarrow\; a_1 = 1.
+\]
+
+所以
+\[
+\chi_{\frac{1}{2}} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}.
+\]
+
+同理
+\[
+\chi_{-\frac{1}{2}} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
+\]
+
+
+

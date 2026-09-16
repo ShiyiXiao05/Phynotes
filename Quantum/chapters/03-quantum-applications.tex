@@ -1,0 +1,1683 @@
+\chapter{量子力学的简单应用}
+\section{一维方势垒和隧穿效应}
+\subsection{方势垒和隧穿理论}
+一维方势垒指的是在空间一维方向上, 势能函数$V(x)$分段为常数, 且在分段点处产生跃变. 这里我们要在本征值连续的表象中求解问题, 因此算符将呈现微分形式. 例如一维运动粒子的哈密顿算符在$x$表象中的形式为:
+\[
+\hat{H} = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2} + V(x).
+\]
+从而薛定谔方程为:
+\[
+\i\hbar\frac{\partial}{\partial t}\psi(x, t) = -\frac{\hbar^2}{2m}\frac{\partial^2}{\partial x^2}\psi(x, t) + V(x)\psi(x, t).
+\]
+考虑定态情况, 那么:
+\[
+\psi(x, t) = \psi(x)e^{-\frac{\i}{\hbar}Et},
+\]
+从而可以简化为定态薛定谔方程:
+\[
+\frac{\hbar^2}{2m}\frac{d^2}{dx^2}\psi(x) = [V(x)-E]\psi(x).
+\]
+
+\insertfig{figure14.png}{一维方势垒}{0.4}
+首先我们考虑一个简单的方势垒问题, 即
+\[
+V(x) = \begin{cases}
+0, & x < 0 (\text{I区})\\
+V_0, & 0 \leq x \leq a (\text{II区})\\
+0, & x > a  (\text{III区})
+\end{cases}
+\]
+显然这三个区域内波函数的解都是平面波, 从物理的角度考虑我们设波是从左边($x=-\infty$)入射的, 它的一部分将在势垒面上反射, 另一部分将穿透势垒进入内部. 因此在II区内既有前行波, 又有势垒后界面的反射波, 最后有一部分波穿透势垒进入III区. 于是我们可以写出三个区域内的波函数为:
+\[
+\psi(x) = \begin{cases}
+e^{\i px/\hbar} + Re^{-\i px/\hbar}, & x < 0 (\text{I区})\\
+Ae^{\i p^{\prime}x/\hbar} + Be^{-\i p^{\prime}x/\hbar}, & 0 \leq x \leq a  (\text{II区})\\
+Te^{\i px/\hbar}, & x > a  (\text{III区})
+\end{cases}
+\]
+
+式中$p=\sqrt{2mE}$, $p^{\prime}=\sqrt{2m(E-V_0)}$, $R$、$A$、$B$、$T$分别是反射波、II区前行波、II区反射波和穿透波的振幅. 这里我们把入射波的振幅规定为1, 这样$|R|^2$就表示整个势垒的反射系数, $|T|^2$表示整个势垒的透射系数. 
+
+在势垒边界上的波函数应该满足什么样的边界条件？显然势函数连续的地方波函数应该有很好的解析性. 在势函数发生阶跃的地方如何？可以证明的是, 只要阶跃不是无穷大, 波函数在阶跃点处仍然是连续的, 并且它的一阶导数也是连续的. 我们简单说明一下, 考虑势函数$V(x)$在$x=a$处有阶跃, 将定态薛定谔方程带入, 得到:
+\[
+\psi^{\prime\prime}(x) = \frac{2m}{\hbar^2}[V(x)-E]\psi(x).
+\]
+对上式两边在$[a-\varepsilon, a+\varepsilon]$区间积分:
+\[
+\psi^{\prime}(a+\varepsilon) - \psi^{\prime}(a-\varepsilon) = \frac{2m}{\hbar^2}\int_{a-\varepsilon}^{a+\varepsilon} [V(x)-E]\psi(x) \d x.
+\]
+
+只要$V(x)-E$不是无穷大, 那么当$\varepsilon \to 0$时, 右边的积分趋于零, 因此$\psi^{\prime}(a+)$ = $\psi^{\prime}(a-)$, 即波函数的一阶导数在阶跃点处也是连续的. 一阶导数连续以波函数本身连续可微为前提, 因此在势函数有限阶跃点处波函数和其一阶导数都连续. 
+
+这样我们可以写出边界条件:
+\[
+\begin{aligned}
+  1+R &= A+B, \\
+  p(1-R) &= p^{\prime}(A-B), \\
+  Ae^{\i p^{\prime}a/\hbar} + Be^{-\i p^{\prime}a/\hbar} &= Te^{\i pa/\hbar}, \\
+  \frac{p^{\prime}}{\hbar}(Ae^{\i p^{\prime}a/\hbar} - Be^{-\i p^{\prime}a/\hbar}) &= \frac{p}{\hbar}Te^{\i pa/\hbar}.
+\end{aligned}
+\]
+
+经过一些复杂的计算, 我们可以得到:
+\[
+R = \frac{(p^2-p^{\prime 2})\sin(p^{\prime}a/\hbar)}{2\i pp^{\prime}\cos(p^{\prime}a/\hbar) + (p^2+p^{\prime 2})\sin(p^{\prime}a/\hbar)}, 
+\]
+\[
+T = \frac{2\i pp^{\prime}}{2\i p^{\prime}\cos(p^{\prime}a/\hbar) + (p^2+p^{\prime 2})\sin(p^{\prime}a/\hbar)}.
+\]
+
+从而反射与透射系数:
+\[
+|R|^2 = \frac{(p^2-p^{\prime 2})^2\sin^2(p^{\prime}a/\hbar)}{(p^2-p^{\prime 2})^2\sin^2(p^{\prime}a/\hbar) + 4p^2p^{\prime 2}}, 
+\]
+\[
+|T|^2 = \frac{4p^2p^{\prime 2}}{(p^2-p^{\prime 2})^2\sin^2(p^{\prime}a/\hbar) + 4p^2p^{\prime 2}}.
+\]
+
+上面这些系数不需要特别记忆, 接下来我们将结合这些表达式作些分析. 可以看出, 反射与透射系数满足$|R|^2 + |T|^2 = 1$, 这说明概率守恒. 注意到上面这个式子仅适用于势函数$V(x=\infty)=V(x=-\infty)$的情况, 否则$x=\pm\infty$处粒子动量不等. 考虑到概率流的表达式:
+\[
+j = \rho \cdot v = \frac{p}{m}|\psi|^2
+\]
+概率守恒式应该改为:
+\[
+|R|^2 p_{-} + |T|^2 p_{+} = p_{-}, 
+\]
+
+接下来我们看看不同情况下的反射与透射系数. 
+
+(1)首先考虑入射粒子能量大于势垒高度的情况, 即$E > V_0$, 此时$p^{\prime}$是实数, 反射与透射系数的表达式如上所示. 可以看出, 反射与透射系数都具有周期性的振荡行为, 这种现象被称为量子干涉效应. 特别地, 当$p^{\prime}a/\hbar = n\pi$时, 反射系数$|R|^2$为零, 透射系数$|T|^2$为1, 此时入射粒子完全穿透势垒, 这种现象被称为完全透射, 前面的反射和透射系数可以具体地写为：
+\[
+|R|^2 = \frac{V_0^2\sin^2(\frac{\sqrt{2m(E-V_0)}}{\hbar}a/\hbar)}{4E(E-V_0) + V_0^2\sin^2(\frac{\sqrt{2m(E-V_0)}}{\hbar}a/\hbar)}
+\]
+\[
+|T|^2 = \frac{4E(E-V_0)}{4E(E-V_0) + V_0^2\sin^2(\frac{\sqrt{2m(E-V_0)}}{\hbar}a/\hbar)}
+\]
+
+可以看出, 透射系数随着波数$\frac{p^{\prime}}{\hbar}$的变化而振荡. 但是在
+\[
+\frac{p^{\prime}}{\hbar}a = n\pi
+\]
+时, 透射系数等于1, 即实现了完全的透射. 注意到此时恰好$\frac{p^{\prime}}{\hbar} = 2\frac{\pi}{\lambda^{\prime}}$, ($\lambda^{\prime}$是粒子在$II$区的德布罗意波长)也即:$a = \frac{n\lambda^{\prime}}{2}$. 这个条件和光的薄膜干涉效应本质上和条件上都是一样的. 
+
+(2)接下来考虑$V_0<0, E>0$的情况. 若粒子的能量也是负的, 其将被束缚在势阱中, 我们会在后面讨论. 这种情况下各种情况与(1)中类似, 只需将$-V_0$改为$+|V_0|$即可. 
+
+(3)$0<E<V_0$
+这时在势垒区$II$内部的动量$p^{\prime}$是纯虚数, 令:
+\[
+\begin{cases}
+k = \frac{\sqrt{2mE}}{\hbar}, 
+\beta = \frac{\sqrt{2m(V_0-E)}}{\hbar}, 
+\end{cases}
+\]
+
+则:
+\[
+\begin{cases}
+  \frac{p^{\prime}}{\hbar} = \i\beta, \\
+  \sin(p^{\prime}a/\hbar) = \i\sinh(\beta a), \\
+\end{cases}
+\]
+
+从而反射与透射系数为:
+\[
+|R|^2 = \frac{(k^2+\beta^2)^2\sinh^2(\beta a)}{(k^2+\beta^2)^2\sinh^2(\beta a) + 4k^2\beta^2}, 
+\]
+\[
+|T|^2 = \frac{4k^2\beta^2}{(k^2+\beta^2)^2\sinh^2(\beta a) + 4k^2\beta^2}.
+\]
+
+考虑$\beta a \gg 1$的情况, 此时:
+\[
+|T|^2 \approx \frac{16E(V_0-E)}{V_0^2}e^{-2\beta a}.
+\]
+
+此时粒子的隧穿概率随势垒厚度$a$的增加按指数规律递减. 势垒变宽或者变高时, 穿透的概率减小. 经典观点看这种隧穿是不可能发生的, 这是一个量子力学效应, 称为量子隧穿效应. 
+\subsection{隧穿效应的应用}
+隧穿效应在核衰变、扫描隧道显微镜、半导体器件等领域有重要的应用, 现在我们来看几个例子. 
+\subsubsection{核衰变与核聚变}
+天然或者人工放射性元素可以通过释放$\alpha$粒子的方式发生衰变, $\alpha$粒子是由两个质子和两个中子组成的氦核. 在核内$\alpha$粒子受到核力的吸引, 处于负势阱内, 在核外$\alpha$粒子受到静电力的排斥, 库仑势在核表面形成一个势垒, 从经典物理考虑, 能量低于势垒的$\alpha$粒子既无法从核内跑出来, 也无法从核外入射. 它们都将被势垒弹回. 势垒的高度取决于母核所带的电荷$Ze$和其半径$R$.用量子力学理论计算出$\alpha$粒子的隧穿概率可以很好地解释$\alpha$衰变半衰期的长短. 
+
+在各种原子核中具有中等质量数的原子核, 如铁核等的核子平均结合能较大, 质量数较小和质量数较大的原子核的核子平均结合能较小. 结合能是负的势能, 因此重原子核发生分裂成为中等质量数的原子核时会释放出能量, 轻原子核发生聚变成为中等质量数的原子核时也会释放出能量. 两个轻原子核聚合到一起的主要障碍是库仑力, 一旦它们能够穿越核表面的库仑势垒, 核力就会将它们结合到一起, 将多余的能量释放出来. 以氘-氘核反应为例, 库伦势垒的高度为$144\,\mathrm{keV}$, 若两核对撞, 按经典物理的理论计算, 至少要求每个氘核都有$72\,\mathrm{keV}$的动能. 若要求粒子的平均平动动能$\frac{3}{2}kT$来估算, 聚变的温度大约要达到$5.6 \times 10^8\,\mathrm{K}$. 但从理论上估算, 聚变温度可以降低到$10^{8}\,\mathrm{K}$. 这里有两点考虑, 一点是粒子有一定的量子隧穿概率, 二是粒子服从麦克斯韦分布, 不少粒子的动能比平均动能$\frac{3}{2}kT$高. 
+
+\subsubsection{扫描隧道显微镜}
+\insertfig{figure15.png}{STM的工作原理}{0.6}
+扫描隧道显微镜(STM)是一种具有原子尺度的分辨本领, 它的出现使得人们第一次能够实时地观察单个原子在物质表面排列的情况和与表面电子行为有关的物理、化学性质. STM的工作原理如图所示, 以针尖为一个电极, 被测固体表面为另一电极, 两级间加上电压$V_b$, 当它们之间的距离小到$nm$数量级时, 电子可以因量子隧穿效应从一个电极穿过空间势垒到达另一电极形成电流. 电流$I$的大小取决于针尖与表面的距离和表面的电子状态. 当针尖在被测表面上方恒定高度扫描时, 由于隧穿电流与间距成指数关系, 即使固体表面只有原子尺度的起伏, 隧穿电流也会有超出10倍的变化. 从而我们可以通过检测电流变化得到表面结构, 此工作模式称为恒高度模式. 
+
+当样品表面起伏较大时, 恒高度模式可能会导致针尖与表面接触, 损坏样品和针尖. 此时可以采用恒电流模式, 即通过调整针尖与表面的距离来保持隧穿电流恒定. 这样就可以得到表面等电流线图, 从而反映出表面结构. 
+
+\section{束缚态}
+现在我们将讨论势阱中的束缚态问题. 由定态的薛定谔方程出发我们将导出一个从经典物理看非常不可思议的结果, 也就是连续的势函数将会导致离散的量子能级. 
+\subsection{一维有限深方势阱}
+一维无限深方势阱的问题我们在先前已经讨论过, 现在我们来看看一维有限深方势阱的问题. 考虑如下的势函数:
+\[
+V(x) = \begin{cases}
+V_0, & x < -a (\text{I区})\\
+0, & -a \leq x \leq a (\text{II区})\\
+V_0, & x > a  (\text{III区})
+\end{cases}
+\]
+薛定谔方程在不同区域内简化为:
+\[
+\begin{cases}
+\frac{\d ^2 \psi}{\d x^2}+\frac{2mE}{\hbar^2}\psi = 0, & |x| \leq a \\
+\frac{\d ^2 \psi}{\d x^2}+\frac{2m(E-V_0)}{\hbar^2}\psi = 0, & |x|>a  
+\end{cases}
+\]
+
+定义波数:
+\[
+\begin{cases}
+k = \frac{\sqrt{2mE}}{\hbar}, & |x| \leq a \\
+k^{\prime} = \frac{\sqrt{2m(V_0-E)}}{\hbar}, & |x|>a 
+\end{cases}
+\]
+
+上面的方程变为:
+\[
+\begin{cases}
+\frac{\d ^2 \psi}{\d x^2}+k^2\psi = 0, & |x| \leq a \\
+\frac{\d ^2 \psi}{\d x^2}-k^{\prime 2}\psi = 0, & |x|>a 
+\end{cases}
+\]
+
+在II区内的解为:
+\[
+\psi(x) = A\sin(kx)+B\cos(kx).
+\]
+在I区和III区内的解为:
+\[
+\psi(x) = Ce^{k^{\prime}x} + De^{-k^{\prime}x}, \qquad |x|>a.
+\]
+从经典物理的角度看, 粒子只能在$E\geq V(x)$的范围内存在. 取无穷远处为势能的零点, 若$E<0$, 则粒子的活动范围是有界的. 从量子的观点看, 粒子有一定的概率幅超出经典的活动范围, 但是随着距离的增加, 概率幅趋于$0$.这就是量子力学中束缚态的概念. 所以在量子力学中, 束缚态的波函数满足:
+\[
+\lim_{x\to \pm \infty} \psi(x) = 0.
+\]
+代入边界条件, 我们可以得到:
+\[
+\psi(x) = \begin{cases}
+Ce^{k^{\prime}x}, & x < -a \\
+A\sin(kx)+B\cos(kx), & -a \leq x \leq a \\
+De^{-k^{\prime}x}, & x > a
+\end{cases}
+\]
+
+在两个界面上, 我们还会得到波函数本身和其一阶导数连续的总计四个方程:
+\[
+\begin{aligned}
+A\sin(ka) + B\cos(ka) &= De^{-k^{\prime}a}, \\
+kA\cos(ka) - kB\sin(ka) &= -k^{\prime}De^{-k^{\prime}a}, \\
+-A\sin(ka) + B\cos(ka) &= Ce^{-k^{\prime}a}, \\
+kA\cos(ka) + kB\sin(ka) &= k^{\prime}Ce^{-k^{\prime}a}.
+\end{aligned}
+\]
+
+方程组可以化简为:
+\[
+\begin{aligned}
+A\bigl(k\cos(ka)+k'\sin(ka)\bigr)&=0, \\
+B\bigl(k\sin(ka)-k'\cos(ka)\bigr)&=0, \\
+C&=e^{k'a}\bigl(-A\sin(ka)+B\cos(ka)\bigr), \\
+D&=e^{k'a}\bigl(A\sin(ka)+B\cos(ka)\bigr).
+\end{aligned}
+\]
+
+若要求非零解, 则分为两种情况：
+
+(1)$A\neq 0, \quad B=0$
+
+此时需要满足
+\[
+k\cos(ka)+k'\sin(ka)=0, 
+\]
+即
+\[
+\tan(ka)=-\frac{k}{k'}
+\]
+
+对应解为
+\[
+\begin{aligned}
+A&\text{ 为任意非零常数}, \\
+B&=0, \\
+C&=-Ae^{k'a}\sin(ka), \\
+D&=Ae^{k'a}\sin(ka).
+\end{aligned}
+\]
+
+(2)$A=0, \quad B\neq 0$
+
+此时需要满足
+\[
+k\sin(ka)-k'\cos(ka)=0, 
+\]
+即
+\[
+\tan(ka)=\frac{k'}{k}
+\]
+
+对应解为
+\[
+\begin{aligned}
+A&=0, \\
+B&\text{ 为任意非零常数}, \\
+C&=Be^{k'a}\cos(ka), \\
+D&=Be^{k'a}\cos(ka).
+\end{aligned}
+\]
+
+第一种情况对应于:
+\[
+\psi(x) = \begin{cases}
+-Ae^{k^{\prime}(x+a)}\sin(ka), & x < -a  \\
+A\sin(kx), & -a  \leq x \leq a \\
+Ae^{k^{\prime}(x-a)}\sin(ka), & x > a
+\end{cases}
+\]
+
+满足:$\psi(-x)=-\psi(x)$, 波函数具有奇宇称. 
+
+第二种情况对应于:
+\[
+\psi(x) = \begin{cases}Be^{k^{\prime}(x+a)}\cos(ka), & x < -a  \\
+B\cos(kx), & -a \leq x \leq a \\ Be^{k^{\prime}(x-a)}\cos(ka), & x > a
+\end{cases}
+\]
+
+满足:$\psi(-x)=\psi(x)$, 波函数具有偶宇称. 
+
+考虑之前我们得到的方程:
+\[
+\tan(ka)=-\frac{k}{k'}, \qquad \tan(ka)=\frac{k'}{k}, 
+\]
+简单起见, 我们定义:$u=ka, v=k'a$, 那么$u, v$必须满足下列圆方程:
+\[
+u^2+v^2=\frac{2mV_0a^2}{\hbar^2}, 
+\]
+以及下列两条曲线方程:
+\[
+u \cot u = -v, \qquad u \tan u = v.
+\]
+将曲线方程和圆在第一象限的曲线画出, 每有一个交点, 就代表存在一个对应宇称的能级. 这里我们给出了一些结果. 
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure16.png}
+        \caption{$v=-u\cot u$ 与圆的交点}
+        \label{fig:cot-intersections}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure17.png}
+        \caption{$v=u\tan u$ 与圆的交点}
+        \label{fig:tan-intersections}
+    \end{subfigure}
+
+    \caption{两类方程在第一象限内与圆 $u^2+v^2=1, 4, 12$ 的交点}
+    \label{fig:two-intersections}
+\end{figure}
+
+总结来看, $n\pi\leq \sqrt{\frac{2mV_0a^2}{\hbar^2}} < (n+1)\pi$时, 就有$n+1$个偶宇称态, 且总存在至少一个偶宇称态. 当$(n+\frac{1}{2})\pi\leq \sqrt{\frac{2mV_0a^2}{\hbar^2}} < (n+\frac{3}{2})\pi$时, 就有$n+1$个奇宇称态. 这样我们可以看出, 当$E<V_0$时, 粒子能量只能取一些分立的值. 从而我们发现了连续的势能导致了分离的能量本征值. 如果粒子能量大于势阱深度, 则粒子能量可以取连续的值. 
+
+\subsection{谐振子}
+接下来我们介绍谐振子. 谐振子在经典物理与量子物理中都具有相当重要的地位, 且它是为数很少的几个有严格解的问题. 我们将遵循狄拉克创造的一种非常漂亮的算符方法来解决谐振子问题. 
+
+谐振子的势函数可以写为:
+\[
+V(x) = \frac{1}{2}m\omega_0^2 x^2, 
+\]
+其中$\omega_0$是谐振子的经典固有角频率. 哈密顿算符为:
+\[
+\hat{H} = \frac{\hat{p}^2}{2m} + \frac{1}{2}m\omega_0^2 \hat{x}^2 = \frac{1}{2m}[(\hat{p}+\i m\omega_0 \hat{x})(\hat{p}-\i m\omega_0 \hat{x}) - \i m\omega_0 [\hat{x}\hat{p}-\hat{p}\hat{x}]].
+\]
+我们先前知道:
+\[
+[\hat{x}, \hat{p}] = \hat{x}\hat{p}-\hat{p}\hat{x} = \i\hbar, 
+\]
+代入上式, 我们得到:
+\[
+\hat{H} = \frac{1}{2m}(\hat{p}+\i m\omega_0 \hat{x})(\hat{p}-\i m\omega_0 \hat{x}) + \frac{1}{2}\hbar\omega_0.
+\]
+定义一对厄米共轭算符:
+\[
+\begin{cases}
+\hat{a} = \frac{\i}{\sqrt{2m\hbar\omega_0}}(\hat{p}-\i m\omega_0 \hat{x}), \\
+\hat{a}^{\dagger} = \frac{-\i}{\sqrt{2m\hbar\omega_0}}(\hat{p}+\i m\omega_0 \hat{x}), 
+\end{cases}
+\]
+这样可以将哈密顿算符写成:
+\[
+\hat{H} = \hbar\omega_0(\hat{a}^{\dagger}\hat{a} + \frac{1}{2}).
+\]
+算符$\hat{a}$和$\hat{a}^{\dagger}$的对易关系为:
+\[
+[\hat{a}, \hat{a}^{\dagger}] = \hat{a}\hat{a}^{\dagger} - \hat{a}^{\dagger}\hat{a} = 1.
+\]
+我们后面将会论证满足上述对易关系的算符具有如下性质:定义新算符
+\[
+\hat{N} = \hat{a}^{\dagger}\hat{a}, 
+\]
+则$\hat{N}$与$\hat{a}$、$\hat{a}^{\dagger}$的对易关系为:
+\[
+[\hat{N}, \hat{a}] = -\hat{a}, \qquad [\hat{N}, \hat{a}^{\dagger}] = \hat{a}^{\dagger}.
+\]
+从而$\hat{N}$的本征值为$n=0, 1, 2, \ldots$
+$\hat{a}$和$\hat{a}^{\dagger}$分别是$\hat{N}$的降算符和升算符, 即
+\[
+\hat{a}\left|n\right\rangle = \sqrt{n}\left|n-1\right\rangle, \qquad \hat{a}^{\dagger}\left|n\right\rangle = \sqrt{n+1}\left|n+1\right\rangle.
+\]
+\[
+\langle n|\hat{a} = \langle n+1|\sqrt{n+1}, \qquad
+\langle n|\hat{a}^{\dagger} = \langle n-1|\sqrt{n}.
+\]
+
+从而这些本征矢都可以由基态的态矢 $|0\rangle$、$\langle 0|$ 导出：
+\[
+\begin{cases}
+|n\rangle = \dfrac{\hat{a}^{\dagger n}}{\sqrt{n!}}|0\rangle, \\[6pt]
+\langle n| = \dfrac{\hat{a}^{n}}{\sqrt{n!}}\langle 0|.
+\end{cases}
+\]
+
+$\hat{a}^{\dagger}$ 和 $\hat{a}$ 分别称为 $|n\rangle$ 的产生算符和消灭算符. 
+
+现在我们回到谐振子问题. 哈密顿算符可通过 $\hat{N}$ 表成：
+\begin{equation}
+\hat{H} = \left( \hat{N} + \dfrac{1}{2} \right)\hbar\omega_0, 
+\tag{3.46}
+\end{equation}
+
+故 $\hat{N}$ 的本征态也就是 $\hat{H}$ 的本征态, 哈密顿算符 $\hat{H}$ 的本征值为
+\[
+E_n = \left( n + \dfrac{1}{2} \right)\hbar\omega_0, 
+\qquad
+(n=0, 1, 2, 3, \cdots).
+\]
+
+我们应注意到, 谐振子的基态能量 $E_0=\dfrac{1}{2}\hbar\omega_0>0$. 
+在经典物理中谐振子能量最低的状态是静止状态, 此状态的能量等于 $0$. 
+在量子理论中 $E_0\neq 0$ 的根源, 与势阱情形一样, 在于海森堡不确定性原理. 
+谐振子的最低能量
+\[
+E_0=\dfrac{1}{2}\hbar\omega_0
+\]
+叫做零点能, 它所反映的运动叫做零点振动. 零点振动是经典物理中没有的量子现象. 在量子场论中零点能和零点振动有深远的意义：场的零点能与场相互作用使得真空态中不断地有各种虚粒子偶对产生和湮没, 形成真空涨落. 相应地, 空间存在真实粒子时, 真空背景场对其作用表现为所谓辐射修正和真空极化效应. 这些效应导致的一些重要的可观测后果中最出名的就是氢原子能级的兰姆位移和电子的反常磁矩. 
+
+最后, 我们考察波函数在 $x$ 表象中的形式, 为此将
+$\hat{a}|0\rangle=0$ 式中的算符 $\hat{a}$ 根据（3.40）式还原为
+$\hat{p}$ 和 $\hat{x}$ 来表示. 
+
+\[
+\left( \hat{p} - \i m\omega_0 \hat{x} \right)|0\rangle = 0, 
+\]
+
+在 $x$ 表象中 $|0\rangle \leftrightarrow \psi_0(x)$, 
+$\hat{p} \leftrightarrow -\i\hbar \dfrac{\d}{\d x}$, 上式应写为
+
+\[
+\left( \dfrac{\d}{\d x} + \frac{m\omega_0}{\hbar}x \right)\psi_0(x)=0.
+\]
+
+其解为
+
+\[
+\psi_0(x)=C e^{-m\omega_0 x^2/2\hbar}, 
+\]
+
+用归一化条件
+
+\[
+\int_{-\infty}^{\infty}\psi_0^*(x)\psi_0(x)\, \d x=1, 
+\]
+
+定出归一化常量
+$C=\left( \frac{m\omega_0}{\pi\hbar} \right)^{1/4}$, 
+得基态波函数的最后表达式
+
+\[
+\psi_0(x)
+=
+\left( \frac{m\omega_0}{\pi\hbar} \right)^{1/4}
+e^{-m\omega_0 x^2/2\hbar}.
+\]
+
+谐振子激发态的波函数可以从（3.45）式得到：
+
+\[
+\begin{aligned}
+\psi_n(x)
+&= \langle x|n\rangle
+= \dfrac{1}{\sqrt{n!}}\langle x|\hat{a}^{\dagger n}|0\rangle
+\nonumber\\
+&=
+\dfrac{1}{\sqrt{2^n n!}}
+\left(
+-\sqrt{\dfrac{\hbar}{m\omega_0}}\dfrac{\d}{\d x}
++
+\sqrt{\dfrac{m\omega_0}{\hbar}}x
+\right)^n
+\psi_0(x)
+\nonumber\\
+&=
+\dfrac{1}{\sqrt{2^n n!}}
+\left( \dfrac{m\omega_0}{\pi\hbar} \right)^{1/4}
+\left(
+-\sqrt{\dfrac{\hbar}{m\omega_0}}\dfrac{\d}{\d x}
++
+\sqrt{\dfrac{m\omega_0}{\hbar}}x
+\right)^n
+e^{-m\omega_0 x^2/2\hbar}.
+\end{aligned}
+\]
+
+将上式运算展开, 即可得谐振子波函数的具体表达式. 
+详细步骤就不在这里给出了, 下面只给出结果：
+\[
+\psi_n(\xi)
+=
+\left[
+\dfrac{1}{2^n n!}
+\left( \dfrac{m\omega_0}{\pi\hbar} \right)^{1/2}
+\right]^{1/2}
+e^{-\xi^2/2}H_n(\xi), 
+\]
+其中
+\[
+\xi=\sqrt{\dfrac{m\omega_0}{\hbar}}x, 
+\]
+$H_n(\xi)$ 称为厄米多项式, 现将其中的前几个列于下面：
+\[
+\begin{aligned}
+H_0(\xi) &= 1, \\
+H_1(\xi) &= 2\xi, \\
+H_2(\xi) &= 4\xi^2 - 2, \\
+H_3(\xi) &= 8\xi^3 - 12\xi, \\
+H_4(\xi) &= 16\xi^4 - 48\xi^2 + 12, \\
+H_5(\xi) &= 32\xi^5 - 160\xi^3 + 120\xi, \\
+H_6(\xi) &= 64\xi^6 - 480\xi^4 + 720\xi^2 - 120.
+\end{aligned}
+\]
+
+同时厄米多项式满足性质
+\[
+\int_{-\infty}^{\infty}
+H_n(\xi)H_m(\xi)e^{-\xi^2}\, \d\xi
+=
+\sqrt{\pi}\, 2^n n!\, \delta_{nm}.
+\]
+因此能量本征函数满足正交归一化条件. 
+
+我们给出波函数的前几个图像, 可以看出, 随着$n$的增加, 波函数的振荡次数增加, 且波函数的幅度逐渐向两侧扩散. 在经典物理中, 谐振子在平衡位置速度最大, 因而单位时间出现的概率最小. 量子数$n$较小时, 经典结果与量子力学结果正相反. 但随着量子数$n$的增大, 量子力学结果与经典结果趋于一致. 
+\insertfig{figure18.png}{谐振子波函数和概率分布的前几个图像}{0.8}
+
+
+
+波函数是具有确定宇称的. 当 $n$ 为偶数, 有偶宇称
+\[
+\psi_n(-x)=\psi_n(x);
+\]
+当 $n$ 为奇数, 有奇宇称
+\[
+\psi_n(-x)=-\psi_n(x).
+\]
+且最低的能态是偶宇称的, 能量是
+\[
+E_0=\frac{\hbar\omega}{2}, 
+\]
+
+
+在量子力学中, 矩阵元指的是某个算符在两个量子态之间的矩阵元素. 
+如果算符为 $\hat{A}$, 那么它在态 $|m\rangle$ 和 $|n\rangle$ 之间的矩阵元写作
+\[
+A_{nm}=\langle n|\hat{A}|m\rangle.
+\]
+它可以理解为：先让算符 $\hat{A}$ 作用在初态 $|m\rangle$ 上, 
+然后再看所得结果中有多少成分落在末态 $|n\rangle$ 上. 
+如果这个矩阵元不为零, 说明算符 $\hat{A}$ 可以把这两个态联系起来；
+如果矩阵元为零, 则说明这两个态之间在该算符作用下没有联系. 
+
+现在考虑谐振子从能级 $|m\rangle$ 跃迁到能级 $|n\rangle$ 的情况. 
+跃迁是否能够发生, 主要取决于位置算符 $\hat{x}$ 的矩阵元是否为零：
+\[
+x_{nm}=\langle n|\hat{x}|m\rangle.
+\]
+
+如果
+\[
+x_{nm}\neq 0, 
+\]
+则说明从 $|m\rangle$ 到 $|n\rangle$ 的跃迁是可能发生的. 
+
+如果
+\[
+x_{nm}=0, 
+\]
+则说明这种跃迁是禁戒的. 
+
+对于一维谐振子, 位置算符 $\hat{x}$ 可以用产生算符和湮灭算符表示为
+\[
+\hat{x}
+=
+\sqrt{\frac{\hbar}{2m\omega}}
+\left(
+\hat{a}+\hat{a}^{\dagger}
+\right), 
+\]
+
+因此矩阵元可以写成
+\[
+x_{nm}
+=
+\langle n|\hat{x}|m\rangle
+=
+\sqrt{\frac{\hbar}{2M\omega}}
+\langle n|
+\left(
+\hat{a}+\hat{a}^{\dagger}
+\right)
+|m\rangle.
+\]
+
+利用升降算符的作用：
+\[
+\hat{a}|m\rangle=\sqrt{m}|m-1\rangle, 
+\]
+\[
+\hat{a}^{\dagger}|m\rangle=\sqrt{m+1}|m+1\rangle, 
+\]
+可得
+\[
+\left(
+\hat{a}+\hat{a}^{\dagger}
+\right)|m\rangle
+=
+\sqrt{m}|m-1\rangle
++
+\sqrt{m+1}|m+1\rangle.
+\]
+
+所以
+\[
+x_{nm}
+=
+\sqrt{\frac{\hbar}{2M\omega}}
+\left[
+\sqrt{m}\langle n|m-1\rangle
++
+\sqrt{m+1}\langle n|m+1\rangle
+\right].
+\]
+
+又因为谐振子的不同能级态彼此正交：
+\[
+\langle n|m\rangle=\delta_{nm}, 
+\]
+于是
+\[
+\langle n|m-1\rangle=\delta_{n, m-1}, 
+\]
+\[
+\langle n|m+1\rangle=\delta_{n, m+1}.
+\]
+
+因此
+\[
+x_{nm}
+=
+\sqrt{\frac{\hbar}{2M\omega}}
+\left[
+\sqrt{m}\, \delta_{n, m-1}
++
+\sqrt{m+1}\, \delta_{n, m+1}
+\right].
+\]
+
+由这个式子可以看出, 只有当
+\[
+n=m-1
+\]
+或者
+\[
+n=m+1
+\]
+时, $x_{nm}$ 才不等于零. 
+
+也就是说, 谐振子的跃迁只能发生在相邻能级之间, 因此选择定则为
+\[
+\Delta n=n-m=\pm 1.
+\]
+
+这说明谐振子不能从某个能级直接跃迁到相隔两个或更多能级的状态. 
+
+\subsubsection{附注：产生与湮灭算符}
+我们现在来介绍一下之前提到过产生与湮灭算符的性质. 
+
+已知厄米共轭算符 $\hat{a}$、$\hat{a}^{\dagger}$ 满足下列对易式：
+\begin{equation}
+[\hat{a}, \hat{a}^{\dagger}]=\hat{I}, 
+\tag{A.95}
+\end{equation}
+
+则算符
+\[
+\hat{N}\equiv \hat{a}^{\dagger}\hat{a}
+\]
+与它们的对易关系是
+\begin{equation}
+\begin{cases}
+[\hat{N}, \hat{a}]=-\hat{a}, \\
+[\hat{N}, \hat{a}^{\dagger}]=\hat{a}^{\dagger}.
+\end{cases}
+\tag{A.96}
+\end{equation}
+
+这是符合升降算符的要求的 $(\lambda=1)$. 
+设算符 $\hat{N}$ 有个本征值为 $n$, 相应的本征矢为 $|n\rangle$, 
+则有
+\[
+\begin{cases}
+\hat{N}\hat{a}|n\rangle=(n-1)\hat{a}|n\rangle, \\
+\hat{N}\hat{a}^{\dagger}|n\rangle=(n+1)\hat{a}^{\dagger}|n\rangle.
+\end{cases}
+\]
+
+即
+\[
+\begin{cases}
+\hat{a}|n\rangle \propto |n-1\rangle, \\
+\hat{a}^{\dagger}|n\rangle \propto |n+1\rangle.
+\end{cases}
+\]
+
+即 $\hat{N}$ 的本征值构成以 $1$ 为间隔的等间隔序列. 
+由于 $\hat{N}$ 是一对厄米共轭算符的乘积, 其本征值
+\[
+n=\langle n|\hat{a}^{\dagger}\hat{a}|n\rangle \geq 0
+\]
+在它的本征值序列中必有一个非负的最小值
+$n_{\min}$, 且
+\[
+\hat{a}|n_{\min}\rangle=0.
+\]
+
+在物理中通常遇到的情况是 $n_{\min}=0$, 
+这时 $\hat{N}$ 的本征值 $n$ 是所有非负的整数
+\[
+0, \qquad 1, \qquad 2, \qquad 3, \qquad \cdots, 
+\]
+
+相应的右本征矢为
+\[
+|0\rangle, \qquad
+\left\|1\right\rangle=\hat{a}^{\dagger}|0\rangle, \qquad
+\left\|2\right\rangle=\hat{a}^{\dagger}\left\|1\right\rangle, \qquad
+\left\|3\right\rangle=\hat{a}^{\dagger}\left\|2\right\rangle, \qquad
+\cdots;
+\]
+
+与它们对偶的左矢为
+\[
+\langle 0|, \qquad
+\left\langle 1\right\|=\langle 0|\hat{a}, \qquad
+\left\langle 2\right\|=\left\langle 1\right\|\hat{a}, \qquad
+\left\langle 3\right\|=\left\langle 2\right\|\hat{a}, \qquad
+\cdots.
+\]
+
+我们只假定 $n=0$ 的本征矢是归一化的, (不要与零矢量混淆)双线的狄拉克符号表示该矢量尚未归一化. 
+上述各本征矢的模为
+\[
+\langle 0|0\rangle=1, 
+\]
+
+\[
+\begin{aligned}
+\left\langle 1\middle\|1\right\rangle
+&=
+\langle 0|\hat{a}\hat{a}^{\dagger}|0\rangle
+=
+\langle 0|(\hat{a}^{\dagger}\hat{a}+\hat{I})|0\rangle
+=
+\langle 0|(\hat{N}+\hat{I})|0\rangle
+=1, \\
+\left\langle 2\middle\|2\right\rangle
+&=
+\left\langle 1\middle\|\hat{a}\hat{a}^{\dagger}\middle\|1\right\rangle
+=
+\left\langle 1\middle\|(\hat{N}+\hat{I})\middle\|1\right\rangle
+=
+2\left\langle 1\middle\|1\right\rangle
+=2\cdot 1, \\
+\left\langle 3\middle\|3\right\rangle
+&=
+\left\langle 2\middle\|\hat{a}\hat{a}^{\dagger}\middle\|2\right\rangle
+=
+\left\langle 2\middle\|(\hat{N}+\hat{I})\middle\|2\right\rangle
+=
+3\left\langle 2\middle\|2\right\rangle
+=3\cdot 2\cdot 1.
+\end{aligned}
+\]
+
+\[
+\cdots\cdots\cdots\cdots\cdots
+\]
+
+一般的表达式是
+\[
+\left\langle n\middle\|n\right\rangle
+=
+\langle 0|\hat{a}^{n}\hat{a}^{\dagger n}|0\rangle
+=
+n!.
+\]
+
+所以归一化的本征矢为
+\[
+\begin{cases}
+|n\rangle
+=
+\dfrac{1}{\sqrt{n!}}\|n\rangle
+=
+\dfrac{\hat{a}^{\dagger n}}{\sqrt{n!}}|0\rangle, 
+\\[8pt]
+\langle n|
+=
+\dfrac{1}{\sqrt{n!}}\langle n\|
+=
+\langle 0|\dfrac{\hat{a}^{n}}{\sqrt{n!}}.
+\end{cases}
+\]
+
+算符 $\hat{N}$ 的本征值经常代表一个量子态上某种玻色子的数目, 
+这时升算符 $\hat{a}^{\dagger}$ 的作用是使量子态上的粒子数增加 $1$, 
+故称为粒子的产生算符；
+降算符 $\hat{a}$ 的作用是使量子态上的粒子数减少 $1$, 
+故称为粒子的消灭算符. 
+
+\section{氢原子}
+\subsection{氢原子波函数的求解}
+氢原子是一个质子和一个电子组成的原子, 二者之间存在库仑相互作用. 由于质子大约是电子质量$m_e$的1836倍, 作为近似处理, 可以建立以质子为坐标原点的坐标系, 电子位置用球坐标$(r, \theta, \varphi)$表示. 如同前面对于束缚态的讨论一样, 氢原子也会把电子限定在某一区域, 解析得到当电子处于束缚态, 氢原子具有一系列确定能量的量子态. 
+
+氢原子中电子的势能为$V(r)=-\frac{Ze^2}{4\pi\varepsilon_0 r}$, 其中$Z$是核电荷数, $e$是基本电荷, $\varepsilon_0$是真空介电常数. 氢原子的定态薛定谔方程可以写成:
+\[
+\hat{H}\psi(r, \theta, \varphi) = -\left(\frac{\hbar^2}{2m_e}\nabla^2 + V(r)\right)\psi(r, \theta, \varphi) = E\psi(r, \theta, \varphi).
+\]
+哈密顿量有球对称性, 在球坐标中讨论比较方便, 拉普拉斯算符用球坐标表示为:
+\[
+\nabla^2 = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) + \frac{1}{r^2\sin\theta}\frac{\partial}{\partial \theta}\left(\sin\theta\frac{\partial}{\partial \theta}\right) + \frac{1}{r^2\sin^2\theta}\frac{\partial^2}{\partial \varphi^2}.
+\]
+
+接下来的一些内容我们前面介绍角动量算符时已经提到, 为完整起见我们再推导一次. 角动量算符定义为
+\[
+\hat{\mathbf L}
+=
+\mathbf r \times \hat{\mathbf p}, 
+\qquad
+\hat{\mathbf p}
+=
+-\i\hbar \nabla .
+\]
+因此
+\[
+\hat{\mathbf L}
+=
+-\i\hbar \, \mathbf r \times \nabla .
+\]
+在球坐标中, 角动量的三个分量可以写成
+\[
+\hat L_x
+=
+\i\hbar
+\left(
+\sin\varphi \frac{\partial}{\partial \theta}
++
+\cot\theta \cos\varphi \frac{\partial}{\partial \varphi}
+\right), 
+\]
+\[
+\hat L_y
+=
+\i\hbar
+\left(
+-\cos\varphi \frac{\partial}{\partial \theta}
++
+\cot\theta \sin\varphi \frac{\partial}{\partial \varphi}
+\right), 
+\]
+\[
+\hat L_z
+=
+-\i\hbar \frac{\partial}{\partial \varphi}.
+\]
+角动量平方算符定义为
+\[
+\hat L^2
+=
+\hat L_x^2+\hat L_y^2+\hat L_z^2 .
+\]
+将上述三个分量代入并化简, 可得
+\[
+\hat L^2
+=
+-\hbar^2
+\left[
+\frac{\partial^2}{\partial \theta^2}
++
+\cot\theta \frac{\partial}{\partial \theta}
++
+\frac{1}{\sin^2\theta}
+\frac{\partial^2}{\partial \varphi^2}
+\right].
+\]
+注意到
+\[
+\frac{\partial^2}{\partial \theta^2}
++
+\cot\theta \frac{\partial}{\partial \theta}
+=
+\frac{1}{\sin\theta}
+\frac{\partial}{\partial \theta}
+\left(
+\sin\theta
+\frac{\partial}{\partial \theta}
+\right), 
+\]
+因此角动量平方算符也可以写成
+\[
+\hat L^2
+=
+-\hbar^2
+\left[
+\frac{1}{\sin\theta}
+\frac{\partial}{\partial \theta}
+\left(
+\sin\theta
+\frac{\partial}{\partial \theta}
+\right)
++
+\frac{1}{\sin^2\theta}
+\frac{\partial^2}{\partial \varphi^2}
+\right]
+\]
+
+从而我们可以把拉普拉斯算符写成
+\[
+\nabla^2 = \frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) - \frac{1}{\hbar^2 r^2} \hat L^2.
+\]
+因此氢原子定态薛定谔方程可以写成
+\[
+-\left[\frac{\hbar^2}{2m_e}\left(\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial}{\partial r}\right) + \frac{1}{\hbar^2 r^2} \hat L^2\right) + V(r) \right]\psi(r, \theta, \varphi) = E\psi(r, \theta, \varphi).
+\]
+我们观察一下哈密顿算符:
+\[
+\hat{H} = -\frac{\hbar^2}{2m_e}{\frac{\partial}{\partial r}}(r^2\frac{\partial}{\partial r}) + \frac{1}{2m_e r^2} \hat L^2 + V(r).
+\]
+容易证明$\hat{H}, \hat{L}^2, \hat{L}_z$三者彼此对易, 从而三者可以有一套共同本征函数. 在这套本征函数中, 这三者可以有确定值. 关于处理这个方程我们不想过多赘述, 我们在这里直接给出结果. 这三者的共同本征函数可以写成分离变量的形式:
+\[
+\psi(r, \theta, \varphi) = R_{nl}(r)Y_{lm}(\theta, \varphi) =R(r)\Theta_{lm}(\theta)\Phi(\varphi).
+\]
+
+其中$Y_{lm}(\theta, \varphi)$是球谐函数, $R_{nl}(r)$是径向函数. 函数的下标表明它们依赖于哪些量子数. 球面调和函数是角动量算符$\hat{L}^2$和$\hat{L}_z$的本征函数, 满足
+\[
+\hat{L}^2 Y_{lm}(\theta, \varphi) =  l(l+1)\hbar^2 Y_{lm}(\theta, \varphi), 
+\]
+\[
+\hat{L}_z Y_{lm}(\theta, \varphi) =  m\hbar Y_{lm}(\theta, \varphi).
+\]
+式子中$l$是角量子数, $m$是磁量子数. 对于一个角量子数$l$, $m$可以取 $-l, -l+1, \ldots, l-1, l$ 共$2l+1$个值. 从而对于一个$l$, 我们可以找到$2l+1$个球谐函数$Y_{lm}(\theta, \varphi)$作为其本征函数, 它们都对应相同的本征值$l(l+1)\hbar^2$. 因此对于$\hat{L}^2$的本征值是$2l+1$重简并的. 
+
+三个独立函数$R_{nl}(r)$、$\Theta_{lm}(\theta)$和$\Phi(\varphi)$满足的常微分方程为:
+\[
+\begin{aligned}
+\frac{1}{R}\frac{\d}{\d r}\left(r^2\frac{\d R}{\d r}\right) + \frac{2m_e r^2}{\hbar^2}(E-V(r)) &= l(l+1), \\
+\frac{1}{\Theta \sin\theta}\frac{\d}{\d\theta}\left(\sin\theta \frac{\d\Theta}{\d\theta}\right) + \left(l(l+1) - \frac{m^2}{\sin^2\theta}\right) &= 0, \\
+\frac{1}{\Phi}\frac{\d^2\Phi}{\d\varphi^2} + m^2 &= 0.
+\end{aligned}
+\]
+
+令$R(r) = u(r)/r$, 代入第一个方程得到
+\[
+\frac{\d^2u}{\d r^2} + \frac{2m_e}{\hbar^2}(E-V(r))u = l(l+1)\frac{u}{r^2}.
+\]
+这给出了径向函数$R_{nl}(r)$的微分方程. 显然其必须满足边界条件:
+\[
+\lim_{r\to 0} u(r) = 0, \qquad \lim_{r\to \infty} u(r) \text{收敛}.
+\]
+
+接下来我们讨论一些特殊情况. $E<0$时, 氢原子处于束缚态, 此时方程的解是分立的, 本征函数和本征值有解析解, 我们直接给出结果:
+\[
+E_n = \frac{-m_e e^4}{2(4\pi\varepsilon_0)^2 \hbar^2 n^2}
+\]
+注意到其本征值仅仅依赖于量子数$n$, 与$l$无关. 但是本征函数需要两个量子数表示, 其中$l$的取值范围为$0, 1, 2, \ldots, n-1$. 几个低能级的本征函数的形式如下:
+\[
+\begin{aligned}
+  R_{10}(r) &= 2\left(\frac{1}{a_0}\right)^{3/2} e^{-r/a_0}, \\
+  R_{20}(r) &= \frac{1}{\sqrt{2}}\left(\frac{1}{a_0}\right)^{3/2} \left(1-\frac{r}{2a_0}\right)e^{-r/2a_0}, \\
+  R_{21}(r) &= \frac{1}{\sqrt{24}}\left(\frac{1}{a_0}\right)^{3/2} \frac{r}{a_0} e^{-r/2a_0}, \\
+\end{aligned}
+\]
+
+当$E>0$时, 氢原子处于散射态, 此时方程的解是连续的. 此时事实上氢原子处于电离状态, 对应的是非量子化区. 
+
+接下来介绍一下量子数与电子状态. 氢原子的薛定谔方程求解过程中自然地给出了三个重要的量子数$(n, l, m_l)$. 除了主量子数$n$表征能量量子化, 氢原子中电子的状态还需要$l$和$m_l$来描述其角动量状态. 要得到前面的微分方程有确定的解, 氢原子电子绕核运动的角动量需要满足量子化条件$L=\hbar\sqrt{l(l+1)}$. 从而$l$被称为轨道角量子数, 简称角量子数. 值得注意的是角动量的最小值可以为$0$, 氢原子的基态角动量为$0$.
+
+同时, 电子绕核运动的角动量的方向在空间的取向不能连续地改变, 只能取一些特定的方向. 即角动量$L$在外磁场方向的投影分量$L_z$满足量子化条件:
+\[
+L_z = m_l \hbar
+\]
+这个量子化条件被称为空间量子化条件, $m_l$被称为磁量子数. 对于一个给定的角量子数$l$, 磁量子数$m_l$可以取$-l, -l+1, \ldots, l-1, l$共$2l+1$个值. 
+
+最后我们来讨论选择定则. 氢原子中电子的能量主要取决于主量子数$n$, 与角量子数$l$有轻微关系. 电子在不同能级间跃迁时需要满足的条件是$\Delta l = \pm 1$, $\Delta m_l = 0, \pm 1$. 因此电子不能从一个s态直接跃迁到另一个s态, 必须先跃迁到一个p态, 再从p态跃迁到另一个s态. 因为直接从s态跃迁到另一个s态的过程中, $\Delta l = 0$, 不满足选择定则. 
+
+综上所述, 氢原子中电子的稳定状态可以用一组量子数$(n, l, m_l)$来描述. 一般情况下, 电子的能量主要取决于主量子数$n$, 与角量子数$l$有轻微关系. 无磁场时, 电子能量与磁量子数无关, 因此电子的状态可以用$n$和$l$来描述, 习惯上用$s, p, d, f$等字母表达$l=0, 1, 2, 3, \ldots$状态. 
+
+类氢离子指的是核外只有一个电子的离子, 其能级公式只需要对核电荷数做修正即可. 
+
+\subsection{电子的概率分布}
+对于定态波函数, 电子出现在体积元$\d \tau$中的概率为
+\[
+|\psi(r, \theta, \varphi)|^2 \d \tau = |R_{nl}(r)|^2 r^2 \d r \cdot |\Theta_{lm}(\theta)|^2 \sin\theta \d\theta \cdot |\Phi(\varphi)|^2 \d\varphi.
+\]
+
+我们分别分析径向和角向的概率分布. 对于径向部分, 电子出现在$r$到$r+\d r$之间的概率为
+\[
+W_{nl}(r) \d r = |R_{nl}(r)|^2 r^2 \d r \int |Y_{lm}(\theta, \varphi)|^2 \d \Omega = |R_{nl}(r)|^2 r^2 \d r.
+\]
+其中$\d \Omega = \sin\theta \d\theta \d\varphi$是立体角元. 其概率密度$W_{nl}$可以写为:
+\[
+W_{nl}(r) = |R_{nl}(r)|^2 r^2.
+\]
+这里我们给出一些氢原子不同态的径向概率分布图像, 可以看出, 随着主量子数$n$的增加, 电子在空间中的分布逐渐向外扩散. 
+
+\begin{figure}[htbp]
+    \centering
+
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure19.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure20.png}
+    \end{subfigure}
+
+    \caption{径向概率密度函数图像}
+\end{figure}
+
+考虑角向概率分布, 旋转对称性保证概率分布与$\varphi$无关. 那么只需要考虑$\theta$ 的分布. 对于态$\ket{n, l, m_l}$, 电子出现在$(\theta, \varphi)$方向的立体角$\d \Omega$处的概率为
+\[
+|Y_{lm}(\theta, \varphi)|^2 \d \Omega.
+\]
+其中$Y_{lm}(\theta, \varphi)$是球面调和函数. 我们给出一些不同态的角向概率分布图像.
+\insertfig{figure21.png}{角向概率密度函数图像}{0.8}
+
+\section{能级的精细结构}
+\subsection{碱金属光谱}
+先前的讨论中我们说氢原子能级只与主量子数$n$有关, 其他原子也只与$n, l$有关, 这是一种比较粗略的说法. 精密的光谱学研究表明, 每个能级实际上都要分裂为两个或者三个差距很小的能级, 这些能级的分裂被称为能级的精细结构. 
+
+能级的精细结构是由电子自旋与轨道之间的磁相互作用引起的. 严格的量子理论需要用相对论性的电子波动方程讨论, 我们采用另一种半经典的理论来推导. 考虑角量子数$l\neq 0$的量子态. 从原子核看有轨道角动量的电子态是一个绕$z$周的环电流. 而在电子看来, 原子核沿着反方向绕自己旋转. 考虑到原子核的质量比电子要大$3\sim4$个数量级, 从而相应的德布罗意波长要小$3\sim4$个数量级, 因此原子核的运动可以近似看成是经典的. 根据经典电动力学, 环电流会产生一个磁场, 这个磁场会与电子的自旋磁矩发生相互作用, 从而引起能级的分裂. 
+
+简单起见, 设原子核的运动轨道为圆形, 电流元的大小为$j=qv=Zev$. 根据毕奥-萨伐尔定律, 在电子处产生的磁场为:
+\[
+\bm{B}_e = \frac{\mu_0}{4\pi} \frac{\bm{j} \times \bm{r}}{r^3}
+          = \frac{\mu_0}{4\pi} \frac{q \bm{v}_p \times \bm{r}}{r^3}
+          = \frac{\mu_0}{4 \pi} \frac{Z e \left( -\bm{r} \times m \bm{v}_p \right)}{m}
+          = \frac{\mu_0 Z e \bm{L}}{4 \pi m r^3}
+\]
+
+所以
+
+\[
+\Delta E_{l, s} = -\bm{\mu}_s \cdot \bm{B}_e
+               = \frac{e}{m} \bm{S} \cdot \frac{\mu_0 Z e \bm{L}}{4 \pi m r^3}
+               = \frac{\mu_0 Z e^2}{4 \pi m^2 r^3} \bm{S} \cdot \bm{L}
+\]
+
+取$\xi(r)=\frac{\mu_0 Z e^2}{4 \pi m^2 r^3}$, 量子力学中应该把上式写成算符:
+\[
+\hat{H}_{l, s} = \xi(r) \hat{\mathbf{S}} \cdot \hat{\mathbf{L}}.
+\]
+以上就是一个电子的自旋轨道相互作用能. 如果考虑原子内有多个电子, 则应该将$\hat{H}_{l, s}$中的$\hat{\mathbf{S}}$和$\hat{\mathbf{L}}$替换成所有电子的自旋和轨道角动量的总和. 考虑到对于任何填满的壳层或者支壳层, 每一对自旋反向的电子相互抵消, 上述求和为0.因此我们可以认为上式只对价电子求和. 当然对于多电子原子, 除了同电子自旋与轨道的相互作用, 还同样应该有异电子自旋与轨道的相互作用项, 自旋与自旋相互作用以及轨道与轨道相互作用等等, 一般认为它们的作用很小, 予以舍弃\footnote{在最早期的原子光谱与原子结构的研究中都是不考虑这些项的, 后来的研究证实他们的影响并不如一开始设想的那么小, 在光谱学中还是会产生可观测效应. 当然作为初级近似我们的做法已经足够了. }. 
+
+过去未考虑自旋时, 我们以$\hat{H}, \hat{L^2}, \hat{L_z}$的共同本征矢$\ket{n, l, m}$来描述电子的状态, 这三个量子数分别对应于上述三个力学量. 现在考虑到自选后, 还需要描述自旋的本征矢. 与自旋相关的算符$\hat{s^2}$与$\hat{s_z}$是对易的, 它们有共同本征矢$\ket{s, m_s}$. 对于电子来说, $s=1/2$, $m_s=\pm 1/2$. 故略去$s$, 我们可以用一个共同本征矢$\ket{n, l, m_l, m_s}$来描述电子的状态. 
+
+完整的哈密顿算符应该考虑到自旋-轨道相互作用, 从而:
+\[
+\hat{H} = \hat{H}_0 + \hat{H}_{l, s} 
+\]
+现在$\hat{L_z}$和$\hat{S_z}$都不再与上述哈密顿算符对易. 一个自然的想法是用自旋角动量和轨道角动量的矢量和产生的总角动量描述体系状态. 可以验证的是价电子总角动量$\bm{J}=\bm{L}+\bm{S}$的平方与整个哈密顿算符对易, 且与$\hat{L^2}$对易. 同时$\hat{J_z}=\hat{L_z}+\hat{S_z}$也与$\hat{H}$对易. 因此我们可以用$\hat{J^2}$和$\hat{J_z}$来替代$\hat{L_z}$和$\hat{S_z}$, 将前述量子数和本征矢改为$\ket{n, l, j, m_j}$来描述量子态. 
+
+考虑
+\[
+\hat{J^2} = (\hat{L}+\hat{S})^2 = \hat{L}^2 + \hat{S}^2 + 2\hat{L}\cdot\hat{S} \Rightarrow \hat{L}\cdot\hat{S} = \frac{1}{2}(\hat{J^2} - \hat{L}^2 - \hat{S}^2).
+\]
+从而$\hat{H}_{l, s}$的本征值为:
+\[
+\begin{aligned}
+E_{l, s} &= \langle n, l, j, m_j|\hat{H}_{l, s}|n, l, j, m_j\rangle \\
+&= \frac{1}{2}\langle n, l, j, m_j|\xi(r)(\hat{J^2} - \hat{L}^2 - \hat{S}^2)|n, l, j, m_j\rangle \\
+& = \frac{1}{2}\langle n, l, j, m_j|\xi(r)|n, l, j, m_j\rangle [j(j+1) - l(l+1) - s(s+1)]\hbar^2 \\
+& = \xi_{nl}(r) [j(j+1) - l(l+1) - \frac{3}{4}]\hbar^2.
+\end{aligned}
+\]
+
+接下来就是计算前面这个函数的结果. 处理这个函数的核心是处理$\langle \frac{1}{r^3} \rangle$.这里我们不给出具体的计算过程, 直接给出结果.设玻尔半径$a_0=\frac{4\pi \varepsilon_0 \hbar^2}{m e^2}$. 则结果可以表示为:
+\[
+\langle \frac{1}{r^3} \rangle = \frac{Z^3}{n^3 a_0^3} \frac{1}{l(l+1)(l+\frac{1}{2})}.
+\]
+
+在研究精细能级结构的时候, 我们往往引入精细能级结构常数$\alpha=\frac{e^2}{4\pi \varepsilon_0 \hbar c}$. 因此我们可以把自旋轨道相互作用能的结果写成:
+\[
+E_{l, s} = \frac{Z^4 \alpha^4}{4 n^3} \frac{j(j+1) - l(l+1) - \frac{3}{4}}{l(l+1)(l+\frac{1}{2})} m c^2.
+\]
+
+考虑到自旋在任意方向上的投影都为$\hbar/2$, 因此当$l\neq 0$时, $j=l\pm \frac{1}{2}$. $l=0$时, $j=\frac{1}{2}$. 从而上述作用能可以写为:
+\[
+E_{l, s} = 
+\begin{cases}
+\frac{Z^4 \alpha^4}{2 n^3} \frac{1}{(2l+1)(l+1)} m c^2, & j=l+\frac{1}{2}, \\
+-\frac{Z^4 \alpha^4}{2 n^3} \frac{1}{l(2l+1)} m c^2, & j=l-\frac{1}{2}.
+\end{cases}
+\]
+观察上面的作用能我们可以看出, 当$l\neq 0$时, 能级分裂为两个能级, 且分裂的大小与$n$和$l$有关, $n$和$l$越大, 分裂越小. 而当$l=0$时, 不发生能级分裂. 也就是$s$电子不会发生能级分裂. 选择定则也可进一步改述为:$\Delta j = 0, \pm 1, \Delta l = \pm 1.$
+
+对于一个碱金属原子, 其只有一个价电子, 恰好符合我们的前述讨论. 从而我们可以以这样的符号来记述一个碱金属原子的量子态:
+\[
+\ket{n, l, j} \Rightarrow n^{2S+1}L_j
+\]
+在这里往往$s=1/2$, 故$2s+1=2$代表二重态. 例如对于$n = 3$的态, 我们可以写成: 
+\[
+\begin{aligned}
+& l = 0, \quad j = 1/2, \quad 3S \;\to\; 3^2 S_{1/2} \\
+& l = 1, \quad j = 3/2, \quad 3P \;\to\; 3^2 P_{3/2} \\
+& \qquad j = 1/2, \quad 3P \;\to\; 3^2 P_{1/2} \\
+& l = 2, \quad j = 5/2, \quad 3D \;\to\; 3^2 D_{5/2} \\
+& \qquad j = 3/2, \quad 3D \;\to\; 3^2 D_{3/2}
+\end{aligned}
+\]
+
+接下来让我们更加细致地研究碱金属的能级分裂. 以钠原子（\(Z=11\)）为例, 基态为 \(3s\)（\(l=0, \; j=1/2\)）. 考虑之前介绍过的跃迁选择定则：
+\[
+\Delta l = \pm 1, \qquad \Delta j = 0, \pm 1.
+\]
+
+
+根据不同的跃迁形式, 我们可以将碱金属价电子的跃迁分为三类:
+
+
+\paragraph{主线系跃迁：\(n p \to 3s\), \(n\ge 3\)}
+
+上能级 \(p\) 态（\(l=1\)）因自旋-轨道耦合分裂为 \(j=1/2\) 和 \(j=3/2\) 两个子能级；下能级 \(3s_{1/2}\) 无分裂. 因此每一 \(n p\) 向基态跃迁产生两条谱线形成双线结构. 随着 \(n\) 增大, \(n p\) 能级趋近电离限, 其精细结构间隔 \(\Delta E_{np}\) 逐渐减小, 故双线间隔逐渐减小, 最终并入线系限. 
+
+\paragraph{第二辅线系(锐线系)跃迁：\(n s \to 3p\), \(n\ge 4\)}
+上能级 \(s\) 态（\(l=0\)）无自旋-轨道分裂（\(j=1/2\) 唯一）；下能级 \(3p\) 有 \(j=1/2\) 和 \(j=3/2\) 两个子能级. 从 \(n s_{1/2}\) 向 \(3p_{1/2}\) 和 \(3p_{3/2}\) 跃迁, 产生两条谱线. 双线间隔完全由下能级 \(3p\) 的精细结构间隔决定, 该间隔是常数（不随 \(n\) 改变）, 因此第二辅线系双线的间隔不随波数变化. 
+
+\paragraph{第一辅线系(漫线系)跃迁：\(n d \to 3p\), \(n\ge 3\)}
+上能级 \(d\) 态（\(l=2\)）分裂为 \(j=3/2\) 和 \(j=5/2\)；下能级 \(3p\) 分裂为 \(j=1/2\) 和 \(j=3/2\). 允许的跃迁如下表所示：
+
+\[
+\begin{array}{c|cc}
+ & 3p_{1/2} & 3p_{3/2} \\ \hline
+n d_{3/2} & \checkmark & \checkmark \\
+n d_{5/2} & \times      & \checkmark \\
+\end{array}
+\]
+
+实际观测到三条谱线. 最外两条线（\(n d_{5/2}\to 3p_{3/2}\) 和 \(n d_{3/2}\to 3p_{1/2}\)）的间隔等于第二辅线系的双线间隔, 为一常数. 波长较长的两条线（\(n d_{3/2}\to 3p_{3/2}\) 和 \(n d_{3/2}\to 3p_{1/2}\)）的间隔来自上能级 \(n d\) 的精细结构分裂, 该间隔随 \(n\) 增大而减小, 最后并入线系限. 
+
+\subsection{塞曼效应}
+在介绍塞曼效应之前, 我们需要先对量子力学中两个角动量发生耦合的一般情况做个解说. 设$\bm{J_1}$和$\bm{J_2}$是体系的两个角动量. 两个角动量相加得到总角动量$\bm{J}=\bm{J_1}+\bm{J_2}$. $\bm{J_1}$和$\bm{J_2}$分别有自己的量子数$j_1, m_1$和$j_2, m_2$, 总角动量$\bm{J}$有自己的量子数$j, m$. 考虑三角不等式, 显然得到:
+\[
+||\bm{J_1}|-|\bm{J_2}|| \leq | \bm{J_1}+\bm{J_2} | \leq |\bm{J_1}|+|\bm{J_2}|.
+\]
+用量子数表示的话:
+\[
+j = |j_1-j_2|, |j_1-j_2|+1, \ldots, j_1+j_2-1, j_1+j_2.
+\]
+角动量平方和角动量$z$方向分量的本征值与前面所说的一致, 可以写成如下的形式:
+\[
+J^2 \ket{j_1, j_2, j, m} = j(j+1)\hbar^2 \ket{j_1, j_2, j, m} (j=|j_1-j_2|, |j_1-j_2|+1, \ldots, j_1+j_2-1, j_1+j_2)
+\]
+\[
+J_z \ket{j_1, j_2, j, m} = m\hbar \ket{j_1, j_2, j, m}. (m=-j, -j+1, \ldots, j-1, j)
+\]
+
+$J_1$和$J_2$无耦合时, 分开使用$\ket{j_1, m_1;j_2, m_2}$四个量子数描述体系状态即可. $j_1, j_2$给定后, $m_1, m_2$分别有$2j_1+1$和$2j_2+1$个可能的值, 从而总状态有$(2j_1+1)(2j_2+1)$个可能的值. $J_1$和$J_2$耦合后, 使用$\ket{j_1, j_2, j, m}$四个量子数描述体系状态即可. $j$的取值范围如上所示, 每个$j$对应的$m$有$2j+1$个可能的值, 从而总状态有$\sum_{j=|j_1-j_2|}^{j_1+j_2} (2j+1) = (2j_1+1)(2j_2+1)$个可能的值. 可以看出, 无论是否耦合, 体系状态的总数都是一样的. 这是自然的, 因为无论是否耦合, 两种描述方式不过是选择了描述空间的不同的基, 而描述空间的维数是固定的, 只不过耦合与否会导致其中一组基不是状态的本征矢. 
+
+接下来我们看塞曼效应. 1896年, 荷兰物理学家塞曼发现, 将光源放入磁场中, 光源发出的每一条谱线都会分裂成多条谱线. 塞曼发现的效应是每一条谱线都会分裂为三条, 这被称为正常塞曼效应. 
+
+Lorentz用经典电子论对正常塞曼效应做出了解释. 经典电子论中, 电子与原子核间的作用力可以等效为一个线性回复力, 电子在原子核周围做简谐振动并发出相同频率的电磁波. 外加磁场后, 电子的简谐振动可以分解为沿着磁场方向的简谐振动和垂直磁场方向的两个圆周运动. 沿着磁场方向的简谐振动频率不变, 垂直磁场方向的两个圆周运动频率分别增加和减少一个量$\frac{eB}{2m}$, 从而导致谱线分裂成三条. 后来人们发现光谱分裂的数目不一定是$3$条. 例如在弱外磁场中垂直于磁场方向观测钠原子的谱线发现, $589.6\, \mathrm{nm}$的谱线分裂成$4$条, $589.0\, \mathrm{nm}$的谱线分裂成$6$条. 这被称为反常塞曼效应. 
+
+原子的磁性主要来自于原子的磁矩, 而原子内部原子实的总轨道角动量和自旋角动量都为0, 对原子磁矩没有贡献, 只需要考虑价电子的磁矩. 从而与之前引入总角动量的方式, 原子的磁矩可以写为电子的轨道磁矩$\mu_l$加上电子的自旋磁矩$\mu_s$. 原子核也有自旋磁矩, 但是由于原子核的质量远大于电子的质量, 因此核磁矩远小于电子磁矩, 可以忽略不计. 这样, 原子的总磁矩为:
+\[
+\bm{\mu}  = \bm{\mu_l} + \bm{\mu_s} = -\frac{\mu_B}{\hbar}(g_l \bm{L} + g_s \bm{S}) = -\frac{\mu_B}{\hbar} (\bm{L} + 2\bm{S}) = -\frac{\mu_B}{\hbar} (\bm{J}+\bm{S}).
+\]
+原子的总磁矩与外磁场的相互作用, 电子自旋磁矩与电子做轨道运动产生的磁场的相互作用会带来两个额外的相互作用能. 这里不考虑电子轨道磁矩与电子轨道运动产生的磁场的相互作用是因为在建立轨道运动时已经计算了这一部分能量, 不需要重复考虑. 这样, 在外磁场中原子的总能量可以写为:
+\[
+E = E_n + (-\bm{\mu_s}\cdot \bm{B_e}) + (-\bm{\mu}\cdot \bm{B}).
+\]
+其中轨道运动产生的内磁场的数量级大约为$10^{-2}\sim 10^{-1}\,\mathrm{T}$, 一般而言, 这相对于我们的外磁场来说是比较大的, 很多时候在考虑内磁场时可以忽略外磁场. 
+
+第一项内容就是之前讨论过的自旋-轨道相互作用, 这导致了原子能级的精细结构分裂. 第二项内容导致了塞曼效应. 原子总磁矩的表达式$\bm{\mu} = -\frac{\mu_B}{\hbar}(\bm{J}+\bm{S})$中总角动量是守恒的, 但是对于自旋角动量会产生进动. 具有磁矩$\mu$的原子在磁场中受到的力矩为:
+\[
+\bm{\tau} = \bm{\mu} \times \bm{B}
+\]
+因此对于自旋角动量, 考虑它由于较大的内磁场产生的进动:
+\[
+\frac{\d \bm{S}}{\d t} = \bm{\tau_s} = \bm{\mu_s} \times \bm{B_e} 
+\]
+先前的自旋-轨道相互作用一节我们给出过这个结果:
+\[
+\frac{\d \bm{S}}{\d t} = -\frac{\mu_0 Z e^2}{4 \pi m^2 r^3} \bm{S} \times \bm{L} = \xi(r) \bm{L} \times \bm{S} = \xi(r)(\bm{L}+\bm{S})\times \bm{S} = \xi(r)\bm{J} \times \bm{S}.
+\]
+考虑到$J$是守恒量, 显然应该有$\frac{\d \bm{J}}{\d t} = \frac{\d}{\d t}(\bm{L}+\bm{S}) = 0$. 从而导出:
+\[
+\frac{\d \bm{L}}{\d t} = -\xi(r) \bm{J} \times \bm{S} = \xi(r)\bm{S} \times (\bm{S}+\bm{L}) = \xi(r)\bm{S} \times \bm{L} = \xi(r)(\bm{S}+\bm{L}) \times \bm{L} = \xi(r)\bm{J} \times \bm{L}.
+\]
+这样我们发现$\bm{L}$和$\bm{S}$遵循相同的动力学方程, 从而它们会以相同的角速度绕$\bm{J}$进动. 
+
+现在回到总磁矩的表达式$\bm{\mu} = -\frac{\mu_B}{\hbar}(\bm{J}+\bm{S})$. 根据前面的讨论发现$\bm{S}$绕$\bm{J}$做进动, 从而可以把$\bm{\mu}$分解到平行$\bm{J}$的方向和垂直$\bm{J}$的方向上. 其中垂直方向上的分量由于$\bm{S}$的进动会平均为0, 所以仅考虑平行于 $\bm{J}$ 的分量
+\[
+\bm{\mu_J} = \frac{\bm{\mu} \cdot \bm{J}}{J^2} \bm{J} = -\frac{\mu_B}{\hbar}  \cdot \frac{(\bm{J}+\bm{S})\cdot\bm{J}}{J^2} \bm{J} = -\frac{\mu_B}{\hbar} (1+\frac{\bm{S}\cdot \bm{J}}{J^2}) \bm{J}.
+\]
+先前讨论自旋-轨道耦合时我们已经得到:
+\[
+\bm{S} \cdot \bm{J} = \frac{1}{2}(J^2 - L^2 - S^2) = \frac{1}{2}[j(j+1) - l(l+1) - s(s+1)]\hbar^2.
+\]
+回代上述表达式, 最终得到：
+\[
+\bm{\mu_J} = -\frac{\mu_B}{\hbar} (1+\frac{j(j+1) - l(l+1) - s(s+1)}{2j(j+1)}) \bm{J} = -\frac{\mu_B}{\hbar} g_j \bm{J}.
+\]
+这是一个守恒量, 其中$g_j = 1+\frac{j(j+1) - l(l+1) - s(s+1)}{2j(j+1)}$被称为朗德$g$因子. 对于$J$方向磁矩, 其大小为:
+\[
+\mu_J = -g_j \mu_B \sqrt{j(j+1)}
+\]
+$z$方向分量为
+\[
+\mu_{Jz} = -g_j m_j \mu_B, \quad m_j = -j, -(j-1), \cdots, j-1, j
+\] 
+这个分量被称为有效磁矩, 朗德$g$因子反映了有效磁矩与总角动量之间的旋磁比关系. 
+
+从而在外磁场中, 原子产生的额外的附加能量是:
+\[
+\Delta E = -\bm{\mu} \cdot \bm{B} = -\bm{\mu_J} \cdot \bm{B} = g_j m_j \mu_B B. (m_j = -j, -(j-1), \cdots, j-1, j)
+\]
+可以看到按照$m_j$的取值会有$2j+1$种不同的附加能量, 从而导致谱线分裂成$2j+1$条, 这被称为能级的磁分裂或者塞曼分裂. 
+
+考虑一个原子的两个能级 \(E_1, E_2\) 之间的跃迁, 无外磁场时, 
+跃迁的能量为 \(h\nu = E_2 - E_1\). 在外磁场中, 由于磁场导致的分裂两个能级的能量分别为
+\[
+E_1' = E_1 + m_{j1}g_1\mu_B B, \qquad
+E_2' = E_2 + m_{j2}g_2\mu_B B
+\]
+设无外磁场时跃迁的能量差为$h\nu$, 在外磁场中跃迁的能量差为
+\[
+h\nu' = E_2' - E_1' = (E_2 - E_1) + (m_{j2}g_2 - m_{j1}g_1)\mu_B B
+= h\nu + (m_{j2}g_2 - m_{j1}g_1)\mu_B B.
+\]
+考虑到波数$\tilde{\nu} = \frac{1}{\lambda} = \frac{\nu}{c}$, 上述式子用波数表示则有
+\[
+\tilde{\nu}' - \tilde{\nu} = \frac{\nu'}{c} - \frac{\nu}{c} = (m_{j2}g_2 - m_{j1}g_1)L, 
+\]
+其中$L = \frac{\mu_B B}{hc} = \frac{eB}{4\pi m_e c}$为洛仑兹单位. 洛仑兹用经典理论算出了这个量, 解释了正常塞曼效应. 为此, 他与塞曼一起分享了1902年的诺贝尔物理学奖. 
+
+我们已经比较充分地讨论了碱金属原子的结构, 回顾单价电子跃迁的选择定则:
+\[
+\begin{cases}
+\Delta l = \pm 1 & \\[2pt]
+\Delta j = 0, \pm 1 & j=0 \to j=0 \text{ 禁止} \\[2pt]
+\Delta m_j = 0, \pm 1 &  \\[2pt]
+\Delta s = 0 &
+\end{cases}
+\]
+
+正常塞曼效应对应于体系总自旋为$0$时, 此时$L$与$J$相同, $s=0, l=j$, 从而朗德$g$因子为$1$. 则$\Delta E = \Delta m \mu_B B$, 从而根据$\Delta m$的不同, 存在三条谱线. 我们称$\Delta m= \pm 1$的谱线为$\sigma$线, $\Delta m=0$的谱线为$\pi$线. 正常塞曼效应中$\sigma$线和$\pi$线的间隔相等, 且彼此之间的能量间隔都为$\mu_B B$. 
+
+在弱磁场中, 原子光谱线具有更复杂的分裂现象, 谱线分裂为偶数条. 这种现象称为反常塞曼效应. 反常塞曼效应要求总自旋不为$0$, 从而朗德$g$因子不为$1$, 从而不同的$m_j$对应的能量间隔不相等, 因此谱线分裂成偶数条. 同样用波数表示的话
+
+\[
+\tilde{\nu}' - \tilde{\nu} = \left( m_{j2}g_2 - m_{j1}g_1 \right) L
+\]
+
+
+以钠原子 $D$ 线为例, 精细能级结构首先导致D线分裂为两条, 下能级均为 $^2S_{1/2}$, 上能级分别为 $^2P_{1/2}$和 $^2P_{3/2}$. 各磁子能级的 $m_j$ 与 $m_j g_j$ 值如下：
+
+\[
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{c|c|c|c|c|c}
+\hline
+\text{能级} & l & s & j & g & m_j \\ \hline
+^2S_{1/2} & 0 & 1/2 & 1/2 & 2 & +\frac12, \; -\frac12 \\[4pt]
+\hline
+^2P_{1/2} & 1 & 1/2 & 1/2 & \frac23 & +\frac12, \; -\frac12 \\[4pt]
+\hline
+^2P_{3/2} & 1 & 1/2 & 3/2 & \frac43 & +\frac32, \; +\frac12, \; -\frac12, \; -\frac32 \\[4pt]
+\hline
+\end{array}
+\]
+
+
+
+\subsubsection{D$_1$ 线：$^2P_{1/2} \to ^2S_{1/2}$}
+上下能级 $m_j$ 取 $\pm\frac12$. 按 $\Delta m_j = 0, \pm1$ 枚举所有跃迁:
+\[
+\begin{aligned}
+m_{j2}=+\frac12, \; m_{j1}=+\frac12 &\;\Rightarrow\; m_{j2}g_2 - m_{j1}g_1 = \frac13 - (+1) = -\frac23 \\
+m_{j2}=+\frac12, \; m_{j1}=-\frac12 &\;\Rightarrow\; \frac13 - (-1) = +\frac43 \\
+m_{j2}=-\frac12, \; m_{j1}=+\frac12 &\;\Rightarrow\; -\frac13 - (+1) = -\frac43 \\
+m_{j2}=-\frac12, \; m_{j1}=-\frac12 &\;\Rightarrow\; -\frac13 - (-1) = +\frac23
+\end{aligned}
+\]
+得到四个不同的移动值：
+\[
+\tilde{\nu}' - \tilde{\nu}_1 = -\frac43L, \; -\frac23L, \; +\frac23L, \; +\frac43L.
+\]
+
+\subsubsection{D$_2$ 线：$^2P_{3/2} \to ^2S_{1/2}$}
+上能级 $m_{j2}= +\frac32, +\frac12, -\frac12, -\frac32$, 下能级 $m_{j1}= \pm\frac12$. 按 $\Delta m_j = 0, \pm1$ 枚举所有跃迁:
+
+\[
+\renewcommand{\arraystretch}{1.8}
+\begin{array}{c|c|c|c}
+m_{j2} & m_{j1} & \Delta m_j & m_{j2}g_2 - m_{j1}g_1 \\ \hline
++\frac32 & +\frac12 & +1 & +2 - (+1) = +1 \\
++\frac32 & -\frac12 & +2\ (\text{禁止}) & - \\[4pt]
++\frac12 & +\frac12 & 0 & +\frac23 - (+1) = -\frac13 \\
++\frac12 & -\frac12 & +1 & +\frac23 - (-1) = +\frac53 \\[4pt]
+-\frac12 & +\frac12 & -1 & -\frac23 - (+1) = -\frac53 \\
+-\frac12 & -\frac12 & 0 & -\frac23 - (-1) = +\frac13 \\[4pt]
+-\frac32 & -\frac12 & -1 & -2 - (-1) = -1 \\
+-\frac32 & +\frac12 & -2\ (\text{禁止}) & -
+\end{array}
+\]
+
+得到六个不同的移动值：
+\[
+\tilde{\nu}' - \tilde{\nu}_2 = -L, \; -\frac53L, \; \frac13L, \; -\frac13L, \; \frac53L, \; L
+\]
+
+由此可见, D$_1$ 线分裂为 4 条, D$_2$ 线分裂为 6 条, 均为偶数条且间隔不等. 
+\subsection{多电子原子}
+先前我们讨论了单价电子原子的精细结构, 接下来让我们转向多价电子原子. 处于一定状态的若干个价电子的组合被称为电子组态. 对于电子组态, 通常以$n_1l_1n_2l_2n_3l_3\cdots$来表示. 例如对于$Mg$原子, 其基态电子组态可以表示为$3s3s$, 其第一激发态可以表示为$3s3p$. 
+
+对于两个电子, 每个电子具有轨道和自旋两种运动, 而其间的自旋和轨道相互耦合方式有六种, 如图所示:
+\begin{figure}[htbp]
+\centering
+
+\begin{tikzpicture}[
+    scale=0.75, 
+    transform shape, 
+    >=Stealth, 
+    thick
+]
+
+% Nodes
+\node (s1) at (0, 2) {$s_1$};
+\node (s2) at (0, 0) {$s_2$};
+\node (l1) at (4, 2) {$l_1$};
+\node (l2) at (4, 0) {$l_2$};
+
+% Left edge
+\draw[<->] (s1) -- (s2)
+    node[midway, left=8pt] {\small $G_1(s_1, s_2)$};
+
+% Right edge
+\draw[<->] (l1) -- (l2)
+    node[midway, right=8pt] {\small $G_2(l_1, l_2)$};
+
+% Top edge
+\draw[<->] (s1) -- (l1)
+    node[midway, above=5pt] {\small $G_3(s_1, l_1)$};
+
+% Bottom edge
+\draw[<->] (s2) -- (l2)
+    node[midway, below=5pt] {\small $G_4(s_2, l_2)$};
+
+% Diagonals
+\draw[<->] (s1) -- (l2);
+\draw[<->] (s2) -- (l1);
+
+% Diagonal labels (adjusted)
+\node at (2.05, 1.65)
+    {\small $G_5(s_1, l_2)$};
+
+\node at (2.00, 0.35)
+    {\small $G_6(s_2, l_1)$};
+
+\end{tikzpicture}
+\end{figure}
+其中较弱的是$G_5$和$G_6$. 
+
+当两个电子间的自旋相互作用与轨道相互作用, 比每个电子自
+身的自旋-轨道相互作用强时, 采用LS耦合的方式来描述体系状态. LS耦合的方式是先把所有电子的轨道角动量相加得到总轨道角动量$\bm{L}$, 再把所有电子的自旋角动量相加得到总自旋角动量$\bm{S}$, 最后把$\bm{L}$和$\bm{S}$相加得到总角动量$\bm{J}$, 可以用$\ket{L, S, J}$的态来表述：
+
+\[\begin{cases} \bm{S}_1 + \bm{S}_2 = \bm{S} \\ \bm{L}_1 + \bm{L}_2 = \bm{L} \end{cases}\qquad \bm{L} + \bm{S} = \bm{J}\]
+
+而当两个电子间的自旋相互作用与轨道相互作用, 比每个电子自身的自旋-轨道相互作用弱时, 采用jj耦合的方式来描述体系状态. jj耦合的方式是先把每个电子的轨道角动量和自旋角动量相加得到每个电子的总角动量$\bm{j_i}$, 再把所有电子的总角动量相加得到体系的总角动量$\bm{J}$, 可以用$\ket{J_1, J_2, J}$的态来表述： 
+
+\[\begin{cases} \bm{L}_1 + \bm{S}_1 = \bm{J}_1 \\ \bm{L}_2 + \bm{S}_2 = \bm{J}_2 \end{cases}\qquad \bm{J}_1 + \bm{J}_2 = \bm{J}\]
+
+LS 耦合得到的原子态用符号 \(^{2S+1}L_J\) 表示, 其中\(2S+1\) 称为重数. 对于两个电子, 当$s_1$与$s_2$同向时, $S=1, 2S+1=3$, 形成三重态; 当$s_1$与$s_2$反向时, $S=0, 2S+1=1$, 形成单态. 
+
+总轨道角动量量子数 \(L\) 用大写字母表示：
+    \[
+    L = 0, 1, 2, 3, 4, 5, \dots \quad\text{对应}\quad S, P, D, F, G, H, \dots
+    \]
+
+总角动量量子数 \(J\) 的取值范围为 \(J = |L-S|, \;|L-S|+1, \;\dots, \;L+S\). $S=0$时, $J=L$；$S=1$时, $J=L+1, \;L, \;L-1$（当 $L \ge 1$；若 $L=0$, 则 $J=1$）. 
+
+例如, 对于2p2p 电子组态（\(l_1=1, \;l_2=1\)）时, 可能的 \(L=0, 1, 2\), \(S=0, 1\), 可形成的原子态为：
+\[
+^1S_0, \; ^3S_1, \; ^1P_1, \; ^3P_{0, 1, 2}, \; ^1D_2, \; ^3D_{1, 2, 3}.
+\]
+
+又比如对于 2s2p 电子组态（\(l_1=0, \;l_2=1\)）, 可能的 \(L=1\), \(S=0, 1\), 可形成的原子态为：
+\[
+^1P_1, \; ^3P_{2, 1, 0}.
+\] 
+
+对于2s2p电子组态, 若考虑jj耦合方式, 两电子原先的组态为.
+\[
+s_1 = \frac{1}{2}, \, l_1 = 0; \qquad s_2 = \frac{1}{2}, \, l_2 = 1
+\]
+
+所以
+\[
+j_1 = \frac{1}{2}; \qquad j_2 = \frac{1}{2}, \, \frac{3}{2}
+\]
+因此两电子的总角动量$J$的取值范围为$J = |j_1-j_2|, |j_1-j_2|+1, \ldots, j_1+j_2$, 从而可以得到以下的$(J_1, J_2)_{J}$原子态:
+\[
+\left( \frac{1}{2}, \frac{1}{2} \right)_1, \, \left( \frac{1}{2}, \frac{1}{2} \right)_0, \, \left( \frac{1}{2}, \frac{3}{2} \right)_2, \, \left( \frac{1}{2}, \frac{3}{2} \right)_1
+\]
+同样有4个组态. 这也是必然的, 因为两种耦合方式只是选择了描述空间的不同的基, 而描述空间的维数是固定的. 
+
+\subsubsection{泡利不相容原理对同科电子组态的影响}
+对于一个电子, 与之相关的量子数应当有5个.主量子数$n$是原子中电子轨道大小和能量高低的主要决定因素, $n=1, 2, 3, \ldots$；角量子数$l$是原子中电子轨道形状和轨道角动量大小的主要决定因素, $l=0, 1, 2, \ldots, n-1$；磁量子数$m_l$决定电子轨道角动量在外场方向上的投影大小, $m_l = -l, -l+1, \ldots, l-1, l$；自旋量子数$s=\frac{1}{2}$决定电子自旋的大小；自旋磁量子数$m_s$决定电子自旋在外场方向上的投影大小, $m_s = \pm \frac{1}{2}$. 考虑到$s$不变, 因此可以用$\ket{n, l, m_l, s, m_s}$来表示电子的状态. 
+
+泡利不相容原理指出, 对于电子这样的费米子, 任何两个电子的量子态不能完全相同. 自旋为半整数的粒子被称为费米子, 如电子, 质子, 中子等满足泡利不相容原理. 自旋为整数的粒子被称为玻色子, 如光子等不满足泡利不相容原理.
+
+两个主量子数$n$和角量子数$l$都相同的电子被称为同科电子. 我们现在考虑一下两个$s$价电子的组态. 对于$l=0$的两个同科$s$电子, 其磁量子数$m_l$均为0.从而为使得两个粒子的量子态不完全相同, 其自旋量子数必须不同, 也就是一正一负. 从而只能有$^1S_0$一种组态. $^3S_1$这种组态由于自旋方向相同从而是不能存在的. 
+
+正向确定同科电子组态有哪些比较麻烦, 我们介绍一个较为简单的办法. 我们可以先把这两个同科电子当作两个主量子数不同, 角量子数相同的电子并计算出所有可能的组态, 然后从其中挑出$L+S$为偶数的组态, 这组态就是可能的同科电子组态. 这个规则被称为偶数定则. 
+
+例如对于两个同科$p$电子, 先把它们当作两个主量子数不同, 角量子数相同的电子并计算出所有可能的组态. $l_1=1, s_1=\frac{1}{2}$, $l_2=1, s_2=\frac{1}{2}$. 从而$l=0, 1, 2$, $S=0, 1$, 可以形成的原子态为：
+\[
+^1S_0, \; ^3S_1, \; ^1P_1, \; ^3P_{0, 1, 2}, \; ^1D_2, \; ^3D_{1, 2, 3}.
+\]
+其中$L+S$为偶数的组态是可能的同科电子组态. 在这里是
+\[^1S_0\,(L+S=0+0=0), \quad ^3P_{0, 1, 2}\,(L+S=1+1=2), \quad ^1D_2\,(L+S=2+0=2).\] 因此两个同科$p$电子的可能组态为\[^1S_0, \quad  ^3P_{0, 1, 2}, \quad ^1D_2.\]
+
+在考察了同科电子的排布规律后, 洪特在1927年提出了几条经验性规则, 被称为洪特规则. 洪特规则指出, 在多电子原子中, $S$较大的组态的能级较低, 例如$S=1$的三重态的能量较$S=0$的单态更低；在$S$相同的情况下, $L$较大的组态的能级较低, 例如$L=2$的D态的能量较$L=1$的P态更低；在$S$和$L$相同的情况下, 同科电子数小于闭壳层总电子数一半时, $J$较小的组态的能级较低; 反之$J$较大的能级较低. 
+
+\insertfig{figure23.png}{同科$p$电子的可能组态. 虚线表示由于泡利不相容原理而缺失的能级. 可以看到三重态的能级在单重态的下方.}{0.4}
+
+第一条规则可以这样解释, 当$m_s$相同时, 即电子自旋方向相同的时候, 电子的磁量子数必须不同以遵循泡利不相容原理. 从而电子角动量的空间取向不同, 从而带来了较小的能量. 从波函数上也可以看出, 同方向自旋的电子取不同的波函数, 它们在空间上较为疏远, 从而降低了库仑斥力能量. 而自旋反平行时, $m_l$可以相同, 电子角动量的空间取向相同, 从而带来了较大的能量. 
+
+\subsubsection{全同粒子}
+质量, 电荷, 自旋等固有性质完全相同的微观粒子被称为全同粒子. 经典力学中, 固有性质完全相同的两个粒子, 是可以区分的. 因为二粒子有各自确定的轨道, 在任意时刻都有确定的位置和速度. 而在量子力学中在两粒子的波函数重叠区域, 两粒子是无法区分的. 从而我们可以引入全同性原理: 全同粒子所组成的体系中, 两全同粒子相互调换不引起体系物理状态的改变。换句话说, 运动规律对全同粒子不可分辨。
+
+对于一个由全同粒子组成的体系, 记调换其中第$i$个和第$j$个粒子的操作为$\hat{P}_{ij}$. 考虑到全同性原理和调换两次应该不产生任何影响, $\hat{P_ij}$的本征值只能为$\pm 1$.本征值为$1$称为交换对称, 而本征值$-1$称为交换反对称。描述全同粒子的波函数只能是对称的或反对称的, 而且其对称性不随时间改变。如果体系在某一时刻处于对称（或反对称）态上, 则它将永远处于对称（或反对称）的态上。量子场论的结论告诉我们, 自旋为整数的粒子是交换对称的, 也就是玻色子；自旋为半整数的粒子是交换反对称的, 也就是费米子. 
+
+例如我们考虑一个由两全同粒子$q_1, q_2$组成的体系, 两粒子分别处于$\alpha$和$\beta$态是系统的一个可能态。则$q_1$处于$\alpha$态的波函数为$\psi_\alpha(q_1)$, $q_2$处于$\beta$态的波函数为$\psi_\beta(q_2)$。其乘积应该构成薛定谔方程的一个解, 同理$q_2$处于$\alpha$态的波函数为$\psi_\alpha(q_2)$, $q_1$处于$\beta$态的波函数为$\psi_\beta(q_1)$。其乘积也应该构成薛定谔方程的一个解。但这两个解不符合对称或者反对称, 因此可以通过线性组合构造满足对称性的解:
+\[
+\psi_S(q_1, q_2) = \frac{1}{\sqrt{2}} [\psi_\alpha(q_1)\psi_\beta(q_2) + \psi_\alpha(q_2)\psi_\beta(q_1)]
+\]
+\[
+\psi_A(q_1, q_2) = \frac{1}{\sqrt{2}} [\psi_\alpha(q_1)\psi_\beta(q_2) - \psi_\alpha(q_2)\psi_\beta(q_1)].
+\]
+分别对应交换对称和交换反对称的解.
+
+利用上述结果我们考察两个电子的自旋情况。设$\sigma_+$表示电子自旋向上态对应的波函数, $\sigma_-$表示电子自旋向下对应的波函数, 則两个电子的自旋波函数有4种:
+\[
+\sigma_+(1)\sigma_+(2), \quad \sigma_-(1)\sigma_-(2), \quad \sigma_+(1)\sigma_-(2), \quad \sigma_-(1)\sigma_+(2).
+\]
+前两个波函数是交换对称的, 而后两个不符合交换对称性。这时我们就需要通过上面提到的线性变换构造新的符合对称性的波函数:
+\[
+\frac{1}{\sqrt{2}}  [\sigma_+(1)\sigma_-(2) + \sigma_+(2)\sigma_-(1)], \quad \frac{1}{\sqrt{2}}  [\sigma_+(1)\sigma_-(2) - \sigma_+(2)\sigma_-(1)].  
+\]
+前一个波函数是交换对称的, 而后一个波函数是交换反对称的. 从而我们得到了两个电子的自旋波函数的四种可能情况, 其中三种是交换对称的, 形成三重态; 一种是交换反对称的, 形成单态. 具体来说:
+
+对称的自旋波函数（$\uparrow\uparrow$和$\downarrow\downarrow$, 构成三重态, 总自旋为1）
+\[
+\chi_s = 
+\begin{cases} 
+\sigma_+(1) \sigma_+(2), & M_s = +1, \chi_{1,1} \\ 
+\frac{1}{\sqrt{2}} \left[ \sigma_+(1)\sigma_-(2) + \sigma_-(1)\sigma_+(2) \right], & M_s = 0 \chi_{1,0}\\ 
+\sigma_-(1) \sigma_-(2), & M_s = -1 \chi_{1,-1}
+\end{cases}
+\]
+
+反对称的自旋波函数（$\uparrow\downarrow$, 构成单态）, 总自旋为0：
+
+\[
+\chi_A = \frac{1}{\sqrt{2}} \left[ \sigma_+(1)\sigma_-(2) - \sigma_-(1)\sigma_+(2) \right], \quad M_s = 0 \chi_{0,0}
+\]
+
+先前提到过电子是费米子, 其波函数必须是反对称的。对于电子的波函数$\Psi$, 我们可以将其拆分为空间部分$u$和自旋部分$\chi$。也就是说$\psi = u \chi$。由于$\Psi$必须是反对称的, 因此当自旋部分$\chi$是对称的（即三重态）时, 空间部分$u$必须是反对称的；当自旋部分$\chi$是反对称的（即单态）时, 空间部分$u$必须是对称的。写成数学表达式就是对称形式的:
+
+\[
+\psi = \left\{ \phi_0(r_1) \phi_{nl}(r_2) - \phi_0(r_2) \phi_{nl}(r_1) \right\}\begin{pmatrix}
+\chi_{1,1} \\[2pt]
+\chi_{1,0} \\[2pt]
+\chi_{1,-1}
+\end{pmatrix}
+\]
+
+反对称形式的:
+\[
+\psi = \left\{ \phi_0(r_1) \phi_{nl}(r_2) + \phi_0(r_2) \phi_{nl}(r_1) \right\} \chi_{0, 0}
+\]
+
+\subsection{固体物理简说}
+作为笔记的结尾，让我们简单介绍一些与固体物理和量子信息相关的内容。固体物理中比较经典的电子理论当属德鲁德模型。这个理论属于电子气模型的一部分。这个理论认为，金属中的许多电子处于游离状态，其行为与气体相似。它把金属中的自由电子看作是一种气体，忽略了电子之间的相互作用以及晶格对电子的影响。电子在导体中传输电流的行为相当于一个理想气体中的分子运动，本来电子的运动是杂乱无章的，其定向运动速率为$0$。但在外加电场的作用下，电子将会沿着某个确定方向加速直到其发生碰撞，否则电子将会无限加速下去，显然与事实不符。与其余电子发生的碰撞由于动量交换以及电子不可区分，可以忽略。与晶格碰撞后，电子的全部定向运动速率将会失去。考虑电子以平均$2\tau$的时间与晶格发生一次碰撞，则在两次晶格碰撞之间，电子的平均定向运动速率为:$\bm{v} = -\frac{e\tau}{m}\bm{E}$。从而电流强度为:$\bm{j} = -n e \bm{v} = \frac{n e^2 \tau}{m}\bm{E}$。其中$n$为电子的数密度。考虑欧姆定律的微观形式$\bm{j} = \sigma \bm{E}$,这样我们可以得到电导率的一个微观表达式:
+\[
+\sigma = \frac{n e^2 \tau}{m}
+\]
+
+这个式子可以解释室温范围内电阻随温度升高而增大的现象. 因为温度升高会导致电子的热运动增强, 从而增加电子与晶格的碰撞频率,减少了平均碰撞时间$\tau$, 电导率$\sigma$降低，电阻上升。但是这个模型不能够解释半导体中的导电现象等，由此，人们发展了能带理论。
+
+当原子间彼此孤立时, 每个原子都有孤立的能级 \( E_0 \)。当原子间距离逐渐缩小，不同原子的波函数出现交叠，原来孤立的简并的能级被分裂成 \( N \) 个能级，这些能级不再是简单的线状，而是具有一定能量范围，形成准能带。波函数交叠越强，分裂的 \( N \) 个能级的能量范围越宽，即（准）能带越宽。
+
+现在我们研究一维无限长原子链，从而电子只能沿着链的方向运动。设原子间的距离为$a$. 单个电子的波函数满足薛定谔方程:
+\[
+(-\frac{\hbar^2}{2m}\frac{\d ^2}{\d x^2}+U(x))\psi(x) = E\psi(x)
+\]
+无限长原子链应该是一个具有周期性的结构。设这种周期性的长度参量为$L=N a$，则波函数应该满足周期性边界条件:
+\[
+\psi(x) = \psi(x+L)
+\]
+势能函数则可假设为从负无穷大到正无穷大区间的周期函数，最小正周期为$a$:
+\[
+U(x) =U(x+a)
+\]
+考虑到原子链的对称性，每个原子处的量子态应该相同，从而其波函数应该描述相同的量子态:
+\[
+\psi(x+a) = C\psi(x) , \psi(x+2a) = C\psi(x+a) = C^2\psi(x) ,\cdots, \psi(x+L) = C^N\psi(x) = \psi(x) 
+\]
+解得$C^N = 1$,从而$C = e^{i\frac{2\pi n }{N}} = e^{i\frac{2\pi n}{L}a}$，其中$n$为整数。我们可以引入一个具有长度倒数量纲的角波数$k=\frac{2\pi n}{L}$.则布洛赫指出，对于每一个特定的$k$，波函数满足：
+\[
+\psi(x+a) = e^{ika} \psi(x),  \psi(x) = e^{ikx}u(x)
+\]
+其中$u(x)$是一个以$a$为最小正周期的波函数，满足$u(x) = u(x+a)$. 这就是布洛赫定理. 可以看出, 电子在周期势下的本征波函数可理解为受周期函数调制的自由波.
+
+考虑周期性方势阱（如图），势能 \(U(x)\) 在一个周期内定义为：
+\[
+U(x) = 
+\begin{cases}
+U_0, & -d < x < 0,\\
+0, & 0 < x < b,
+\end{cases}
+\quad \text{周期 } a = b+d.
+\]
+
+在区域 \(-d < x < 0\), 把波函数的形式代入薛定谔方程，得到：
+\[
+\frac{d^2 u_{k1}(x)}{dx^2} + 2ik \frac{du_{k1}(x)}{dx} - \left( k^2 - \alpha^2 \right) u_{k1}(x) = 0,
+\]
+其中
+\[
+\alpha^2 = \frac{2m(E - U_0)}{\hbar^2}.
+\]
+通解为
+\[
+u_{k1}(x) = Ae^{i(\alpha - k)x} + Be^{-i(\alpha + k)x}.
+\]
+
+在区域 \(0 < x < b\)：
+\[
+\frac{d^2 u_{k2}(x)}{dx^2} + 2ik \frac{du_{k2}(x)}{dx} - \left( k^2 - \beta^2 \right) u_{k2}(x) = 0,
+\]
+其中
+\[
+\beta^2 = \frac{2mE}{\hbar^2}.
+\]
+通解为
+\[
+u_{k2}(x) = Ce^{i(\beta - k)x} + De^{-i(\beta + k)x}.
+\]
+
+考虑波函数及其导数在 \(x=0\) 处连续：
+\[
+\begin{aligned}
+u_{k1}(0) &= u_{k2}(0) \quad \Rightarrow \quad A + B - C - D = 0,\\
+\frac{du_{k1}}{dx}\bigg|_{x=0} &= \frac{du_{k2}}{dx}\bigg|_{x=0} \quad \Rightarrow \quad (\alpha - k)A - (\alpha + k)B - (\beta - k)C + (\beta + k)D = 0.
+\end{aligned}
+\]
+
+在周期边界 \(x=-d\) 与 \(x=b\) 处：
+\[
+\begin{aligned}
+u_{k1}(-d) &= u_{k2}(b) \quad \Rightarrow \quad A e^{-i(\alpha - k)d} + B e^{i(\alpha + k)d} - C e^{i(\beta - k)b} - D e^{-i(\beta + k)b} = 0,\\
+\frac{du_{k1}}{dx}\bigg|_{x=-d} &= \frac{du_{k2}}{dx}\bigg|_{x=b} \quad \Rightarrow \quad (\alpha - k)A e^{-i(\alpha - k)d} - (\alpha + k)B e^{i(\alpha + k)d} - (\beta - k)C e^{i(\beta - k)b} + (\beta + k)D e^{-i(\beta + k)b} = 0.
+\end{aligned}
+\]
+
+
+方程有非零解的条件是线性方程组的系数行列式为零，由此得到色散关系：
+\[
+-\frac{\alpha^2 + \beta^2}{2\alpha\beta} (\sin\alpha b)(\sin\beta d) + (\cos\alpha b)(\cos\beta d) = \cos k(b+d).
+\]
+在给定量子数 \(k\) 的前提下，该方程可确定能量 \(E\)。
+
+
+在一维周期势问题中，我们主要关注 \(E < U_0\) 的情形。令
+\[
+\gamma^2 = \frac{2m(U_0 - E)}{\hbar^2} \quad (\text{此时 } \alpha = i\gamma),
+\]
+则色散关系变为
+\[
+\frac{\gamma^2 - \beta^2}{2\beta\gamma} (\sin\beta b)(\sin\gamma d) + (\cos\beta b)(\cos\gamma d) = \cos k(b+d).
+\]
+
+简单起见，考虑 \(U_0 \to \infty\)，\(d \to 0\)，同时 \(U_0 d\) 为有限值:
+\[
+P\frac{\sin \beta b}{\beta b}+\cos \beta b = \cos kb,P = \frac{mU_0 b d}{\hbar^2}
+\]
+
+\insertfig{figure24.png}{允带与禁带}{0.6}
+
+在上图中，我们给出了左侧函数的图像，当其值的绝对值小于1时，色散关系有解, 用阴影部分表示.此时$\beta^2 = \frac{2m}{\hbar^2}E$ 对应的能量有解。反之对应的能量无解。原子链情况下，$k$需要离散取值，但是当原子充分多时，$k$的取值范围将变得连续, 从而能量的取值范围也将变得连续. 对于前面的每个有解的区域，我们可以用一个自然数$j$标识。$j$相同而$k$不同的本征能量解就形成了能量可以取值的范围，被称为允带。另外存在一些范围的$\beta$使得方程无解，这些能量对应的范围被称为禁带。
+
+\insertfig{figure25.png}{三种导电材料的区别}{0.6}
+
+
+
+在晶体中，能带与能带之间或者存在着一定的空隙，或者相互重叠。能带之间的空隙就是我们所称的禁带，也称带隙。完全被晶格填满的能带被称为满带，全部空着的能带称为空带。满带中所有的$\pm$量子态同时被电子填充，总电流抵消，因此满带不导电。用于描述填充状况的特征参量是费米能级。电子是费米子，在远低于简并温度的室温下，电子会以能量大小为序，从基态开始，每个量子态上一个电子地向上填充，直到填充到某个能量位置为止。在热力学平衡状态下，电子占据某一个特定能量状态（量子态）的概率恰好等于 50$\%$ 时，这个能量状态所对应的能量值，就定义为费米能级。$\varepsilon_F$。
+
+若费米能级在一个能带的中央，那么这个能级就被部分填充，这时只需要无穷小的能量就可以将电子激发到空能级上，从而形成不对称的电子分布，从而形成电子的定向运动产生电流。这样的物质便是导体，导体中被电子部分填充的能带是起导电作用的核心，故被称为导带。
+
+若某一能带刚好被填满，它与上面的空带相隔一个带隙，这时只有大于带隙宽度的能量才能把电子激发到空带中去。带隙宽度较大的物质为绝缘体，带隙宽度较窄(如$1\,\mathrm{eV}$)的物质为半导体.半导体和绝缘体的费米能级都位于带隙中。这时其下方的满带就是一系列满带中最上方的一个，此能带称为价带，上方的空带被称为半导体中的导带。若由于某些原因，价带顶部的电子被激发到导带底部，就会在价带顶部留下一些空穴，从而使得电子和空穴两者都可参与导电，二者都是载流子。在纯净的晶体中，由于热激发等原因，可以以这种方式产生少量的载流子，称为本征载流子。而温度越高，带隙宽度越窄，产生的本征载流子越多。
+
+对于半导体，我们可以通过掺杂的方式，使得半导体中多出一些电子或者空穴，从而增加载流子数量，增强半导体的导电性能。掺杂了多余电子的半导体被称为n型半导体，掺杂了多余空穴的半导体被称为p型半导体.
+当我们把n型半导体和p型半导体接触在一起时, 电子和空穴自然地会向对方扩散，当电子离开n区后，n区原地就会留下一个带正电的原子实，同理p区会留下一个带负电的原子实。随着扩散的进行，在两种半导体的交界处，电子和空穴发生复合，这一个区域的载流子大大减少，形成一个耗尽区。同时，留下的原子实也会产生一个内建电场，由n区指向p区阻止扩散，当浓度差带来的扩散效应与内建电场达到平衡时，扩散就会停止。现在电子想从n区到达p区就必须克服内建电场的势垒，这时就需要外加一个电压。当外加电场与内建电场方向相反时($V_p>V_n$)，内建电场的势垒被增强，电子更难从n区到达p区，这时二极管处于截止状态；当外加电场与内建电场方向相同时($V_p>V_n$)，内建电场的势垒被削弱，电子更容易从n区到达p区，这时二极管处于导通状态。
+
+当二极管处于正向偏置（导通状态）时，n区的电子和p区的空穴更多地进入了中间的耗尽区发生复合。这个过程中电子从高能级进入低能级，多出来的能量就会以光子的形式释放出来。材料不同，释放的能量大小不同，我们看到的光的颜色就不同。这就是发光二极管的工作原理。
+
+反之，若二极管处于反向偏置，这时我们用光照射耗尽区，当光子的能量足够大时，可以激发电子和空穴解除复合状态。由于内建电场和外加电场的共同作用，电子和空穴将会被分别推回n区和p区，从而形成电流。这样我们就可以通过检测有无电流来检测有无光照，这就是光电二极管的工作原理。
+
+\subsection{量子计算简说}
+经典计算机中用经典比特作为数据存储和信息传递的最小单位，它表示一个可以取两个离散值的单元。而量子计算机中用量子比特（qubit）作为数据存储和信息传递的最小单位。一个量子比特可以处于两个基态$\ket{0}$和$\ket{1}$的任意线性叠加态上，即$\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$，其中$\alpha$和$\beta$是复数，满足$|\alpha|^2 + |\beta|^2 = 1$。一个qubit的所有态构成一个二维Hilbert空间。{$\ket{0},\ket{1}$}构成一组基，被称为计算基。Hilbert空间的基矢不唯一且这种基矢有无穷多组。故我们也可以定义一些不同的基底，如:
+\[
+\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1}), \quad \ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})
+\]
+
+考虑到$\alpha$和$\beta$是复数，我们可以把它们写成极坐标形式$\alpha = r_0 e^{i\theta_0}$, $\beta = r_1 e^{i\theta_1}$. 两者的约束条件是平方和为$1$,因此可以将$r_0,r_1$表示为:
+\[
+r_0 = \cos\frac{\theta}{2}, \quad r_1 = \sin\frac{\theta}{2}
+\]
+其中$\theta \in [0, \pi]$.我们将共同的相位因子提出，得到:
+\[
+\ket{\psi} = e^{i\theta_0} \left( \cos\frac{\theta}{2}\ket{0} + e^{i\phi}\sin\frac{\theta}{2}\ket{1} \right)
+\]
+其中$\phi = \theta_1 - \theta_0$.由于全局相位因子$e^{i\theta_0}$不影响物理状态，我们可以把它去掉。这样我们就得到了一个量子比特的态可以用两个实数$\theta$和$\phi$来描述。这两个实数恰好可以对应球面极坐标中的两个角度，因此我们可以把一个量子比特的态表示在一个球面上，这个球面被称为布洛赫球。布洛赫球上的每一个点都对应着一个量子比特的态。$\ket{0}$和$\ket{1}$分别对应布洛赫球的北极和南极，而$\ket{+}$和$\ket{-}$分别对应赤道上的两个点。
+
+\insertfig{figure26.png}{布洛赫球}{0.3}
+
+对于多个量子比特的系统，我们可以定义高阶量子比特。例如对于双量子比特:
+\[
+\psi(x) = \alpha_{00}\ket{00} + \alpha_{01}\ket{01} + \alpha_{10}\ket{10} + \alpha_{11}\ket{11}
+\]
+可以选用Bell基矢:
+\[
+\ket{\beta_{00}} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}), \ket{\beta_{01}} = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11}), \ket{\beta_{10}} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10}), \ket{\beta_{11}} = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10})
+\]
+
+对于一个复合系统，其中不能被写作它的分系统状态的张量积的状态被称为纠缠状态。例如考虑一个两粒子系统的状态为:
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{01}) = \ket{0} \otimes \frac{1}{\sqrt{2}}(\ket{0} + \ket{1})
+\]
+可以看到两个粒子的状态并没有联系，在测量到第一个粒子的状态为$\ket{0}$时，第二个粒子的状态为$\frac{1}{\sqrt{2}}(\ket{0} + \ket{1})$。测量到两种状态仍然各有一半的可能。
+
+但是对于这个状态:
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})
+\]
+这样似乎我们如果测出其中一个粒子处于$\ket{0}$态，那么另一个粒子就一定处于$\ket{0}$态；如果测出其中一个粒子处于$\ket{1}$态，那么另一个粒子就一定处于$\ket{1}$态。也就是说两个粒子的状态是纠缠在一起的，无法分开描述的。这样的状态被称为纠缠态。
+
+量子力学自诞生以来就一直接受着挑战。其中最有名的莫过于爱因斯坦与玻尔的论战。让我们回顾这段历史并以获得2022年诺贝尔物理学奖的Bell不等式的相关内容作为我们这本笔记的结束。1935年Einstein, Podolsky和Rosen(EPR)合作发表了一篇论文，试图证明量子力学的不完备性。
+
+让我们考虑一个思想实验。现有一个$\pi^0$粒子，它的动量和自旋都为0。这个粒子可能发生弱衰变:
+\[
+\pi^0 \to e^- + e^+
+\]
+动量守恒告诉我们电子与正电子的运动方向相反，考虑到$\pi^0$粒子的自旋为0，两个电子的自旋必须相反，则整个体系的量子态可以被写为:
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{\uparrow}_1\ket{\downarrow}_2 - \ket{\downarrow}_1\ket{\uparrow}_2)
+\]
+也就是说若电子的自旋向上，则正电子自旋必须向下，反之亦然。对于一次具体的弱衰变，量子力学无法预测得到具体哪一种自旋组合，但它指出电子和正电子的自旋测量结果是相关的。假设在某次$\pi^0$衰变实验中正负电子分别沿着相反的方向飞行了$10\,\mathrm{m}$，然后测量电子的自旋。若观测者测得电子自旋向上，他立刻就知道$20\,\mathrm{m}$远处的正电子自旋向下。
+
+从实验来看，在异地测量电子与正电子的自旋是两个独立事件，两者为什么存在相关性呢？EPR三人认为，电子在产生的那一刻就有向上的自旋，只是量子力学无法告知我们，换言之量子力学是不完备的。而哥本哈根学派认为，在测量之前正负电子的自旋是不确定的，测量使得电子的态矢发生坍缩，同时产生出远处正电子的自旋。
+
+EPR三人的论据是任何基于物理信息的传播速度都不能大于光速，这被称为定域性原理。因此测量电子的自旋不可能影响到远处正电子的自旋。他们认为用一个波函数不足以完全描写量子力学体系的状态，还需要一组额外的参量，被称为隐变量。1964年，Bell证明了一条定理，指出任何定域的隐变量理论都是与量子力学不相容的。在Bell设计的新实验中，他提出了若隐变量理论成立，将会存在一个不可违反的不等式。但是量子力学的结果会违反这个不等式。实验的结果证实了贝尔不等式是可以被违反的，实验判决量子力学赢得了胜利。
+
+那么我们怎么解释这种非定域性的作用呢？我们可以设想这样一个实验。假设甲在地球，乙在一光年外的一艘飞船上，他们手里各拿着一个纠缠粒子$\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})$
+当甲对他的粒子进行测量时，他确实能瞬间让乙的粒子也发生坍缩。但是，甲的测量结果是完全随机的（$50\%$ 是 $0$，$50\%$ 是 $1$）。
+甲无法控制自己测量出什么结果。他无法通过主观意志强行把自己的粒子测成“$1$”来给乙发送信号。
+对一光年外的乙而言，当他去测量自己的粒子时，他得到的同样是一个完全随机的结果（$50\%$ 是 $0$，$50\%$ 是 $1$）。在乙的本地视角下，他根本无法仅凭自己的测量结果知道“甲到底有没有进行测量”。
+如果甲想要把他由于测量得到的消息传达给乙，他必须通过经典的通信手段告诉乙：“我刚才测到了 $0$，所以你手里的那个也一定是 $0$。”而这个经典通信的过程，其速度无法超越光速。量子纠缠的非定域性只是体系中两个分离的子系统测量数据的相关性。这种相关性本质上是不能由仅在一处的测量所能检测的，因此不能用于传递能量和信息。
+
+笔者深夜写到此处，不禁想到两句名言，在这里分享给各位读者。
+
+\begin{center}
+    \textbf{“宇宙最不可理解的事情，就是它是可以理解的。” ——阿尔伯特·爱因斯坦}
+\end{center}
+
+\begin{center}
+    \textbf{“我想我可以安全地说，没有人理解量子力学。”——理查德·费曼}
+\end{center}
+
+\begin{center}
+    \textbf{恭喜你！你已经完成了这本笔记的阅读！祝你在量子力学的学习中取得更大的进步！}
+\end{center}
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.46\textwidth]{figure27.png}   % 替换为你的图片
+    \caption*{}       % 注释不会自动编号
+\end{figure}
+

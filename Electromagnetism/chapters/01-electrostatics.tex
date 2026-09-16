@@ -1,0 +1,905 @@
+\chapter{静电场}
+\section{库仑定律}
+
+\begin{theorem}[库仑定律]
+两个静止点电荷之间的相互作用力的大小与两个点电荷电量的乘积成正比，与他们之间的距离平方成反比，作用力的方向沿着两点电荷间的连线，同号电荷相斥，异号电荷相吸。
+
+设两点电荷的电量为$q_1$,$q_2$,从$q_1$指向$q_2$的径矢为$\mathbf{r}$，则$q_1$对$q_2$静电力为：
+\[
+\mathbf{F} = k_e \frac{q_1 q_2}{r^3}\mathbf{r}
+\]
+
+其中$k_e = \frac{1}{4\pi \varepsilon_0} \approx 9\times 10^9\ N\cdot m^2/C^2$，$\varepsilon_0$为真空介电常数，$\varepsilon_0 \approx 8.854\times 10^{-12}\ C^2/(N\cdot m^2)$。
+\end{theorem}
+
+\section{电场强度与高斯定律}
+
+历史上，曾经认为带电体之间的的相互作用是直接瞬时发生的。这种作用与介质无关，也不需要传播时间，此即超距作用观点。近代物理提出了近距作用观点，也即两个点电荷之间的相互作用源于第一个点电荷在周围空间中激发出电场，然后此电场对第二个点电荷产生作用力。电场并非是形式上的手段，而是一种客观的物质。它可以携带能量，角动量，动量等以维持各种守恒定律。在静电学范围内，超距作用与近距作用是等价的。例如对于能量，我们可以认为能量由电荷携带，也可以由电场携带。
+
+\begin{definition}[电场强度]
+  我们在电场中引入一充分小的点试探电荷，以避免其对原有电场的扰动。设试探电荷为$q_0$，则试探电荷在某点受到的力$\mathbf{F}$与$q_0$的比值称为该点的电场强度，记为$\mathbf{E}$，即
+  \[
+  \mathbf{E} = \frac{\mathbf{F}}{q_0}
+  \]
+\end{definition}
+\begin{theorem}[场强叠加原理]
+  由于电场力是矢量，满足矢量叠加原理，那么根据定义，电场强度也满足叠加原理。即若有多个电荷$q_1,q_2,\ldots,q_n$，它们在某点产生的电场强度分别为$\mathbf{E}_1,\mathbf{E}_2,\ldots,\mathbf{E}_n$，则它们在该点产生的总电场强度为
+  \[
+  \mathbf{E} = \mathbf{E}_1 + \mathbf{E}_2 + \cdots + \mathbf{E}_n
+  \]
+\end{theorem}
+
+我们计算点电荷产生的场强。设点电荷$q$位于原点，某点$P$的径矢为$\mathbf{r}$，则
+\[
+\mathbf{F} = k_e \frac{q q_0}{r^3}\mathbf{r}
+\]
+\[
+\mathbf{E} = \frac{\mathbf{F}}{q_0} = k_e \frac{q}{r^3}\mathbf{r}
+\]
+
+原则上说,通过场强的定义,利用点电荷的场强公式和场强叠加原理可以计算任意电荷分布所产生的电场分布。而已知电场分布,任何其它带电体在电场中的运动原则上也都可以求解。因此关于电场的描述似乎已经穷尽了。然而我们并不满足于根据已知的电荷分布计算电场分布这种认识电场的途径,而是期望从不同角度揭示电场的规律性。我们知道,一定的电荷分布不仅在空间任意一点都产生一定的电场强度，形成一定的电场分布,而且空间任意一点的电场强度与邻近点的电场强度之间必然存在一定联系。寻找这种空间各点场强之间的联系可获得刻画场的规律性的最好表达,它比起直接联系场点和源点的表达更能反映场的规律性的特征。
+
+我们先定义些概念：
+\begin{definition}[电场线 \, 电通量]
+  电场线是用来形象地表示电场分布的工具。它的切线方向与该点的电场强度方向相同，不同的电场线除了相交于点电荷处均不会相交。电场线总是起始于正电荷或无穷远处，而止于负电荷或无穷远处。
+
+  元电通量被定义为：
+  \[
+  \d \Phi_E = E \cos\theta \d S = \mathbf{E} \cdot \d\mathbf{S}
+  \]
+$\theta$为外法向与电场方向的夹角，$\d\mathbf{S}$为面积元矢量。
+
+电通量就为：
+  \[
+  \Phi_E = \iint_S \mathbf{E} \cdot \d\mathbf{S}
+  \]
+
+电通量表示的是穿过某个面的电场线的数量，穿过的电场线越多，电通量越大。
+\end{definition}
+\begin{theorem}[高斯定律]
+用电通量表示高斯定理，即为:
+
+通过一个闭合曲面$\mathbf{S}$的电通量大小$\Phi_E$为闭合面所包含的总电荷量$\sum q$与真空介电常数$\varepsilon_0$的比值，即
+  \[
+  \Phi_E = \oiint_S \mathbf{E} \cdot \d\mathbf{S} = \frac{\sum q}{\varepsilon_0}
+  \]
+
+  与闭合面外的电荷无关。
+\end{theorem}
+
+证明:我们逐一来证明这个定理。首先考虑一个点电荷$q$位于闭合曲面$S$的内部，设点电荷$q$到闭合面上面积元$\d\mathbf{S}$的径矢为$\mathbf{r}$，则
+  \[
+  \Phi_E = \oiint_S \mathbf{E} \cdot \d\mathbf{S}= \oiint_S \frac{1}{4\pi\varepsilon_0} \frac{q}{r^2}\hat{r} \cdot (r^2 \sin\theta \d \theta \d \varphi \hat{r}) = \frac{q}{4\pi\varepsilon_0} \int_0^{\pi} \sin\theta \d \theta \int_0^{2\pi} \d \varphi
+  = \frac{q}{\varepsilon_0}
+  \]
+
+对于一个位于闭合面外的点电荷，我们会发现对于一条穿过闭合面上某面元的电场线必然从另一个面元穿出，从而对电通量不产生贡献，因此其贡献的电通量为0。
+由场强叠加定理，我们就可以将电荷分布视作由若干点电荷构成，从而我们得到了高斯定律。
+
+对于一般的电荷分布，我们会将电荷分布用体电荷密度表示。于是我们可以写出高斯定律的形式：
+  \[
+  \oiint_S \mathbf{E} \cdot \d\mathbf{S} = \iiint_V \frac{\rho}{\varepsilon_0} \d V
+  \]
+
+散度定理告诉我们:
+
+\[
+\oiint_S \mathbf{E} \cdot \d \mathbf{S} = \iiint_V (\nabla \cdot \mathbf{E}) \d V
+\]
+
+注意到高斯面选取的任意性，我们可以得到高斯定律的微分形式:
+\[
+\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+\]
+% --------------------- 参考文献 ---------------------
+
+
+有了高斯定理，我们就能方便地求解许多具有对称性的带电体系所产生的场强。
+\begin{example}
+  求解均匀带正电球壳,球体在壳外和壳内的场强分布。
+
+  对球壳，设球壳半径为$R$，总电荷量为$Q$，注意到对称性，若场强不为零，场强的方向沿径向向外。选取球形高斯面。则球壳外的场强为：
+
+  \[
+  E \cdot 4\pi r^2 = \frac{Q}{\varepsilon_0} \Rightarrow E = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2}
+  \]
+
+  球壳内的场强为：
+  \[
+  E \cdot 4\pi r^2 = 0 \Rightarrow E = 0
+  \]
+
+  对球体，设球体半径为$R$，总电荷量为$Q$。选取球形高斯面。同理球体外的场强为：
+  \[
+  E \cdot 4\pi r^2 = \frac{Q}{\varepsilon_0} \Rightarrow E = \frac{1}{4\pi\varepsilon_0} \frac{Q}{r^2}
+  \]
+
+  球体内的场强为：
+  \[
+  E \cdot 4\pi r^2 = \frac{Q}{\varepsilon_0} \cdot \frac{r^3}{R^3} \Rightarrow E = \frac{1}{4\pi\varepsilon_0} \frac{Q}{R^3} r
+  \]
+
+  方向均沿径向向外。
+\end{example}
+
+\begin{example}
+  求解无限长均匀带电直线,柱面,柱体在距中心轴线$r$处的场强。
+
+  设线电荷密度为$\lambda$，选取半径为$r$的圆柱面为高斯面。注意到这样的柱形高斯面的对称性，上下两个面的电通量为0。则
+  \[
+  E \cdot 2\pi r L = \frac{\lambda L}{\varepsilon_0} \Rightarrow E = \frac{\lambda}{2\pi\varepsilon_0 r}
+  \]
+
+  方向沿径向向外。
+
+  设柱面半径为$R$，单位长柱面带电量为$\lambda$，选取半径为$r$，高为$L$的圆柱面为高斯面。则柱面外的场强为：
+  \[
+  E \cdot 2\pi r L = \frac{\lambda L}{\varepsilon_0} \Rightarrow E = \frac{\lambda}{2\pi\varepsilon_0 r}
+  \]
+  
+  方向沿径向向外，柱面内场强为0。
+
+  设柱体半径为$R$，单位长柱体带电量为$\lambda$，选取半径为$r$，高为$L$的圆柱面为高斯面。则柱体外的场强为：
+  \[
+  E \cdot 2\pi r L = \frac{\lambda L}{\varepsilon_0} \Rightarrow E = \frac{\lambda}{2\pi\varepsilon_0 r}
+  \]
+  柱体内的场强为：
+  \[
+  E \cdot 2\pi r L = \frac{\lambda L}{\varepsilon_0} \cdot \frac{r^2}{R^2} \Rightarrow E = \frac{\lambda}{2\pi\varepsilon_0 R^2} r
+  \]
+  方向均沿径向向外。
+\end{example}
+\insertfig{1-1.png}{柱对称高斯面示意图}{0.25}
+
+\begin{example}
+  求解无限大均匀带电平面在距平面$r$处的场强。
+
+  考虑对无限大带电平面做镜面对称，平行于平面方向的电场强度在镜面对称下方向必然反向，但是实际上镜面对称后系统并未发生变化，于是平行平面方向上场强为0。
+
+  设面电荷密度为$\sigma$，选取一个轴线垂直于平面的圆柱面，设其底面面积为S。则
+  \[
+  E \cdot 2S = \frac{\sigma S}{\varepsilon_0} \Rightarrow E = \frac{\sigma}{2\varepsilon_0}
+  \]
+  方向垂直于平面向外。也就是说平面产生的场强大小与距离无关，在讨论电容时这一点会经常用到。
+\end{example}
+
+电偶极子的电场我们在电势一节讨论。
+
+\section{电势与电势的梯度}
+
+单个点电荷产生的电场是有心力场。有心力是保守力，这一点我们已经熟知。对于一般的带电体系，我们可以将带电体划分为许多元点电荷，这样多个保守力场的叠加仍然是保守的。因此静电场是保守场。也就是说
+\begin{center}
+  \textbf{静电场中场强沿任意闭合环路的线积分为0.}
+\end{center}
+
+我们称之为\textbf{静电场的环路定理}。
+
+由于静电场是保守场，我们可以引入势能的概念。对于处于静电场中的一点电荷 $q$，若其在某点 $P$ 处的电势能为 $W_P$，则可以定义电势为单位正电荷在该点所具有的电势能，即
+\[
+U(P)=\frac{W_P}{q}.
+\]
+
+由保守场的性质可知，电荷从点 $A$ 移动到点 $B$ 所做的功仅与初末位置有关，而与路径无关。根据功与势能的关系，有
+\[
+W_{AB} = W_A - W_B = q\,(U_A - U_B).
+\]
+
+因此，我们定义两点之间的电势差（potential difference）为：
+\[
+\Delta U = U_A - U_B = U_{AB},
+\]
+
+它表示单位正电荷从 $A$ 移动到 $B$ 时静电力所做的功。
+
+在实际问题中，我们往往选择无穷远处或者大地的电势为0。电势满足标量叠加定律。下面我们讨论些常见带电体系的电势分布。
+
+\begin{example}[几种典型带电体系的电势分布]
+
+对于点电荷 \(q\)（位于原点），其电场
+\[
+\mathbf E(\mathbf r)=\frac{1}{4\pi\varepsilon_0}\frac{q}{r^2}\hat r.
+\]
+取无穷远处电势为0，则电势的表达式为
+\[
+V(r)=-\int_{\infty}^{r}\mathbf E(r)\cdot \d\mathbf r
+=\frac{1}{4\pi\varepsilon_0}\frac{q}{r}
+\]
+同理，对于带电薄球壳 (半径 \(R\)，总电荷 \(q\)), 其电场为:
+\[
+\mathbf E(r)=
+\begin{cases}
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2}\hat r, & r\ge R,\\[6pt]
+\mathbf 0, & r<R.
+\end{cases}
+\]
+取无穷远处电势为0，则对球外 \(r\ge R\)：
+\[
+V(r)=-\int_{\infty}^{r}\mathbf E(r)\cdot \d\mathbf r
+=\frac{1}{4\pi\varepsilon_0}\frac{q}{r}
+\]
+对球内 \(r<R\)，由于电场为零，电势为常数且等于表面势，即为
+\[
+V(r)=V(R)=\frac{1}{4\pi\varepsilon_0}\frac{q}{R}.
+\]
+
+均匀带电实心球（半径 \(R\)，总电荷 \(q\)），体电荷密度 \(\rho=\dfrac{3q}{4\pi R^3}\)。,其电场为:
+\[
+\mathbf E(r)=
+\begin{cases}
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{q}{r^2}\hat r, & r\ge R,\\[8pt]
+\dfrac{1}{4\pi\varepsilon_0}\dfrac{q\,r}{R^3}\hat r, & r<R.
+\end{cases}
+\]
+
+对球外 \(r\ge R\):
+\[
+V(r)=-\int_{\infty}^{r}\mathbf E(r)\cdot \d\mathbf r
+=\frac{1}{4\pi\varepsilon_0}\frac{q}{r}
+\]
+
+对球内 \(r<R\)，分段积分：
+\[
+V(r)= -\int_{\infty}^{R}\frac{1}{4\pi\varepsilon_0}\frac{q}{r'^2}\,\d r' \;-\;\int_{R}^{r}\frac{1}{4\pi\varepsilon_0}\frac{q\,r'}{R^3}\,\d r'.
+\]
+
+计算得
+\[
+V(r)=\frac{1}{4\pi\varepsilon_0}\frac{q}{2R}\left(3-\frac{r^2}{R^2}\right)=\frac{\rho}{6\varepsilon_0}\left(3-\frac{r^2}{R^2}\right).
+\]
+
+无限长均匀带电直线（线电荷密度 \(\lambda\)）。选用以直线为轴的圆柱高斯面得径向电场
+\[
+E(r)=\frac{\lambda}{2\pi\varepsilon_0 r}.
+\]
+这里我们无法选择无穷远处势能为0，于是我们选择参考半径$r_0$处为势能零点：
+\[
+V(r)=-\int_{r_0}^{r}\frac{\lambda}{2\pi\varepsilon_0 r'}\,\d r'=-\frac{\lambda}{2\pi\varepsilon_0}\ln\frac{r}{r_0}.
+\]
+
+\end{example}
+
+数学分析的知识告诉我们，之前这样定义的电势，其梯度与场强之间存在如下关系：
+\[
+\mathbf{E} = -\nabla U
+\]
+
+在求解带电体系的场强时，我们往往是先求解电势分布，然后求梯度得到场强。这是由于我们在直接求解场强时，面对连续带电体往往要进行矢量积分，这在数学上是相对困难的，而求解电势时只需要进行标量积分，我们对此更为熟悉。
+
+下面我们来讨论电偶极子这一重要模型。电偶极子是指一对电量相等，符号相反，相隔距离为$l$的两点电荷系统。通常，我们认为这两点电荷之间的距离$l$相对于我们考察的点到两点电荷中心位置的距离$r$来说是充分小的。这样的条件下远离电偶极子的点所感受到的电场和电势可以用电偶极矩来描述。电偶极矩是个矢量，被定义为
+\[
+\mathbf{p} = q \mathbf{l}
+\]
+
+其中$\mathbf{l}$为从负电荷指向正电荷的矢量。
+
+设两个点电荷 $+q$ 与 $-q$ 分别位于 $z$ 轴上 $\mathbf{r}_+=\frac{d}{2}\hat{\mathbf{z}}$ 与 $\mathbf{r}_-=-\frac{d}{2}\hat{\mathbf{z}}$，定义偶极距 $\mathbf{p}=q\mathbf{d}=q d\hat{\mathbf{z}}$，静电常数 $k=\dfrac{1}{4\pi\varepsilon_0}$。观测点使用球坐标表示为 $(r,\theta,\phi)$，其中 $\theta$ 是从 $+z$ 轴量起的极角。
+
+两点电荷的电势（叠加）为
+\[
+V(\mathbf{r})=kq\left(\frac{1}{|\mathbf{r}-\frac{d}{2}\hat{\mathbf{z}}|}
+-\frac{1}{|\mathbf{r}+\frac{d}{2}\hat{\mathbf{z}}|}\right).
+\]
+
+令 $\mathbf{a}=\pm\frac{d}{2}\hat{\mathbf{z}}$，并利用远场展开（当 $r\gg d$ 时，对小量 $\mathbf{a}$ 作泰勒展开）
+\[
+\frac{1}{|\mathbf{r}-\mathbf{a}|}
+=\frac{1}{r}\frac{1}{\sqrt{1-2\frac{\hat{\mathbf{r}}\cdot\mathbf{a}}{r}+\frac{a^2}{r^2}}}
+\approx \frac{1}{r}\left(1+\frac{\hat{\mathbf{r}}\cdot\mathbf{a}}{r}+\mathcal{O}\!\left(\frac{a^2}{r^2}\right)\right).
+\]
+
+代入得（仅保留关于 $d$ 的一阶项）
+\[
+\begin{aligned}
+V(\mathbf{r})
+&\approx kq\left(\frac{1}{r}+\frac{\hat{\mathbf{r}}\cdot(\tfrac{d}{2}\hat{\mathbf{z}})}{r^2}
+-\frac{1}{r}-\frac{\hat{\mathbf{r}}\cdot(-\tfrac{d}{2}\hat{\mathbf{z}})}{r^2}\right) \\
+&= kq\frac{d\,(\hat{\mathbf{r}}\cdot\hat{\mathbf{z}})}{r^2}
+= k\frac{\mathbf{p}\cdot\hat{\mathbf{r}}}{r^2}.
+\end{aligned}
+\]
+由于 $\hat{\mathbf{r}}\cdot\hat{\mathbf{z}}=\cos\theta$，得电偶极子的电势表达式
+\[
+\,V(r,\theta)=k\frac{p\cos\theta}{r^{2}}\,
+\]
+
+极坐标坐标中标量函数 $V(r,\theta)$ 的梯度为（与 $\phi$ 无关时）
+\[
+\nabla V = \frac{\partial V}{\partial r}\,\hat{\mathbf{r}}
++ \frac{1}{r}\frac{\partial V}{\partial \theta}\,\hat{\boldsymbol{\theta}}.
+\]
+对 $V(r,\theta)=k p\cos\theta\,r^{-2}$ 求偏导：
+\[
+\frac{\partial V}{\partial r}
+= k p\cos\theta\cdot(-2)r^{-3} = -\frac{2k p\cos\theta}{r^{3}},
+\]
+\[
+\frac{\partial V}{\partial \theta}
+= k p\cdot(-\sin\theta)\,r^{-2} = -\frac{k p\sin\theta}{r^{2}}.
+\]
+因此
+\[
+\nabla V = -\frac{2k p\cos\theta}{r^{3}}\,\hat{\mathbf{r}}
+- \frac{1}{r}\frac{k p\sin\theta}{r^{2}}\,\hat{\boldsymbol{\theta}}
+= -\frac{2k p\cos\theta}{r^{3}}\,\hat{\mathbf{r}}
+- \frac{k p\sin\theta}{r^{3}}\,\hat{\boldsymbol{\theta}}.
+\]
+由 $\mathbf{E}=-\nabla V$ 得
+\[
+\mathbf{E}(r,\theta)=\frac{2k p\cos\theta}{r^{3}}\,\hat{\mathbf{r}}
++ \frac{k p\sin\theta}{r^{3}}\,\hat{\boldsymbol{\theta}},
+\]
+
+\section{静电场中的导体和电容}
+电荷不能离开具有静止质量的粒子而独立存在，所以电荷的移动必定伴随着带电粒子的运动，能够自由移动的带电粒子称为\textbf{载流子}，附着在载流子上的电荷称为\textbf{自由电荷}。导体的特点是其内部存在大量载流子及其携带的自由电荷，这些自由电荷在电场中受力产生移动，使电荷分布发生改变，而电荷分布的变化又会反过来影响电场的分布，直到导体内部电场处处为0，自由电荷不再移动。
+
+因此，我们把导体上电荷分布以及导体内外电场分布不再变化的状态称为\textbf{静电平衡。在静电平衡状态下，导体内部电场处处为0。}这是因为若有电场不为0的点，其自由电荷必然发生移动。
+
+下面作些说明。引入导体后,由于电荷和电场的分布相互影响、相互制约,它们最后达到的平衡分布都是不能预先判知的。我们处理问题的办法不是去分析电场、电荷在相互作用下怎样达到平衡分布的复杂过程,而是假定这种平衡分布已经达到,以上述平衡条件为出发点,结合静电场的普遍规律(如高斯定理,环路定理等)去进一步分析问题。
+
+由静电平衡的这一定义，我们自然地得出以下结论：
+\begin{itemize}
+  \item 导体内部电场处处为0。
+  \item 导体是等势体，导体表面是等势面。
+  
+  由于导体内部电场为0，导体上任意两点间电势差为0。
+  \item 导体内部没有自由电荷，所有自由电荷均分布在导体表面。
+  
+  用高斯定理容易证明这一点。在导体内任意取一闭合面。由于面上的点都在导体内，场强为0。所以闭合面上电通量为0。由高斯定理，闭合面内电荷总量为0。由于闭合面的任意性，导体内电荷密度处处为0。因此如果导体带电，所有电荷均分布在导体表面。
+
+  \item 导体表面电场与表面法线方向一致，且大小与表面电荷密度$\sigma$成正比，即
+  \[
+  E = \frac{\sigma}{\varepsilon_0}
+  \]
+  我们取一个柱形高斯面，其底面面积为$\d S$,其侧棱方向与场强方向平行。这样侧面上电通量为0。上底面在导体外，下底面在导体内，导体内部电通量为0，于是有:
+  \[
+  E \d S = \frac{\sigma \d S}{\varepsilon_0}
+  \Rightarrow E = \frac{\sigma}{\varepsilon_0}
+  \]
+
+  \item 带空腔的导体，若腔内无自由电荷，则空腔内壁无电荷。若腔内有自由电荷$q$,则其内壁带电，且总带电量为$-q$。
+  
+  我们也用高斯定理证明。我们在此空腔导体内取一个包含空腔和空腔内壁的闭合面。容易知道其总电通量为0。若腔内无自由电荷，则腔内壁净电荷为0。若腔内壁上一些区域带正电，一些带负电，则正电荷发出的电场线既不能伸向无穷远（导体内无电场线），也不能伸向导体上的负电荷（导体是等势体），则腔内只能无电荷。
+
+  \item 带空腔导体若不接地，腔内电场不受导体外电场的影响，导体外电场可以受腔内电场的影响。若带空腔导体接地，则腔内电场和导体外电场相互不受影响。
+  
+  总结来看，对于静电平衡下带空腔导体，其外部带电体不会影响空腔内部的电场分布，当导体接地时，其空腔内部的带电体不会对导体外的电场分布有影响，这效应被称为\textbf{静电屏蔽}。
+\end{itemize}
+
+静电场问题往往是，给定各导体的形状，相对位置，各导体的电量或电势来确定空间的电场分布。静电场唯一性定理告诉我们，给定静电场空间各导体的几何形状，空间内自由电荷的分布和导体上的总电量或者电势，那么我们可以\textbf{唯一}确定空间中各点的电场强度，这被我们称之为静电场唯一性定理。也就是说，给定自由电荷和边界条件，我们会得到唯一确定的电场分布，这保证了如果我们能够通过某些方式直接猜测得到电荷的最终分布，只要其满足边界条件，这就是唯一正确的解。
+
+对于孤立导体，电荷在其导体表面上的分布与其表面的曲率半径成反比。当导体的形状和大小确定时，根据电势的叠加原理，孤立导体所带电量应该与其电势成正比，于是我们定义孤立导体所带电量与其电势的比值为孤立导体的电容$C$:
+\[
+C=\frac{q}{V}
+\]
+例如对于球形的孤立导体，$V=\frac{q}{4\pi\varepsilon_0R}$,$C=4\pi\varepsilon_0R$.
+
+当导体附近有其他的导体或带电体时，其电势会受到其他导体或带电体的影响。于是为了消除这种影响，我们利用静电屏蔽，将互不相连的两个导体构成闭合或近似闭合的空腔导体，从而使得两导体电势差的正比关系与其他的带电体无关。这样的导体系统被称为\textbf{电容器}。则电容器的电容为:
+\[
+C=\frac{q}{V_A-V_B}
+\]
+
+\begin{example}
+求解平行板电容器，圆柱形电容器，球形电容器的表达式。设介质的介电常数为$\varepsilon$.
+
+设平行板电容器的面积为 $A$，板间距为 $d$，忽略边缘效应。
+  取面电荷密度为 $\sigma$，由高斯定律，板间电场大小为
+  \[
+    E=\frac{\sigma}{\varepsilon}.
+  \]
+  电势差
+  \[
+    V=\int_0^d E\,\mathrm{d}x=E d=\frac{\sigma d}{\varepsilon}.
+  \]
+  由于总电荷 $Q=\sigma A$，由 $C=Q/V$ 得
+  \[
+    C=\frac{Q}{V}=\frac{\sigma A}{\sigma d/\varepsilon}=\frac{\varepsilon A}{d}.
+  \]
+
+  设同轴圆柱电容器内导体半径为 $a$，外导体内半径为 $b$，长度为 $L$，假设 $L\gg b$。设线电荷密度为 $\lambda=Q/L$。板间距轴心距离为r处电场强度为，
+  \[
+    E(r)=\frac{\lambda}{2\pi\varepsilon r}.
+  \]
+  两导体间电势差
+  \[
+    V=\int_a^b E(r)\,\mathrm{d}r=\frac{\lambda}{2\pi\varepsilon}\int_a^b\frac{1}{r}\,\mathrm{d}r
+    =\frac{\lambda}{2\pi\varepsilon}\ln\frac{b}{a}.
+  \]
+  因此电容
+  \[
+    C=\frac{Q}{V}=\frac{\lambda L}{(\lambda/2\pi\varepsilon)\ln(b/a)}=\frac{2\pi\varepsilon L}{\ln(b/a)}.
+  \]
+  每单位长度电容为
+  \[
+    C'=\frac{C}{L}=\frac{2\pi\varepsilon}{\ln(b/a)}.
+  \]
+
+  设两个同心导体球，内半径为 $a$，外半径为 $b$
+  
+  对半径 $r$（$a<r<b$）的高斯球面，电场为
+  \[
+    E(r)=\frac{Q}{4\pi\varepsilon r^2}.
+  \]
+  电势差
+  \[
+    V=\int_a^b E(r)\,\mathrm{d}r=\frac{Q}{4\pi\varepsilon}\int_a^b\frac{1}{r^2}\,\mathrm{d}r
+    =\frac{Q}{4\pi\varepsilon}\Big(\frac{1}{a}-\frac{1}{b}\Big).
+  \]
+  因此电容为
+  \[
+    C=\frac{Q}{V}=\frac{4\pi\varepsilon}{\dfrac{1}{a}-\dfrac{1}{b}}=\frac{4\pi\varepsilon ab}{\,b-a\,}.
+  \]
+  当外球半径 $b\to\infty$（孤立带电球）时，
+  \[
+    C=4\pi\varepsilon a.
+  \]
+\end{example}
+
+\begin{example}
+推导电容器的并联与串联等效电容公式。
+
+设有 $n$ 个电容器 $C_1, C_2, \dots, C_n$ 并联，电压相同为 $V$。
+
+每个电容器上的电荷为：
+\[
+Q_i = C_i V,\qquad i=1,2,\dots,n.
+\]
+
+总电荷为：
+\[
+Q_{\text{总}} = \sum_{i=1}^n Q_i = \sum_{i=1}^n C_i V.
+\]
+
+等效电容 $C_{\text{eq}}$ 定义为：
+\[
+Q_{\text{总}} = C_{\text{eq}} V,
+\]
+
+因此得到并联公式：
+\[
+C_{\text{eq}} = \sum_{i=1}^n C_i.
+\]
+
+设有 $n$ 个电容器 $C_1, C_2, \dots, C_n$ 串联，电荷相同为 $Q$。
+
+每个电容器上的电压为：
+\[
+V_i = \frac{Q}{C_i},\qquad i=1,2,\dots,n.
+\]
+
+总电压为：
+\[
+V_{\text{总}} = \sum_{i=1}^n V_i = \sum_{i=1}^n \frac{Q}{C_i}
+= Q \sum_{i=1}^n \frac{1}{C_i}.
+\]
+
+等效电容 $C_{\text{eq}}$ 定义为：
+\[
+Q = C_{\text{eq}} V_{\text{总}},
+\]
+
+代入上式得到：
+\[
+Q = C_{\text{eq}}\, Q \sum_{i=1}^n \frac{1}{C_i}.
+\]
+
+两边约去 $Q$（$Q\neq 0$），得串联公式：
+\[
+\frac{1}{C_{\text{eq}}} = \sum_{i=1}^n \frac{1}{C_i}.
+\]
+\end{example}
+
+\section{静电能}
+移动一个体系中的电荷，就需要抵抗静电力所做的一些功，这些功指的是静电能的变化。想要确定一个体系的总静电能有多少，需要说明是相对什么状态。我们通常规定，设想将体系中的所有电荷分离到彼此相距无穷远的地方，规定此状态下静电能为0。
+
+设带电体系由若干个带电体组成，则静电能由各带电体之间的相互作用能之和$W_e$以及各带电体的自能$W_{\text{自}}$之和组成。我们先考虑点电荷体系且只考虑相互作用能。
+
+只有两个点电荷时，设两点电荷分别为$q_1$和$q_2$，它们之间的距离为$r_{12}$，则
+\[
+W_{12}= W_{21} = k_e \frac{q_1 q_2}{r_{12}}
+\]
+把储能改写为$W_e=\frac{1}{2}(W_{12}+W_{21})$。显然我们可以将其推广到N点电荷体系，得到:
+\[
+W_e = \frac{1}{2} \sum_{i=1}^N \sum_{\substack{j=1 \\ j\neq i}}^N k_e \frac{q_i q_j}{r_{ij}} = \frac{1}{2} \sum_{i=1}^N q_i U_i
+\]
+
+对于连续分布的电荷，我们可以给出积分形式的静电能:
+\[
+W_e = \frac{1}{2} \iiint_V \rho U \d V \; \text{or} \; W_e = \frac{1}{2} \iiint_V \sigma U \d S    
+\]
+
+\begin{example}
+证明电偶极子在外电场中的势能公式 \(U=-\mathbf{p}\cdot\mathbf{E}\)。
+
+设偶极子由两点电荷 \(\pm q\) 组成，间距为 \(\mathbf{d}\)，则偶极矩为
+\(\mathbf{p}=q\mathbf{d}\)。
+
+正负电荷在外电场 \(\mathbf{E}\) 中的电势能分别为
+\[
+U_{+}=q\varphi(\mathbf{r}+\tfrac{\mathbf{d}}{2}),\qquad
+U_{-}=-q\varphi(\mathbf{r}-\tfrac{\mathbf{d}}{2}).
+\]
+
+将外势 \(\varphi\) 在 \(\mathbf{r}\) 处作泰勒展开到一阶：
+\[
+\varphi(\mathbf{r}\pm\tfrac{\mathbf{d}}{2})
+\simeq \varphi(\mathbf{r})\pm \frac{\mathbf{d}}{2}\cdot\nabla\varphi(\mathbf{r}).
+\]
+
+故总能量为
+\[
+U=U_{+}+U_{-}
+= q\left[\varphi(\mathbf{r})+\frac{\mathbf{d}}{2}\cdot\nabla\varphi\right]
+-q\left[\varphi(\mathbf{r})-\frac{\mathbf{d}}{2}\cdot\nabla\varphi\right]
+= q\mathbf{d}\cdot\nabla\varphi(\mathbf{r}).
+\]
+
+而 \(\mathbf{E}=-\nabla\varphi\)，所以
+\[
+\boxed{U=-\mathbf{p}\cdot\mathbf{E}(\mathbf{r})}.
+\]
+\end{example}
+
+
+\begin{example}
+计算薄带电球壳与均匀带电实心球的静电自能。
+
+球壳面电荷密度为
+\[
+\sigma=\frac{Q}{4\pi R^2}.
+\]
+球面上任一点的电势（由整个球壳产生）为
+\[
+U=\;k\frac{Q}{R}\quad(\text{在球面上势为常数}).
+\]
+代入面积分公式得
+\[
+\begin{aligned}
+W_{\mathrm{shell}}=\tfrac{1}{2}\iint_{S}\sigma\,U\,\mathrm{d}S
+= \frac{Q^2}{8\pi\varepsilon_0 R}.
+\end{aligned}
+\]
+\end{example}
+
+球体的体电荷密度为
+\[
+\rho=\frac{Q}{\tfrac{4}{3}\pi R^3}=\frac{3Q}{4\pi R^3}.
+\]
+球内任一点 \(r\le R\) 处由已知电荷产生的电势（相对于无穷远）为（已知结果）
+\[
+U(r)=k\frac{Q}{2R}\Big(3-\frac{r^2}{R^2}\Big).
+\]
+于是体积分为
+\[
+\begin{aligned}
+W_{\mathrm{sphere}}
+&=\tfrac{1}{2}\int_{V}\rho\,U(r)\,\mathrm{d}V
+=\tfrac{1}{2}\int_{0}^{R}\rho\,U(r)\,4\pi r^2\,\mathrm{d}r \\
+&=\tfrac{1}{2}\int_{0}^{R}\frac{3Q}{4\pi R^3}\cdot
+\left(k\frac{Q}{2R}\Big(3-\frac{r^2}{R^2}\Big)\right)\,4\pi r^2\,\mathrm{d}r \\
+&= \frac{3Q^2}{16\pi\varepsilon_0R^4}
+\int_{0}^{R}\big(3r^2-\frac{r^4}{R^2}\big)\,\mathrm{d}r. \\
+&= \frac{3Q^2}{20\pi\varepsilon_0 R}.
+\end{aligned}
+\]
+
+假如电子被当作点电荷，将会出现静电能的发散困难。如果我们处理为带电球，我们假设这些静电能与电子的静止能量$m_ec^2$相等，我们得到电子的经典半径:
+\[
+r_e=\frac{e^2}{4\pi\varepsilon_0m_e c^2}\approx 2.8\times10^{-15}m
+\]
+ 
+虽然这一长度决不代表电子的线度，但是这一半径在电子散射等方面仍然可以作为电子的一个特征长度相关。
+
+先前我们提到的这些静电能公式都是与电荷相联系的，这似乎给我们印象说静电能储存在电荷上。但是我们在一开始即表明这一观点实际上是不完全正确的，我们下面介绍如何用电场储能计算静电能。
+
+对于真空，单位体积内存有的静电能称为电场的能量密度。电场的能量密度为:
+\[
+w_e=\frac{1}{2}\varepsilon_0E^2
+\]
+
+对于均匀各向同性电介质中，静电场能量密度为
+\[
+w_e=\frac{1}{2}\varepsilon_r\varepsilon_0E^2
+\]
+
+于是计算真空中非匀强电场的电场能时:
+\[
+W_e = \frac{1}{2} \iiint_V \varepsilon_0 E^2 \d V
+\]
+
+对于电容器，我们有储能公式:
+\[
+Q=\frac{1}{2}CU^2 = \frac{Q^2}{2C} = \frac{1}{2}QU
+\]
+
+\section{电介质}
+电介质就是绝缘介质，它们是不导电的。从微观的角度看，电介质分子中的电子和原子核结合的很紧密，电子处于束缚状态，其中几乎没有自由电荷。但电介质分子在外电场的作用下仍然会产生相应的电场，为了描述这种变化，我们将电介质分子的正电荷和负电荷都集中到一个点上，这样每一个分子就形成了一个电偶极子，大量这样的电偶极子叠加就可以产生相应的电场。
+
+历史上，人们对电介质的研究源于其对电容的影响。在平行板电容器中加入导体板，其电容会显著增大，这是由于导体表面由于外电场的存在出现了感应电荷，感应电荷产生的电场导致新插入的导体板间不存在电场，导致两板间的电势差减少。而电介质也具有类似的功能。插入电介质后，电容器的电容也有增加。我们用相对介电常数$\varepsilon_r$来表征电介质的这种增大电容的本领。
+
+如果一个点电荷$q$的周围放满相对介电常数为$\varepsilon_r$的电介质，其电场强度的表达式将修改为:
+\[
+\mathbf{E}=\frac{q}{4\pi\varepsilon_r\varepsilon_0r^2}\hat{r}
+\]
+
+通常我们将分子按照其电荷分布特征分为极性分子和非极性分子，极性分子指正负电荷中心不重合的分子，非极性分子恰好相反。极性分子本身就具有一定的电偶极矩，在外场的作用下，这种偶极矩会进一步增大。
+
+对于非极性分子，我们考虑一个简单模型，假定该分子位于一个匀强电场中。其中的原子核将会沿着电场方向移动，电子将沿着电场的反方向移动，直到这两者间的引力再次达到平衡，这样就产生了一个与外场方向相同的电偶极矩。像这样，非极性分子在外场的作用下，其正负电荷中心将会分离，产生电偶极矩，体现出与极性分子相似的特性，这种现象叫做非极性分子的极化。
+
+无外场作用时，热运动导致每个分子的电偶极矩方向是随机的，统计上电偶极矩相互抵消，不产生电场。在外场作用下，极性分子和非极性分子都会产生总计不为0的电偶极矩，由此产生附加的电场，这种电场被称为极化电场。总电场即为外电场与极化电场的和。
+
+在前面的讨论中，我们发现在电介质中任一宏观小微观大的体积元内的电偶极矩矢量和不为零。于是我们引入极化强度$\mathbf{P}$，定义为介质单位体积内分子电偶极矩的矢量和，即:
+\[
+\mathbf{P}=\frac{\sum_i \mathbf{p_i}}{\Delta V}
+\]
+
+实验上表明，对于\textbf{均匀各向同性线性}电介质，在外加电场后，其极化强度为
+\[
+\mathbf{P}=\chi_e \varepsilon_0 \mathbf{E}
+\]
+这里$\chi_e$被称为极化率，而必须要加以注意的是，这里的$\mathbf{E}$指的是总电场而非一开始加入的外场。
+
+以块状电介质为例，虽然在足够小的区域内正电荷负电荷足够靠近，可以认为局部区域内是电中性的，但是在电介质的表面会产生相应的电荷积累，这种电荷被称为\textbf{极化电荷}。这样的极化电荷会产生相应的电场$\mathbf{E'}$，这种电场被称为\textbf{退极化电场}。这是因为极化电荷的电场与外加电场方向相反，会导致外场的削弱，从而减弱极化，因而称退极化电场。也就是说总电场为
+\[
+\mathbf{E}=\mathbf{E_0}+\mathbf{E'}
+\]
+
+下面推导电介质表面处极化电荷面密度与极化强度之间的关系。
+
+取一个斜柱体，其一个底面位于电介质内部，另一个位于电介质表面。其轴线与极化强度$\mathbf{P}$平行。这样我们可以写出其内部的电偶极矩矢量和大小为：
+\[
+|\sum_i\mathbf{p_i}|=P\Delta V = \mathbf{P} \cdot \hat{e_n} \Delta S \Delta x
+\]
+而注意到整个柱体被视为电偶极子时，其电偶极矩的大小又被写为:
+\[
+|\sum_i\mathbf{p_i}| = \sigma' \Delta S \Delta x
+\]
+消掉小量，我们得到\textbf{极化电荷面密度与极化强度的关系}:
+\[
+\sigma' = \mathbf{P} \cdot \hat{e_n} = P\cos\theta
+\]
+
+根据这一推导，假设某平行板电容器充满电介质。设板上原有的自由电荷的面密度为$\sigma_0$。设极化电荷面密度为$\sigma'$。于是电介质中的场强为 
+\[
+E=\frac{\sigma_0-\sigma'}{\varepsilon_0}
+\]
+
+极化强度为:
+\[
+P=\chi_e\varepsilon_0 E=\chi_e(\sigma_0-\sigma')
+\]
+
+又根据我们前面的公式:
+\[
+P=\sigma'
+\]
+
+这样我们解得
+\[
+\sigma' = \frac{\chi_e}{1+\chi_e}\sigma_0 ,\quad E= \frac{1}{1+\chi_e} \frac{\sigma_0}{\varepsilon_0}
+\]
+
+于是填充电介质后的电容增大为:
+\[
+C=(1+\chi_e)C_0 \Rightarrow \varepsilon_r = 1+\chi_e
+\]
+
+下面我们考虑有电介质时的高斯定理。我们取一个任意的闭合面，我们知道其表面极化电荷的总量为$\oiint_S \mathbf{P} \cdot \d \mathbf{S}$, 注意到极化电荷的总量为0，即表面极化电荷和其包围的极化电荷相加为0。令其包围的极化电荷总量为$-\sum q'$。于是我们得到这样的关系式:
+\[
+\oiint_S \mathbf{P} \cdot \d \mathbf{S}  = -\sum_V q'
+\]
+我们再写出相应的高斯定理:
+\[
+\oiint_S \varepsilon_0 \mathbf{E} \cdot \d \mathbf{S}  = \sum_V q
+\]
+现在，我们将两个式子相加，得到：
+\[
+\oiint_S (\varepsilon_0 \mathbf{E} + \mathbf{P}) \cdot \d \mathbf{S} = -\sum_V q' + \sum_V q
+\]
+为了简化，我们定义新的\textbf{电位移矢量}$\mathbf{D}$,
+\[
+\mathbf{D} = \varepsilon_0\mathbf{E}+\mathbf{P}
+\]
+
+利用自由电荷与总电荷的关系$q = q_f + q' $, 我们得到了
+\[
+\oiint_S \mathbf{D} \cdot \d \mathbf{S}  = \sum_V q_f
+\]
+上式被称为有电介质时的高斯定理，这表明了我们可以由自由电荷直接处理一些事情，而不必直接计算相对复杂的极化过程。对于各向同性线性电介质，有
+\[
+\mathbf{D} = \varepsilon_0 \mathbf{E}+\mathbf{P} = \varepsilon_0 (1+\chi_e)\mathbf{E} = \varepsilon_0\varepsilon_r\mathbf{E}=\varepsilon \mathbf{E}
+\]
+我们通过一道例题来讲解这一问题:
+\begin{example}
+  一个半径为$R$的带电量为$Q$的导体球，在其外同心地包裹一层各向同性均匀电介质球壳，其内外半径为$a,b$，相对介电常量为$\varepsilon_r$，计算球壳内各点的极化强度大小和表面上的极化电荷面密度。
+
+  我们取半径为r的球形高斯面，则容易得到:
+  \[
+  D\cdot4\pi r^2 = Q \Rightarrow D=\frac{Q}{4\pi r^2}
+  \]
+  由$\mathbf{D} = \varepsilon_0\varepsilon_r\mathbf{E}$,得到
+  \[
+  E=\frac{D}{\varepsilon_0\varepsilon_r}=\frac{Q}{4\pi \varepsilon_0\varepsilon_r r^2}
+  \]
+  由$\mathbf{P}=\chi_e \varepsilon_0 \mathbf{E} = \varepsilon_0(\varepsilon_r-1)\mathbf{E}$,得到
+  \[
+  P=\frac{(\varepsilon_r-1)Q}{4\pi \varepsilon_r r^2}
+  \]
+  则内外表面极化电荷面密度为:
+  \[
+  \sigma'_a=-P_a = \frac{(1-\varepsilon_r)Q}{4\pi \varepsilon_r a^2},\sigma'_b=P_b = \frac{(\varepsilon_r-1)Q}{4\pi \varepsilon_rb^2},
+  \]
+\end{example}
+\section{第一章补充例题}
+导体与电介质这个部分是不那么好理解的，我们这里给出几道题目，供读者参考。
+\begin{example}
+真空中有一场强为$E_0$的均匀场，在此电场中放入一相对介电常数为$\varepsilon_r$的
+均匀极化介质球，求这介质球内任意一点的场强。
+
+这是一道很经典的极化球的问题。我们在求解这道题目问题之前，我们要先对如何处理这种题目做一个说明。我们先前曾经说过，极化电荷的作用效果是削弱原有电场的作用，因而被称为退极化场。而不同的电荷分布会产生不同的退极化场，因而我们这里得到的退极化场大小与极化强度矢量的关系并\textbf{不是}普适的！
+
+球体内的总场是外加电场$E_0$与退极化场$E'$的叠加。我们先假设球体内的场强为$E$.当介质球均匀极化时，其极化电荷分布是均匀的。介质球的极化可以被视作两个体电荷密度为$\pm\rho$的球分开了极小的距离$\mathbf{l}$.我们可以证明，这样的极化电荷分布在球体内部产生的场强为:
+\[
+E'=-\frac{\rho}{3\varepsilon_0}\mathbf{l}
+\]
+极化电荷体密度来源于电偶极子的叠加，根据我们对极化强度的定义，我们可以得到:
+\[
+\mathbf{P}=\frac{\sum_i \mathbf{p_i}}{\Delta V}=\frac{\Delta q \mathbf{l}}{\Delta V}=\frac{\rho \Delta V \mathbf{l}}{\Delta V}=\rho \mathbf{l}
+\]
+于是代入上式，我们得到极化球内退极化场与极化强度的关系:
+\[
+E'=-\frac{\mathbf{P}}{3\varepsilon_0}
+\]
+我们还有介质方程:
+\[
+\mathbf{P}= \chi_e \varepsilon_0 \mathbf{E}= (\varepsilon_r-1)\varepsilon_0 \mathbf{E}
+\]
+总场与退极化场的关系:
+\[
+E=E_0+E
+\]
+以上诸式联立，我们解得:
+\[
+E=\frac{3}{\varepsilon_r+2}E_0
+\]
+\end{example}
+
+下面我们介绍分区均匀线性各向同性介质问题的解法。我们需要分两种情况讨论。
+
+\textbf{(1)介质分界面与电场线重合.
+(2)介质分界面与等势面重合.
+}
+
+先来看第一种\textbf{介质分界面与电场线重合}。该种情况下，我们这样理解。假定我们首先存在着已经给定的自由电荷分布，在达到平衡之后，我们以电场线为界填入不同介电常数的均匀各向同性介质，我们需要思考的是，这样的介质填充会影响电场线的位型分布吗？我们的答案是不会。首先注意到电场强度是沿着介质界面的。在界面上，极化强度$\mathbf{P}$没有法向分量，因此在两种介质x之间的分界面上不会产生极化电荷。这意味着，极化电荷只能出现在介质和导体的边界处。我们可以假设，在填充介质前后，保持形式上总电荷分布的不变，这可以通过令自由电荷的分布发生变化从而补偿极化电荷的分布而完成。注意到原来的电荷形式是满足静电场的平衡条件的，因而变化后的新电荷分布也是满足平衡条件的。这里我们找到的是一个解，由静电场唯一性定理我们得到这是唯一的解。当然这样的补偿可能导致电荷总量的变化，于是空间电场的分布只差一个常数因子$\alpha$.这样，我们讨论的电场分布可以表示为:
+\[
+E = \alpha E_0
+\]
+其中$E_0$是没有介质时的电场分布。如果我们希望确定$\alpha$,我们可以使用介质中的高斯定理对各介质积分得到等式。
+
+我们最常见的简单情况是对称的一维问题，也就是只与一个空间坐标有关。这样，我们的不必引入$\alpha$.因为$E_0$是具有对称性，于是我们也可以直接通过积分来确定$E$. 具体地说:
+\[
+\oiint_S \mathbf{D} \cdot \d \mathbf{S}  = \sum_i \sum_{S_i}\v_i \v_0 E \cdot \d S = \v_0 E \sum_i \v_i S_i
+= Q_0
+\]
+由上式计算出$E$.下面看例题。
+
+\begin{example}
+球形电容器带电量为$Q_0$,极板间充满了$\v_1$,$\v_2$两种介质，求$D,E$.
+\insertfig{1-2.png}{例题1-11题图}{0.25}
+
+利用高斯定理:
+\[
+\oiint_S \mathbf{D} \cdot \d \mathbf{S}  = 2\pi r^2 (D_1+D_2) =2\pi r^2 E(\v_1+\v_2) = Q_0
+\]
+
+解得:
+\[
+E=\frac{Q_0}{2\pi r^2(\v_1+\v_2)}, \text{方向沿着径向向外}
+\]
+\[
+D_1 = \v_1 E = \frac{\v_1 Q_0}{2\pi r^2(\v_1+\v_2)}, D_2 = \v_2 E = \frac{\v_2 Q_0}{2\pi r^2(\v_1+\v_2)}
+\]
+
+\end{example}
+再来看一题.
+\begin{example}
+  平行板电容器，带电$Q_0$，板间距$d$，长度$a$，宽度$b=b_1+b_2$。介电常数为$v_1$和$v_2$。求$C$和极板上自由电荷$\sigma_e$.
+
+  \insertfig{1-3.png}{例题1-12题图}{0.4}
+
+  同样地，由高斯定理:
+  \[
+  \oiint_S \mathbf{D} \cdot \d \mathbf{S}  = E(b_1\v_1+b_2\v_2) = Q_0
+  \Rightarrow E=\frac{Q_0}{(b_1\v_1+b_2\v_2)} , C  = \frac{Q_0}{Ed} = \frac{b_1\v_1+b_2\v_2}{d}, 
+  \]
+
+  \[
+\sigma_{e1} = D_1 = \v_1 E = \frac{\v_1 Q_0}{(b_1\v_1+b_2\v_2)}, \sigma_{e2} = D_2 = \v_2 E = \frac{\v_2 Q_0}{(b_1\v_1+b_2\v_2)}
+  \]
+
+我们看到自由电荷在极板上分布是不均匀的，但是这种不均匀性恰好是被极化电荷补偿而导致总电荷密度是均匀分布的。电容器内电场仍然是均匀分布的。
+
+上面的结果自然可以用电容器并联得到结果，但是这样的做法显然是更加基本的。
+\end{example}
+
+再来看第二种\textbf{介质分界面与等势面重合}. 这种情况下我们可以直接给出结论:
+\[
+D = \v_0 E_0
+\]
+$E_0$是自由电荷产生的静电场。注意！无论是在真空中还是在介质中，电荷产生场的方式是不会变化的！当我们说介质的影响时，其实是在讨论极化电荷对原场的削弱作用！而自由电荷产生的原场是不会变化的！只是总场因为退极化场的存在而发生了变化。
+
+我们只需证明$D$和$\v_0 E_0$满足相同的高斯定理和环路定理即可.
+\[
+\oiint_S \mathbf{E} \cdot \d \mathbf{S}  = \frac{Q_0}{\v_0},\quad
+\oiint_S \mathbf{D} \cdot \d \mathbf{S}  = Q_0
+\]
+于是这两个矢量满足相同的高斯定理.
+
+$\v_0 E_0$满足环路定理显然是可以由$E_0$满足环路定理给出:
+\[
+\oint_L \mathbf{E_0} \cdot \d \mathbf{l}  = 0 
+\]
+一般而言，$D$是不满足环路定理的，但是对这种特殊情况我们可以证明其满足环路定理.
+  \insertfig{1-4.png}{证明环路定理}{0.25}
+
+我们任取一个闭合回路，则:
+\[
+\oint_L D \cdot \d \mathbf{l} = \sum_i^N \int_{L_i} D_i = \sum_i^N \v_i \int_{L_i} E_i
+\]
+然而注意到各介质界面均为等势面，于是我们有:
+\[
+\int_{l_1} E \cdot \d l =U_{AB} =0, \int_{l_N} E \cdot \d l =U_{DC} =0 
+\]
+
+\[
+\int_{l_{i1}} E_i \cdot \d l + \int_{l_{i2}} E_i \cdot \d l = U_{GE}+U_{FH}=U_F - U_H+U_G-U_E = 0
+\]
+于是我们证明了:
+\[
+\oint_L \mathbf{D} \cdot \d \mathbf{l}  = 0
+\]
+至此我们证明了$D$和$\v_0 E_0$满足同样的高斯定理和环路定理，静电场的唯一性定理告诉我们这是唯一的解。
+
+这类问题的处理步骤是:
+\begin{itemize}
+  \item 去掉介质，计算系统给定的自由电荷分布带来的场强$E_0$,由$D=\v_0 E_0$得到$E$.
+  \item 分区域利用$E_i=\frac{\v_0 E_0}{\v_i}$计算各介质内的电场强度.
+\end{itemize}
+
+下面来看例题.
+\begin{example}
+  平行板电容器，两板间充满厚度分别为$d_1$,$d_2$，介电常数为$v_1$，$V_2$的两层介质.板间电压为$U$。
+  
+  求：(1)两板间的电场;
+  
+  (2)介质分界面处的总面电荷密度;
+  
+  (3)介质分界面处的自由面电荷密度.
+  \insertfig{1-5.png}{1-13题图}{0.25}
+
+(1)在没有介质时，设电场强度为$E_0$.在各介质内的电场强度大小为
+\[
+E_i = \frac{D}{\v_i}=\frac{\v_0 E_0}{\v_i}
+\]
+
+\[
+U=E_1d_1+E_2d_2=\v_0E_0(\frac{d_1}{\v_1}+\frac{d_2}{\v_2})
+\Rightarrow E_0 = \frac{U\v_1\v_2}{\v_0\v_2d_1+\v_0\v_1d_2}
+\]
+于是
+\[
+E_1=\frac{U\v_2}{\v_2d_1+\v_1d_2},E_2 = \frac{U\v_1}{\v_2d_1+\v_1d_2}
+\]
+
+(2)\[
+\sigma_{total} = \v_0(E_2-E_1) =\frac{\v_0U(\v_1-\v_2)}{\v_2d_1+\v_1d_2}  
+\]
+
+(3)\[
+\sigma_0 = D_2-D_1 = 0
+\]
+顺便提及，极化电荷面密度\[
+\sigma' = \sigma_{total} -\sigma_0 = \sigma_{total}
+\]
+\end{example}
+\newpage
+
