@@ -30,10 +30,10 @@
 \usepackage{fontspec}
 \usepackage{xeCJK}
 
-% 文楷 GB 字体族（不作为主字体）
+% 文楷 GB 字体族 (不作为主字体)
 \setCJKfamilyfont{wenkai}[
-    Path=fonts/, 
-    Extension = .ttf, 
+    Path=fonts/,
+    Extension = .ttf,
     UprightFont = *-Regular  % 指向 LXGWWenKaiGB-Regular.ttf
 ]{LXGWWenKaiGB}
 \newcommand{\wenkai}{\CJKfamily{wenkai}}
@@ -51,16 +51,16 @@
 \newcommand{\insertpic}[3]{
     \begin{center}
         \includegraphics[width=#3\textwidth]{#1}
-        
-        \par % <--- 关键修改1：强制图片后结束段落, 确保标题在下一行
-        \vspace{4pt} 
-        
-        \refstepcounter{figure} 
-        
-        % 关键修改2：使用 \mbox{...} 包裹整个标题
+
+        \par % <--- 关键修改1: 强制图片后结束段落, 确保标题在下一行
+        \vspace{4pt}
+
+        \refstepcounter{figure}
+
+        % 关键修改2: 使用 \mbox{...} 包裹整个标题
         % \mbox 的作用是禁止盒子内的文字换行
-        {\wenkai\small \mbox{图 \thefigure\quad #2}} 
-        
+        {\wenkai\small \mbox{图 \thefigure\quad #2}}
+
         \label{fig:#1}
     \end{center}
 }
@@ -72,30 +72,30 @@
 
 \newcommand{\mb}[1]{\bm{#1}}
 \lstset{
-  language=Python, 
-  basicstyle=\ttfamily\small, 
-  keywordstyle=\color{blue}, 
-  commentstyle=\color{gray}, 
-  stringstyle=\color{orange}, 
-  frame=single, 
+  language=Python,
+  basicstyle=\ttfamily\small,
+  keywordstyle=\color{blue},
+  commentstyle=\color{gray},
+  stringstyle=\color{orange},
+  frame=single,
   breaklines=true
 }
 
 
 % -------------------------------
-% 注记环境（小字、楷体、灰框）
+% 注记环境 (小字, 楷体, 灰框)
 % -------------------------------
 \usepackage{tcolorbox}
 \tcbuselibrary{skins, breakable}
 
 \newenvironment{noteenv}{
   \begin{tcolorbox}[
-      colback = gray!5, 
-      colframe = gray!40, 
-      breakable, 
-      enhanced, 
-      sharp corners, 
-      left=6pt, right=6pt, top=6pt, bottom=6pt, 
+      colback = gray!5,
+      colframe = gray!40,
+      breakable,
+      enhanced,
+      sharp corners,
+      left=6pt, right=6pt, top=6pt, bottom=6pt,
   ]
   \small
   \CJKfamily{wenkai} % 只这里使用文楷GB
@@ -106,10 +106,10 @@
 % ========== 目录与超链接 ==========
 \usepackage{hyperref}
 \hypersetup{
-  hypertexnames=false, 
-  colorlinks=true, 
-  linkcolor=blue, 
-  urlcolor=blue, 
+  hypertexnames=false,
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=blue,
   citecolor=magenta
 }
 \usepackage{tocloft}
@@ -150,17 +150,17 @@
 \clearpage
 % --------------------- 序言 ---------------------
 \chapter*{序言}
-\addcontentsline{toc}{chapter}{序言} % 让“序言”出现在目录中
+\addcontentsline{toc}{chapter}{序言} % 让 ``序言'' 出现在目录中
 
-在本笔记中, 我们系统地整理了量子物理的主要内容, 包括量子性的发现，量子力学基本原理和量子力学的应用三个章节. 本笔记的内容基于上海交通大学大学物理(荣誉)III的课程考试要求做了适当的调整, 使其学习难度和内容适于准备考试. 本笔记现已发布在 Github 上, 读者可以访问\url{https://github.com/ShiyiXiao05/Phynotes}以获取更新. 
+在本笔记中, 我们系统地整理了量子物理的主要内容, 包括量子性的发现, 量子力学基本原理和量子力学的应用三个章节. 本笔记的内容基于上海交通大学大学物理(荣誉)III的课程考试要求做了适当的调整, 使其学习难度和内容适于准备考试. 本笔记现已发布在 Github 上, 读者可以访问\url{https://github.com/ShiyiXiao05/Phynotes}以获取更新.
 
-希望本笔记能为学习量子物理的读者提供一定帮助. 若能抛砖引玉, 为读者揭开物理之美的一角, 作者将不胜欣慰. 
+希望本笔记能为学习量子物理的读者提供一定帮助. 若能抛砖引玉, 为读者揭开物理之美的一角, 作者将不胜欣慰.
 
-本笔记中部分图表、图片及例题素材直接引用授课课件, 其原始内容的知识产权归原作者所有. 本文档完全开源免费, 仅供个人学习使用, 严禁用于任何形式的商业盈利活动. 如权利人认为本笔记中的引用不当或侵犯了您的权益, 请通过 sjtuxsy-finance-pc@sjtu.edu.cn 联系本人, 本人将在核实后第一时间删除相关内容. 
+本笔记中部分图表, 图片及例题素材直接引用授课课件, 其原始内容的知识产权归原作者所有. 本文档完全开源免费, 仅供个人学习使用, 严禁用于任何形式的商业盈利活动. 如权利人认为本笔记中的引用不当或侵犯了您的权益, 请通过 sjtuxsy-finance-pc@sjtu.edu.cn 联系本人, 本人将在核实后第一时间删除相关内容.
 
-为了节约同学们的复习时间，我们根据考试的要求程度，在正文开始前指出了一些大家在阅读正文时可以跳过的内容，大家可以结合这些指导有选择地学习笔记。对于没有放在其中的内容，若同学们认为涉及了过多的数学，也可以根据自身的情况选择跳过。
+为了节约同学们的复习时间, 我们根据考试的要求程度, 在正文开始前指出了一些大家在阅读正文时可以跳过的内容, 大家可以结合这些指导有选择地学习笔记. 对于没有放在其中的内容, 若同学们认为涉及了过多的数学, 也可以根据自身的情况选择跳过.
 
-由于时间与作者水平所限, 文中难免存在疏漏与错误, 恳请各位读者批评指正. 本人不胜感谢. 
+由于时间与作者水平所限, 文中难免存在疏漏与错误, 恳请各位读者批评指正. 本人不胜感谢.
 
 \bigskip
 \begin{flushright}
@@ -177,29 +177,29 @@
 % --------------------- 正文章节 ---------------------
 
 \chapter*{跳读指南}
-第一章的内容读者应该在高中或者大学物理的前置课程中已经学习过，感到熟悉的读者可以直接阅读1.4节的电子双缝干涉实验部分。
+第一章的内容读者应该在高中或者大学物理的前置课程中已经学习过, 感到熟悉的读者可以直接阅读1.4节的电子双缝干涉实验部分.
 
-2.2.1节算符的引入15页开始到17页的以高斯波包为例子的部分可以不看，直接从(*)式开始阅读。
+2.2.1节算符的引入15页开始到17页的以高斯波包为例子的部分可以不看, 直接从(*)式开始阅读.
 
-2.2.2节厄米算符性质的证明可以简要阅读，主要掌握性质本身。
+2.2.2节厄米算符性质的证明可以简要阅读, 主要掌握性质本身.
 
-2.3节薛定谔方程的引入可以不看，直接查看30页薛定谔方程的形式。
+2.3节薛定谔方程的引入可以不看, 直接查看30页薛定谔方程的形式.
 
-2.5.1节在38页讲到本征值之前的内容可以简要地查看，不一定要理解每一个数学式子，重要的是尝试去理解态矢的概念。
+2.5.1节在38页讲到本征值之前的内容可以简要地查看, 不一定要理解每一个数学式子, 重要的是尝试去理解态矢的概念.
 
-2.6.2节45页到47页升降算符和泡利矩阵的求解过程等不需要掌握，可以直接记住三个泡利矩阵的形式以及其物理意义。
+2.6.2节45页到47页升降算符和泡利矩阵的求解过程等不需要掌握, 可以直接记住三个泡利矩阵的形式以及其物理意义.
 
-3.1.1节中的各种反射系数，透射系数的推导过程及其具体形式不需要记忆，重要的是理解其与什么物理量有关，什么情况下会取到极值，构建物理图像。
+3.1.1节中的各种反射系数, 透射系数的推导过程及其具体形式不需要记忆, 重要的是理解其与什么物理量有关, 什么情况下会取到极值, 构建物理图像.
 
-3.2.2节中57,58页的谐振子求解过程，59页谐振子波函数的具体形式和厄米多项式的形式与性质,60,61页谐振子的选择定则的推导过程可以不用记忆。附注内容也不用掌握。谐振子这一节的重点是记忆谐振子的一些重要性质。
+3.2.2节中57,58页的谐振子求解过程, 59页谐振子波函数的具体形式和厄米多项式的形式与性质,60,61页谐振子的选择定则的推导过程可以不用记忆. 附注内容也不用掌握. 谐振子这一节的重点是记忆谐振子的一些重要性质.
 
-3.3.1节氢原子波函数的求解只需要知道其解的形式是哪些函数组成的，这些函数由什么量子数决定，本征函数与本征函数如何即可。函数的具体形式与满足的微分方程不用记忆。
+3.3.1节氢原子波函数的求解只需要知道其解的形式是哪些函数组成的, 这些函数由什么量子数决定, 本征函数与本征函数如何即可. 函数的具体形式与满足的微分方程不用记忆.
 
-3.4.1节自旋-轨道耦合的推导过程可以不看，重点是记住耦合能的形式与因子并尝试理解总角动量如何引入以及为什么引入。
+3.4.1节自旋-轨道耦合的推导过程可以不看, 重点是记住耦合能的形式与因子并尝试理解总角动量如何引入以及为什么引入.
 
-3.4.2节塞曼效应的推导过程简要查看，正常塞曼效应的形式与反常塞曼效应的计算例子应该掌握。
+3.4.2节塞曼效应的推导过程简要查看, 正常塞曼效应的形式与反常塞曼效应的计算例子应该掌握.
 
-3.4.4与3.4.5节内容重点在于掌握其中的概念和物理图像，具体的数学推导可以不用记忆。
+3.4.4与3.4.5节内容重点在于掌握其中的概念和物理图像, 具体的数学推导可以不用记忆.
 \input{chapters/01-quantum-discovery}
 \input{chapters/02-quantum-principles}
 \input{chapters/03-quantum-applications}

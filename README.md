@@ -14,3 +14,5 @@ latexmk -xelatex -interaction=nonstopmode -halt-on-error Notes.tex
 ```
 
 将 `Quantum` 换成 `Optics` 或 `Electromagnetism` 即可编译其他笔记。需要安装包含 XeLaTeX 和 `latexmk` 的 TeX 发行版。生成的 `Notes.pdf` 位于同一目录；其他编译中间文件由 `.gitignore` 排除。
+
+光学笔记的注记环境（`noteenv`）以及部分手工插图标题（`\insertpic`）使用仓库内的 `Optics/fonts/LXGWWenKaiGB-Regular.ttf`（霞鹜文楷 GB）。光学正文仍沿用原有字体设置；编译光学笔记时需保留该字体文件及其相对路径。

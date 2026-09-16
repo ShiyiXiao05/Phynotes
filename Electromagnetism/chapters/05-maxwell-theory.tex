@@ -1,8 +1,8 @@
 \chapter{Maxwell电磁理论}
 \section{Maxwell电磁理论的建立}
-在我们前面的所有讨论结束之后，似乎电磁学已经被我们穷尽了。对于静电场和静磁场，我们有相应的高斯定理和环路定理，理论上已经可以确定一切电场和磁场的具体形式。对于导体和电磁介质，虽然还有一些问题不那么好理解，但基于Lorentz的经典电子论，也获得了比较令人满意的结果。那么还有什么需要我们研究的吗？现在我们所面临的状态，恰与Maxwell\footnote{这个名字不能不使人浮想联翩——Max well，这一电磁理论确实可算作经典物理中的最精妙理论。}开始他的研究之前的状态十分类似。
+在我们前面的所有讨论结束之后, 似乎电磁学已经被我们穷尽了. 对于静电场和静磁场, 我们有相应的高斯定理和环路定理, 理论上已经可以确定一切电场和磁场的具体形式. 对于导体和电磁介质, 虽然还有一些问题不那么好理解, 但基于Lorentz的经典电子论, 也获得了比较令人满意的结果. 那么还有什么需要我们研究的吗? 现在我们所面临的状态, 恰与Maxwell\footnote{这个名字不能不使人浮想联翩---Max well, 这一电磁理论确实可算作经典物理中的最精妙理论.}开始他的研究之前的状态十分类似.
 
-在我们正式讨论Maxwell的想法之前，我们先补充一下之前没有详细讨论过的边界条件。
+在我们正式讨论Maxwell的想法之前, 我们先补充一下之前没有详细讨论过的边界条件.
 
 \begin{figure}[h]
   \centering
@@ -21,44 +21,44 @@
   \end{minipage}
 \end{figure}
 
-考虑两个电介质界面:我们取一个面元$\Delta S$，以其为底面作一个柱形高斯面,考虑通过这个高斯面的电位移通量,根据高斯定理: 
+考虑两个电介质界面: 我们取一个面元$\Delta S$, 以其为底面作一个柱形高斯面, 考虑通过这个高斯面的电位移通量, 根据高斯定理:
 \[
 \oiint \mb{D} \cdot \d \mathbf{S} = \iint_{S_1+S_2+S_{\text{侧}}} \mathbf{D}\cdot \d S = \sigma_f
 \]
-其中$\sigma_f$为自由电荷面密度。侧面积趋于$0$，其通量也趋于$0$,在$1,2$上的通量分别为:$-\mb{D_1}\cdot \mb{n} \Delta S$,$\mb{D_2}\cdot \mb{n} \Delta S$
+其中$\sigma_f$为自由电荷面密度. 侧面积趋于$0$, 其通量也趋于$0$, 在$1,2$上的通量分别为:$-\mb{D}_1\cdot \mb{n} \Delta S$,$\mb{D}_2\cdot \mb{n} \Delta S$
 
 于是我们得到:
 \[
 (D_1-D_2) \cdot n = \sigma_f
 \]
 
-一般而言，我们讨论的界面上都没有自由电荷分布。于是我们得到:
+一般而言, 我们讨论的界面上都没有自由电荷分布. 于是我们得到:
 \[
 D_{1n}=D_{2n}
 \]
-也就是说：在边界面两侧电位移矢量法向分量连续。
+也就是说: 在边界面两侧电位移矢量法向分量连续.
 
-取矩形闭合环路$ABCDA$，其中$AB=CD=\Delta l$.考虑$E$沿着此闭合环路的线积分:
+取矩形闭合环路$ABCDA$, 其中$AB=CD=\Delta l$. 考虑$E$沿着此闭合环路的线积分:
 \[
 \oint \mb{E} \cdot \d \mb{l} = \int_A^B \mb{E} \cdot \d \mb{l}+ \int_B^C \mb{E} \cdot \d \mb{l}+\int_C^D \mb{E} \cdot \d \mb{l}+\int_D^A \mb{E} \cdot \d \mb{l}=0
 \]
-注意到$BC$和$DA$的长度相较于$AB$和$DC$为高阶无穷小，在其上的积分为$0$
+注意到$BC$和$DA$的长度相较于$AB$和$DC$为高阶无穷小, 在其上的积分为$0$
 .在$AB$和$DC$上两侧的积分分别为:$-E_{1t}\Delta l$和$E_{2t}\Delta l$于是我们得到:
 \[
 E_{1t} = E_{2t}
 \]
-这就是电介质分界面上的第二个边界条件，它表明边界面两侧电场强度的切向分量连续。
+这就是电介质分界面上的第二个边界条件, 它表明边界面两侧电场强度的切向分量连续.
 
-对于磁介质界面，我们只需要把$D$替换为$B$,就可以得到法向连续; 把$E$替换为$H$
-并且假设没有传导电流，就得到了切向连续。
+对于磁介质界面, 我们只需要把$D$替换为$B$, 就可以得到法向连续; 把$E$替换为$H$
+并且假设没有传导电流, 就得到了切向连续.
 
-总结起来就是，在介质界面上没有自由电荷或者传导电流的时候:
+总结起来就是, 在介质界面上没有自由电荷或者传导电流的时候:
 
-(1)电位移矢量$D$，磁感应强度矢量$B$的法向分量连续;
+(1)电位移矢量$D$, 磁感应强度矢量$B$的法向分量连续;
 
-(2)电场强度矢量$E$，磁场强度矢量$H$的切向分量连续。
+(2)电场强度矢量$E$, 磁场强度矢量$H$的切向分量连续.
 
-下面我们就来介绍Maxwell的工作。Maxwell时代的电磁场基本规律可以概括如下:
+下面我们就来介绍Maxwell的工作. Maxwell时代的电磁场基本规律可以概括如下:
 
 由库仑定律和场强叠加原理可以得出静电场的两条定理:
 
@@ -89,40 +89,40 @@ E_{1t} = E_{2t}
 \mathscr C = -\frac{\partial \Phi_B}{\partial t}
 \]
 
-我们先介绍电流密度的概念。先前我们已经介绍过电流强度的定义。电流强度被定义为单位时间内通过所考察的横截面的电量。这告诉我们可以定义电流的密度:
+我们先介绍电流密度的概念. 先前我们已经介绍过电流强度的定义. 电流强度被定义为单位时间内通过所考察的横截面的电量. 这告诉我们可以定义电流的密度:
 \[
-I = \iint \mb{j}\cdot \d \mb{S} 
+I = \iint \mb{j}\cdot \d \mb{S}
 \]
-其中$j$被称为电流密度。
+其中$j$被称为电流密度.
 
-此外还有容易被忽视的电荷守恒原理。对于一个闭合曲面，其所包裹电荷的变化率加上流经该表面的电流强度应该为$0$，于是我们得到
+此外还有容易被忽视的电荷守恒原理. 对于一个闭合曲面, 其所包裹电荷的变化率加上流经该表面的电流强度应该为$0$, 于是我们得到
 
 (6)电荷守恒原理:
 \[
 \oiint j_0 \cdot \d \mb{S} +\frac{\d q_0}{\d t}= 0
 \]
-在前面我们已经提到过Maxwell发现感应电动势现象预示着变化的磁场周围会产生涡旋电场，因此法拉第电磁感应定律预示着在普遍情形下电场的环路定理应该写为:
+在前面我们已经提到过Maxwell发现感应电动势现象预示着变化的磁场周围会产生涡旋电场, 因此法拉第电磁感应定律预示着在普遍情形下电场的环路定理应该写为:
 \[
 \oint_L \mb{E} \cdot \d l = \iint_S -\frac{\partial \mb{B}}{\partial t} \cdot \d \mb{S}
 \]
-静电场环路定理应当是它的一个特例。
+静电场环路定理应当是它的一个特例.
 
-Maxwell从当时的实验和理论分析中都没有发现电场的高斯定理有什么问题，于是Maxwell假定它们在普遍情形下仍然成立。然而Maxwell在分析安培环路定理时发现了将其应用到非恒定情形下时遇到了矛盾。
+Maxwell从当时的实验和理论分析中都没有发现电场的高斯定理有什么问题, 于是Maxwell假定它们在普遍情形下仍然成立. 然而Maxwell在分析安培环路定理时发现了将其应用到非恒定情形下时遇到了矛盾.
 
 我们可以改写一下我们的安培环路定理:
 \[
-\oint_L H \cdot \d \mb{l} = I_0 = \iint_S \mb{j_0} \cdot \d \mb{S} 
+\oint_L H \cdot \d \mb{l} = I_0 = \iint_S \mb{j}_0 \cdot \d \mb{S}
 \]
 
-现在我们想问，非恒定条件下安培环路定理是否仍然成立？想要上式有意义的话，就必须要求穿过任意以$L$为边界的曲面的传导电流都相等，也就是说:
+现在我们想问, 非恒定条件下安培环路定理是否仍然成立? 想要上式有意义的话, 就必须要求穿过任意以$L$为边界的曲面的传导电流都相等, 也就是说:
 \[
-\iint_S \mb{j_0} \cdot \d \mb{S_1} = \iint_S \mb{j_0} \cdot \d \mb{S_2} \equiv \oiint_S  \mb{j_0} \cdot \d \mb{S} =0 
+\iint_S \mb{j}_0 \cdot \d \mb{S}_1 = \iint_S \mb{j}_0 \cdot \d \mb{S}_2 \equiv \oiint_S  \mb{j}_0 \cdot \d \mb{S} =0
 \]
-其中$S_1$,$S_2$是两个以$L$为边界的不同曲面。恒定情况下，上式的正确性由电荷守恒原理保证。
+其中$S_1$,$S_2$是两个以$L$为边界的不同曲面. 恒定情况下, 上式的正确性由电荷守恒原理保证.
 
 \insertfig{5-3.png}{非恒定情况下安培定理的矛盾}{0.25}
 
-但非恒定情况下上式不成立。我们考虑这样的一个电容器的充放电电路。我们取$S_1$与导线相交，$S_2$穿过电容器的两极板之间，则穿过$S_1$的电流不为$0$,而穿过$S_2$的电流为$0$.这样上面的式子就失去了意义。如何解决这个矛盾呢？
+但非恒定情况下上式不成立. 我们考虑这样的一个电容器的充放电电路. 我们取$S_1$与导线相交, $S_2$穿过电容器的两极板之间, 则穿过$S_1$的电流不为$0$, 而穿过$S_2$的电流为$0$. 这样上面的式子就失去了意义. 如何解决这个矛盾呢?
 
 我们需要回到我们没有使用过的电荷守恒原理:
 \[
@@ -134,88 +134,88 @@ Maxwell从当时的实验和理论分析中都没有发现电场的高斯定理�
 \]
 从而:
 \[
-\frac{\d q_0}{\d t} = \frac{\d}{\d t}\oiint_S \mb{D} \cdot \d \mb{S} = \oiint_S \frac{\partial \mb{D}}{\partial t} \cdot \d \mb{S} 
+\frac{\d q_0}{\d t} = \frac{\d}{\d t}\oiint_S \mb{D} \cdot \d \mb{S} = \oiint_S \frac{\partial \mb{D}}{\partial t} \cdot \d \mb{S}
 \]
 这样我们可以改写电荷守恒方程:
 \[
-\oiint_S j_0 \cdot \d \mb{S} = -\oiint_S \frac{\partial \mb{D}}{\partial t} \cdot \d \mb{S} \Rightarrow \oiint_S (\mb{j_0}+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S} = 0
+\oiint_S j_0 \cdot \d \mb{S} = -\oiint_S \frac{\partial \mb{D}}{\partial t} \cdot \d \mb{S} \Rightarrow \oiint_S (\mb{j}_0+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S} = 0
 \]
-这样我们发现$\mb{j_0}+\frac{\partial \mb{D}}{\partial t}$这个量始终是保持连续的。仿照磁通量，我们可以定义电位移通量:
+这样我们发现$\mb{j}_0+\frac{\partial \mb{D}}{\partial t}$这个量始终是保持连续的. 仿照磁通量, 我们可以定义电位移通量:
 \[
 \Phi_D = \iint \mb{D} \cdot \d \mb{S} \Rightarrow \frac{\d \Phi_D}{\d t} = \iint \frac{\partial \mb{D}}{\partial t}\cdot \d \mb{S}
 \]
 
-Maxwell把$\frac{\partial \mb{D}}{\partial t}$称为位移电流，$\frac{\partial \mb{D}}{\partial t}$被称为位移电流密度，位移电流与传导电流合在一起称为全电流。全电流在任意情况下都是连续的。
+Maxwell把$\frac{\partial \mb{D}}{\partial t}$称为位移电流, $\frac{\partial \mb{D}}{\partial t}$被称为位移电流密度, 位移电流与传导电流合在一起称为全电流. 全电流在任意情况下都是连续的.
 
-上述假设被称为位移电流假设。位移电流的引进虽然不存在逻辑上的矛盾，但是其正确与否仍然有待进一步的实验事实来证明。
+上述假设被称为位移电流假设. 位移电流的引进虽然不存在逻辑上的矛盾, 但是其正确与否仍然有待进一步的实验事实来证明.
 
-这样非恒定情况下，我们应该用全电流代替不具有连续性的传导电流，这样我们可以修改安培环路定理:
+这样非恒定情况下, 我们应该用全电流代替不具有连续性的传导电流, 这样我们可以修改安培环路定理:
 \[
-\oint \mb H \cdot \d \mb{l} = \iint_S (\mb{j_0}+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S}
+\oint \mb H \cdot \d \mb{l} = \iint_S (\mb{j}_0+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S}
 \]
 
-为了正确地理解位移电流的实质，我们利用$\mb = \v_0 \mb{E} + \mb{P}$把位移电流分为两部分:
+为了正确地理解位移电流的实质, 我们利用$\mb = \v_0 \mb{E} + \mb{P}$把位移电流分为两部分:
 \[
 j_d = \v_0 \frac{\partial \mb{E}}{\partial t}+\frac{\partial \mb{P}}{\partial t}
 \]
 
-式子中的第一项与电场强度随时间的变化率有关，即使在真空中也存在; 第二项是极化强度的变化引起，而极化强度的变化正式分子内部的束缚电荷的微观运动所引起的。事实上分子电流定向排列形成的磁化电流也是束缚电荷的微观运动所引起的。传导电流，极化电流和磁化电流显然是可以激发电场的。然而，最基本的第一项完全由于电场变化产生，与电荷的运动无关。
+式子中的第一项与电场强度随时间的变化率有关, 即使在真空中也存在; 第二项是极化强度的变化引起, 而极化强度的变化正式分子内部的束缚电荷的微观运动所引起的. 事实上分子电流定向排列形成的磁化电流也是束缚电荷的微观运动所引起的. 传导电流, 极化电流和磁化电流显然是可以激发电场的. 然而, 最基本的第一项完全由于电场变化产生, 与电荷的运动无关.
 
-因此Maxwell的位移电流假设的实质是:随时间变化的电场和电流会激发磁场。而我们先前所做的涡旋电场假设，其实质是随时间变化的磁场会激发电场。这两个假设共同作用，就暗含着电磁场会在空间中以波动形式传播的结论。这正是Maxwell的第一个成功预言。
+因此Maxwell的位移电流假设的实质是: 随时间变化的电场和电流会激发磁场. 而我们先前所做的涡旋电场假设, 其实质是随时间变化的磁场会激发电场. 这两个假设共同作用, 就暗含着电磁场会在空间中以波动形式传播的结论. 这正是Maxwell的第一个成功预言.
 
 \insertfig{5-4.png}{变化的电磁场自源出发向四周传播形成电磁波}{0.25}
 
-现在，我们已经完成了所有的工作，我们现在给出总结:
+现在, 我们已经完成了所有的工作, 我们现在给出总结:
 
 \textbf{Maxwell 方程的积分形式}
 \begin{align*}
 \oiint_{S} \mathbf{D}\cdot \d\mathbf{S} &= \iiint_{V} \rho_f\,\d V, \\[4pt]
 \oiint_{S} \mathbf{B}\cdot \d\mathbf{S} &= 0, \\[4pt]
 \oint_{L} \mathbf{E}\cdot \d\mathbf{l} &= -\frac{d}{dt}\iint_{S}\mathbf{B}\cdot \d\mathbf{S}, \\[4pt]
-\oint_{L} \mathbf{H}\cdot \d\mathbf{l} &= \iint_{S}\mathbf{J_f}\cdot \d\mathbf{S}
+\oint_{L} \mathbf{H}\cdot \d\mathbf{l} &= \iint_{S}\mathbf{J}_f\cdot \d\mathbf{S}
 + \frac{d}{dt}\iint_{S}\mathbf{D}\cdot \d\mathbf{S}.
 \end{align*}
 
-数学上，我们有Gauss 散度定理与 Stokes 旋度定理(对足够光滑的矢量场$\mb{F}$):
+数学上, 我们有Gauss 散度定理与 Stokes 旋度定理(对足够光滑的矢量场$\mb{F}$):
 \begin{align*}
 \iiint_{V} (\nabla\cdot\mathbf{F})\,\d V &= \oiint_{S} \mathbf{F}\cdot \d\mathbf{S}, \\[4pt]
 \iint_{S} (\nabla\times\mathbf{F})\cdot \d\mathbf{S} &= \oint_{L} \mathbf{F}\cdot \d\mathbf{l}.
 \end{align*}
 
-利用上述公式，我们可以得到:
+利用上述公式, 我们可以得到:
 \begin{align*}
 \iiint_{V} (\nabla\cdot\mathbf{D})\,\d V &= \oiint_{S} \mathbf{D}\cdot \d\mathbf{S} = \iiint_{V} \rho_f\,\d V, \\[4pt]
 \iint_{S} (\nabla\times\mathbf{E})\cdot \d\mathbf{S} &= \oint_{L} \mathbf{E}\cdot \d\mathbf{l}  =-\iint_S \frac{\partial \mathbf{B}}{\partial t}\cdot \d \mathbf{S}.\\[4pt]
 \iiint_{V} (\nabla\cdot\mathbf{B})\,\d V &= \oiint_{S} \mathbf{B}\cdot \d\mathbf{S} = 0, \\[4pt]
-\iint_{S} (\nabla\times\mathbf{H})\cdot \d\mathbf{S} &= \oint_{L} \mathbf{H}\cdot \d\mathbf{l} = \iint_S (\mb{j_0}+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S}.
+\iint_{S} (\nabla\times\mathbf{H})\cdot \d\mathbf{S} &= \oint_{L} \mathbf{H}\cdot \d\mathbf{l} = \iint_S (\mb{j}_0+\frac{\partial \mb{D}}{\partial t})\cdot \d \mb{S}.
 \end{align*}
 
-注意到上面的四个式子要求对于任意的曲面和其包裹的空间均成立，我们得到；
+注意到上面的四个式子要求对于任意的曲面和其包裹的空间均成立, 我们得到;
 
 \textbf{Maxwell 方程的微分形式}
 \begin{align*}
 \nabla\cdot\mathbf{D} &= \frac{\rho_f}{\varepsilon_0}, \\[4pt]
 \nabla\cdot\mathbf{B} &= 0, \\[4pt]
 \nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}, \\[4pt]
-\nabla\times\mathbf{H} &= \mathbf{J_f} + \frac{\partial\mathbf{D}}{\partial t}.
+\nabla\times\mathbf{H} &= \mathbf{J}_f + \frac{\partial\mathbf{D}}{\partial t}.
 \end{align*}
 
-对于电磁介质，我们还需要相关的描述介质的方程式，一般被称为本构方程。对于各向同性线性介质:
+对于电磁介质, 我们还需要相关的描述介质的方程式, 一般被称为本构方程. 对于各向同性线性介质:
 \begin{align*}
 \mathbf{D} &= \v_r\varepsilon_0 \mathbf{E}, \\[4pt]
 \mathbf{B} &= \mu_r\mu_0 \mathbf{H}, \\[4pt]
 \mathbf{J} &= \sigma \mathbf{E}.
 \end{align*}
 
-到这里，我们已经完成了所有的工作。我们以Maxwell方程为最终形式，完成了经典电磁场理论。如果你坚持学习到现在并掌握了前面的内容，那么恭喜你，你已经基本上学会了求解电磁学问题所需要的所有理论基础。剩下的无非是一些特殊的数学技巧，如多极展开，分离变量法，镜像法之类。它们大多是数学理论在电磁学的具体应用。
+到这里, 我们已经完成了所有的工作. 我们以Maxwell方程为最终形式, 完成了经典电磁场理论. 如果你坚持学习到现在并掌握了前面的内容, 那么恭喜你, 你已经基本上学会了求解电磁学问题所需要的所有理论基础. 剩下的无非是一些特殊的数学技巧, 如多极展开, 分离变量法, 镜像法之类. 它们大多是数学理论在电磁学的具体应用.
 
-这里当然是一个合适的终点(并非考试意义上的终点!)，但从另一个意义上说我们刚好到达了起点，可以开始充分享受电磁场理论的威力和其丰富内容。下一节内容——电磁波将会是我们应用电磁场理论的开始，也是历史上Maxwell理论的最重要应用。
+这里当然是一个合适的终点(并非考试意义上的终点!), 但从另一个意义上说我们刚好到达了起点, 可以开始充分享受电磁场理论的威力和其丰富内容. 下一节内容---电磁波将会是我们应用电磁场理论的开始, 也是历史上Maxwell理论的最重要应用.
 \begin{center}
-  \textbf{无论如何，再次恭喜你看到了这里！}
+  \textbf{无论如何, 再次恭喜你看到了这里!}
 \end{center}
 
 \section{电磁波}
-对于无自由电荷和传导电流的各向同性均匀线性介质空间，则这些空间中有:
+对于无自由电荷和传导电流的各向同性均匀线性介质空间, 则这些空间中有:
 \begin{align*}
 \nabla\cdot\mathbf{D} &= \nabla\cdot\mathbf{E} =0, \\[4pt]
 \nabla\cdot\mathbf{B} &= \nabla\cdot\mathbf{H}= 0, \\[4pt]
@@ -228,12 +228,12 @@ j_d = \v_0 \frac{\partial \mb{E}}{\partial t}+\frac{\partial \mb{P}}{\partial t}
 \nabla\times\mathbf{E} &= -\mu_r\mu_0\frac{\partial\mathbf{H}}{\partial t}
 \end{align*}
 
-数学上，我们有这样的矢量分析公式:
+数学上, 我们有这样的矢量分析公式:
 \[
 \nabla \times  (\nabla \times \mb{E}) = \nabla(\nabla \cdot \mb{E})-\nabla^2 \mb{E}
 \]
 
-对该式两边求旋度,左侧得到:
+对该式两边求旋度, 左侧得到:
 \[
 \nabla \times (\nabla \times \mb{E})= \nabla(\nabla \cdot \mb{E})-\nabla^2 \mb{E} = -\nabla^2 E
 \]
@@ -241,79 +241,79 @@ j_d = \v_0 \frac{\partial \mb{E}}{\partial t}+\frac{\partial \mb{P}}{\partial t}
 \[
 \nabla \times (-\mu_r\mu_0\frac{\partial\mathbf{H}}{\partial t}) = -\mu_r\mu_0\frac{\partial}{\partial t} (\nabla \times \mathbf{H}) = -\mu_r\mu_0\v_r\v_0 \frac{\partial^2 \mb{E}}{\partial t^2}
 \]
-两边相等，整理得到:
+两边相等, 整理得到:
 \[
 \frac{\partial^2 \mb{E}}{\partial t^2} - \frac{1}{\mu_r\mu_0\v_r\v_0} \nabla^2 \mb{E} = 0
 \]
-同样的方法，我们可以得到:
+同样的方法, 我们可以得到:
 \[
 \frac{\partial^2 \mb{H}}{\partial t^2} - \frac{1}{\mu_r\mu_0\v_r\v_0} \nabla^2 \mb{H} = 0
 \]
 
-数学理论告诉我们，上述形式的微分方程被称为三维波动方程。上述方程的一种解的形式是:
+数学理论告诉我们, 上述形式的微分方程被称为三维波动方程. 上述方程的一种解的形式是:
 \begin{align*}
-\mb{E} &= \mb{E_0} \cos(\omega t - \mathbf k \cdot \mathbf r), \\[4pt]
-\mb{H} &= \mb{H_0} \cos(\omega t - \mathbf k \cdot \mathbf r)
+\mb{E} &= \mb{E}_0 \cos(\omega t - \mathbf k \cdot \mathbf r), \\[4pt]
+\mb{H} &= \mb{H}_0 \cos(\omega t - \mathbf k \cdot \mathbf r)
 \end{align*}
 
 
-我们取$v=\frac{1}{\sqrt{\mu_r\mu_0\v_r\v_0}}$为电磁波的波速,则上述方程同时应满足色散关系:
+我们取$v=\frac{1}{\sqrt{\mu_r\mu_0\v_r\v_0}}$为电磁波的波速, 则上述方程同时应满足色散关系:
 \[
 \omega = vk
 \]
 
-注意到真空中，电磁波的波速为:
+注意到真空中, 电磁波的波速为:
 \[
 c= \frac{1}{\sqrt{\v_0\mu_0}}
 \]
-于是我们可以定义折射率：
+于是我们可以定义折射率:
 \[
 n = \frac{v}{c} = \sqrt{\mu_r\v_r}
 \]
 
-这正是Maxwell从电磁波理论出发，对光学所做的一些初步研究。对于一般的材料,$\mu_r\approx 1$. 于是我们可以近似认为:
+这正是Maxwell从电磁波理论出发, 对光学所做的一些初步研究. 对于一般的材料,$\mu_r\approx 1$. 于是我们可以近似认为:
 \[
 n = \sqrt{\v_r}
 \]
 
-现在我们已经研究清楚了电磁波具有的一般形式。下面让我们来看平面电磁波.平面电磁波中，
+现在我们已经研究清楚了电磁波具有的一般形式. 下面让我们来看平面电磁波. 平面电磁波中,
 \begin{align*}
-\mb{E} &= \mb{E_0} \cos(\omega t - \mathbf k \cdot \mathbf r), \\[4pt]
-\mb{H} &= \mb{H_0} \cos(\omega t - \mathbf k \cdot \mathbf r)
+\mb{E} &= \mb{E}_0 \cos(\omega t - \mathbf k \cdot \mathbf r), \\[4pt]
+\mb{H} &= \mb{H}_0 \cos(\omega t - \mathbf k \cdot \mathbf r)
 \end{align*}
-$\mb{E_0},\; \mb{B_0}$都是常矢量。
+$\mb{E}_0,\; \mb{B}_0$都是常矢量.
 
-我们对$\mb{E}$求散度，计算得到:
+我们对$\mb{E}$求散度, 计算得到:
 \[
-\nabla \cdot \mb{E} = \mb{E_0} \cdot \nabla(\cos(\omega t -\mb{k}\cdot \mb{r})) = sin(\omega t- \mb{k}\cdot \mb{r})\mb{k}\cdot \mb{E_0}
+\nabla \cdot \mb{E} = \mb{E}_0 \cdot \nabla(\cos(\omega t -\mb{k}\cdot \mb{r})) = \sin(\omega t- \mb{k}\cdot \mb{r})\mb{k}\cdot \mb{E}_0
 \]
 
-注意到空间中无电荷存在，$\nabla \cdot \mb{E}=0$,于是:
+注意到空间中无电荷存在, $\nabla \cdot \mb{E}=0$, 于是:
 \[
-\mb{k}\cdot \mb{E_0} = 0
+\mb{k}\cdot \mb{E}_0 = 0
 \]
-这说明波矢$\mb{k}$和电场强度矢量$E$垂直。同理可以证明$\mb{k}$与磁场强度矢量$\mb{H}$也垂直。
+这说明波矢$\mb{k}$和电场强度矢量$E$垂直. 同理可以证明$\mb{k}$与磁场强度矢量$\mb{H}$也垂直.
 
-因此平面电磁波的电场方向与磁场方向都与波的传播方向垂直，因此我们说平面电磁波是横波。
+因此平面电磁波的电场方向与磁场方向都与波的传播方向垂直, 因此我们说平面电磁波是横波.
 
-现在我们对$\mb{E}$求旋度，计算得到:
+现在我们对$\mb{E}$求旋度, 计算得到:
 \[
-\nabla\times\mb{E} =  \nabla(\cos(\omega t -\mb{k}\cdot \mb{r}))\times \mb{E_0} = \sin(\omega t- \mb{k}\cdot \mb{r})\mb{k}\times \mb{E_0}
-\]
-
-假定磁场强度与电场强度的变化存在相位差$\varphi$，则磁场强度矢量应该具有形式:$\mb{H} = \mb{H_0} \cos(\omega t - \mathbf k \cdot \mathbf r+\varphi)$ 根据Maxwell方程，我们得到:
-\[
-\sin(\omega t- \mb{k}\cdot \mb{r})\mb{k}\times \mb{E_0}= \nabla \times \mb{E} = -\mu_r\mu_0\frac{\partial\mathbf{H}}{\partial t} = \mu_0 \mu_r \omega \mb{H_0}sin(\omega t- \mb{k}\cdot \mb{r}+\varphi)
+\nabla\times\mb{E} =  \nabla(\cos(\omega t -\mb{k}\cdot \mb{r}))\times \mb{E}_0 = \sin(\omega t- \mb{k}\cdot \mb{r})\mb{k}\times \mb{E}_0
 \]
 
-为了使上式始终成立，必须要求$\varphi = 0$. 同时有:
+假定磁场强度与电场强度的变化存在相位差$\varphi$, 则磁场强度矢量应该具有形式:$\mb{H} = \mb{H}_0 \cos(\omega t - \mathbf k \cdot \mathbf r+\varphi)$ 根据Maxwell方程, 我们得到:
 \[
-\mb{k} \times \mb{E_0} = \mu_0\mu_r \omega \mb{H_0} 
+\sin(\omega t- \mb{k}\cdot \mb{r})\mb{k}\times \mb{E}_0= \nabla \times \mb{E} = -\mu_r\mu_0\frac{\partial\mathbf{H}}{\partial t} = \mu_0 \mu_r \omega \mb{H}_0\sin(\omega t- \mb{k}\cdot \mb{r}+\varphi)
 \]
-注意到平面电磁波中$\mb{E_0}$与$\mb{E}$同向,$\mb{H_0}$与$\mb{H}$同向向。
-则由上面这个结果，我们看出$\mb{k},\mb{E},\mb{H}$三者两两垂直。
 
-考虑到色散关系$\omega = vk$，化简上式得到:
+为了使上式始终成立, 必须要求$\varphi = 0$. 同时有:
+\[
+\mb{k} \times \mb{E}_0 = \mu_0\mu_r \omega \mb{H}_0
+\]
+注意到平面电磁波中$\mb{E}_0$与$\mb{E}$同向,$\mb{H}_0$与$\mb{H}$同向向.
+则由上面这个结果, 我们看出$\mb{k},\mb{E},\mb{H}$三者两两垂直.
+
+考虑到色散关系$\omega = vk$, 化简上式得到:
 \[
 \frac{E}{H} = v\mu_r\mu_0 = \sqrt{\frac{\mu_r\mu_0}{\v_r\v_0}}
 \]
@@ -323,19 +323,19 @@ $\mb{E_0},\; \mb{B_0}$都是常矢量。
 
 现在我们总结一下平面电磁波的基本性质:
 \begin{itemize}
-  \item $\mb{E}$和$\mb{B}$都与电磁波的传播方向垂直，电磁波是横波;
-  \item $\mb{E}$和$\mb{B}$相互垂直，且$\mb{E}\times\mb{B}$总是沿着传播方向$\mb{k}$的;
+  \item $\mb{E}$和$\mb{B}$都与电磁波的传播方向垂直, 电磁波是横波;
+  \item $\mb{E}$和$\mb{B}$相互垂直, 且$\mb{E}\times\mb{B}$总是沿着传播方向$\mb{k}$的;
   \item $\mb{E}$和$\mb{B}$之间没有相位差;
   \item $\frac{E}{B}=v$,$v=\frac{1}{\sqrt{\v_r\mu_r\v_0\mu}}$
 \end{itemize}
 
 
-下面我们介绍一下振荡偶极子电磁波。振荡电偶极子是电磁辐射的基本源之一，尤其是在天线和微观粒子中。这种电磁波一般源于一个电偶极矩以余弦形式变化的电偶极子:
+下面我们介绍一下振荡偶极子电磁波. 振荡电偶极子是电磁辐射的基本源之一, 尤其是在天线和微观粒子中. 这种电磁波一般源于一个电偶极矩以余弦形式变化的电偶极子:
 
 \[
 p = ql_0\cos(\omega t)
 \]
-远离震荡电偶极子的区域称为辐射区，这里有远场条件:$r\gg\lambda\gg l_0$. 可以证明辐射区电场强度和磁感应强度有如下形式:
+远离震荡电偶极子的区域称为辐射区, 这里有远场条件:$r\gg\lambda\gg l_0$. 可以证明辐射区电场强度和磁感应强度有如下形式:
 \begin{align*}
 E &= E_\theta = \frac{\omega^2 p_0}{4\pi\varepsilon_0v^2}\,
 \frac{\sin\theta}{r}\,
@@ -346,34 +346,34 @@ B &= B_\varphi = \frac{\mu_0 \omega^2 p_0}{4\pi v}\,
 E_r &= B_r = E_\varphi = B_\theta  = 0.
 \end{align*}
 
-总结起来，振荡电偶极子电磁波有如下性质:
+总结起来, 振荡电偶极子电磁波有如下性质:
 \begin{itemize}
-  \item $\mb{E}$和$\mb{B}$都与电磁波的传播方向垂直，电磁波是横波;
-  \item $\mb{E}$和$\mb{B}$相互垂直，且$\mb{E}\times\mb{B}$总是沿着传播方向$\mb{k}$的;
+  \item $\mb{E}$和$\mb{B}$都与电磁波的传播方向垂直, 电磁波是横波;
+  \item $\mb{E}$和$\mb{B}$相互垂直, 且$\mb{E}\times\mb{B}$总是沿着传播方向$\mb{k}$的;
   \item $\mb{E}$和$\mb{B}$之间没有相位差;
   \item $\frac{E}{B}=v$;
-  \item 振荡电偶极子在电磁波具有方向性，在$\theta=\frac{\pi}{2}$方向上场强最大，在$\theta = 0,\pi$方向上场强为$0$;
+  \item 振荡电偶极子在电磁波具有方向性, 在$\theta=\frac{\pi}{2}$方向上场强最大, 在$\theta = 0,\pi$方向上场强为$0$;
   \item $E\propto \frac{1}{r}$,$E\propto \omega^2$,$B\propto \frac{1}{r}$,$B\propto \omega^2$
 \end{itemize}
 
 \section{电磁场的能量}
-电磁场作为一种物质，自然具有能量，动量，角动量等机械运动特征物理量。变化的电磁场会导致能量的变化，为了描述这种变化，我们需要引入能流密度矢量$\mb{S}$.设某空间中具有的某种能量为$W$，则根据能量守恒方程，类比我们之前的得到电荷守恒，可以得到：
+电磁场作为一种物质, 自然具有能量, 动量, 角动量等机械运动特征物理量. 变化的电磁场会导致能量的变化, 为了描述这种变化, 我们需要引入能流密度矢量$\mb{S}$. 设某空间中具有的某种能量为$W$, 则根据能量守恒方程, 类比我们之前的得到电荷守恒, 可以得到:
 \[
 \frac{\d W}{\d t} + \oiint \mb{S} \cdot \d \mb{A} = 0
 \]
 
-现在我们考察电磁场的能流密度矢量。对于某空间中的电磁场能量，设电磁场的能量密度为$w$，则某空间中的电磁场能量可以表示为:$\iiint_V w\d V$。设电磁场对电荷的作用力体积密度为$\mb{f}$.则空间内电磁场能量的变化可以分为两部分，第一部分是电磁场对该空间内的电荷做功导致能量变化，第二部分是该空间中能量以能流的形式流出该空间导致能量变化. 注意到$\frac{\d}{\d t}\iiint_V w\d V=\iiint_V  \frac{\partial w}{\partial t}\d V$,则有:
+现在我们考察电磁场的能流密度矢量. 对于某空间中的电磁场能量, 设电磁场的能量密度为$w$, 则某空间中的电磁场能量可以表示为:$\iiint_V w\d V$. 设电磁场对电荷的作用力体积密度为$\mb{f}$. 则空间内电磁场能量的变化可以分为两部分, 第一部分是电磁场对该空间内的电荷做功导致能量变化, 第二部分是该空间中能量以能流的形式流出该空间导致能量变化. 注意到$\frac{\d}{\d t}\iiint_V w\d V=\iiint_V  \frac{\partial w}{\partial t}\d V$, 则有:
 
 \[
 \iiint_V \mb{f}\cdot \mb{v} \d V + \oiint_A \mb{S} \cdot \d \mb{A}+\iiint_V  \frac{\partial w}{\partial t}\d V = 0
 \]
 
-利用高斯公式把第二项化成体积分，有:
+利用高斯公式把第二项化成体积分, 有:
 \[
 \iiint_V \mb{f}\cdot \mb{v} \d V + \iiint_V (\nabla \cdot \mb{S}) +\iiint_V  \frac{\partial w}{\partial t}\d V = 0
 \]
 
-要求对空间中任意体积均成立，则有：
+要求对空间中任意体积均成立, 则有:
 \[
  \mb{f}\cdot \mb{v}  +  \nabla \cdot \mb{S} + \frac{\partial w}{\partial t} = 0
 \]
@@ -383,17 +383,17 @@ E_r &= B_r = E_\varphi = B_\theta  = 0.
 \mb{f} = \rho(\mb{E}+\mb{v}\times\mb{B})
 \]
 
-把上式点乘速度，得到:
+把上式点乘速度, 得到:
 \[
 \mb{f}\cdot \mb{v} = \mb{E} \cdot (\rho \mb{v}) = \mb{E} \cdot \mb{J}
 \]
 
-后面一项被消掉是因为其与速度方向垂直，这再次证明了磁场力永不做功。考虑Maxwell方程:
+后面一项被消掉是因为其与速度方向垂直, 这再次证明了磁场力永不做功. 考虑Maxwell方程:
 \[
-\nabla\times\mathbf{H} = \mathbf{J} + \frac{\partial\mathbf{D}}{\partial t} \Rightarrow \mathbf{J} = \nabla\times\mathbf{H} - \frac{\partial\mathbf{D}}{\partial t} 
+\nabla\times\mathbf{H} = \mathbf{J} + \frac{\partial\mathbf{D}}{\partial t} \Rightarrow \mathbf{J} = \nabla\times\mathbf{H} - \frac{\partial\mathbf{D}}{\partial t}
 \]
 
-代入，得到:
+代入, 得到:
 \[
 \mb{E} \cdot \mb{J} = \mb{E} \cdot (\nabla\times\mathbf{H}) -  \mb{E} \cdot\frac{\partial\mathbf{D}}{\partial t}
 \]
@@ -407,16 +407,16 @@ E_r &= B_r = E_\varphi = B_\theta  = 0.
 \[
 \nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}
 \]
-代入上面的矢量分析公式，我们得到:
+代入上面的矢量分析公式, 我们得到:
 \[
 \mb{E}\cdot (\nabla \times \mb{H}) = \mb{H}\cdot (-\frac{\partial\mathbf{B}}{\partial t})- \nabla \cdot(\mb{E} \times \mb{H})
 \]
-把所有这些式子全部代入，得到:
+把所有这些式子全部代入, 得到:
 \[
 \mb{f}\cdot \mb{v} = \mb{E} \cdot \mb{J} -\mb{H}\cdot \frac{\partial\mathbf{B}}{\partial t}- \mb{E} \cdot\frac{\partial\mathbf{D}}{\partial t}  - \nabla \cdot(\mb{E} \times \mb{H})
 \]
 
-对各向同性线性介质，有:
+对各向同性线性介质, 有:
 \[
 \mb{D} = \v \mb{E}, \quad \mb{B} = \mu \mb{H}
 \]
@@ -431,33 +431,33 @@ E_r &= B_r = E_\varphi = B_\theta  = 0.
 -\nabla \cdot(\mb{E} \times \mb{H})+\nabla \cdot \mb{S} + \frac{\partial w}{\partial t} - \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H} = 0
 \]
 
-这样对比之后，我们就可以得到电磁场的能流密度矢量和能量密度:
+这样对比之后, 我们就可以得到电磁场的能流密度矢量和能量密度:
 \[
-\mb{S} = \mb{E} \times \mb{H}, \quad w = \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H} 
+\mb{S} = \mb{E} \times \mb{H}, \quad w = \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H}
 \]
-其中的能流密度矢量也被称为坡印廷矢量。
+其中的能流密度矢量也被称为坡印廷矢量.
 
-我们来看前面提到的两种电磁波的情况。对于真空中的平面电磁波:
+我们来看前面提到的两种电磁波的情况. 对于真空中的平面电磁波:
 \[
 w = \frac{1}{2}\mb{D}\cdot\mb{E}+\frac{1}{2}\mb{B}\cdot\mb{H} = \frac{1}{2}(\v_0E^2+\mu_0B^2) = \v_0E^2 = \frac{1}{\mu_0}B^2,
 \]
 \[
 \mb{S} = \mb{E} \times \mb{H} = EH\hat{k}
 \]
-注意到平面电磁波中电场和磁场的关系$E = cB$,有:
+注意到平面电磁波中电场和磁场的关系$E = cB$, 有:
 \[
 \mb{S} = c\v_0E^2\hat{k} = cw\hat{k}
 \]
-电磁波的强度$I$被定义为能流密度大小的平均值，根据三角函数的性质，我们得到:
+电磁波的强度$I$被定义为能流密度大小的平均值, 根据三角函数的性质, 我们得到:
 \[
 I = \frac{1}{2}\sqrt{\frac{\v_0}{\mu_0}}E_0^2
 \]
 
-对于振荡偶极子电磁波，我们同样可以得到:
+对于振荡偶极子电磁波, 我们同样可以得到:
 \[
 \mb{S} =\frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0v^3}\,
 \frac{\sin^2\theta}{r^2}\,
-\cos^2(\omega t - kr)\hat{e_k},
+\cos^2(\omega t - kr)\hat{e}_k,
 \]
 \[
 I = \frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0v^3}\,
@@ -465,29 +465,29 @@ I = \frac{1}{\mu_0} \mb{E}\times{B} = \frac{\omega^4 p_0^2}{16\pi^2\varepsilon_0
 \overline{\cos^2(\omega t - kr)} = \frac{\omega^4 p_0^2}{32\pi^2\varepsilon_0v^3}\,
 \frac{\sin^2\theta}{r^2}\,
 \]
-对全空间积分，得到总辐射功率:
+对全空间积分, 得到总辐射功率:
 \[
 P = \int I r^2\sin\theta\d\theta\d\varphi = \frac{\omega^4p_0^2}{12\pi\omega\v_0v^3}
 \]
 
 \section{电磁场的相对论变换}
-先前我们所有问题的讨论都是在同一参考系下进行的。很自然地，我们要思考在不同的参考系下电磁场具有什么样的关系。
+先前我们所有问题的讨论都是在同一参考系下进行的. 很自然地, 我们要思考在不同的参考系下电磁场具有什么样的关系.
 
-我们在第一章中讨论了静止电荷产生的静电场，在第二章中讨论了恒定电流产生的稳恒磁场。电流是电荷的运动，而静止或运动都是相对特定参考系而言的。若在参考系$K$中观察电荷是静止的，在相对$K$作匀速运动的参考系$K'$中观察，电荷将发生运动，同时存在电场与磁场。在$K$系中两静止电荷之间仅存在电相互作用，而$K'$系中还存在磁的相互作用。
+我们在第一章中讨论了静止电荷产生的静电场, 在第二章中讨论了恒定电流产生的稳恒磁场. 电流是电荷的运动, 而静止或运动都是相对特定参考系而言的. 若在参考系$K$中观察电荷是静止的, 在相对$K$作匀速运动的参考系$K'$中观察, 电荷将发生运动, 同时存在电场与磁场. 在$K$系中两静止电荷之间仅存在电相互作用, 而$K'$系中还存在磁的相互作用.
 
-在之前我们曾经将感应电动势区分为动生电动势和感生电动势，这只有相对的意义。我们考虑图示的一个磁铁和线圈。
+在之前我们曾经将感应电动势区分为动生电动势和感生电动势, 这只有相对的意义. 我们考虑图示的一个磁铁和线圈.
 
 \insertfig{5-5.png}{动生电动势 or 感生电动势}{0.5}
 
-在左图所示的情形中磁铁静止，线圈以速度$V$运动。线圈因为切割磁感线而在其中产生动生电动势，此电动势是由磁场产生的洛伦兹力引起的。在右图所示的情形中，线圈静止，磁铁以$-V$运动，于是线圈中因为磁场大小变化导致磁通量变化产生感应电动势，此电动势是涡旋电场引起的。
+在左图所示的情形中磁铁静止, 线圈以速度$V$运动. 线圈因为切割磁感线而在其中产生动生电动势, 此电动势是由磁场产生的洛伦兹力引起的. 在右图所示的情形中, 线圈静止, 磁铁以$-V$运动, 于是线圈中因为磁场大小变化导致磁通量变化产生感应电动势, 此电动势是涡旋电场引起的.
 
-这两种情况是同一物理过程在不同参考系下观察的结果，然而我们得到了完全不同的描述。爱因斯坦在他创立狭义相对论的著名论文《论动体的电动力学》的一开头就举了上述例子。他认为这种同一物理过程仅因为不同参考系而得到不同描述的不对称性不应该是现象所固有的。于是，爱因斯坦将相对性原理提升为物理学的基本原理之一。
+这两种情况是同一物理过程在不同参考系下观察的结果, 然而我们得到了完全不同的描述. 爱因斯坦在他创立狭义相对论的著名论文《论动体的电动力学》的一开头就举了上述例子. 他认为这种同一物理过程仅因为不同参考系而得到不同描述的不对称性不应该是现象所固有的. 于是, 爱因斯坦将相对性原理提升为物理学的基本原理之一.
 
-实验证明，粒子的电量(由荷质比的测定揭示)是一个常值，不依赖于它运动多快。
+实验证明, 粒子的电量(由荷质比的测定揭示)是一个常值, 不依赖于它运动多快.
 
-电磁学中，无论速度多么低，伽利略变换都已经不再适用。解决不同参考系中的电磁学规律有何关系，不同参考系下电场和磁场的关系等问题都要用到相对论。我们假定读者已经对相对论力学有了初步了解。我们通过一个例子来导出相对论电磁场变换的公式。
+电磁学中, 无论速度多么低, 伽利略变换都已经不再适用. 解决不同参考系中的电磁学规律有何关系, 不同参考系下电场和磁场的关系等问题都要用到相对论. 我们假定读者已经对相对论力学有了初步了解. 我们通过一个例子来导出相对论电磁场变换的公式.
 
-考虑一个平行板电容器两板之间的电场。设电容器在$S_0$系中静止，电荷面密度是$\pm \sigma_0$，则
+考虑一个平行板电容器两板之间的电场. 设电容器在$S_0$系中静止, 电荷面密度是$\pm \sigma_0$, 则
 \[
 E_0 = \frac{\sigma_0}{\v_0}\hat{y}
 \]
@@ -510,14 +510,14 @@ E_0 = \frac{\sigma_0}{\v_0}\hat{y}
   \end{minipage}
 \end{figure}
 
-现在我们考察电容器在以$\v_0$的速度向右运动的参考系中的情况。在该参考系中电容器板向左运动，但电场仍然取下面的形式:
+现在我们考察电容器在以$\v_0$的速度向右运动的参考系中的情况. 在该参考系中电容器板向左运动, 但电场仍然取下面的形式:
 \[
 E = \frac{\sigma}{\v_0}\hat{y}
 \]
 
-唯一的不同是电荷面密度。这是因为对称性告诉我们即便是电场发生了倾斜，板间电场叠加后仍然垂直于板面。
+唯一的不同是电荷面密度. 这是因为对称性告诉我们即便是电场发生了倾斜, 板间电场叠加后仍然垂直于板面.
 
-现在每个板上的总电荷保持不变，宽度不变，但是长度因为收缩效应而变小，于是单位面积电荷增加了因子:
+现在每个板上的总电荷保持不变, 宽度不变, 但是长度因为收缩效应而变小, 于是单位面积电荷增加了因子:
 \[
 \gamma_0 = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}},\quad \sigma = \gamma_0\sigma_0
 \]
@@ -525,112 +525,112 @@ E = \frac{\sigma}{\v_0}\hat{y}
 \[
 E^{\perp} = \gamma_0E_0^{\perp}
 \]
-上标说明这个规则只对垂直$S$系运动方向的分量起作用。为了得到平行方向分量的情况，考虑右图，在这种情况下发生收缩的是板间距，然而电场不依赖于板间距$d$，于是
+上标说明这个规则只对垂直$S$系运动方向的分量起作用. 为了得到平行方向分量的情况, 考虑右图, 在这种情况下发生收缩的是板间距, 然而电场不依赖于板间距$d$, 于是
 \[
 E^{\parallel} = E_0^{\parallel}
 \]
 
 \begin{example}
-  一个电荷量为$q$的点电荷静止于参考系$S_0$中的坐标原点，求其在以速度$v_0$相对$S_0$系向右运动的$S$系中的电场如何？
+  一个电荷量为$q$的点电荷静止于参考系$S_0$中的坐标原点, 求其在以速度$v_0$相对$S_0$系向右运动的$S$系中的电场如何?
 
   \insertfig{5-8.png}{匀速运动点电荷的电场}{0.35}
 
-在$S_0$系中，电场为:
+在$S_0$系中, 电场为:
 \begin{align*}
 E_{x0} &= \frac{1}{4\pi\varepsilon_0} \frac{q x_0}{(x_0^2 + y_0^2 + z_0^2)^{3/2}}, \\[6pt]
 E_{y0} &= \frac{1}{4\pi\varepsilon_0} \frac{q y_0}{(x_0^2 + y_0^2 + z_0^2)^{3/2}}, \\[6pt]
 E_{z0} &= \frac{1}{4\pi\varepsilon_0} \frac{q z_0}{(x_0^2 + y_0^2 + z_0^2)^{3/2}}.
 \end{align*}
 
-由上面的变换规则，我们有
+由上面的变换规则, 我们有
 \begin{align*}
 E_x &= E_{x0} = \frac{1}{4\pi\varepsilon_0} \frac{q x_0}{(x_0^2 + y_0^2 + z_0^2)^{3/2}}, \\[6pt]
 E_y &= \gamma_0 E_{y0} = \frac{1}{4\pi\varepsilon_0} \frac{q \gamma_0 y_0}{(x_0^2 + y_0^2 + z_0^2)^{3/2}}, \\[6pt]
 E_z &= \gamma_0 E_{z0} = \frac{1}{4\pi\varepsilon_0} \frac{q \gamma_0 z_0}{(x_0^2 + y_0^2 + z_0^2)^{3/2}}.
 \end{align*}
 
-式中，场点 \( P \) 是用 \( S_0 \) 系中的坐标 \((x_0, y_0, z_0)\) 表示的，
-用 \( S \) 系中的 \( P \) 点坐标表示更好。
-由洛伦兹变换：
+式中, 场点 \( P \) 是用 \( S_0 \) 系中的坐标 \((x_0, y_0, z_0)\) 表示的,
+用 \( S \) 系中的 \( P \) 点坐标表示更好.
+由洛伦兹变换:
 \begin{align*}
 x_0 &= \gamma_0 (x + v_0 t) = \gamma_0 R_x, \\[4pt]
 y_0 &= y = R_y, \\[4pt]
 z_0 &= z = R_z.
 \end{align*}
 
-式中，\( \mathbf R \) 是从电荷 \( q \) 到 \( P \) 的矢量。
+式中, \( \mathbf R \) 是从电荷 \( q \) 到 \( P \) 的矢量.
 
 故
 \begin{align*}
-\mb{E} &= \frac{1}{4\pi\varepsilon_0} 
+\mb{E} &= \frac{1}{4\pi\varepsilon_0}
      \frac{q \gamma_0 \mathbf R}
           {(\gamma_0^2 R_x^2 + R_y^2 + R_z^2)^{3/2}} \\[6pt]
   &= \frac{1}{4\pi\varepsilon_0}
      \frac{q (1 - v_0^2/c^2) \mathbf R}
-          {\bigl[R^2 (1 - (v_0^2/c^2)\sin^2\theta)\bigr]^{3/2}}. 
+          {\bigl[R^2 (1 - (v_0^2/c^2)\sin^2\theta)\bigr]^{3/2}}.
 \end{align*}
 
 \end{example}
 
-前面讨论的还不是变换规则最一般的形式，因为我们是由电荷静止的$S_0$系开始推到的，在这个参考系中没有磁场。我们需考虑电场磁场均存在的某个参考系。我们考虑$S$系。对于电场:
+前面讨论的还不是变换规则最一般的形式, 因为我们是由电荷静止的$S_0$系开始推到的, 在这个参考系中没有磁场. 我们需考虑电场磁场均存在的某个参考系. 我们考虑$S$系. 对于电场:
 \[
 E_y = \frac{\sigma}{\v_0}
 \]
 
 注意到表面电流的形式为
 \[
-\mathbf K = \mp \sigma v_0 \hat x 
+\mathbf K = \mp \sigma v_0 \hat x
 \]
 
-对于这样的表面电流，我们先分析一个这样的表面产生的磁场。根据安培环路定理，我们对称地取图示的环路，得到:
+对于这样的表面电流, 我们先分析一个这样的表面产生的磁场. 根据安培环路定理, 我们对称地取图示的环路, 得到:
 
 \insertfig{5-9.png}{无限大电流平面产生磁场}{0.5}
 \[
 2Bl = \mu_0Kl \Rightarrow\mathbf B(z>0)=-\dfrac{\mu_0 K}{2}\,\hat y,\quad \mathbf B(z<0)=+\dfrac{\mu_0 K}{2}\,\hat y
 \]
 
-对于本题，两个磁场叠加，得到
+对于本题, 两个磁场叠加, 得到
 \[
-B_z = -\mu_0 \sigma v_0 
+B_z = -\mu_0 \sigma v_0
 \]
 
-在第三个参考系 $\overline{S}$ 中——该参考系相对 $S_0$ 向右以速度 $v$ 运动，场是
+在第三个参考系 $\overline{S}$ 中---该参考系相对 $S_0$ 向右以速度 $v$ 运动, 场是
 \begin{align*}
-\overline{\mathbf E}_y &= \frac{\overline{\sigma}}{\varepsilon_0}, \qquad 
-\overline{\mathbf B}_z = -\mu_0 \overline{\sigma} v 
+\overline{\mathbf E}_y &= \frac{\overline{\sigma}}{\varepsilon_0}, \qquad
+\overline{\mathbf B}_z = -\mu_0 \overline{\sigma} v
 \end{align*}
 
-式中，$\overline v$ 是 $S$ 相对于 $S_0$ 的速度：
+式中, $\overline v$ 是 $S$ 相对于 $S_0$ 的速度:
 \begin{align*}
-\overline v &= \frac{v + v_0}{1 + v v_0 / c^2}, 
-\qquad 
-\overline{\gamma} = \frac{1}{\sqrt{1 - \overline v^2 / c^2}} 
+\overline v &= \frac{v + v_0}{1 + v v_0 / c^2},
+\qquad
+\overline{\gamma} = \frac{1}{\sqrt{1 - \overline v^2 / c^2}}
 \end{align*}
 
 而
 \begin{align*}
-\overline \sigma = \overline \gamma \sigma_0 
+\overline \sigma = \overline \gamma \sigma_0
 \end{align*}
 
 剩下的只是用 $\mathbf E$ 和 $\mathbf B$表示
-$\overline{\mathbf E}$ 和 $\overline{\mathbf B}$：
+$\overline{\mathbf E}$ 和 $\overline{\mathbf B}$:
 \begin{align*}
-\overline E_y &= \left(\frac{\overline{\gamma}}{\gamma_0}\right)\frac{\sigma}{\varepsilon_0}, 
-\qquad 
-\overline B_z = -\left(\frac{\overline{\gamma}}{\gamma_0}\right)\mu_0 \sigma v 
+\overline E_y &= \left(\frac{\overline{\gamma}}{\gamma_0}\right)\frac{\sigma}{\varepsilon_0},
+\qquad
+\overline B_z = -\left(\frac{\overline{\gamma}}{\gamma_0}\right)\mu_0 \sigma v
 \end{align*}
 
-通过简单的代数运算，得到
+通过简单的代数运算, 得到
 \begin{align*}
-\frac{\overline{\gamma}}{\gamma_0} 
+\frac{\overline{\gamma}}{\gamma_0}
 &= \frac{\sqrt{1 - v_0^2 / c^2}}{\sqrt{1 - \overline v^2 / c^2}}
-   = \frac{1 + v v_0 / c^2}{\sqrt{1 - v^2 / c^2}} 
-   = \gamma \left( 1 + \frac{v v_0}{c^2} \right) 
+   = \frac{1 + v v_0 / c^2}{\sqrt{1 - v^2 / c^2}}
+   = \gamma \left( 1 + \frac{v v_0}{c^2} \right)
 \end{align*}
 
-式中，与通常一样
+式中, 与通常一样
 \begin{align*}
-\gamma = \frac{1}{\sqrt{1 - v^2 / c^2}} 
+\gamma = \frac{1}{\sqrt{1 - v^2 / c^2}}
 \end{align*}
 
 于是我们代入得到:
@@ -645,25 +645,25 @@ $\overline{\mathbf E}$ 和 $\overline{\mathbf B}$：
 c^2 = \frac{1}{\mu_0\v_0}
 \]
 
-同样的方法，只需要将平行板电容器由平行$xz$平面改为平行$xy$平面就可以得到剩下两个垂直分量的变换公式：
+同样的方法, 只需要将平行板电容器由平行$xz$平面改为平行$xy$平面就可以得到剩下两个垂直分量的变换公式:
 \[
 \overline{E_z} = \gamma(E_z+vB_y)
 \]
 \[
 \overline{B_z} = \gamma(B_y+\frac{v}{c^2}E_z)
 \]
-对于$x$分量我们已经证明了电场强度的$x$分量是不变的。下面我们利用螺线管考察磁场的$x$分量.
+对于$x$分量我们已经证明了电场强度的$x$分量是不变的. 下面我们利用螺线管考察磁场的$x$分量.
 \insertfig{5-10.png}{由螺线管考察磁场}{0.5}
 
-在$S$系中螺线管静止，螺线管内的磁场是:
+在$S$系中螺线管静止, 螺线管内的磁场是:
 \[
 B_x = \mu_0 nI
 \]
-在$\overline{S}$系中，因为收缩效应单位长度上的匝数增加:
+在$\overline{S}$系中, 因为收缩效应单位长度上的匝数增加:
 \[
 \overline{n} = \gamma n
 \]
-另一方面，时间的延缓效应导致$\d \tau$时间内通过的电荷现在在$\d t$时间内通过，于是电流将会减小：
+另一方面, 时间的延缓效应导致$\d \tau$时间内通过的电荷现在在$\d t$时间内通过, 于是电流将会减小:
 \[
 \overline{I} = \frac{1}{\gamma}I
 \]
@@ -686,12 +686,12 @@ B_z &= \gamma\Bigl(B'_z + \frac{v}{c^2}E'_y\Bigr).
 
 特殊情况:
 
-(1)$S$系中无磁场，则：
+(1)$S$系中无磁场, 则:
 \[
 \overline{B} = -\frac{1}{c^2}(\mb{v}\times \overline{\mb{E}})
 \]
 
-(2)$S$系中无电场，则:
+(2)$S$系中无电场, 则:
 \[
 \overline{E} = \mb{v}\times\overline{\mb{B}}
 \]
@@ -699,15 +699,15 @@ B_z &= \gamma\Bigl(B'_z + \frac{v}{c^2}E'_y\Bigr).
 \begin{example}
   求匀速运动的点电荷的磁场.
 
-  注意到电荷静止参考系中没有磁场，于是:
+  注意到电荷静止参考系中没有磁场, 于是:
   \[
   \mb{B} = -\frac{1}{c^2}(\mb{v}\times \overline{\mb{E}}) = -\frac{\mu_0}{4\pi}\frac{qv(1-v^2/c^2)\sin\theta}{[1-(v^2/c^2)\sin^2\theta]^{3/2}} \frac{\hat{\Phi}}{R^2}
   \]
 
-  低速情况下，上式可以简化成:
+  低速情况下, 上式可以简化成:
   \[
   \mb{B} = \frac{\mu_0}{4\pi}\frac{q\mb{v}\times\mb{R}}{R^3}
   \]
 
-  由此我们也可以大致看出，在一个运动电荷对另一个静止电荷作用的过程中，磁力与电力的比值大约是$\frac{v^2}{c^2}$量级。低速情况下磁力远小于电力。
+  由此我们也可以大致看出, 在一个运动电荷对另一个静止电荷作用的过程中, 磁力与电力的比值大约是$\frac{v^2}{c^2}$量级. 低速情况下磁力远小于电力.
 \end{example}
