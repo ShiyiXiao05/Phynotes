@@ -504,7 +504,7 @@ E_0 = \frac{\sigma_0}{\v_0}\hat{y}
   \end{minipage}
 \end{figure}
 
-现在我们考察电容器在以$v_0$的速度向右运动的参考系中的情况. 在该参考系中电容器板向左运动, 但电场仍然取下面的形式:
+现在我们考察电容器在以$\v_0$的速度向右运动的参考系中的情况. 在该参考系中电容器板向左运动, 但电场仍然取下面的形式:
 \[
 E = \frac{\sigma}{\v_0}\hat{y}
 \]
@@ -566,25 +566,142 @@ z_0 &= z = R_z.
 
 \end{example}
 
-上面的例子从电荷静止的参考系出发, 可推广到电场和磁场都存在的情形. 设$S'$相对$S$沿$x$轴正方向以速度$u$运动, $\gamma=1/\sqrt{1-u^2/c^2}$. 两惯性系中同一事件处的电磁场满足:
+前面讨论的还不是变换规则最一般的形式, 因为我们是由电荷静止的$S_0$系开始推到的, 在这个参考系中没有磁场. 我们需考虑电场磁场均存在的某个参考系. 我们考虑$S$系. 对于电场:
 \[
-\begin{aligned}
-E'_x&=E_x, & E'_y&=\gamma(E_y-uB_z), & E'_z&=\gamma(E_z+uB_y),\\
-B'_x&=B_x, & B'_y&=\gamma(B_y+uE_z/c^2), & B'_z&=\gamma(B_z-uE_y/c^2).
-\end{aligned}
+E_y = \frac{\sigma}{\v_0}
 \]
-等价地, 平行于相对速度的场分量不变, 垂直分量满足
+
+注意到表面电流的形式为
 \[
-\mb E'_\perp=\gamma(\mb E_\perp+\mb u\times\mb B),\qquad
-\mb B'_\perp=\gamma\left(\mb B_\perp-\frac{\mb u\times\mb E}{c^2}\right).
+\mathbf K = \mp \sigma v_0 \hat x
 \]
-若电荷在$S$中静止, 则$S'$中电荷速度为$-\mb u$, 磁场满足$\mb B'=-(\mb u\times\mb E')/c^2$. 因此, 在观察匀速运动点电荷的参考系中, 若电荷速度为$\mb v$, 则
+
+对于这样的表面电流, 我们先分析一个这样的表面产生的磁场. 根据安培环路定理, 我们对称地取图示的环路, 得到:
+
+\insertfig{5-9.png}{无限大电流平面产生磁场}{0.5}
 \[
-\mb B=\frac{\mb v\times\mb E}{c^2}.
+2Bl = \mu_0Kl \Rightarrow\mathbf B(z>0)=-\dfrac{\mu_0 K}{2}\,\hat y,\quad \mathbf B(z<0)=+\dfrac{\mu_0 K}{2}\,\hat y
 \]
-这里$\mb R$表示从电荷的瞬时位置指向场点的矢量, $\theta$为$\mb v$与$\mb R$的夹角. 匀速运动电荷在真空中的电场为
+
+对于本题, 两个磁场叠加, 得到
 \[
-\mb E=\frac{q}{4\pi\v_0}\frac{(1-v^2/c^2)\mb R}
-{R^3[1-(v^2/c^2)\sin^2\theta]^{3/2}}.
+B_z = -\mu_0 \sigma v_0
 \]
-低速极限下, $\mb E$趋于库仑场, $\mb B\simeq(\mu_0q/4\pi)\mb v\times\mb R/R^3$. 若速度为$\mb w$的试探电荷受到该场作用, 磁力与电力之比的量级至多为$vw/c^2$; 对静止试探电荷, 磁力为零.
+
+在第三个参考系 $\overline{S}$ 中---该参考系相对 $S_0$ 向右以速度 $v$ 运动, 场是
+\begin{align*}
+\overline{\mathbf E}_y &= \frac{\overline{\sigma}}{\varepsilon_0}, \qquad
+\overline{\mathbf B}_z = -\mu_0 \overline{\sigma} v
+\end{align*}
+
+式中, $\overline v$ 是 $S$ 相对于 $S_0$ 的速度:
+\begin{align*}
+\overline v &= \frac{v + v_0}{1 + v v_0 / c^2},
+\qquad
+\overline{\gamma} = \frac{1}{\sqrt{1 - \overline v^2 / c^2}}
+\end{align*}
+
+而
+\begin{align*}
+\overline \sigma = \overline \gamma \sigma_0
+\end{align*}
+
+剩下的只是用 $\mathbf E$ 和 $\mathbf B$表示
+$\overline{\mathbf E}$ 和 $\overline{\mathbf B}$:
+\begin{align*}
+\overline E_y &= \left(\frac{\overline{\gamma}}{\gamma_0}\right)\frac{\sigma}{\varepsilon_0},
+\qquad
+\overline B_z = -\left(\frac{\overline{\gamma}}{\gamma_0}\right)\mu_0 \sigma v
+\end{align*}
+
+通过简单的代数运算, 得到
+\begin{align*}
+\frac{\overline{\gamma}}{\gamma_0}
+&= \frac{\sqrt{1 - v_0^2 / c^2}}{\sqrt{1 - \overline v^2 / c^2}}
+   = \frac{1 + v v_0 / c^2}{\sqrt{1 - v^2 / c^2}}
+   = \gamma \left( 1 + \frac{v v_0}{c^2} \right)
+\end{align*}
+
+式中, 与通常一样
+\begin{align*}
+\gamma = \frac{1}{\sqrt{1 - v^2 / c^2}}
+\end{align*}
+
+于是我们代入得到:
+\[
+\overline{E_y} = \gamma(E_y-vB_z)
+\]
+\[
+\overline{B_z} = \gamma(B_z-\frac{v}{c^2}E_y)
+\]
+这里利用了:
+\[
+c^2 = \frac{1}{\mu_0\v_0}
+\]
+
+同样的方法, 只需要将平行板电容器由平行$xz$平面改为平行$xy$平面就可以得到剩下两个垂直分量的变换公式:
+\[
+\overline{E_z} = \gamma(E_z+vB_y)
+\]
+\[
+\overline{B_z} = \gamma(B_y+\frac{v}{c^2}E_z)
+\]
+对于$x$分量我们已经证明了电场强度的$x$分量是不变的. 下面我们利用螺线管考察磁场的$x$分量.
+\insertfig{5-10.png}{由螺线管考察磁场}{0.5}
+
+在$S$系中螺线管静止, 螺线管内的磁场是:
+\[
+B_x = \mu_0 nI
+\]
+在$\overline{S}$系中, 因为收缩效应单位长度上的匝数增加:
+\[
+\overline{n} = \gamma n
+\]
+另一方面, 时间的延缓效应导致$\d \tau$时间内通过的电荷现在在$\d t$时间内通过, 于是电流将会减小:
+\[
+\overline{I} = \frac{1}{\gamma}I
+\]
+于是得到:
+\[
+\overline{B_x} = B_x
+\]
+
+现在我们可以得到最终的变换公式了:
+\begin{align*}
+E_x &= E'_x,\\[4pt]
+E_y &= \gamma\bigl(E'_y + v B'_z\bigr),\\[4pt]
+E_z &= \gamma\bigl(E'_z - v B'_y\bigr),
+\end{align*}
+\begin{align*}
+B_x &= B'_x,\\[4pt]
+B_y &= \gamma\Bigl(B'_y - \frac{v}{c^2}E'_z\Bigr),\\[4pt]
+B_z &= \gamma\Bigl(B'_z + \frac{v}{c^2}E'_y\Bigr).
+\end{align*}
+
+特殊情况:
+
+(1)$S$系中无磁场, 则:
+\[
+\overline{B} = -\frac{1}{c^2}(\mb{v}\times \overline{\mb{E}})
+\]
+
+(2)$S$系中无电场, 则:
+\[
+\overline{E} = \mb{v}\times\overline{\mb{B}}
+\]
+
+\begin{example}
+  求匀速运动的点电荷的磁场.
+
+  注意到电荷静止参考系中没有磁场, 于是:
+  \[
+  \mb{B} = -\frac{1}{c^2}(\mb{v}\times \overline{\mb{E}}) = -\frac{\mu_0}{4\pi}\frac{qv(1-v^2/c^2)\sin\theta}{[1-(v^2/c^2)\sin^2\theta]^{3/2}} \frac{\hat{\Phi}}{R^2}
+  \]
+
+  低速情况下, 上式可以简化成:
+  \[
+  \mb{B} = \frac{\mu_0}{4\pi}\frac{q\mb{v}\times\mb{R}}{R^3}
+  \]
+
+  由此我们也可以大致看出, 在一个运动电荷对另一个静止电荷作用的过程中, 磁力与电力的比值大约是$\frac{v^2}{c^2}$量级. 低速情况下磁力远小于电力.
+\end{example}
