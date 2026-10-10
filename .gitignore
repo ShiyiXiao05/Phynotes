@@ -10,6 +10,5 @@
 *.dvi
 *.xdv
 .DS_Store
-push.ps1
-12.ps1
-pull.ps1
+# 编译产物 PDF 不再入库, 通过 GitHub Releases 分发
+*.pdf
